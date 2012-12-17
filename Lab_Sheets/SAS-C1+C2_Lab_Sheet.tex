@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+
+%packages
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathdots}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{hyperref}
+%Margins etc...
+\setlength{\textheight}{240mm}
+\setlength{\topmargin}{-17mm} \setlength{\oddsidemargin}{-4mm}
+\setlength{\textwidth}{166mm} \setlength{\parindent}{0mm}
+\setlength{\marginparsep}{9mm} \setlength{\parskip}{3mm}
+\pagestyle{empty}
+
+\begin{document}
+\begin{center}
+\huge{MAT013 - SAS: Chapter 1 + 2 Lab Sheet}\\
+\begin{center}
+\tiny{(This sheet was last updated on \today)}
+\end{center}
+\end{center}
+
+\begin{enumerate}
+\item Create a library entitled ``mat008'' (save this in a suitable location, perhaps your h: drive).
+\item Create the data set ``first\_data\_set" from the notes and export to csv.
+\item Download the files \href{https://docs.google.com/file/d/0Bx_zrw5uAafbVlNkSzJNWHFWSkU/edit}{``JJJ.csv''} and  \href{https://docs.google.com/file/d/0Bx_zrw5uAafbSlYwcGtPUXl2Rlk/edit}{``MMM.csv''} import the files to your mat008 library (all files are available at \url{www.vincent-knight.com}).
+\item Print the ``MMM'' and ``JJJ'' data sets using a ``print'' procedure.
+\item View the contents of the ``MMM'' and ``JJJ'' data sets using a ``contents'' procedure.
+\item Sort the ``MMM'' and ``JJJ'' by ``age''. Separately sort the data sets by ``postcode''.
+\item Obtain the mean age, height in metres and weight in kg for the observations of the ``MMM'' and ``JJJ'' datasets. 
+\item Obtain the mean age, height in metres and weight in kg for the observations of the ``MMM'' and ``JJJ'' datasets compartmentalising your output by ``sex'' (you'll need to use a ``by'' statement).
+\item Create a new data set called ``summary\_of\_mmm'' and ``summary\_of\_jjj'' that will contain the mean ``life\_savings\_in\_pounds'' by ``sex'' for observations in the ``MMM'' and ``JJJ'' dataset (you'll need to use an ``output'' statement).
+\item Download the file \href{https://docs.google.com/file/d/0Bx_zrw5uAafbdFNZUUZFblhfZGc/edit}{``math\_tests.csv''}, import it in to SAS and output a frequency table of ``teachers'' against ``pass\_fail''.
+\item Obtain (2) seperate correlation tables for all the numerical values in ``JJJ'' and ``MMM''.
+\item Obtain various univariate statistics for the variables ``savings\_in\_pounds'' and ``random\_number'' for the data sets ``JJJ'' and ``MMM''.
+\item Do a regression analysis of the variable ``height\_in\_metres'' against ``weight\_in\_kg'' and ``savings\_in\_pounds''for the data sets ``JJJ'' and ``MMM'' (do this two ways).
+\item Download the data set \href{https://docs.google.com/file/d/0Bx_zrw5uAafbQ1ZJOUJxdGtYb1U/edit}{``math.csv''} and run an ANOVA test to see if the grades depends on the professor (do this two ways).
+\item Obtain a histogram for the variables ``weight\_in\_kg'' for the data sets ``JJJ'' and ``MMM''.
+\item Obtain a scatter plot of ``weight\_in\_kg'' against ``height\_in\_metres'' for the data sets ``JJJ'' and ``MMM''
+\item Output all of the above to a pdf file.
+\end{enumerate}
+
+\end{document}

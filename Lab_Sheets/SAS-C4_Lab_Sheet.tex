@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+
+%packages
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{mathdots}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{hyperref}
+%Margins etc...
+\setlength{\textheight}{240mm}
+\setlength{\topmargin}{-17mm} \setlength{\oddsidemargin}{-4mm}
+\setlength{\textwidth}{166mm} \setlength{\parindent}{0mm}
+\setlength{\marginparsep}{9mm} \setlength{\parskip}{3mm}
+\pagestyle{empty}
+
+\begin{document}
+\begin{center}
+\huge{MAT013 - SAS: Chapter 4 Lab Sheet}\\
+\begin{center}
+\tiny{(This sheet was last updated on \today)}
+\end{center}
+\end{center}
+
+\begin{enumerate}
+\item Create a (single) data set containing the name of the observations from ``JJJ'' and ``MMM'' as well as a new variable which is ``Y'' if the individual is clinically obese and ``N'' otherwise.
+\item Create a (single) data set containing the total number of birthday candles used throughout the lives of every individual from both ``JJJ'' and ``MMM''.
+\item Obtain the first even numbers less than 240.
+\item Create a macro that outputs a scatter plot of height against weight for observations in the ``JJJ''  and ``MMM'' data sets? Modify the macro so that it outputs the plot to a pdf file.
+\item Create a macro that computes the left over life savings after a given quantity of spending on a given quantiy of shopping trips from the ``JJJ'' data set.
+\item Modify the above macro so that a default value is given to spend of 430 and a default value of 3 trips.
+\item Use the `\%let' statement to pass a value to the above macro.
+\item Use the `\%put' statement to show all the local and global variables.
+\item Modify the above macro so that two different data sets are created depending on whether or not spend is positive or negative. Output a message to the log if the spend is 0.
+\item Create a macro that creates 15 data sets each with updated savings in pounds for observations in the ``JJJ'' and ``MMM'' data sets for varying values for the number of trips (1 to 15).
+\item Download the files \href{https://docs.google.com/file/d/0Bx_zrw5uAafbc3B1WndVdk1FM1E/edit}{``File\_1.csv - File\_200.csv''} and create a function that automatically imports them.
+\end{enumerate}
+
+
+
+
+\end{document}
