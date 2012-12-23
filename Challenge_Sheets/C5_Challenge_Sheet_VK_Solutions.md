@@ -1,7 +1,7 @@
 #MAT013 - R: C5 - Challenge Sheet
-#Creating a function to give required tweets on a given date
+#Creating a function to give tweets with the #orms hashtag on a given date:
 
-    orms_tweets_on_date<-function(date){
+    orms_tweets_on_date <- function(date){
     length(searchTwitter('#orms', since=date,until=date+1,n=500))
     }
 
@@ -17,6 +17,6 @@
 
 #Plotting the number of tweets:
 
-    p<-qplot(dates_of_week(),tweets_of_weel,xlab="Dates",ylab="Number of Tweets")
+    p<-qplot(dates_of_week(),tweets_of_week,xlab="Dates",ylab="Number of Tweets")
     p<-p+stat_smooth(method="lm")
-    ggsave(p,"ORMS_tweets.png")
+    ggsave("ORMS_tweets.png",p)
