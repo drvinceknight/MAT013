@@ -1,0 +1,1017 @@
+<h1 id="mat013-advanced-use-of-statistical-packages">MAT013: Advanced Use of Statistical Packages</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<p>Chapter 1 - Introduction</p>
+<ol style="list-style-type: decimal">
+<li>The Environment</li>
+<li>Objects</li>
+<li>Importing Data</li>
+<li>Exporting Data</li>
+</ol>
+<p>Chapter 2 - Basic Statistical Procedures</p>
+<ol style="list-style-type: decimal">
+<li>Procedures</li>
+<li>A list of procedures</li>
+<li>Exporting output</li>
+</ol>
+<p>Chapter 3 - Manipulating Data</p>
+<ol style="list-style-type: decimal">
+<li>Vectors and data frames</li>
+<li>Merging and concatenating data sets</li>
+<li>Creating new variables</li>
+<li>Handling dates</li>
+</ol>
+<p>Chapter 4 - Programming</p>
+<ol style="list-style-type: decimal">
+<li>Flow control</li>
+<li>Functions</li>
+<li>Handling strings</li>
+<li>Memory and scripts</li>
+</ol>
+<p>Chapter 5 - Further Packages</p>
+<ol style="list-style-type: decimal">
+<li>sqldf</li>
+<li>functions</li>
+<li>optimisation</li>
+</ol>
+<hr />
+<h1 id="chapter-1---introduction">Chapter 1 - Introduction</h1>
+<hr />
+<h2 id="the-environment">1.1 The Environment</h2>
+<p>R can be run in a number of different modes, for the purpose of this course we will be focusing on 'interactive mode' through the graphical user interface (GUI); 'batch mode' is also available but will not be covered here. Note that the screenshots and accompanying screencasts for this course were produced with R version 2.14 running on Mac OSX The look and feel on other operating systems will differ slightly.</p>
+<div class="figure">
+<img src="images/image64.png" alt="The R Environment" /><p class="caption">The R Environment</p>
+</div>
+<p>The visible windows are:</p>
+<ol style="list-style-type: decimal">
+<li>The editor window</li>
+<li>The console</li>
+</ol>
+<p>We can write commands directly into the console window or we can create a script file and edit it in the editor window, highlighting specific text we wish to run. The second approach has the benefit of being able to save the commands written in the script files, although it takes more time (and in fact the commands we write directly in the console can also be saved to a file).</p>
+<p>When writing scripts it is good practice to include comments in our files that help describe what the code does. The way to do this in R is with the &quot;#&quot; symbol before text. The following code is ignored by R:</p>
+<pre><code>#2+2</code></pre>
+<p>Using the highlight + run approach is akin to copying and pasting the text in the interpreter but R scripts can also be run directly (so that they can be run on servers or as routines without the need to have a user interact).</p>
+<h2 id="objects">1.2 Objects</h2>
+<p>R is an extremely versatile programming language. In particular R is an &quot;object oriented language&quot;. The significance of this is that everything (functions, data files, outputs of a regression analysis) is an &quot;object&quot;. The type of object is called the &quot;class&quot; and what one can do to a class is called a &quot;method&quot;. The advantage of this is that when a new &quot;class&quot; is developed one simply needs to ensure that is has relevant &quot;methods&quot;, to be compatible with other objects.</p>
+<p>As an example, various objects in R have a &quot;plot&quot; method, for example the output of a regression analysis can be plotted using the same command as one would use to plot a scatter plot of a data set.</p>
+<p>R has a wide range of data types (which are themselves objects). The 2 classes corresponding to data sets we will concentrate on in this course are:</p>
+<ol style="list-style-type: decimal">
+<li>Vectors</li>
+<li>Data frames</li>
+</ol>
+<p>Vectors are simply collections of variables of a particular type (&quot;Numeric&quot;, &quot;Character&quot;, &quot;Boolean&quot; etc). In R a type of variable is called a &quot;mode&quot;, representing how it is stored in the computer memory. Data frames are collections of vectors and correspond to data sets. Technically, data frames are lists with dimensions, which are themselves just generic vectors. One might say a collection of equal length vectors (thus allowing the rectangular shape). Some examples of vectors and data frames are shown.</p>
+<div class="figure">
+<img src="images/image05.png" alt="Examples of data structures in R" /><p class="caption">Examples of data structures in R</p>
+</div>
+<p>Let's import some data!</p>
+<h2 id="importing-data">1.3 Importing Data</h2>
+<p>We will consider two approaches to importing data:</p>
+<ol style="list-style-type: decimal">
+<li>Direct input</li>
+<li>Importing an external data set (xls, csv etc...)</li>
+</ol>
+<p>In practice you will never use the direct input method but let's take a look for completeness (although it is very useful when wanting to quickly test a few things). This will also give us our first experience of the editor window!</p>
+<p>Let us create a data set named <code>first_data_set</code> which will include the following data:</p>
+<p>Name,Age Bob,23 Billy,25</p>
+<p>To do so write the following code in the editor window:</p>
+<pre><code>Name &lt;- c(&quot;Bob&quot;,&quot;Billy&quot;)
+Age &lt;- c(23,25)
+first_data_set &lt;- data.frame(Name,Age)</code></pre>
+<p>Let's take a look at the shown screenshot of this. You may notice that some elements of the text are highlighted, this is to emphasise key words (note that this doesn't happen automatically on Windows).</p>
+<ol style="list-style-type: decimal">
+<li>The first two lines of code make use of the &quot;&lt;-&quot; operator that assigns an object to a variable.</li>
+<li>The objects in questions are created using the &quot;c&quot;(ombine) function that creates a vector. We use this to create 2 vectors: Name and Age.</li>
+<li>Finally we put the 2 vectors into a data frame using the &quot;data.frame&quot; command.</li>
+</ol>
+<div class="figure">
+<img src="images/image22.png" alt="Inputting code in the console" /><p class="caption">Inputting code in the console</p>
+</div>
+<p>We run this code by highlighting it and pressing ctrl + 'r' (cmd + enter on Mac). Note that when we submit code this way it also appears in the console window. We could have in fact directly type this code into the console window. For those familiar with command line commands the console works in a very similar way. We can press the up arrow repeatedly to cycle through previous commands and use tab to autocomplete.</p>
+<p>The data set &quot;first_data_set&quot; is now saved to memory. To view all the data structures in memory we use the simple line of code:</p>
+<pre><code>ls()</code></pre>
+<p>A screenshot of the output is shown. We see that there are actually 3 objects in memory, the two vectors (Name and Age) as well as the data frame (first_data_set).</p>
+<div class="figure">
+<img src="images/image03.png" alt="The console showing all our objects" /><p class="caption">The console showing all our objects</p>
+</div>
+<p>To view our data set, we simply type the name (as shown):</p>
+<pre><code>first_data_set</code></pre>
+<div class="figure">
+<img src="images/image68.png" alt="Viewing our first data set." /><p class="caption">Viewing our first data set.</p>
+</div>
+<p>Using direct input is of course not at all realistic when trying to import larger data sets.</p>
+<p>Often large data sets will be saved in comma-separated values (csv) format which can be read by most (all?) software. We will import the data set shown (here viewed in a simple text editor).</p>
+<div class="figure">
+<img src="images/image33.png" alt="The JJJ.csv data set" /><p class="caption">The JJJ.csv data set</p>
+</div>
+<p>We will import this data set into R using the following code:</p>
+<pre><code>JJJ &lt;- read.csv(file=&quot;~/JJJ.csv&quot;,head=TRUE)</code></pre>
+<p>Let's take a look at the screenshot shown. Note here that we are not using the text editor but directly writing code in the console (this is often how I prefer to use R for short bits of code).</p>
+<ol style="list-style-type: decimal">
+<li>&quot;read.csv&quot; - is the command which is used to tell R to read in data from a csv file.</li>
+<li>&quot;file&quot; - an option tells R where the csv file is located.</li>
+<li>&quot;head&quot; - an option tells R to read the variable names from the first row of the csv file. Note that this command can be omitted (the default value is &quot;TRUE&quot;).</li>
+</ol>
+<p>We have omitted other options (such as &quot;sep&quot; which can be used to change the default separator from &quot;,&quot; to something else).</p>
+<div class="figure">
+<img src="images/image37.png" alt="A short line of code to import a csv file in to R" /><p class="caption">A short line of code to import a csv file in to R</p>
+</div>
+<p>Running the code (by either pressing enter if using the console or highlighting and running as before is using the editor) gives the required object as shown.</p>
+<div class="figure">
+<img src="images/image66.png" alt="Viewing the JJJ data set" /><p class="caption">Viewing the JJJ data set</p>
+</div>
+<p>In the following chapters we will learn how to create new data sets from old data sets and as such it may become necessary to export files to csv.</p>
+<h2 id="exporting-data-sets">1.3 Exporting Data Sets</h2>
+<p>We will export our first data set (&quot;mat008/first_dataset&quot;) to csv using the following line of code:</p>
+<pre><code>write.csv(first_data_set,&quot;~/Desktop/first_data_set.csv&quot;)</code></pre>
+<p>Let's take a look at the screenshot.</p>
+<ol style="list-style-type: decimal">
+<li>&quot;write.csv&quot; is the command which is used to tell R to read in data from a csv file.</li>
+<li>The first command tells R which R object to export.</li>
+<li>The second command tells R the location of the csv file.</li>
+</ol>
+<div class="figure">
+<img src="images/image59.png" alt="A short program to export an R object to csv" /><p class="caption">A short program to export an R object to csv</p>
+</div>
+<hr />
+<h1 id="chapter-2---basic-statistical-procedures">Chapter 2 - Basic Statistical Procedures</h1>
+<hr />
+<h2 id="procedures">2.1 Procedures</h2>
+<p>In the previous chapter we were introduced to some very basic aspects of R:</p>
+<ol style="list-style-type: decimal">
+<li>what R looks like</li>
+<li>how to import data into R</li>
+<li>how to export data into R</li>
+</ol>
+<p>In this chapter we will take a closer look at procedures that allow us to analyse and manipulate data. Vectors are the building blocks of all R objects. Single numeric/string variables are in fact vector of size 1. Almost all procedures in R are obtained by applying functions to vectors. Details as to how R handles these operations will be explained in the next chapter (so don't worry about it too much for now).</p>
+<p>The procedures we are going to look at in this chapter are:</p>
+<ol style="list-style-type: decimal">
+<li>Viewing datasets</li>
+<li>Summarising the contents of data sets</li>
+<li>Obtaining summary statistics of data sets</li>
+<li>Obtaining frequency tables</li>
+<li>Obtaining linear models</li>
+<li>Plotting data</li>
+</ol>
+<h2 id="a-list-of-procedures">2.2 A list of procedures</h2>
+<h3 id="utility-procedures">Utility procedures</h3>
+<p>We have seen how to view and entire data set (by simply printing the name of the object in question).</p>
+<p>We illustrate this once again by considering the MMM data set shown, (imported using read.csv).</p>
+<div class="figure">
+<img src="images/image24.png" alt="The MMM data set" /><p class="caption">The MMM data set</p>
+</div>
+<p>At times we might not want to open the data set but simply gain some information as to what is in the data set.</p>
+<p>To view only the names of the variables of our data set we use the &quot;name&quot; function as shown.</p>
+<pre><code>names(MMM)</code></pre>
+<div class="figure">
+<img src="images/image69.png" alt="Output of the names function" /><p class="caption">Output of the names function</p>
+</div>
+<p>If we had a very large data set then we could quickly view the first/last few entries using the &quot;head&quot;/&quot;tail&quot; function as shown.</p>
+<pre><code>head(MMM)
+tail(MMM)</code></pre>
+<div class="figure">
+<img src="images/image49.png" alt="Using the tail and head function" /><p class="caption">Using the tail and head function</p>
+</div>
+<p>Finally if we would like to view a description of the overall structure of a data set we can use the &quot;str&quot; function as shown.</p>
+<pre><code>str(MMM)</code></pre>
+<div class="figure">
+<img src="images/image34.png" alt="Structure of a dataframe" /><p class="caption">Structure of a dataframe</p>
+</div>
+<p>The class of the imported character variables are &quot;Factors&quot;, this is due to the importation method (read.csv) automatically converting the character variables in this form - details about &quot;Factors&quot; are given below. The reason this occurs is the default value of stringsAsFactors (used in the read.csv function) is TRUE, the following code forces the characters retain their class without conversion.</p>
+<pre><code>MMM&lt;-read.csv(&quot;MMM.csv&quot;,stringsAsFactors=FALSE)</code></pre>
+<p>The factor stores the nominal values as a vector of integers in the range [ 1... k ] (where k is the number of unique values in the nominal variable), and an internal vector of character strings (the original values) mapped to these integers. This is often a much more efficient way of handling strings.</p>
+<div class="figure">
+<img src="images/image31.png" alt="Using stringsAsFactors=FALSE to maintain the class of characters" /><p class="caption">Using stringsAsFactors=FALSE to maintain the class of characters</p>
+</div>
+<h3 id="descriptive-statistics">Descriptive statistics</h3>
+<p>To gain an initial set of summary statistics of a data frame we can use the 'summary' function:</p>
+<pre><code>summary(MMM)</code></pre>
+<p>The output of which is shown.</p>
+<div class="figure">
+<img src="images/image50.png" alt="The summary function applied to the MMM data frame" /><p class="caption">The summary function applied to the MMM data frame</p>
+</div>
+<p>Recall that most &quot;things&quot; in R are objects and &quot;summary&quot; is a good example of a generic function that works on most objects. If you are faced with a new object (for example the output of a regression analysis) it is sometimes worth trying to apply summary on it to get some initial information.</p>
+<p>To obtain a particular summary statistic of a specific variable, we can use functions that apply to vectors and select the vectors from the dataset.</p>
+<p>To select a particular column (as a vector) from our dataset, we use the following command:</p>
+<pre><code>MMM$Age</code></pre>
+<p>We can then apply various functions to this vector:</p>
+<pre><code>length(MMM$Age)
+mean(MMM$Age)
+sd(MMM$Age)
+min(MMM$Age)
+max(MMM$Age)
+sum(MMM$Age)
+var(MMM$Age)</code></pre>
+<p>The output of which is shown.</p>
+<div class="figure">
+<img src="images/image52.png" alt="Various summary statistics obtained in R" /><p class="caption">Various summary statistics obtained in R</p>
+</div>
+<p>We can compartmentalise our results using the &quot;by&quot; function. The general syntax for the &quot;by&quot; function is given below:</p>
+<pre><code>by(data=dataFrame , Indices=grouping variables, FUN= a function)</code></pre>
+<p>We'll use this to obtain the mean age and height compartmentalised by sex:</p>
+<pre><code>by(MMM$Age, MMM$Sex, mean) by(MMM$Height.in.Metres, MMM$Sex, mean)</code></pre>
+<p>The output of which is shown.</p>
+<div class="figure">
+<img src="images/image13.png" alt="Compartmentalising Summary statistics in R" /><p class="caption">Compartmentalising Summary statistics in R</p>
+</div>
+<p>The above code subsets the data frame by the grouping variable. If we want to just carry out an action on a vector (as above, we're only actually interested in the Age vector or the Height vector) then we can also use the &quot;tapply function&quot;. This applies a function to a vector according to the levels of another vector:</p>
+<pre><code>tapply(MMM$Age, MMM$Sex, mean)</code></pre>
+<p>Finally, to reduce the number of keystrokes, we can use the &quot;with&quot; statement. This tells R to evaluate everything within a given data frame. The following code reproduces the above results:</p>
+<pre><code>with(data=MMM,by(Age,Sex,mean) )
+with(data=MMM,tapply(Age, Sex, mean))</code></pre>
+<p>Note: the &quot;data=&quot; statement can be omitted.</p>
+<h3 id="frequency-tables">Frequency Tables</h3>
+<p>The &quot;table&quot; function allows us to obtain frequency tables of data sets. As an example let us consider the data set shown. The &quot;table&quot; function creates a &quot;table&quot; (a particular type of R object):</p>
+<pre><code>table(math_tests$Teacher,math_tests$Pass.Fail)</code></pre>
+<div class="figure">
+<img src="images/image19.png" alt="The data set Math_tests.csv" /><p class="caption">The data set Math_tests.csv</p>
+</div>
+<p>Again we can write this as:</p>
+<pre><code>with(math_tests,table(Teacher,Pass.Fail))</code></pre>
+<p>We can save this table as a new object and use the 'prop' command to gain row and column totals and proportions:</p>
+<pre><code>mytable&lt;-table(math_tests$Teacher,math_tests$Pass.Fail)
+margin.table(mytable, 1)
+margin.table(mytable, 2)
+prop.table(mytable,1)
+prop.table(mytable,2)</code></pre>
+<p>The output of all this is shown.</p>
+<div class="figure">
+<img src="images/image32.png" alt="Frequency tables in R" /><p class="caption">Frequency tables in R</p>
+</div>
+<h3 id="correlations">Correlations</h3>
+<p>The following lines of code select only the columns from MMM that are numeric. An explanation of this will follow in the next chapter.</p>
+<pre><code>MMM[,sapply(MMM,is.numeric)]</code></pre>
+<p>The correlation 'cor' function only acts upon numeric vectors (and/or dataframes), hence the selection of solely numeric values first.</p>
+<pre><code>MMMnum&lt;-MMM[,sapply(MMM,is.numeric)]
+cor(MMMnum)</code></pre>
+<p>The 'cor' function however does not give tests of significance. We can obtain significance tests between two variables using 'cor.test':</p>
+<pre><code>cor.test(MMM$Age,MMM$Height.in.Metres)</code></pre>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image29.png" alt="Output of basic correlation in R" /><p class="caption">Output of basic correlation in R</p>
+</div>
+<p>As is often the case in open source software, packages are independently developed and need to be called to be used in R. Above we have shown the very basic approach to obtaining correlations in R, we will now use the rcorr function from the Hmisc package.</p>
+<p>To install the package we use the following code:</p>
+<pre><code>install.packages(&quot;Hmisc&quot;)</code></pre>
+<p>Once that happens a window opens asking us to choose the mirror from which to download. This is shown.</p>
+<div class="figure">
+<img src="images/image54.png" alt="Installing a new package" /><p class="caption">Installing a new package</p>
+</div>
+<p>Once that is done to load the package the following code is required:</p>
+<pre><code>library(Hmisc)</code></pre>
+<p>or:</p>
+<pre><code>require(Hmisc)</code></pre>
+<p>To see the packages currently loaded we can use the following code:</p>
+<pre><code>search()</code></pre>
+<p>Note: Packages can also be installed by selecting the 'Packages' tab and selecting the package required for installation.</p>
+<div class="figure">
+<img src="images/image63.png" alt="Loading a package" /><p class="caption">Loading a package</p>
+</div>
+<p>Using this package, we will use the 'rcorr' function that gives the correlation matrix for a data set. Note that the data set must be numeric and in 'matrix' form. The following code selects the numeric variables from the MMM data set and converts the result to a matrix:</p>
+<pre><code>MMMnum&lt;-MMM[,sapply(MMM,is.numeric)]
+MMMmat&lt;-as.matrix(MMMnum)</code></pre>
+<p>Once this is done we can get the correlation matrix using the following code:</p>
+<pre><code>rcorr(MMMmat)</code></pre>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image20.png" alt="Output of the rcorr function" /><p class="caption">Output of the rcorr function</p>
+</div>
+<h3 id="linear-models">Linear Models</h3>
+<p>In this section we very briefly see the syntax for some basic linear models in R.</p>
+<p>The general syntax for linear regression is as follows in R:</p>
+<pre><code>lm(outcome~predictors)</code></pre>
+<p>The following code will be used to investigate whether or not there is a linear model of height with weight and savings and predictors (in two ways, the second is slightly more compact and leaves less room for confusion):</p>
+<pre><code>lm(JJJ$Height.in.Metres~JJJ$Weight.in.Kg+JJJ$Savings.in.Pounds)
+lm(Height.in.Metres~Weight.in.Kg+Savings.in.Pounds,data=JJJ)</code></pre>
+<p>The results are shown.</p>
+<div class="figure">
+<img src="images/image38.png" alt="Regression in R" /><p class="caption">Regression in R</p>
+</div>
+<p>To get the full set of results from the regression analysis we use the following code:</p>
+<pre><code>summary(lm(Height.in.Metres~Weight.in.Kg+Savings.in.Pounds,data=JJJ))</code></pre>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image45.png" alt="Regression in R with full set of results" /><p class="caption">Regression in R with full set of results</p>
+</div>
+<p>Looking at the p value we see that the overall model should not be rejected, however the detailed results show that perhaps we could remove savings from the model.</p>
+<p>Analysis of variance (ANOVA) can be done easily in R. We shall show this using a new data set (math.csv) shown.</p>
+<div class="figure">
+<img src="images/image58.png" alt="The math.csv dataset" /><p class="caption">The math.csv dataset</p>
+</div>
+<pre><code>aov(outcome~class,data)</code></pre>
+<p>We will use the &quot;aov&quot; function to see if the grades obtained by students depend on their teacher (in two ways, the second is slightly more compact):</p>
+<pre><code>aov(math$GRADE~math$PROF)
+aov(GRADE~PROF,data=math)</code></pre>
+<p>The results are shown.</p>
+<div class="figure">
+<img src="images/image42.png" alt="ANOVA in R" /><p class="caption">ANOVA in R</p>
+</div>
+<p>To get the full set of results from the ANOVA we use the following code:</p>
+<pre><code>summary(aov(GRADE~PROF,data=math))</code></pre>
+<p>The results are shown.</p>
+<div class="figure">
+<img src="images/image60.png" alt="Summary of ANOVA in R" /><p class="caption">Summary of ANOVA in R</p>
+</div>
+<h3 id="plots-and-charts">Plots and charts</h3>
+<p>Note that due to the object oriented nature of  R, almost all of the above outputs have a &quot;plot&quot; attribute.</p>
+<p>The simplest way to produce a histogram in R is to use the &quot;hist&quot; function. The following code gives a histogram for the height of entries in the JJJ data set as shown.</p>
+<pre><code>hist(JJJ$Height.in.Metres)</code></pre>
+<div class="figure">
+<img src="images/image15.png" alt="A Histogram in R" /><p class="caption">A Histogram in R</p>
+</div>
+<p>The simplest way to produce a scatter plot in R is to use the &quot;plot&quot; function. The following code gives a scatter plot for the height against weight of entries in the JJJ data set as shown.</p>
+<pre><code>plot(JJJ$Weight.in.Kg,JJJ$Height.in.Metres)</code></pre>
+<div class="figure">
+<img src="images/image47.png" alt="A scatter plot in R" /><p class="caption">A scatter plot in R</p>
+</div>
+<p>There are various other ways to obtain similar graphs, as well as change the look and feel of our graphs. We won't go into this here but you are encouraged to look into it (in particular the ggplot package is widely used).</p>
+<p>2.3 Exporting output</p>
+<p>All the non graphical outputs from R are objects, as such they can be output to a file (to be copied into another document if need be) using the write statements of Sections 1.4. However to export graphical output, we use any of the following statements (depending on the output format required):</p>
+<pre><code>pdf(&quot;mygraph.pdf&quot;)
+win.metafile(&quot;mygraph.wmf&quot;)
+png(&quot;mygraph.png&quot;)
+jpeg(&quot;mygraph.jpg&quot;)
+bmp(&quot;mygraph.bmp&quot;)
+postscript(&quot;mygraph.ps&quot;)</code></pre>
+<p>Once that command is written we use a normal R command to create a plot and finally we close the output file with the following statement:</p>
+<pre><code>dev.off( )</code></pre>
+<p>The following code creates a png file entitled &quot;height_v_weight_plot&quot; with the previous scatter plot.</p>
+<pre><code>png(&quot;height_v_weight_plot.png&quot;)
+plot(JJJ$Weight.in.Kg,JJJ$Height.in.Metres)
+dev.off( )</code></pre>
+<hr />
+<h1 id="chapter-3---manipulating-data">Chapter 3 - Manipulating data</h1>
+<hr />
+<h2 id="vectors-and-data-frames">3.1 Vectors and data frames</h2>
+<h3 id="vectors">Vectors</h3>
+<p>When considering R data frames it is important to recall that they are composed of vectors. Even individual scalars and strings are vectors. This is a very powerful tool.</p>
+<p>One important notion when handling vectors is the use of 'recycling'. As all elements are vectors, when performing an operation between two vectors of different length, R automatically repeats (or recycles) the shorter one until it is long enough.</p>
+<div class="figure">
+<img src="images/image61.png" alt="Two examples of recycling" /><p class="caption">Two examples of recycling</p>
+</div>
+<p>In the previous example, (&quot;u+v&quot;) we add the elements of both vectors together. R automatically increases the length of &quot;u&quot; so that the operation becomes (1,2,3,4,5) + (0,1,0,1,0). In the second example we compare the elements of &quot;v&quot; to 4. R automatically increases the length of the vector containing 4 so that the operation becomes (1,2,3,4,5)&lt;(4,4,4,4,4) which returns a vector of size 5 with boolean (True or False) elements.</p>
+<p>This second concept is important when understanding how to select certain variables in R (we saw this briefly in the previous section).</p>
+<p>Another important notion in R is that of indexing. We can select elements of a vector by specifying the indices of the elements required:</p>
+<pre><code>dwarfs&lt;-c(&quot;Dopey&quot;,&quot;Sneezey&quot;,&quot;Happy&quot;,&quot;Sleepy&quot;,&quot;Grumpy&quot;,&quot;Bashful&quot;,&quot;Doc&quot;)
+dwarfs[c(1,4,5)]
+dwarfs[3:length(dwarfs)]</code></pre>
+<div class="figure">
+<img src="images/image23.png" alt="Indexing vectors in R" /><p class="caption">Indexing vectors in R</p>
+</div>
+<p>Both of the previous approaches use a vector of indices to indicate the elements we require. The second approach uses a shorthand to create a vector of elements (containing the integers 3 to 5). Another approach is to simply use a vector of boolean values (True or False) to indicate the positions that are to be selected.</p>
+<pre><code>Index&lt;-c(TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE)
+dwarfs[Index]</code></pre>
+<div class="figure">
+<img src="images/image00.png" alt="Filtering using an index in R" /><p class="caption">Filtering using an index in R</p>
+</div>
+<p>It should be straightforward to realise that we can combine recycling and indexing to filter vectors:</p>
+<pre><code>Index&lt;-substr(dwarfs,1,1)==&quot;D&quot;
+dwarfs[Index]</code></pre>
+<p>The first command creates an index set of boolean variables using the &quot;substr&quot; function and recycling (in this case used to take the first character of each element). This allows us to obtain the elements of the vector dwarfs with first letter &quot;D&quot; as shown.</p>
+<div class="figure">
+<img src="images/image04.png" alt="Filtering in R" /><p class="caption">Filtering in R</p>
+</div>
+<p>We have seen how to subset vectors using filtering, the same logic applies to data frames.</p>
+<p>We can first of all use indexing to obtain the variables we want. For example the following code will select the all the variables apart from the 4th and 5th:</p>
+<pre><code>MMM[c(1,2,3,6,7,8)]</code></pre>
+<p>A quicker way is to simply state the variables we want to drop:</p>
+<pre><code>MMM[c(-4,-5)]</code></pre>
+<p>The output of the above code is shown.</p>
+<div class="figure">
+<img src="images/image39.png" alt="Dropping and keeping in R" /><p class="caption">Dropping and keeping in R</p>
+</div>
+<p>We can also list the names of variables we want to keep:</p>
+<pre><code>MMM[c(&quot;Name&quot;,&quot;Age&quot;,&quot;Sex&quot;,&quot;Home.Postcode&quot;,&quot;Savings.in.Pounds&quot;,&quot;Random.Number&quot;)]</code></pre>
+<p>Finally we can create a vector of booleans that gives the same above result or the opposite result (i.e. drops the variables).</p>
+<pre><code>Index&lt;-names(MMM) %in% c(&quot;Weight.in.Kg&quot;,&quot;Height.in.Metres&quot;)
+MMM[Index]
+
+
+Index&lt;-names(MMM) %in% c(&quot;Weight.in.Kg&quot;,&quot;Height.in.Metres&quot;)
+MMM[!Index]</code></pre>
+<p>Recall the &quot;names&quot; function simply gives a vector containing the names of all the variables in the MMM dataset. The &quot;%in%&quot; operator is used to create a vector of booleans by testing if the elements of names(MMM) are 'in' the vector c(&quot;Weight.in.Kg&quot;,&quot;Height.in.Metres&quot;). The &quot;!&quot; operator acting on &quot;Index&quot; simply negates the booleans contained in Index.</p>
+<div class="figure">
+<img src="images/image17.png" alt="Dropping and keeping by filtering variables names" /><p class="caption">Dropping and keeping by filtering variables names</p>
+</div>
+<h3 id="selecting-observations">Selecting Observations</h3>
+<p>We can select any particular element of a data frame in R using the following syntax:</p>
+<pre><code>dataframe[i,j]</code></pre>
+<p>This would give the entry for variable j of observation i as shown.</p>
+<div class="figure">
+<img src="images/image57.png" alt="Selecting a particular entry of a data set in R" /><p class="caption">Selecting a particular entry of a data set in R</p>
+</div>
+<p>If we ignore one of the indices R simply returns all the entries corresponding to that index. For example the following code would return all the observations for the 7th observation of the JJJ data set:</p>
+<pre><code>JJJ[7,]</code></pre>
+<p>We can also use this to sort a data set. The &quot;order function&quot; returns a set of indices reflecting the ascending order of a vector, thus to sort the JJJ data set by age we use the following code:</p>
+<pre><code>JJJ[order(JJJ$Age),]</code></pre>
+<p>We can use filtering to expand on this and select all observations that obey a particular condition. For example the following code selects entries of JJJ that have age less than or equal to 18:</p>
+<pre><code>JJJ[JJJ$Age&lt;=18,]</code></pre>
+<h2 id="merging-and-concatenating-data-sets">3.2 Merging and concatenating data sets</h2>
+<p>To concatenate two data sets in R we use the rbind function (i.e. we bind the two dataframes by rows).</p>
+<pre><code>MMMJJJ&lt;-rbind(JJJ,MMM)</code></pre>
+<p>Note that both these data sets need to contain all the variables. If one of the datasets does not contain all the variables then you need to add that variable to it and set its values to NA (missing).</p>
+<div class="figure">
+<img src="images/image26.png" alt="Concatenating data sets in R" /><p class="caption">Concatenating data sets in R</p>
+</div>
+<p>To merge two dataframes in R we use the merge function. We'll illustrate this with the following data set:</p>
+<pre><code>Name&lt;-c(&quot;Bob&quot;,&quot;Ben&quot;)
+Weight&lt;-c(75,94)
+other_data_set&lt;-data.frame(Name,Weight)</code></pre>
+<p>We'll merge this new data set with the data set we created in Chapter 1.</p>
+<pre><code>merged_data_set&lt;-merge(first_data_set,other_data_set,&quot;Name&quot;)</code></pre>
+<p>(or equivalently:)</p>
+<pre><code>merged_data_set&lt;-merge(x=first_data_set,y=other_data_set,by=&quot;Name&quot;)</code></pre>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image35.png" alt="Merging data sets in R" /><p class="caption">Merging data sets in R</p>
+</div>
+<p>Note that the merge statement only selects observations that are present in both files. We can pass further arguments to the merge statement that allow us to select all the values from a particular data set and/or both data sets. These operations are at times called 'joins' (and are very common in SQL which we shall see in Chapter 5). The basic merge statement (as above) would be referred to as an 'inner' join.</p>
+<p>A left outer join (selecting all variables from the first data set):</p>
+<pre><code>merged_data_set&lt;-merge(first_data_set,other_data_set,&quot;Name&quot;,all.x=TRUE)</code></pre>
+<p>A right outer join:</p>
+<pre><code>merged_data_set&lt;-merge(first_data_set,other_data_set,&quot;Name&quot;,all.y=TRUE)</code></pre>
+<p>A full outer join:</p>
+<pre><code>merged_data_set&lt;-merge(first_data_set,other_data_set,&quot;Name&quot;,all=TRUE)</code></pre>
+<p>The output of the above is shown.</p>
+<div class="figure">
+<img src="images/image51.png" alt="More complex merging in R" /><p class="caption">More complex merging in R</p>
+</div>
+<h2 id="creating-new-variables">3.3 Creating new variables</h2>
+<p>Creating new variables using various arithmetic and/or string relationships is straightforward in R. The following code creates a new data set call MMM_with_BMI as a copy of the MMM data set and then adds a new variable &quot;BMI&quot; as a function of the height and weight variables in the MMM_with_BMI dataset.</p>
+<pre><code>MMM_With_BMI&lt;-MMM
+MMM_With_BMI$BMI&lt;-MMM$Weight.in.Kg/(MMM$Height.in.Metres^2)
+MMM_With_BMI</code></pre>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image55.png" alt="Creating new variables in R" /><p class="caption">Creating new variables in R</p>
+</div>
+<p>The above code is quite long though, so we can use the &quot;within&quot; function which is similar to the &quot;with&quot; function. It lets R know you are working within a particular data frame.</p>
+<pre><code>MMM_With_BMI &lt;- within(MMM, BMI &lt;- Weight.in.Kg/(Height.in.Metres^2))</code></pre>
+<p>The output is shown:</p>
+<div class="figure">
+<img src="images/image18.png" alt="Creating new variables in R using the within statement" /><p class="caption">Creating new variables in R using the within statement</p>
+</div>
+<p>Some of the arithmetic functions available in R are shown in Figures 3.13 and 3.14.</p>
+<p>Symbol</p>
+<p>Definition</p>
+<p>Example</p>
+<p>** or ^</p>
+<p>Exponential</p>
+<p>y=x**3 or y=x^3</p>
+<p>*</p>
+<p>Multiplication</p>
+<p>r=x*y</p>
+<p>/</p>
+<p>Division</p>
+<p>d=x/y</p>
+<p>+</p>
+<p>Addition</p>
+<p>s=x+y</p>
+<p>-</p>
+<p>Subtraction</p>
+<p>t=x-y</p>
+<p>Figure 3.13 Basic arithmetic operations in R</p>
+<p>Symbol</p>
+<p>Definition</p>
+<p>Example</p>
+<p>abs</p>
+<p>Absolute value</p>
+<p>y=abs(x)</p>
+<p>floor</p>
+<p>Integer (takes the integer part of the argument)</p>
+<p>y=floor(x)</p>
+<p>log</p>
+<p>Natural Log</p>
+<p>y=log(x)</p>
+<p>log10</p>
+<p>Log base 10</p>
+<p>y=log10(x)</p>
+<p>round</p>
+<p>Rounds the argument to the nearest specified level</p>
+<p>y=round(x,2)</p>
+<p>sqrt</p>
+<p>Square root</p>
+<p>t=sqrt(x)</p>
+<p>Figure 3.14 Some mathematical functions in R</p>
+<p>We can also do operations on strings, the following code replaces the variable &quot;Sex&quot; with the first character of &quot;Sex&quot; (which gets rid of the Male - M and Female - F issue).</p>
+<p><a href="#"></a><a href="#"></a></p>
+<pre><code>MMM_With_BMI$Sex&lt;-substr(MMM_With_BMI$Sex,1,1)</code></pre>
+<p>Some examples of string functions are shown in Figure 3.15.</p>
+<p><a href="#"></a><a href="#"></a></p>
+<p>Symbol</p>
+<p>Definition</p>
+<p>Example</p>
+<p>substr</p>
+<p>Outputs a substring of length L starting at position N of a string.</p>
+<p>y=substr(string,N,L)</p>
+<p>toupper</p>
+<p>converts a string to upper case</p>
+<p>y=toupper(string)</p>
+<p>tolower</p>
+<p>converts a string to lower case</p>
+<p>y=tolower(string)</p>
+<p>Figure 3.15 Some string functions in R</p>
+<p>It's also worth checking the web for other R functions (there is a huge amount of them).</p>
+<h3 id="renaming-variables">Renaming variables</h3>
+<p>To rename variables one can use the &quot;rename&quot; function from the &quot;reshape&quot; library (that can be installed as we have seen in previous section).</p>
+<pre><code>library(reshape)
+JJJ&lt;-rename(JJJ,c(Sex=&quot;Gender&quot;))</code></pre>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image06.png" alt="Renaming variables in R" /><p class="caption">Renaming variables in R</p>
+</div>
+<p>Another option is to use the &quot;fix&quot; function that opens the dataset in a GUI that easily allows for modification of the dataset (including the name of the variables). Note that changes are saved on close of the fix environment.</p>
+<pre><code>fix(JJJ)</code></pre>
+<div class="figure">
+<img src="images/image25.png" alt="Using the fix environment" /><p class="caption">Using the fix environment</p>
+</div>
+<p>Operations across rows</p>
+<p>As discussed previously, the columns of a data frame can be manipulated very easily as they are just vectors. In the next section we will see how to manipulate vectors using flow control statements but we will take a quick look at two functions that allow for quick and easy manipulation across rows.</p>
+<p>We will demonstrate this using the birthday_money.csv data set as shown.</p>
+<div class="figure">
+<img src="images/image65.png" alt="The birthday_money.csv data set" /><p class="caption">The birthday_money.csv data set</p>
+</div>
+<p>Suppose we want to take a cumulative sum of the birthday money, we create a new variable call total using the &quot;cumsum&quot; function that returns the the cumulative sum of elements of a vector.</p>
+<pre><code>birthday_money$total&lt;-cumsum(birthday_money$Amount)</code></pre>
+<div class="figure">
+<img src="images/image36.png" alt="A running total calculated using the cumsum function in R" /><p class="caption">A running total calculated using the cumsum function in R</p>
+</div>
+<p>Another similar tool is to use the &quot;diff&quot; function that calculates consecutive differences of elements of a vector:</p>
+<pre><code>birthday_money$yearly_diff&lt;-c(NA,diff(birthday_money$Amount))</code></pre>
+<p>Note that we also include a first entry of our column &quot;yearly_diff&quot; as &quot;NA&quot;, this is because the output of diff will be shorter than the length of the original vector.</p>
+<div class="figure">
+<img src="images/image56.png" alt="Yearly differences calculated using the diff function in R" /><p class="caption">Yearly differences calculated using the diff function in R</p>
+</div>
+<h2 id="handling-dates-in-r">3.4 Handling dates in R</h2>
+<p>Dates are a particular class in R. When importing dates, they are imported as strings.</p>
+<div class="figure">
+<img src="images/image14.png" alt="The birthdays csv file" /><p class="caption">The birthdays csv file</p>
+</div>
+<p>We import the file and create a data frame in the usual way:</p>
+<pre><code>birthdays&lt;-read.csv(&quot;~/birthdays.csv&quot;)</code></pre>
+<p>Using the &quot;str&quot; command to view the structure of our data frame:</p>
+<pre><code>str(birthdays)</code></pre>
+<p>The output is shown confirming that the dates are recognized as strings (recall that by default &quot;read.csv&quot; imports strings as &quot;factors&quot;).</p>
+<div class="figure">
+<img src="images/image48.png" alt="The structure of the birthdays data set" /><p class="caption">The structure of the birthdays data set</p>
+</div>
+<p>In this current format if we tried to carry out any mathematical manipulation of the dates we would not succeed. We can however tell R that certain variables are dates. We do this using the &quot;as.dates&quot; function by describing the format our dates are in:</p>
+<pre><code>birthdays$Birthday&lt;-as.Date(birthdays$Birthday,&quot;%d/%m/%Y&quot;)</code></pre>
+<p>The format is indicated using &quot;%x&quot; where &quot;x&quot; is any of the following:</p>
+<p>Symbol</p>
+<p>Meaning</p>
+<p>Example</p>
+<p>d</p>
+<p>Day as a number</p>
+<p>01-31</p>
+<p>a</p>
+<p>Abbreviated weekday</p>
+<p>Mon</p>
+<p>A</p>
+<p>Weekday</p>
+<p>Monday</p>
+<p>m</p>
+<p>Month</p>
+<p>01-12</p>
+<p>b</p>
+<p>Abbreviated month</p>
+<p>Jan</p>
+<p>B</p>
+<p>Month</p>
+<p>January</p>
+<p>y</p>
+<p>2 digit year</p>
+<p>84</p>
+<p>Y</p>
+<p>4 digit year</p>
+<p>1984</p>
+<p>We'll now check the structure of our data frame, re-order (using the &quot;order&quot; function - that returns the indices of the elements of a vector in order) our birthdays and calculate the difference between birthdays (using the &quot;diff&quot; function).</p>
+<pre><code>str(birthdays$Birthday)
+order(birthdays$Birthday)
+sorted&lt;- birthdays[order(birthdays$Birthday),]
+diff(birthdays$Birthday[order(birthdays$Birthday)])</code></pre>
+<p>The output of all this is shown.</p>
+<div class="figure">
+<img src="images/image02.png" alt="Recognizing dates in R" /><p class="caption">Recognizing dates in R</p>
+</div>
+<hr />
+<h1 id="chapter-4-programming">Chapter 4 Programming</h1>
+<hr />
+<h2 id="flow-control">4.1 Flow Control</h2>
+<p>A huge part of programming (in any language) is the use of so called &quot;conditional statements&quot; that allow for flow control. We do this in R using &quot;if&quot; statements.</p>
+<p>There are two types of &quot;if&quot; statements in R. The simple &quot;if&quot; statement as shown below:</p>
+<pre><code>x&lt;-39
+if (x&gt;20) y&lt;-1</code></pre>
+<p>We can use this in conjunction with an &quot;else&quot; statement:</p>
+<pre><code>x&lt;-19
+if (x&gt;20) y&lt;-1 else y&lt;-0</code></pre>
+<p>Finally, the if-else call is a function and as such we can rewrite the above code as:</p>
+<pre><code>y&lt;- if (x&gt;20) 1 else 0</code></pre>
+<p>Finally we can include multiple commands as outcomes of an if statement by using &quot;{}&quot;:</p>
+<pre><code>x&lt;-20
+if (x==21) {
+y&lt;-1
+z&lt;-&quot;T&quot;
+} else{
+y&lt;-0
+z&lt;-&quot;F&quot;}</code></pre>
+<p>The above statements checks a single value and whilst we'll learn in the next section how to loop offer sets of values it is very much worth learning how to use the 'vectorized' form of the if statement: the &quot;ifelse&quot; command. The general syntax is given below:</p>
+<pre><code>ifelse(Boolean_Vector,Outcome_If_True,Outcome_If_False)</code></pre>
+<p>An example of this is given below:</p>
+<pre><code>ifelse(c(&quot;True&quot;,&quot;False&quot;,&quot;True&quot;,&quot;False&quot;),&quot;Young&quot;,&quot;Old&quot;)</code></pre>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image01.png" alt="A vector created using the ifelse statement" /><p class="caption">A vector created using the ifelse statement</p>
+</div>
+<p>Using this and our knowledge of filtering we see how we can create new variables using the ifelse statement. The following code creates a new variable &quot;age_group&quot;:</p>
+<pre><code>MMMJJJ$Age_group&lt;-ifelse(MMM$Age&lt;30,&quot;Young&quot;,&quot;Old&quot;)
+MMMJJJ[c(&quot;Name&quot;,&quot;Age_group&quot;)]</code></pre>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image67.png" alt="Creating a new variable in a data set using ifelse" /><p class="caption">Creating a new variable in a data set using ifelse</p>
+</div>
+<p>Figure 4.3 shows some of the comparison operators that can be used in conjunction with 'if' statements.</p>
+<p>Symbol</p>
+<p>Mnemonic</p>
+<p>Definition</p>
+<p>&lt;</p>
+<p>Lt</p>
+<p>Less than</p>
+<p>&lt;=</p>
+<p>Le</p>
+<p>Less than or equal to</p>
+<blockquote>
+
+
+</blockquote>
+<p>Gt</p>
+<p>Greater than</p>
+<blockquote>
+<p>=</p>
+</blockquote>
+<p>Ge</p>
+<p>Greater than or equal to</p>
+<p>==</p>
+<p>Eq</p>
+<p>Logical Equal to</p>
+<p>!=</p>
+<p>Ne</p>
+<p>Not equal to</p>
+<p>Figure 4.3 R Comparison Operators.</p>
+<p>A further important notion in programming is the notion of loops. There are two types of loops that we will consider:</p>
+<ol style="list-style-type: decimal">
+<li>for</li>
+<li>while</li>
+</ol>
+<p>The for loop allows us to compute iterative procedures. As with most things in R, the for loop iterates a value over a vector. The following code outputs the total number of birthday candles that would have been used on everyones birthday cake in the JJJ data set.</p>
+<pre><code>Candles=c()
+for (Age in JJJ$Age){
+c&lt;-0
+for (n in 0:Age){
+c&lt;-c+n
+}
+Candles&lt;-c(Candles,c)
+}
+Candles&lt;-data.frame(Name=JJJ$Name,Age=JJJ$Age,Candles)</code></pre>
+<p>The first statement creates an empty vector called &quot;Candles&quot;. The first for loop, loops over the age variable in the JJJ data set (&quot;0:age&quot; is in fact a short way of writing a vector of integers from 0 to age). For each of those values of age we use a second for loop to sum the total number of candles and concatenate that value to the vector Candles. Finally we create a new data set Candles by concatenating the various vectors required (note that we're also renaming certain variables here).</p>
+<div class="figure">
+<img src="images/image10.png" alt="Using for loops in R" /><p class="caption">Using for loops in R</p>
+</div>
+<p>Note that in general this is not the most efficient way of undertaking things in R. Vectorized versions of the above are much faster (we won't cover these here). Another improvement for the above code is to create the vector Candles initially as a vector of the correct size and type. For example we can create a numeric vector of a certain length using the following code (all initial values will be set to 0):</p>
+<pre><code>Candles=vector(&quot;numeric&quot;,length=length(JJJ$Age))</code></pre>
+<p>Using this the above code would be written as:</p>
+<pre><code>Candles=vector(&quot;numeric&quot;,length=length(JJJ$Age))
+k&lt;-0
+for (Age in JJJ$Age){
+k&lt;-k+1
+c&lt;-0
+for (n in 0:Age){
+c&lt;-c+n
+}
+Candles[k]&lt;-c
+}
+Candles&lt;-data.frame(Name=JJJ$Name,Age=JJJ$Age,Candles)</code></pre>
+<p>The second type of loop we will consider is the do while loop. This loop checks a condition before carrying out an operation. The following code creates a vector with all even numbers less than 70:</p>
+<pre><code>k&lt;-0
+even&lt;-2*k
+even_numbers&lt;-c(even)
+while(even&lt;70){
+k&lt;-k+1
+even&lt;-2*k;
+even_numbers&lt;-c(even_numbers,even)
+}</code></pre>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image21.png" alt="The first even numbers less than 70" /><p class="caption">The first even numbers less than 70</p>
+</div>
+<h2 id="functions">4.2 Functions</h2>
+<p>One of the great capacities of R is the ease with which one can create new functions. The general syntax for this is given by:</p>
+<pre><code>myfunction &lt;- function(arg1, arg2, ... ){
+statements
+return(object)
+}</code></pre>
+<p>The return statement is very important as it indicates the &quot;result&quot; of the function. This can be any R object, a vector, a data frame etc... Note that is can also be omitted, as long as the last command is what you want returned.</p>
+<p>The following code creates a function called &quot;f1&quot; that adds 3 to a number if it is even and adds 2 to a number if it is odd.</p>
+<pre><code>f1 &lt;- function(x){
+r &lt;- if (x%%2==0) x+3 else x+2
+return(r)
+}</code></pre>
+<p>To run the function we would then use it like any other R function. For example the following would return 11.</p>
+<pre><code>f1(9)</code></pre>
+<p>(The %% command return the modulo of the first number with respect to the second)</p>
+<p>We can also create a function with no arguments that simply replicates shorthand for some code:</p>
+<pre><code>My_plot &lt;- function(){
+r&lt;-hist(JJJ$Height.in.Metres)
+return(r)
+}
+
+My_plot()</code></pre>
+<p>The following code defines a function that creates a new dataset entitled &quot;JJJ_after_shopping&quot; that subtracts a quantity from the savings variable in the JJJ dataset:</p>
+<pre><code>shopping &lt;- function(spend){
+New.Savings&lt;-JJJ$Savings.in.Pounds-spend
+JJJ_after_shopping&lt;-data.frame(JJJ$Name,Old.Savings=JJJ$Savings.in.Pounds,New.Savings)
+return(JJJ_after_shopping)
+}</code></pre>
+<p>Note that this function makes use of recycling (when creating the New.Savings vector).</p>
+<div class="figure">
+<img src="images/image12.png" alt="Output of the shopping function" /><p class="caption">Output of the shopping function</p>
+</div>
+<p>We can of course define functions with multiple arguments as below:</p>
+<pre><code>shopping &lt;- function(spend,trips){
+New.Savings&lt;-JJJ$Savings.in.Pounds-trips*spend
+JJJ_after_shopping&lt;-data.frame(JJJ$Name,Old.Savings=JJJ$Savings.in.Pounds,New.Savings)
+return(JJJ_after_shopping)
+}</code></pre>
+<p>It's also possible to set certain values as defaults:</p>
+<pre><code>shopping &lt;- function(spend,trips=1){
+New.Savings&lt;-JJJ$Savings.in.Pounds-trips*spend
+JJJ_after_shopping&lt;-data.frame(JJJ$Name,Old.Savings=JJJ$Savings.in.Pounds,New.Savings)
+return(JJJ_after_shopping)
+}</code></pre>
+<h2 id="vectorising">4.4 Vectorising</h2>
+<p>In general the for loops we have seen can be written in a much more efficient way using function and various forms of the apply function (which apply functions over vectors, lists and matrices):</p>
+<ol style="list-style-type: decimal">
+<li>apply</li>
+<li>lapply</li>
+<li>sapply</li>
+<li>mapply</li>
+</ol>
+<p>Note that an array in R is a very generic data type; it is a general structure of up to eight dimensions. For specific dimensions there are special names for the structures. A zero dimensional array is a scalar or a point; a one dimensional array is a vector; and a two dimensional array is a matrix. The general syntax of the apply function is given below:</p>
+<pre><code>apply(matrix,margin,function)</code></pre>
+<p>We have not yet seen matrices but they are relatively simple to understand: 2 dimensional objects. The following code produces a 2 by 3 matrix:</p>
+<pre><code>mat&lt;-matrix(c(1,2,3,4,5,6),2,3)
+mat</code></pre>
+<p>The &quot;margin&quot; option (either 1,2 or both (1:2)) simply tells R what dimension to apply the required function to, experiment with the following:</p>
+<pre><code>apply(mat,1,mean)
+apply(mat,2,mean)
+apply(mat,1:2,mean)</code></pre>
+<p>We can use the apply function on data frames and vectors but in general it will be easier to use the &quot;lapply&quot; function which simply applies a function to a 1 dimensional object. The lapply function becomes especially useful when dealing with data frames. In R the data frame is considered a list and the variables in the data frame are the elements of the list. We can therefore apply a function to all the variables in a data frame by using the lapply function. Note that unlike in the apply function there is no margin argument since we are just applying the function to each component of the list. The following code simply returns the sqaure roots of a vector.</p>
+<pre><code>lapply(c(1,2,3,4,5),sqrt)</code></pre>
+<p>Note that the above returns a list (an R object that we will not pay much attention to here). We can get a vector by using the following:</p>
+<pre><code>unlist(lapply(c(1,2,3,4,5),sqrt))</code></pre>
+<p>The &quot;sapply&quot; function is simply a version of lapply that by default returns the most appropriate object type. The following code gives the exact same result as above:</p>
+<pre><code>sapply(c(1,2,3,4,5),sqrt)</code></pre>
+<p>Finally, there exists a multivariate example of the above function which allows us to pass multiple arguments to a function. The following code defines a simple function:</p>
+<pre><code>simple_function&lt;-function(x,y) x/y</code></pre>
+<p>We can now apply this function so that it takes the consecutive ratios of two vectors:</p>
+<pre><code>mapply(simple_function,1:4,4:1)</code></pre>
+<p>With these functions we can drastically improve the performance of R code. The following reproduces code from before:</p>
+<pre><code>my_sum&lt;-function(x){
+sum(x)
+}
+
+sapply(JJJ$Age,my_sum(1:x))</code></pre>
+<p>Note that there is no need to actually define the function we can refer directly to the function object:</p>
+<pre><code>sapply(JJJ$Age,function(x) sum(1:x))</code></pre>
+<h2 id="handling-strings">4.5 Handling strings</h2>
+<p>SAS is a macro language and philosophically macros allow a user to substitute pieces of text for a variable, and evaluate the result. R is not a macro language and thus does the opposite: evaluates the arguments and then uses the values.</p>
+<p>The paste command allows us to concatenate strings. The following code outputs the string &quot;Hello-World&quot;. Note that we can use any string as a separator (include the empty string &quot;&quot;).</p>
+<pre><code>x&lt;-&quot;Hello&quot;
+paste(x,&quot;World&quot;,sep=&quot;-&quot;)</code></pre>
+<p>This immediately allows for quite complex manipulation of data files. For example the following code, imports the 5 datafiles File_1.csv - File_5.csv:</p>
+<pre><code>f&lt;-function(i){read.csv(paste(&quot;File_&quot;,i,&quot;.csv&quot;,sep=&quot;&quot;))}
+dat&lt;-lapply(1:5,f)</code></pre>
+<p>Note that this piece of code introduces a new structure a bit more formally. The object &quot;dat&quot; is here a list and we use the &quot;lappy&quot; function (we haven't seen this yet) to apply the newly created function &quot;f&quot; (that imports data).</p>
+<p>The output is shown.</p>
+<div class="figure">
+<img src="images/image41.png" alt="An example of string manipulation in R" /><p class="caption">An example of string manipulation in R</p>
+</div>
+<p>We can also revisit a previous function (the shopping function) and create a different data set for every value of spend. We'll even make this a bit more complicated and nest functions so that we can repeat this operation for various values of the variable &quot;spend&quot;.</p>
+<pre><code>shopping &lt;- function(spend,trips=1){
+New.Savings&lt;-JJJ$Savings.in.Pounds-trips*spend
+infile&lt;-paste(&quot;JJJ_after_shopping_&quot;,trips,sep=&quot;&quot;)
+data_frame&lt;-data.frame(JJJ$Name,Old.Savings=JJJ$Savings.in.Pounds,New.Savings)
+assign(infile,data_frame,envir=.GlobalEnv)
+}
+
+multiple_shopping&lt;- function(spend,max_trips=10){
+
+for (i in 1:max_trips){
+shopping(spend,i)
+}
+}</code></pre>
+<p>Note the extra option that has been passed to the &quot;assign&quot; command &quot;envir=.GlobalEnv&quot;. This is to ensure that the data sets created in the function are global (i.e. are still there when the function stops running).</p>
+<div class="figure">
+<img src="images/image40.png" alt="Creating multiple data sets" /><p class="caption">Creating multiple data sets</p>
+</div>
+<p>4.4 Memory and scripts.</p>
+<p>In this section we will take a brief look at how R handles the &quot;workspace&quot;. If you have already quit R you would have seen the prompt &quot;Save workspace image?&quot;. If you answer &quot;yes&quot; then R saves various things to various files (in the current working directory): 1. .Rdata holds all the objects (data frames, vectors, functions etc...) currently in memory (note that this file is written in an R specific file and so can't be read). 2. .Rhistory holds all the commands used (and so can be recalled).</p>
+<p>Being prompted whether or not to save the workspace is helpful (in my opinion) as you can simply open an R session to try a few things and not save (similar to using the work library in SAS). It is possible to save the workspace image as you go (this is worthwhile in case your system happens to crash):</p>
+<pre><code>save.image()</code></pre>
+<p>Note: we can leave the argument of the &quot;image&quot; function empty (as above), in which case the file will be saved in the current directory. We can also pass the required location to the &quot;image&quot; function.</p>
+<p>It is also possible to save particular objects to particular files as well as load files but we won't go into that here.</p>
+<p>One final aspect to consider is that of running script files from the command line. We do this using the &quot;source&quot; command. Note that this command executes all the code in the script as if it was typed in one after the other. To see this let us write the following code in a text file (saving it as &quot;first_script.r&quot; on the desktop for example):</p>
+<pre><code>x&lt;-c(1,2,3,4)
+y&lt;-c(1,0)
+print(x+y)
+print(x*y)</code></pre>
+<p>We then run the script using the following code:</p>
+<pre><code>source(&quot;~/Desktop/first_script.r&quot;)</code></pre>
+<p>Repetitive command that are run often (for example, routine data analysis) can be saved as scripts and called if and when new data is received.</p>
+<h1 id="chapter-5-packages">Chapter 5 Packages</h1>
+<p>In this chapter we will examine three packages in particular:</p>
+<ol style="list-style-type: decimal">
+<li>sqldf: a package allowing for the use of sql syntax in R</li>
+<li>ggplot2: a powerful package for the plotting of data</li>
+<li>twitteR: a package that allows for the data mining of twitter</li>
+</ol>
+<h2 id="sqldf">5.1 sqldf</h2>
+<p>SQL is a language designed for querying and modifying databases. Used by a variety of database management software suites:</p>
+<ol style="list-style-type: decimal">
+<li>Oracle</li>
+<li>Microsoft ACCESS</li>
+<li>SPSS</li>
+</ol>
+<p>SQL uses one or more objects called TABLES where: rows contain records (observations) and columns contain variables.</p>
+<p>To use SQL in R we need to use the sqldf package.</p>
+<p>The following code creates a data set called test in the work library as a copy of the mmm data set:</p>
+<pre><code>test&lt;-sqldf(&quot;select * from MMM&quot;)</code></pre>
+<p>The &quot;*&quot; command tells R to take all variables from the data set. We can however specify exactly what variables we want:</p>
+<pre><code>test&lt;-sqldf(&quot;select Name,Age,Sex from MMM&quot;)</code></pre>
+<p>We can also create new variables:</p>
+<pre><code>test&lt;-sqldf(&quot;select Name,Age,Sex,Weight_in_Kg/(power(Height_in_Metres,2)) as bmi from MMM&quot;)</code></pre>
+<p>The following table gives some of the SQL operators:</p>
+<p>abs()</p>
+<p>Gives the absolute value</p>
+<p>ceil()</p>
+<p>Gives the ceiling</p>
+<p>floor()</p>
+<p>Gives the floor</p>
+<p>exp()</p>
+<p>Gives the exponential</p>
+<p>ln()</p>
+<p>Gives the natural log</p>
+<p>mod()</p>
+<p>Performs modulo arithmetic</p>
+<p>power()</p>
+<p>Gives the power.</p>
+<h3 id="further-sql">Further sql</h3>
+<p>In this section we'll take a look at what else R can do. For the purpose of the following examples let's write a new data set:</p>
+<pre><code>Var1&lt;-c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;C&quot;)
+Var2&lt;-c(1,1,1,2,2)
+Var3&lt;-c(&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
+Var4&lt;-c(2,2,1,2,1)
+Var5&lt;-c(&quot;B&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;,&quot;E&quot;)
+
+example&lt;-data.frame(Var1,Var2,Var3,Var4,Var5)</code></pre>
+<p>Some simple SQL code very easily helps us to get rid of duplicate rows (this can be very helpful when handling real data). To do this we use the &quot;distinct&quot; keyword.</p>
+<pre><code>sqldf(&quot;select distinct * from example&quot;)</code></pre>
+<p>We can also select particular variables:</p>
+<pre><code>sqldf(&quot;select distinct Var1,Var2,Var3 from example&quot;)</code></pre>
+<p>We can also use the &quot;where&quot; statement to select variables that obey a particular condition:</p>
+<pre><code>sqldf(&quot;select * from example where Var2&lt;=Var4&quot;)</code></pre>
+<p>We can sort data sets using the &quot;order by&quot; keyword:</p>
+<pre><code>sqldf(&quot;select distinct * from example order by Var1&quot;)</code></pre>
+<p>A very nice application of SQL is in the aggregation of summary statistics. The following code creates a new variable that gives the average value of var2. The value of this variable is the same for all the observations:</p>
+<pre><code>sqldf(&quot;select avg(Var2) as average_of_Var2 from example&quot;)</code></pre>
+<p>We could however get something a bit more useful by aggregating the data using a &quot;group&quot; statement:</p>
+<p>sqldf(&quot;select Var1,avg(Var2) as average_of_Var2 from example group by Var1&quot;)</p>
+<h3 id="joining-tables-with-sql">Joining tables with SQL</h3>
+<p>A very common use of SQL is to carry out &quot;joins&quot; which are equivalent to a merger of data sets. There are 4 types of joins to consider:</p>
+<ol style="list-style-type: decimal">
+<li><p>inner join</p>
+<ol style="list-style-type: decimal">
+<li>output table only contains rows common to all tables</li>
+<li>variable attributes taken from left most table</li>
+</ol></li>
+<li><p>outer join left</p>
+<ol style="list-style-type: decimal">
+<li>output table contains all rows contributed by the left table</li>
+<li>variable attributes taken from left most table</li>
+</ol></li>
+<li><p>outer join right</p>
+<ol style="list-style-type: decimal">
+<li>output table contains all rows contributed by the right table</li>
+<li>variable attributes taken from right most table</li>
+</ol></li>
+<li><p>outer join full</p>
+<ol style="list-style-type: decimal">
+<li>output table contains all rows contributed by all tables</li>
+<li>variable attributes taken from left most table</li>
+</ol></li>
+</ol>
+<p>To work with these examples let's use the data sets created with the following code:</p>
+<pre><code>Owner&lt;-c(&quot;Jeff&quot;,&quot;Janet&quot;,&quot;Paul&quot;,&quot;Joanna&quot;)
+Name&lt;-c(&quot;Ruffus&quot;,&quot;Sam&quot;,NA,NA)
+Dogs&lt;-data.frame(Owner,Name)
+
+Owner&lt;-c(&quot;Jeff&quot;,&quot;Paul&quot;,&quot;Joanna&quot;,&quot;Vince&quot;)
+Name&lt;-c(&quot;Kitty&quot;,NA,&quot;Tinkerbell&quot;,&quot;Chick&quot;)
+Cats&lt;-data.frame(Owner,Name)</code></pre>
+<p>The following code carries out an inner join of these two datasets also changing the name of the &quot;Name&quot; variable depending on which data set it was from.</p>
+<pre><code>sqldf(&quot;select a.Owner, a.Name as Dog_Name, b.Name as Cat_Name from Dogs as a, Cats as b where a.Owner=b.Owner&quot;)</code></pre>
+<div class="figure">
+<img src="images/image30.png" alt="The output of an inner join in R" /><p class="caption">The output of an inner join in R</p>
+</div>
+<p>The following code carries out a left outer join, the output of which is show.</p>
+<pre><code>sqldf(&quot;select a.Owner, a.Name as Dog_Name, b.Name as Cat_Name from Dogs as a left join Cats as b on a.Owner=b.Owner&quot;)</code></pre>
+<div class="figure">
+<img src="images/image16.png" alt="The output of a left outer join" /><p class="caption">The output of a left outer join</p>
+</div>
+<p>Right and full outer joins are not yet supported in sqldf however they can actually be obtained by simply using the &quot;merge&quot; function (as discussed in Chapter 3).</p>
+<h2 id="ggplot2">5.2 ggplot2</h2>
+<p>This is an extremely powerful package that allows for the creation of publication quality plots with ease. There are two basic functions in ggplot2:</p>
+<ol style="list-style-type: decimal">
+<li>qplot which allows us obtain quick graphs</li>
+<li>ggplot which gives us more control of granularity (we will not go into it here)</li>
+</ol>
+<h3 id="basic-plots-with-qplot">Basic plots with qplot</h3>
+<p>The qplot command is very similar to the plot command in that in will often produce the plot required based on the inputs. To obtain a histogram of the Height.in.Metres variable of the JJJ data set we simply use:</p>
+<pre><code>qplot(data=JJJ,x=Height.in.Metres)</code></pre>
+<p>This produces the plot shown.</p>
+<div class="figure">
+<img src="images/image08.png" alt="A basic histogram using qplot" /><p class="caption">A basic histogram using qplot</p>
+</div>
+<p>We can improve this by changing the bin width, including a title and changing the labels for the x axis and y axis.</p>
+<pre><code>qplot(data=JJJ,x=Height.in.Metres,binwidth=.075,main=&quot;Height of people in the JJJ data set&quot;,xlab=&quot;Height&quot;,ylab=&quot;Frequency&quot;)</code></pre>
+<div class="figure">
+<img src="images/image28.png" alt="A better histogram*" /><p class="caption">A better histogram*</p>
+</div>
+<p>We can obtain a density plot corresponding to the above by using the &quot;density&quot; option for the &quot;geom&quot; argument as shown:</p>
+<pre><code>qplot(data=JJJ,x=Height.in.Metres,binwidth=.075,main=&quot;Height of people in the JJJ data set&quot;,xlab=&quot;Height&quot;,ylab=&quot;Frequency&quot;,geom=&quot;density&quot;)</code></pre>
+<div class="figure">
+<img src="images/image43.png" alt="A density plot" /><p class="caption">A density plot</p>
+</div>
+<p>If we pass two vectors to qplot we obtain a scatter plot:</p>
+<pre><code>qplot(data=JJJ,x=Weight.in.Kg,y=Height.in.Metres)</code></pre>
+<p>we can also pass qplot a &quot;size&quot; argument to obtain the graph shown:</p>
+<pre><code>qplot(data=JJJ,x=Height.in.Metres,y=Weight.in.Kg,size = Age)</code></pre>
+<div class="figure">
+<img src="images/image11.png" alt="A scatter plot with different sized points" /><p class="caption">A scatter plot with different sized points</p>
+</div>
+<p>We can of course obtain scatter plots against categorical variables as shown:</p>
+<pre><code>qplot(data=JJJ,x=Sex,y=Height.in.Metres)</code></pre>
+<div class="figure">
+<img src="images/image07.png" alt="A scatter plot against categorial data" /><p class="caption">A scatter plot against categorial data</p>
+</div>
+<p>We can pass &quot;boxplot&quot; as the &quot;geom&quot; argument to get a boxplot as shown.</p>
+<pre><code>qplot(data=JJJ,x=Sex,y=Height.in.Metres,geom=&#39;boxplot&#39;)</code></pre>
+<div class="figure">
+<img src="images/image27.png" alt="A box plot" /><p class="caption">A box plot</p>
+</div>
+<h3 id="advanced-features">Advanced features</h3>
+<p>We can add various features to our scatter plot. The following code just plots a line between all the points:</p>
+<pre><code>qplot(data=JJJ,x=Height.in.Metres,y=Weight.in.Kg,geom=&quot;line&quot;)</code></pre>
+<p>We can combine various geom options so as to not just include a line but also the points:</p>
+<pre><code>qplot(data=JJJ,x=Height.in.Metres,y=Weight.in.Kg,geom=c(&quot;point&quot;,&quot;line&quot;))</code></pre>
+<p>Finally we can also add a smoothed line to our plot as shown:</p>
+<pre><code>qplot(data=JJJ,x=Height.in.Metres,y=Weight.in.Kg,geom=c(&quot;point&quot;,&quot;line&quot;,&quot;smooth&quot;))</code></pre>
+<div class="figure">
+<img src="images/image09.png" alt="A scatter plot with a few extras" /><p class="caption">A scatter plot with a few extras</p>
+</div>
+<p>We can very easily obtain a collection of any of the above plots across a categorical variables using the &quot;facets&quot; command as shown:</p>
+<pre><code>qplot(data=JJJ,x=Height.in.Metres,binwidth=.075,facets=~Sex)</code></pre>
+<div class="figure">
+<img src="images/image70.png" alt="Multiple graphs" /><p class="caption">Multiple graphs</p>
+</div>
+<p>We can use the &quot;ggsave&quot; command to save the last plotted graph to file:</p>
+<pre><code>ggsave(filename=&quot;~/Desktop/test.pdf&quot;)</code></pre>
+<h3 id="section"></h3>
+<p>One final aspect we will take a look at in ggplot2 is that of layers. To do so we will use the following dataset:</p>
+<pre><code>MMMJJJ_to_plot&lt;-within(MMMJJJ,{data_set&lt;-ifelse(substr(MMMJJJ$Name,1,1)==&quot;M&quot;,&quot;MMM&quot;,&quot;JJJ&quot;);Sex&lt;-substr(Sex,1,1)})</code></pre>
+<p>Firstly we create a plot using qplot and assign it to p (recall that everything in R is an object).</p>
+<pre><code>p&lt;-qplot(data=MMMJJJ_to_plot,x=Height.in.Metres,y=Weight.in.Kg,facets=~data_set~Sex,color=Sex)</code></pre>
+<p>To view the plot we simply type &quot;p&quot; (note that we have also included a &quot;color&quot; option):</p>
+<pre><code>p</code></pre>
+<p>Finally we can add a new layer to this plot by &quot;adding&quot; (+) a linear model to our graph:</p>
+<pre><code>p&lt;-p+stat_smooth(method=&quot;lm&quot;)</code></pre>
+<p>The output of all this is shown.</p>
+<p>Finally we can save a particular graph object in ggplot using ggsave:</p>
+<pre><code>ggsave(p,filename=&quot;~/Desktop/plot.pdf&quot;)</code></pre>
+<div class="figure">
+<img src="images/image62.png" alt="A graph with a lot of information" /><p class="caption">A graph with a lot of information</p>
+</div>
+<h2 id="twitter">5.3 twitteR</h2>
+<p>The last package we will consider is a package that can be used to data mine twitter.</p>
+<p>To get the certain trends we use can use the following code:</p>
+<pre><code>getTrends(period = &quot;daily&quot;, date=Sys.Date())
+getTrends(period = &quot;daily&quot;, date=Sys.Date() - 1)
+getTrends(period = &quot;weekly&quot;)</code></pre>
+<p>To obtain tweets for a particular hashtag:</p>
+<pre><code>searchTwitter(&quot;#orms&quot;)</code></pre>
+<p>Finally to obtain tweets from a particular user (the following gives the tweets of the INFORMS as shown):</p>
+<pre><code>userTimeline(&quot;INFORMS&quot;)</code></pre>
+<div class="figure">
+<img src="images/image53.png" alt="INFORMS&#39; timeline" /><p class="caption">INFORMS' timeline</p>
+</div>
+<div class="figure">
+<img src="images/image44.png" alt="Using twitter to get the tweets from INFORMS" /><p class="caption">Using twitter to get the tweets from INFORMS</p>
+</div>
