@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>MAT013 - Course Description</title>
+		<title>MAT013 - Example Challenge Solution</title>
 
 		<meta name="description" content="A short description of MAT013">
 		<meta name="author" content="Vincent Knight">
@@ -36,8 +36,7 @@
 			<div class="slides">
 
 				<section>
-					<h2>MAT013 - SAS/R</h2>
-					<h6>Advanced Use of Statistical Packages</h6>
+					<h2>MAT013 - Example Challenge Solution</h2>
 					<p>
 						Vince Knight
 					</p>
@@ -46,66 +45,61 @@
 					</p>
                     </section>
 
-				<section>
-					<h2>SAS</h2>
-                    <hr>
-					<p align="left"> SAS is a software solution designed for the statistical analysis of data.  </p> <a href="http://www.sas.com/company/great-workplace/index.html"><img width="320"  src="https://lh3.googleusercontent.com/-N9j8QzXvz58/UKM72vV2u6I/AAAAAAAAACU/0VYZleer4hg/s500/tile_1.jpg" alt="Meny"></a> </section> <section> <h2>R </h2> <hr>
-					<p align="left">
-                        R is a language and environment for statistical computing and graphics.
-					</p>
-                    <a href="http://www.r-project.org/index.html"><img width="320" src="http://www.r-project.org/Rlogo.jpg" alt="Meny"></a>
-                </section>
+                    <section data-markdown>
+                    ###The Problem
 
-				<section>
-                    <h2>Users </h2>
-                    <hr>
-                    <ul>
-                        <li> SAS
-                            <ul>
-                                <li> BNP Paribas, Lloyds, ... </li>
-                                <li> Verizon, Vodafone, ... </li>
-                                <li> Expedia, Photobucket,...</li>
-                            </ul>
-                        <li> R
-                            <ul>
-                                <li> ANZ, Lloyd's, ... </li>
-                                <li> Facebook, Google, ...</li>
-                                <li> Okcupid, New Scientist, ...</li>
-                            </ul>
-                        <p align="left">
-                        And many more...
-                        </p>
-                    </ul>
-				</section>
+                    ---
 
-                <section>
-                    <h2>Course Content </h2>
-                    <hr>
-                    <p>Taught in parallel</p>
-                    <img height="350" src="https://docs.google.com/drawings/pub?id=1-xSwvXhLZhfYWCaU8YF2PIm1knjlP04old8dMwaeM7Y&amp;w=327&amp;h=753">
-                </section>
+                    4 methods of playing a stochastic game: which one is better?
 
-				<section>
-                    <h2>Format</h2>
-                    <hr>
-                    <p>4 Wednesdays:</p>
-                    <img width="300"  src="https://docs.google.com/drawings/pub?id=1cU-dNObYasplcCjTRdnqdBjqGLag6ruAB8p4D7KXRbE&w=320" alt="Meny">
-                    <p class="fragment">+1 Wednesday </p>
-				</section>
+                    </section>
 
-                <section>
-                    <h2> Evaluation </h2>
-                    <hr>
-                    <ul>
-                        <li>Class test: 40%</li>
-                        <li>Group coursework: 30%</li>
-                        <li>Individual coursework: 30%</li>
-                    </ul>
-                </section>
+                    <section>
+                    <h3>Pulling in the data</h3>
 
-                <section>
-                <h1> Questions? </h1>
-                </section>
+                    <hr>
+
+                        <pre><code contenteditable>shut_the_box_data<-read.csv("Data_for_Analysis.csv")</code></pre>
+
+                    </section>
+
+                    <section>
+                    <h3>Compartementalising the data</h3>
+                    
+                    <hr>
+
+                        <pre><code contenteditable>
+Greedy<-data.frame(Score=shut_the_box_data$Greedy_Score,Game_Length=shut_the_box_data$Greedy_History)
+Greedy$Method<-"greedy"
+Random<-data.frame(Score=shut_the_box_data$Random_Score,Game_Length=shut_the_box_data$Random_History)
+Random$Method<-"random"
+Shortest<-data.frame(Score=shut_the_box_data$Shortest_Score,Game_Length=shut_the_box_data$Shortest_History)
+Shortest$Method<-"shortest"
+Longest<-data.frame(Score=shut_the_box_data$Longest_Score,Game_Length=shut_the_box_data$Longest_History)
+Longest$Method<-"longest"
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                    <h3>Getting Summary Statistics</h3>
+                    <hr>
+                        <pre><code contenteditable>
+
+mean(Random$Game_Length, na.rm=TRUE)
+mean(Shortest$Game_Length, na.rm=TRUE)
+mean(Longest$Game_Length, na.rm=TRUE)
+mean(Greedy$Game_Length, na.rm=TRUE)
+
+                        </code></pre>
+
+                    </section>
+
+                    <section>
+                    <h3>Results</h3>
+                    <hr>
+                    (Demo of code, pictures, graph...?)
+                    </section>
 
 			</div>
 
