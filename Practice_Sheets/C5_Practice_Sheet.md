@@ -3,14 +3,16 @@
 ### Attempt to do the following in SAS and/or R.
 
 
-1. Solve the following optimisation problem (we have not see how to do this in R): 
+1. Solve the following optimisation problem (we have not see how to do this in R):
 Maximise: $f(x_1,x_2,x_3)=x_1+x_2+5x_3+x_4^2$ subject to:
 
-\begin{align}
-3x_1+2x_2-x_3+x_4\leq& 1\\
--2x_1-3x_2+2x_3-x_4\leq&1\\
-x_2-x_4\leq&8
-\end{align}
+$$
+3x_1+2x_2-x_3+x_4\leq 1$$
+$$
+-2x_1-3x_2+2x_3-x_4\leq 1$$
+$$
+x_2-x_4\leq 8$$
+
 
 2. Using SQL merge the data sets [weight.xls](https://www.dropbox.com/s/duadh282l6vtvzd/weight.xls) and [height.xls](https://www.dropbox.com/s/2i4rja2sh11od44/height.xls) and calculate the bmi. Obtain a new data set only with clinically obese individuals.
 

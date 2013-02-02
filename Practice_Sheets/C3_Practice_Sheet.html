@@ -1,0 +1,68 @@
+<h1 id="mat013---practice-sheet">MAT013 - Practice Sheet</h1>
+<h2 id="chapter-3">Chapter 3</h2>
+<h3 id="attempt-to-do-the-following-in-sas-andor-r.">Attempt to do the following in SAS and/or R.</h3>
+<ol style="list-style-type: decimal">
+<li><p>Download the data sets <a href="https://www.dropbox.com/s/duadh282l6vtvzd/weight.xls">weight.xls</a> and <a href="https://www.dropbox.com/s/2i4rja2sh11od44/height.xls">height.xls</a>:</p>
+<ol style="list-style-type: decimal">
+<li>Create a SAS data set containing the bmi of the observations.</li>
+<li>Output the data set to csv.</li>
+</ol></li>
+<li><p>For the concatenated data set (of mat008.jjj and mat008.mmm):</p>
+<ol style="list-style-type: decimal">
+<li>For individuals over the age of 25, calculate the yearly average savings (for each year after their 25th birthday)</li>
+<li>Output a frequency table showing the mean yearly average by sex. (You will need to find out some information on the ``tabulate'' procedure).</li>
+<li><p>Obtain the mean yearly average savings by sex and age groups:</p>
+<ul>
+<li>Group A [0,18]</li>
+<li>Group B [19,65]</li>
+<li>Group C [66,]</li>
+</ul></li>
+<li><p>Find the mean, max and min for the variable ``random number'' and output this to a SAS data set.</p></li>
+</ol></li>
+<li><p>Create (seperate) data sets containing the following:</p>
+<ol style="list-style-type: decimal">
+<li>The first 200 odd numbers;</li>
+<li>The square root of the first 1000 integers;</li>
+<li>The square root of the first 10000 integers, selecting only those that are integers</li>
+<li>The first 20 prime numbers (this is slightly harder)</li>
+</ol></li>
+<li><p>Download the file <a href="https://www.dropbox.com/s/3b4k04hnuz2cg5i/coordinates.csv">coordinates.csv</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Obtain coefficients for a line fitted to the coordinates <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%28x%2Cy%29" alt="(x,y)" title="(x,y)" /> of this data set.</li>
+<li><p>For each of the observations create a new variable giving the following:</p>
+<ol style="list-style-type: decimal">
+<li>The product <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=xy" alt="xy" title="xy" />;</li>
+<li>The ration <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=x%2Fy" alt="x/y" title="x/y" />;</li>
+<li>The exponent <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=x%5Ey" alt="x^y" title="x^y" />;</li>
+<li>The sum <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=x%2By" alt="x+y" title="x+y" />;</li>
+<li>The difference <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=x-y" alt="x-y" title="x-y" />;</li>
+<li>The absolute value of <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=x" alt="x" title="x" />;</li>
+<li>The square root of <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=x" alt="x" title="x" />;</li>
+<li>The log to the base 10 <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Clog_%7B10%7D%28x%29" alt="\log_{10}(x)" title="\log_{10}(x)" />;</li>
+<li>The natural log <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Cln%28x%29" alt="\ln(x)" title="\ln(x)" />.</li>
+</ol></li>
+<li><p>Obtain the following for the above data set (including the newly created variables):</p>
+<ol style="list-style-type: decimal">
+<li>minimum</li>
+<li>maximum</li>
+<li>total</li>
+<li>mean</li>
+<li>median</li>
+</ol></li>
+</ol></li>
+<li><p>The probability that an <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=M%2FM%2Fk" alt="M/M/k" title="M/M/k" /> queue is empty is given by the following formulae: <br /><img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Cpi_0%3D%5Cfrac%7B1%7D%7B%5Csum_%7Bi%3D0%7D%5E%7Bk-1%7D%5Cfrac%7B%28%5Clambda%2F%5Cmu%29%5Ei%7D%7Bi%21%7D%2B%5Cfrac%7B%28%5Clambda%2F%5Cmu%29%5Ek%7D%7Bk%21%281-%5Clambda%2F%28k%5Cmu%29%29%7D%7D" alt="\pi_0=\frac{1}{\sum_{i=0}^{k-1}\frac{(\lambda/\mu)^i}{i!}+\frac{(\lambda/\mu)^k}{k!(1-\lambda/(k\mu))}}" title="\pi_0=\frac{1}{\sum_{i=0}^{k-1}\frac{(\lambda/\mu)^i}{i!}+\frac{(\lambda/\mu)^k}{k!(1-\lambda/(k\mu))}}" /><br /></p></li>
+</ol>
+<p>Use a SAS datastep to obtain <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Cpi_0" alt="\pi_0" title="\pi_0" /> for <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Clambda%5Cin%5C%7B.1%2C.5%2C.7%2C.9%5C%7D" alt="\lambda\in\{.1,.5,.7,.9\}" title="\lambda\in\{.1,.5,.7,.9\}" />, <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=k%3D3" alt="k=3" title="k=3" /> and <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Cmu%3D1" alt="\mu=1" title="\mu=1" />.</p>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Download the data set <a href="https://www.dropbox.com/s/97r2bkxee77uwp5/marks.csv">marks.csv</a></p>
+<ol style="list-style-type: decimal">
+<li>Create a data set that shows the percentage increase or decrease of marks for each student from one month to the next.</li>
+<li>Obtain a table showing the mean of these percentage changes categorized by gender.</li>
+</ol></li>
+<li><p>Download the data set <a href="https://www.dropbox.com/s/bdc3ldjfuy1bf2s/numbers.csv">numbers.csv</a> and create the following variables:</p>
+<ol style="list-style-type: decimal">
+<li><img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=y1%3Dx1%5Ctimes%20x2%5Ctimes%20%5Cdots%20x36" alt="y1=x1\times x2\times \dots x36" title="y1=x1\times x2\times \dots x36" /></li>
+<li><img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=y2%3D%5Cleft%281%2Bz1%2F1%5Cright%29%5Ctimes%5Cleft%281%2Bz2%2F2%5Cright%29%5Ctimes%5Cdots%5Cleft%281%2Bz36%2F36%5Cright%29" alt="y2=\left(1+z1/1\right)\times\left(1+z2/2\right)\times\dots\left(1+z36/36\right)" title="y2=\left(1+z1/1\right)\times\left(1+z2/2\right)\times\dots\left(1+z36/36\right)" /></li>
+<li><img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=y3%3Dx1-x2%2Bx3-%5Cdots-x36" alt="y3=x1-x2+x3-\dots-x36" title="y3=x1-x2+x3-\dots-x36" /></li>
+</ol></li>
+</ol>

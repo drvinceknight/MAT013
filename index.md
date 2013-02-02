@@ -33,50 +33,32 @@
 
 #### SAS
 
-- Chapter 1 + Chapter 2
-- Chapter 3
-- Chapter 4
-- Chapter 5
+- [Chapter 1 + Chapter 2](./Challenge_Sheets/C1+C2_Challenge_Sheet-SAS.html). ([pdf](./Challenge_Sheets/C1+C2_Challenge_Sheet-SAS.pdf), [docx](./Challenge_Sheets/C1+C2_Challenge_Sheet-SAS.docx))
+- [Chapter 3](./Challenge_Sheets/C3_Challenge_Sheet-SAS.html). ([pdf](./Challenge_Sheets/C3_Challenge_Sheet-SAS.pdf), [docx](./Challenge_Sheets/C3_Challenge_Sheet-SAS.docx))
+- [Chapter 4](./Challenge_Sheets/C4_Challenge_Sheet-SAS.html). ([pdf](./Challenge_Sheets/C4_Challenge_Sheet-SAS.pdf), [docx](./Challenge_Sheets/C4_Challenge_Sheet-SAS.docx))
+- [Chapter 5](./Challenge_Sheets/C5_Challenge_Sheet-SAS.html). ([pdf](./Challenge_Sheets/C5_Challenge_Sheet-SAS.pdf), [docx](./Challenge_Sheets/C5_Challenge_Sheet-SAS.docx))
 
 #### R
 
-- Chapter 1 + Chapter 2
-- Chapter 3
-- Chapter 4
-- Chapter 5
+- [Chapter 1 + Chapter 2](./Challenge_Sheets/C1+C2_Challenge_Sheet-R.html). ([pdf](./Challenge_Sheets/C1+C2_Challenge_Sheet-R.pdf), [docx](./Challenge_Sheets/C1+C2_Challenge_Sheet-R.docx))
+- [Chapter 3](./Challenge_Sheets/C3_Challenge_Sheet-R.html). ([pdf](./Challenge_Sheets/C3_Challenge_Sheet-R.pdf), [docx](./Challenge_Sheets/C3_Challenge_Sheet-R.docx))
+- [Chapter 4](./Challenge_Sheets/C4_Challenge_Sheet-R.html). ([pdf](./Challenge_Sheets/C4_Challenge_Sheet-R.pdf), [docx](./Challenge_Sheets/C4_Challenge_Sheet-R.docx))
+- [Chapter 5](./Challenge_Sheets/C5_Challenge_Sheet-R.html). ([pdf](./Challenge_Sheets/C5_Challenge_Sheet-R.pdf), [docx](./Challenge_Sheets/C5_Challenge_Sheet-R.docx))
 
 ---
 
 ### Example sheets
 
-#### SAS
-
-- Chapter 1 + Chapter 2
-- Chapter 3
-- Chapter 4
-- Chapter 5
-
-#### R
-
-- Chapter 1 + Chapter 2
-- Chapter 3
-- Chapter 4
-- Chapter 5
+- [Chapter 1 + Chapter 2](./Example_Sheets/C1+C1_Example_Sheet.html). ([pdf](./Example_Sheets/C1+C2_Example_Sheet.html), [docx](./Example_Sheets/C1+C2_Example_Sheet.docx))
+- [Chapter 3](./Example_Sheets/C1+C1_Example_Sheet.html). ([pdf](./Example_Sheets/C3_Example_Sheet.html), [docx](./Example_Sheets/C3_Example_Sheet.docx))
+- [Chapter 4](./Example_Sheets/C1+C1_Example_Sheet.html). ([pdf](./Example_Sheets/C4_Example_Sheet.html), [docx](./Example_Sheets/C4_Example_Sheet.docx))
+- [Chapter 5](./Example_Sheets/C1+C1_Example_Sheet.html). ([pdf](./Example_Sheets/C5_Example_Sheet.html), [docx](./Example_Sheets/C5_Example_Sheet.docx))
 
 ---
 
-### Exercise sheets
+### Practice sheets
 
-#### SAS
-
-- Chapter 1 + Chapter 2
-- Chapter 3
-- Chapter 4
-- Chapter 5
-
-#### R
-
-- Chapter 1 + Chapter 2
-- Chapter 3
-- Chapter 4
-- Chapter 5
+- [Chapter 1 + Chapter 2](./Practice_Sheets/C1+C2_Practice_Sheet.html). ([pdf](./Practice_Sheets/C1+C2_Practice_Sheet.pdf), [docx](./Practice_Sheets/C1+C2_Practice_Sheet.docx))
+- [Chapter 3](./Practice_Sheets/C3_Practice_Sheet.html). ([pdf](./Practice_Sheets/C3_Practice_Sheet.pdf), [docx](./Practice_Sheets/C3_Practice_Sheet.docx))
+- [Chapter 4](./Practice_Sheets/C4_Practice_Sheet.html). ([pdf](./Practice_Sheets/C4_Practice_Sheet.pdf), [docx](./Practice_Sheets/C4_Practice_Sheet.docx))
+- [Chapter 5](./Practice_Sheets/C5_Practice_Sheet.html). ([pdf](./Practice_Sheets/C5_Practice_Sheet.pdf), [docx](./Practice_Sheets/C5_Practice_Sheet.docx))

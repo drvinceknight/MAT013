@@ -1,0 +1,30 @@
+<h1 id="mat013---practice-sheet">MAT013 - Practice Sheet</h1>
+<h2 id="chapter-5">Chapter 5</h2>
+<h3 id="attempt-to-do-the-following-in-sas-andor-r.">Attempt to do the following in SAS and/or R.</h3>
+<ol style="list-style-type: decimal">
+<li>Solve the following optimisation problem (we have not see how to do this in R): Maximise: <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=f%28x_1%2Cx_2%2Cx_3%29%3Dx_1%2Bx_2%2B5x_3%2Bx_4%5E2" alt="f(x_1,x_2,x_3)=x_1+x_2+5x_3+x_4^2" title="f(x_1,x_2,x_3)=x_1+x_2+5x_3+x_4^2" /> subject to:</li>
+</ol>
+<p><br /><img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%0A3x_1%2B2x_2-x_3%2Bx_4%5Cleq%201" alt="
+3x_1+2x_2-x_3+x_4\leq 1" title="
+3x_1+2x_2-x_3+x_4\leq 1" /><br /> <br /><img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%0A-2x_1-3x_2%2B2x_3-x_4%5Cleq%201" alt="
+-2x_1-3x_2+2x_3-x_4\leq 1" title="
+-2x_1-3x_2+2x_3-x_4\leq 1" /><br /> <br /><img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%0Ax_2-x_4%5Cleq%208" alt="
+x_2-x_4\leq 8" title="
+x_2-x_4\leq 8" /><br /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Using SQL merge the data sets <a href="https://www.dropbox.com/s/duadh282l6vtvzd/weight.xls">weight.xls</a> and <a href="https://www.dropbox.com/s/2i4rja2sh11od44/height.xls">height.xls</a> and calculate the bmi. Obtain a new data set only with clinically obese individuals.</p></li>
+<li><p>For the data set <a href="https://www.dropbox.com/s/pbjyln9ucp53kah/demographics.csv">demographics.csv</a>. Using SQL create 4 data sets that:</p>
+<ol style="list-style-type: decimal">
+<li>contains all columns and all rows.</li>
+<li>contains the columns patientnum, surverynum, heightcm, weightkg, postcode and rows where postcode is not missing.</li>
+<li>contains mean values for heightcm and weightkg by postcode and ordered by postcode.</li>
+<li>contains mean values for bmi by postcode and ordered by postcode.</li>
+</ol></li>
+<li><p>Download the data sets <a href="http://db.tt/QlTtWWOP">queue_servers.csv</a>, <a href="http://db.tt/ZabQhbeI">queue_arrival_rates.csv</a> and <a href="http://db.tt/aXO5nqU7">queue_service_rates.csv</a>:</p>
+<ol style="list-style-type: decimal">
+<li>Using the mathematical formulae seen in previous weeks obtain a new data set with the Number of the Queue, the service rate, the arrival rate and the mean queue length (note that the formulae only holds for <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Clambda%3Cc%5Cmu" alt="\lambda&lt;c\mu" title="\lambda&lt;c\mu" />).</li>
+<li>Is there a correlation between the service rate and the queue length? Between the arrival rate and the queue length?</li>
+<li>Obtain a regression model for the mean queue length.</li>
+</ol></li>
+<li><p>Attempt to redo all graphs (from the course) with the ggplot pckage (this is only relevant to R).</p></li>
+</ol>
