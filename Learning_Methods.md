@@ -60,7 +60,7 @@ Which strategy seems to be the best?
 #Course Materials
 
 <div align="center">
-<iframe src="http://www.vincent-knight.com/" width="700" height="500"> </iframe>
+<iframe src="./index.html" width="700" height="500"> </iframe>
 </div>
 
 #Group work "issues"
@@ -75,7 +75,7 @@ A lot of literature on the subject:
 - Papers
 - Papers
 
-#Summary 
+#Summary
 
 - Flipped classroom approach;
 - IBL approach;
