@@ -59,9 +59,9 @@
 #### R
 
 - [Chapter 1 + Chapter 2](./Example_Sheets/R-C1+C2_Example_Sheet.html). ([pdf](./Example_Sheets/R-C1+C2_Example_Sheet.html), [docx](./Example_Sheets/R-C1+C2_Example_Sheet.docx))
-- [Chapter 3](./Example_Sheets/R-C3_Example_Sheet.html). ([pdf](./Example_Sheets/R-C3_Example_Sheet.html), [docx](./Example_Sheets/R-C3_Example_Sheet.docx))
-- [Chapter 4](./Example_Sheets/R-C4_Example_Sheet.html). ([pdf](./Example_Sheets/R-C4_Example_Sheet.html), [docx](./Example_Sheets/R-C4_Example_Sheet.docx))
-- [Chapter 5](./Example_Sheets/C5_Example_Sheet.html). ([pdf](./Example_Sheets/C5_Example_Sheet.html), [docx](./Example_Sheets/C5_Example_Sheet.docx))
+- [Chapter 3](./Example_Sheets/R-C3_Example_Sheet.html). ([pdf](./Example_Sheets/R-C3_Example_Sheet.pdf), [docx](./Example_Sheets/R-C3_Example_Sheet.docx))
+- [Chapter 4](./Example_Sheets/R-C4_Example_Sheet.html). ([pdf](./Example_Sheets/R-C4_Example_Sheet.pdf), [docx](./Example_Sheets/R-C4_Example_Sheet.docx))
+- [Chapter 5](./Example_Sheets/C5_Example_Sheet.html). ([pdf](./Example_Sheets/C5_Example_Sheet.pdf), [docx](./Example_Sheets/C5_Example_Sheet.docx))
 
 ---
 
