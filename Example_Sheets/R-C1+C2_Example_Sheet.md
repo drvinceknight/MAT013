@@ -1,8 +1,7 @@
 # MAT013 - Example Sheet
 ## Chapter 1 + 2
 
-1.  Create the data set "first_data_set" from the notes and export
-    to csv.
+1.  Create the data set "first_data_set" from the notes and export to csv.
 
 2.  Download the files [JJJ.csv](../Data/C1+C2/JJJ.csv) and [MMM.csv](../Data/C1+C2/MMM.csv) import them in to R.
 
