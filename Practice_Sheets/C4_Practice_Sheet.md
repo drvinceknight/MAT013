@@ -11,11 +11,11 @@
     4. The square root of the first $k$ integers, selecting only those that are integers.
     5. The first $k$ prime numbers (this is harder).
 
-2. Write code that creates a data set with the mean of a given variable for a given data set. Experiment on the mat008.jjj and mat008.mmm datasets.
+2. Write code that creates a data set with the mean of a given variable for a given data set. Experiment on the JJJ and MMM datasets.
 
-3. Write code that merges two named data sets on a given variable. Remember to ensure that the data sets are sorted as required. Use this to merge the datasets [height.xls](https://www.dropbox.com/s/2i4rja2sh11od44/height.xls) and [weight.xls](https://www.dropbox.com/s/duadh282l6vtvzd/weight.xls) on the variable "obs" (seen in the previous lab sheet).
+3. Write code that merges two named data sets on a given variable. Remember to ensure that the data sets are sorted as required. Use this to merge the datasets [height.xls](../Data/C3/height.xls) and [weight.xls](../Data/C3/weight.xls) on the variable "obs" (seen in the previous lab sheet).
 
-4. Download the data set [demographics.csv](https://www.dropbox.com/s/pbjyln9ucp53kah/demographics.csv). Write code that creates another data set only containing a given postcode.
+4. Download the data set [demographics.csv](../Data/C4/demographics.csv). Write code that creates another data set only containing a given postcode.
 
 5. The mean number of people in an $M/M/k$ queue, where $\lambda$ denotes the inter arrival rate, $\mu$ denotes the service rate and $k$ denotes the system capacity is given by:
 $$L_q=\frac{\left(\lambda/ \mu\right)^{k+1}\pi_0}{ kk!\left(1-{\lambda/ k\mu}\right)^2}$$

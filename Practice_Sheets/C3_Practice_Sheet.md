@@ -3,12 +3,12 @@
 ### Attempt to do the following in SAS and/or R.
 
 
-1. Download the data sets [weight.xls](https://www.dropbox.com/s/duadh282l6vtvzd/weight.xls) and [height.xls](https://www.dropbox.com/s/2i4rja2sh11od44/height.xls):
+1. Download the data sets [weight.xls](../Data/C3/weight.xls) and [height.xls](../Data/C3/height.xls):
 
     1. Create a SAS data set containing the bmi of the observations.
     2.  Output the data set to csv.
 
-2.  For the concatenated data set (of mat008.jjj and mat008.mmm):
+2.  For the concatenated data set (of JJJ and MMM):
 
     1. For individuals over the age of 25, calculate the yearly average savings (for each year after their 25th birthday)
     2. Output a frequency table showing the mean yearly average by sex. (You will need to find out some information on the ``tabulate'' procedure).
@@ -27,7 +27,7 @@
     3. The square root of the first 10000 integers, selecting only those that are integers
     4. The first 20 prime numbers (this is slightly harder)
 
-4. Download the file [coordinates.csv](https://www.dropbox.com/s/3b4k04hnuz2cg5i/coordinates.csv).
+4. Download the file [coordinates.csv](../Data/C3/coordinates.csv).
 
     1. Obtain coefficients for a line fitted to the coordinates $(x,y)$ of this data set.
     2. For each of the observations create a new variable giving the following:
@@ -47,7 +47,7 @@
         1. minimum
         2. maximum
         3. total
-        4. mean 
+        4. mean
         5. median
 
 5. The probability that an $M/M/k$ queue is empty is given by the following formulae:
@@ -55,12 +55,12 @@ $$\pi_0=\frac{1}{\sum_{i=0}^{k-1}\frac{(\lambda/\mu)^i}{i!}+\frac{(\lambda/\mu)^
 
 Use a SAS datastep to obtain $\pi_0$ for $\lambda\in\{.1,.5,.7,.9\}$, $k=3$ and $\mu=1$.
 
-6. Download the data set [marks.csv](https://www.dropbox.com/s/97r2bkxee77uwp5/marks.csv)
-    
+6. Download the data set [marks.csv](../Data/marks.csv)
+
     1. Create a data set that shows the percentage increase or decrease of marks for each student from one month to the next.
     2. Obtain a table showing the mean of these percentage changes categorized by gender.
 
-7. Download the data set [numbers.csv](https://www.dropbox.com/s/bdc3ldjfuy1bf2s/numbers.csv) and create the following variables:
+7. Download the data set [numbers.csv](../Data/numbers.csv) and create the following variables:
 
     1. $y1=x1\times x2\times \dots x36$
     2. $y2=\left(1+z1/1\right)\times\left(1+z2/2\right)\times\dots\left(1+z36/36\right)$
