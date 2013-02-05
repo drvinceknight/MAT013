@@ -29,6 +29,13 @@
 
 ---
 
+### Screencasts
+
+- [SAS](http://www.youtube.com/playlist?list=PL9DDCFAE7B2254C93)
+- R
+
+---
+
 ### Challenge sheets
 
 #### SAS
