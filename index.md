@@ -78,3 +78,10 @@
 - [Chapter 3](./Practice_Sheets/C3_Practice_Sheet.html). ([pdf](./Practice_Sheets/C3_Practice_Sheet.pdf), [docx](./Practice_Sheets/C3_Practice_Sheet.docx))
 - [Chapter 4](./Practice_Sheets/C4_Practice_Sheet.html). ([pdf](./Practice_Sheets/C4_Practice_Sheet.pdf), [docx](./Practice_Sheets/C4_Practice_Sheet.docx))
 - [Chapter 5](./Practice_Sheets/C5_Practice_Sheet.html). ([pdf](./Practice_Sheets/C5_Practice_Sheet.pdf), [docx](./Practice_Sheets/C5_Practice_Sheet.docx))
+
+---
+
+### Social Media
+
+- [The MAT013 Google Plus community](http://goo.gl/gJIxl) (you do not need to have a Google Plus account to view).
+
