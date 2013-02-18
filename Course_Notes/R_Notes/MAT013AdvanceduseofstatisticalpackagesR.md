@@ -88,9 +88,9 @@ In practice you will never use the direct input method but let's take a look for
 
 Let us create a data set named `first_data_set` which will include the following data:
 
-Name,Age
-Bob,23
-Billy,25
+    Name, Age
+    Bob, 23
+    Billy, 25
 
 To do so write the following code in the editor window:
 
