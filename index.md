@@ -17,9 +17,9 @@
 
 #### SAS
 
-- In html format (recommended)
-- In pdf format
-- In docx format
+- [In html format (recommended)](./Course_Notes/SAS_Notes/MAT013AdvanceduseofstatisticalpackagesSAS.html)
+- [In pdf format](./Course_Notes/R_Notes/MAT013AdvanceduseofstatisticalpackagesR.pdf)
+- [In docx format](./Course_Notes/R_Notes/MAT013AdvanceduseofstatisticalpackagesR.docx)
 
 #### R
 
