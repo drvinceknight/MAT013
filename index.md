@@ -81,6 +81,12 @@
 
 ---
 
+### Data files
+
+All the data files for the course can be found [here](Data/index.html).
+
+---
+
 ### Social Media
 
 - [The MAT013 Google Plus community](http://goo.gl/gJIxl) (you do not need to have a Google Plus account to view).
