@@ -52,7 +52,7 @@
 
 16. Find the tweets from INFORMS.
 
-The relevant data can be found [here](../Data/C5):
+The relevant data can be found [here](../Data/index.html):
 
 - [dogs.csv](../Data/C5/dogs.csv)
 - [cats.csv](../Data/C5/cats.csv)

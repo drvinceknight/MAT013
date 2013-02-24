@@ -35,7 +35,7 @@
 
 17. Output all of the above to a pdf file.
 
-The relevant data can be found [here](../Data/C1+C2):
+The relevant data can be found [here](../Data/index.html):
 
 - [JJJ.csv](../Data/C1+C2/JJJ.csv)
 - [MMM.csv](../Data/C1+C2/MMM.csv)

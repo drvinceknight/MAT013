@@ -22,6 +22,6 @@
 10. Include the above code in a script file that could be run using the source command and re run whenever the above data sets get updated.
 
 
-The relevant data can be found [here](../Data/C4):
+The relevant data can be found [here](../Data/index.html):
 
 - [Files_1-200.zip](../Data/C4/Files_1-200.zip)

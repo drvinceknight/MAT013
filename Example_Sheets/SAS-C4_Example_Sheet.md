@@ -24,6 +24,6 @@
 
 11. Download the files ["File\_1.csv - File\_200.csv"](../Data/C4/Files_1-200.zip) and create a function that automatically imports them.
 
-The relevant data can be found [here](../Data/C4):
+The relevant data can be found [here](../Data/index.html):
 
 - [Files_1-200.zip](../Data/C4/Files_1-200.zip)

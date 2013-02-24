@@ -8,7 +8,7 @@
     2.  Using proc sql, create the previous copies selecting just the variables, Name, Age, Sex, random number, as well as the bmi of the observations.
 
     3.  For the following data set:
-        
+
             Var1, Var2, Var3, Var4, Var5
             A, 1, A, 2, B
             A, 1, A, 2, B
@@ -56,7 +56,7 @@
         $$
         -2x_1-3x_2+2x_3\leq1$$
 
-The relevant data can be found [here](../Data/C5):
+The relevant data can be found [here](../Data/index.html):
 
 - [dogs.csv](../Data/C5/dogs.csv)
 - [cats.csv](../Data/C5/cats.csv)

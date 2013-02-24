@@ -38,7 +38,7 @@
 
 10. Download the file [birthdays.csv](../Data/C3/birthdays.csv) import it and sort the data set by date of birth.
 
-The relevant data can be found [here](../Data/C3):
+The relevant data can be found [here](../Data/index.html):
 
 - [birthday_money.csv](../Data/C3/birthday_money.csv)
 - [birthdays.csv](../Data/C3/birthdays.csv)
