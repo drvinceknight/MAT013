@@ -25,13 +25,14 @@
 <li>Flow control</li>
 <li>Functions</li>
 <li>Handling strings</li>
+<li>Vectorizing</li>
 <li>Memory and scripts</li>
 </ol>
 <p>Chapter 5 - Further Packages</p>
 <ol style="list-style-type: decimal">
 <li>sqldf</li>
-<li>functions</li>
-<li>optimisation</li>
+<li>ggplot2</li>
+<li>twitteR</li>
 </ol>
 <hr />
 <h1 id="chapter-1---introduction">Chapter 1 - Introduction</h1>
@@ -71,7 +72,9 @@
 </ol>
 <p>In practice you will never use the direct input method but let's take a look for completeness (although it is very useful when wanting to quickly test a few things). This will also give us our first experience of the editor window!</p>
 <p>Let us create a data set named <code>first_data_set</code> which will include the following data:</p>
-<p>Name,Age Bob,23 Billy,25</p>
+<pre><code>    Name, Age
+    Bob, 23
+    Billy, 25</code></pre>
 <p>To do so write the following code in the editor window:</p>
 <pre><code>Name &lt;- c(&quot;Bob&quot;,&quot;Billy&quot;)
 Age &lt;- c(23,25)
@@ -315,7 +318,7 @@ aov(GRADE~PROF,data=math)</code></pre>
 <p>The simplest way to produce a histogram in R is to use the &quot;hist&quot; function. The following code gives a histogram for the height of entries in the JJJ data set as shown.</p>
 <pre><code>hist(JJJ$Height.in.Metres)</code></pre>
 <div class="figure">
-<img src="images/image15.png" alt="A Histogram in R" /><p class="caption">A Histogram in R</p>
+<img src="images/image15.png" alt="A histogram in R" /><p class="caption">A histogram in R</p>
 </div>
 <p>The simplest way to produce a scatter plot in R is to use the &quot;plot&quot; function. The following code gives a scatter plot for the height against weight of entries in the JJJ data set as shown.</p>
 <pre><code>plot(JJJ$Weight.in.Kg,JJJ$Height.in.Metres)</code></pre>
@@ -323,7 +326,7 @@ aov(GRADE~PROF,data=math)</code></pre>
 <img src="images/image47.png" alt="A scatter plot in R" /><p class="caption">A scatter plot in R</p>
 </div>
 <p>There are various other ways to obtain similar graphs, as well as change the look and feel of our graphs. We won't go into this here but you are encouraged to look into it (in particular the ggplot package is widely used).</p>
-<p>2.3 Exporting output</p>
+<h2 id="exporting-output">2.3 Exporting output</h2>
 <p>All the non graphical outputs from R are objects, as such they can be output to a file (to be copied into another document if need be) using the write statements of Sections 1.4. However to export graphical output, we use any of the following statements (depending on the output format required):</p>
 <pre><code>pdf(&quot;mygraph.pdf&quot;)
 win.metafile(&quot;mygraph.wmf&quot;)
@@ -449,66 +452,19 @@ MMM_With_BMI</code></pre>
 <div class="figure">
 <img src="images/image18.png" alt="Creating new variables in R using the within statement" /><p class="caption">Creating new variables in R using the within statement</p>
 </div>
-<p>Some of the arithmetic functions available in R are shown in Figures 3.13 and 3.14.</p>
-<p>Symbol</p>
-<p>Definition</p>
-<p>Example</p>
-<p>** or ^</p>
-<p>Exponential</p>
-<p>y=x**3 or y=x^3</p>
-<p>*</p>
-<p>Multiplication</p>
-<p>r=x*y</p>
-<p>/</p>
-<p>Division</p>
-<p>d=x/y</p>
-<p>+</p>
-<p>Addition</p>
-<p>s=x+y</p>
-<p>-</p>
-<p>Subtraction</p>
-<p>t=x-y</p>
-<p>Figure 3.13 Basic arithmetic operations in R</p>
-<p>Symbol</p>
-<p>Definition</p>
-<p>Example</p>
-<p>abs</p>
-<p>Absolute value</p>
-<p>y=abs(x)</p>
-<p>floor</p>
-<p>Integer (takes the integer part of the argument)</p>
-<p>y=floor(x)</p>
-<p>log</p>
-<p>Natural Log</p>
-<p>y=log(x)</p>
-<p>log10</p>
-<p>Log base 10</p>
-<p>y=log10(x)</p>
-<p>round</p>
-<p>Rounds the argument to the nearest specified level</p>
-<p>y=round(x,2)</p>
-<p>sqrt</p>
-<p>Square root</p>
-<p>t=sqrt(x)</p>
-<p>Figure 3.14 Some mathematical functions in R</p>
+<p>Some of the arithmetic functions available in R are shown.</p>
+<div class="figure">
+<img src="images/R_math_operators.png" alt="Basic arithmetic operations in R" /><p class="caption">Basic arithmetic operations in R</p>
+</div>
+<div class="figure">
+<img src="images/R_math_functions.png" alt="Some mathematical functions in R" /><p class="caption">Some mathematical functions in R</p>
+</div>
 <p>We can also do operations on strings, the following code replaces the variable &quot;Sex&quot; with the first character of &quot;Sex&quot; (which gets rid of the Male - M and Female - F issue).</p>
-<p><a href="#"></a><a href="#"></a></p>
 <pre><code>MMM_With_BMI$Sex&lt;-substr(MMM_With_BMI$Sex,1,1)</code></pre>
-<p>Some examples of string functions are shown in Figure 3.15.</p>
-<p><a href="#"></a><a href="#"></a></p>
-<p>Symbol</p>
-<p>Definition</p>
-<p>Example</p>
-<p>substr</p>
-<p>Outputs a substring of length L starting at position N of a string.</p>
-<p>y=substr(string,N,L)</p>
-<p>toupper</p>
-<p>converts a string to upper case</p>
-<p>y=toupper(string)</p>
-<p>tolower</p>
-<p>converts a string to lower case</p>
-<p>y=tolower(string)</p>
-<p>Figure 3.15 Some string functions in R</p>
+<p>Some examples of string functions are shown.</p>
+<div class="figure">
+<img src="images/R_string_functions.png" alt="Some string functions in R" /><p class="caption">Some string functions in R</p>
+</div>
 <p>It's also worth checking the web for other R functions (there is a huge amount of them).</p>
 <h3 id="renaming-variables">Renaming variables</h3>
 <p>To rename variables one can use the &quot;rename&quot; function from the &quot;reshape&quot; library (that can be installed as we have seen in previous section).</p>
@@ -523,7 +479,7 @@ JJJ&lt;-rename(JJJ,c(Sex=&quot;Gender&quot;))</code></pre>
 <div class="figure">
 <img src="images/image25.png" alt="Using the fix environment" /><p class="caption">Using the fix environment</p>
 </div>
-<p>Operations across rows</p>
+<h3 id="operations-across-rows">Operations across rows</h3>
 <p>As discussed previously, the columns of a data frame can be manipulated very easily as they are just vectors. In the next section we will see how to manipulate vectors using flow control statements but we will take a quick look at two functions that allow for quick and easy manipulation across rows.</p>
 <p>We will demonstrate this using the birthday_money.csv data set as shown.</p>
 <div class="figure">
@@ -555,34 +511,10 @@ JJJ&lt;-rename(JJJ,c(Sex=&quot;Gender&quot;))</code></pre>
 </div>
 <p>In this current format if we tried to carry out any mathematical manipulation of the dates we would not succeed. We can however tell R that certain variables are dates. We do this using the &quot;as.dates&quot; function by describing the format our dates are in:</p>
 <pre><code>birthdays$Birthday&lt;-as.Date(birthdays$Birthday,&quot;%d/%m/%Y&quot;)</code></pre>
-<p>The format is indicated using &quot;%x&quot; where &quot;x&quot; is any of the following:</p>
-<p>Symbol</p>
-<p>Meaning</p>
-<p>Example</p>
-<p>d</p>
-<p>Day as a number</p>
-<p>01-31</p>
-<p>a</p>
-<p>Abbreviated weekday</p>
-<p>Mon</p>
-<p>A</p>
-<p>Weekday</p>
-<p>Monday</p>
-<p>m</p>
-<p>Month</p>
-<p>01-12</p>
-<p>b</p>
-<p>Abbreviated month</p>
-<p>Jan</p>
-<p>B</p>
-<p>Month</p>
-<p>January</p>
-<p>y</p>
-<p>2 digit year</p>
-<p>84</p>
-<p>Y</p>
-<p>4 digit year</p>
-<p>1984</p>
+<p>The format is indicated using &quot;%x&quot; where &quot;x&quot; can be of various formats as show.</p>
+<div class="figure">
+<img src="images/R_date_formats.png" alt="Possible formats for x" /><p class="caption">Possible formats for x</p>
+</div>
 <p>We'll now check the structure of our data frame, re-order (using the &quot;order&quot; function - that returns the indices of the elements of a vector in order) our birthdays and calculate the difference between birthdays (using the &quot;diff&quot; function).</p>
 <pre><code>str(birthdays$Birthday)
 order(birthdays$Birthday)
@@ -628,34 +560,10 @@ MMMJJJ[c(&quot;Name&quot;,&quot;Age_group&quot;)]</code></pre>
 <div class="figure">
 <img src="images/image67.png" alt="Creating a new variable in a data set using ifelse" /><p class="caption">Creating a new variable in a data set using ifelse</p>
 </div>
-<p>Figure 4.3 shows some of the comparison operators that can be used in conjunction with 'if' statements.</p>
-<p>Symbol</p>
-<p>Mnemonic</p>
-<p>Definition</p>
-<p>&lt;</p>
-<p>Lt</p>
-<p>Less than</p>
-<p>&lt;=</p>
-<p>Le</p>
-<p>Less than or equal to</p>
-<blockquote>
-
-
-</blockquote>
-<p>Gt</p>
-<p>Greater than</p>
-<blockquote>
-<p>=</p>
-</blockquote>
-<p>Ge</p>
-<p>Greater than or equal to</p>
-<p>==</p>
-<p>Eq</p>
-<p>Logical Equal to</p>
-<p>!=</p>
-<p>Ne</p>
-<p>Not equal to</p>
-<p>Figure 4.3 R Comparison Operators.</p>
+<p>Some of the comparison operators that can be used in conjunction with 'if' statements are shown.</p>
+<div class="figure">
+<img src="images/R_comparison_operators.png" alt="R comparison operators" /><p class="caption">R comparison operators</p>
+</div>
 <p>A further important notion in programming is the notion of loops. There are two types of loops that we will consider:</p>
 <ol style="list-style-type: decimal">
 <li>for</li>
@@ -746,7 +654,7 @@ New.Savings&lt;-JJJ$Savings.in.Pounds-trips*spend
 JJJ_after_shopping&lt;-data.frame(JJJ$Name,Old.Savings=JJJ$Savings.in.Pounds,New.Savings)
 return(JJJ_after_shopping)
 }</code></pre>
-<h2 id="vectorising">4.4 Vectorising</h2>
+<h2 id="vectorising">4.3 Vectorising</h2>
 <p>In general the for loops we have seen can be written in a much more efficient way using function and various forms of the apply function (which apply functions over vectors, lists and matrices):</p>
 <ol style="list-style-type: decimal">
 <li>apply</li>
@@ -781,7 +689,7 @@ sum(x)
 sapply(JJJ$Age,my_sum(1:x))</code></pre>
 <p>Note that there is no need to actually define the function we can refer directly to the function object:</p>
 <pre><code>sapply(JJJ$Age,function(x) sum(1:x))</code></pre>
-<h2 id="handling-strings">4.5 Handling strings</h2>
+<h2 id="handling-strings">4.4 Handling strings</h2>
 <p>SAS is a macro language and philosophically macros allow a user to substitute pieces of text for a variable, and evaluate the result. R is not a macro language and thus does the opposite: evaluates the arguments and then uses the values.</p>
 <p>The paste command allows us to concatenate strings. The following code outputs the string &quot;Hello-World&quot;. Note that we can use any string as a separator (include the empty string &quot;&quot;).</p>
 <pre><code>x&lt;-&quot;Hello&quot;
@@ -812,7 +720,7 @@ shopping(spend,i)
 <div class="figure">
 <img src="images/image40.png" alt="Creating multiple data sets" /><p class="caption">Creating multiple data sets</p>
 </div>
-<p>4.4 Memory and scripts.</p>
+<h2 id="memory-and-scripts.">4.5 Memory and scripts.</h2>
 <p>In this section we will take a brief look at how R handles the &quot;workspace&quot;. If you have already quit R you would have seen the prompt &quot;Save workspace image?&quot;. If you answer &quot;yes&quot; then R saves various things to various files (in the current working directory): 1. .Rdata holds all the objects (data frames, vectors, functions etc...) currently in memory (note that this file is written in an R specific file and so can't be read). 2. .Rhistory holds all the commands used (and so can be recalled).</p>
 <p>Being prompted whether or not to save the workspace is helpful (in my opinion) as you can simply open an R session to try a few things and not save (similar to using the work library in SAS). It is possible to save the workspace image as you go (this is worthwhile in case your system happens to crash):</p>
 <pre><code>save.image()</code></pre>
@@ -826,7 +734,7 @@ print(x*y)</code></pre>
 <p>We then run the script using the following code:</p>
 <pre><code>source(&quot;~/Desktop/first_script.r&quot;)</code></pre>
 <p>Repetitive command that are run often (for example, routine data analysis) can be saved as scripts and called if and when new data is received.</p>
-<h1 id="chapter-5-packages">Chapter 5 Packages</h1>
+<h1 id="chapter-5-further-packages">Chapter 5 Further packages</h1>
 <p>In this chapter we will examine three packages in particular:</p>
 <ol style="list-style-type: decimal">
 <li>sqldf: a package allowing for the use of sql syntax in R</li>
@@ -848,23 +756,12 @@ print(x*y)</code></pre>
 <pre><code>test&lt;-sqldf(&quot;select Name,Age,Sex from MMM&quot;)</code></pre>
 <p>We can also create new variables:</p>
 <pre><code>test&lt;-sqldf(&quot;select Name,Age,Sex,Weight_in_Kg/(power(Height_in_Metres,2)) as bmi from MMM&quot;)</code></pre>
-<p>The following table gives some of the SQL operators:</p>
-<p>abs()</p>
-<p>Gives the absolute value</p>
-<p>ceil()</p>
-<p>Gives the ceiling</p>
-<p>floor()</p>
-<p>Gives the floor</p>
-<p>exp()</p>
-<p>Gives the exponential</p>
-<p>ln()</p>
-<p>Gives the natural log</p>
-<p>mod()</p>
-<p>Performs modulo arithmetic</p>
-<p>power()</p>
-<p>Gives the power.</p>
+<p>Some of the SQL operators are shown.</p>
+<div class="figure">
+<img src="images/SQL_operators_in_R.png" alt="Some SQL operators" /><p class="caption">Some SQL operators</p>
+</div>
 <h3 id="further-sql">Further sql</h3>
-<p>In this section we'll take a look at what else R can do. For the purpose of the following examples let's write a new data set:</p>
+<p>In this section we'll take a look at what else R can do with sql. For the purpose of the following examples let's write a new data set:</p>
 <pre><code>Var1&lt;-c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;C&quot;)
 Var2&lt;-c(1,1,1,2,2)
 Var3&lt;-c(&quot;A&quot;,&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)

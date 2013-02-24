@@ -26,13 +26,14 @@ Chapter 4 - Programming
 1.  Flow control
 2.  Functions
 3.  Handling strings
-4.  Memory and scripts
+4.  Vectorizing
+5.  Memory and scripts
 
 Chapter 5 - Further Packages
 
 1.  sqldf
-2.  functions
-3.  optimisation
+2.  ggplot2
+3.  twitteR
 
 ---
 
@@ -88,9 +89,9 @@ In practice you will never use the direct input method but let's take a look for
 
 Let us create a data set named `first_data_set` which will include the following data:
 
-    Name, Age
-    Bob, 23
-    Billy, 25
+        Name, Age
+        Bob, 23
+        Billy, 25
 
 To do so write the following code in the editor window:
 
@@ -423,7 +424,7 @@ The simplest way to produce a histogram in R is to use the "hist" function. The 
 
     hist(JJJ$Height.in.Metres)
 
-![A Histogram in R](images/image15.png)
+![A histogram in R](images/image15.png)
 
 The simplest way to produce a scatter plot in R is to use the "plot" function. The following code gives a scatter plot for the height against weight of entries in the JJJ data set as shown.
 
@@ -433,7 +434,7 @@ The simplest way to produce a scatter plot in R is to use the "plot" function. T
 
 There are various other ways to obtain similar graphs, as well as change the look and feel of our graphs. We won't go into this here but you are encouraged to look into it (in particular the ggplot package is widely used).
 
-2.3 Exporting output
+## 2.3 Exporting output
 
 All the non graphical outputs from R are objects, as such they can be output to a file (to be copied into another document if need be) using the write statements of Sections 1.4. However to export graphical output, we use any of the following statements (depending on the output format required):
 
@@ -618,130 +619,19 @@ The output is shown:
 
 ![Creating new variables in R using the within statement](images/image18.png)
 
-Some of the arithmetic functions available in R are shown in Figures 3.13 and 3.14.
+Some of the arithmetic functions available in R are shown.
 
+![Basic arithmetic operations in R](images/R_math_operators.png)
 
-Symbol
+![Some mathematical functions in R](images/R_math_functions.png)
 
-Definition
-
-Example
-
-** or ^
-
-Exponential
-
-y=x**3 or y=x^3
-
-*
-
-Multiplication
-
-r=x*y
-
-/
-
-Division
-
-d=x/y
-
-+
-
-Addition
-
-s=x+y
-
--
-
-Subtraction
-
-t=x-y
-
-Figure 3.13 Basic arithmetic operations in R
-
-
-Symbol
-
-Definition
-
-Example
-
-abs
-
-Absolute value
-
-y=abs(x)
-
-floor
-
-Integer (takes the integer part of the argument)
-
-y=floor(x)
-
-log
-
-Natural Log
-
-y=log(x)
-
-log10
-
-Log base 10
-
-y=log10(x)
-
-round
-
-Rounds the argument to the nearest specified level
-
-y=round(x,2)
-
-sqrt
-
-Square root
-
-t=sqrt(x)
-
-Figure 3.14 Some mathematical functions in R
-
-We can also do operations on strings, the following code replaces the
-variable "Sex" with the first character of "Sex" (which gets rid of the
-Male - M and Female - F issue).
-
-[](#)[](#)
+We can also do operations on strings, the following code replaces the variable "Sex" with the first character of "Sex" (which gets rid of the Male - M and Female - F issue).
 
     MMM_With_BMI$Sex<-substr(MMM_With_BMI$Sex,1,1)
 
+Some examples of string functions are shown.
 
-Some examples of string functions are shown in Figure 3.15.
-
-[](#)[](#)
-
-Symbol
-
-Definition
-
-Example
-
-substr
-
-Outputs a substring of length L starting at position N of a string.
-
-y=substr(string,N,L)
-
-toupper
-
-converts a string to upper case
-
-y=toupper(string)
-
-tolower
-
-converts a string to lower case
-
-y=tolower(string)
-
-Figure 3.15 Some string functions in R
+![Some string functions in R](images/R_string_functions.png)
 
 It's also worth checking the web for other R functions (there is a huge amount of them).
 
@@ -762,7 +652,7 @@ Another option is to use the "fix" function that opens the dataset in a GUI that
 
 ![Using the fix environment](images/image25.png)
 
-Operations across rows
+### Operations across rows
 
 As discussed previously, the columns of a data frame can be manipulated very easily as they are just vectors. In the next section we will see how to manipulate vectors using flow control statements but we will take a quick look at two functions that allow for quick and easy manipulation across rows.
 
@@ -806,62 +696,9 @@ In this current format if we tried to carry out any mathematical manipulation of
 
     birthdays$Birthday<-as.Date(birthdays$Birthday,"%d/%m/%Y")
 
-The format is indicated using "%x" where "x" is any of the following:
+The format is indicated using "%x" where "x" can be of various formats as show.
 
-
-Symbol
-
-Meaning
-
-Example
-
-d
-
-Day as a number
-
-01-31
-
-a
-
-Abbreviated weekday
-
-Mon
-
-A
-
-Weekday
-
-Monday
-
-m
-
-Month
-
-01-12
-
-b
-
-Abbreviated month
-
-Jan
-
-B
-
-Month
-
-January
-
-y
-
-2 digit year
-
-84
-
-Y
-
-4 digit year
-
-1984
+![Possible formats for x](images/R_date_formats.png)
 
 We'll now check the structure of our data frame, re-order (using the "order" function - that returns the indices of the elements of a vector in order) our birthdays and calculate the difference between birthdays (using the "diff" function).
 
@@ -930,51 +767,9 @@ The output is shown.
 
 ![Creating a new variable in a data set using ifelse](images/image67.png)
 
-Figure 4.3 shows some of the comparison operators that can be used in conjunction with 'if' statements.
+Some of the comparison operators that can be used in conjunction with 'if' statements are shown.
 
-Symbol
-
-Mnemonic
-
-Definition
-
-<
-
-Lt
-
-Less than
-
-<=
-
-Le
-
-Less than or equal to
-
->
-
-Gt
-
-Greater than
-
->=
-
-Ge
-
-Greater than or equal to
-
-==
-
-Eq
-
-Logical Equal to
-
-!=
-
-Ne
-
-Not equal to
-
-Figure 4.3 R Comparison Operators.
+![R comparison operators](images/R_comparison_operators.png)
 
 A further important notion in programming is the notion of loops. There are two types of loops that we will consider:
 
@@ -1093,7 +888,7 @@ It's also possible to set certain values as defaults:
     return(JJJ_after_shopping)
     }
 
-## 4.4 Vectorising
+## 4.3 Vectorising
 
 In general the for loops we have seen can be written in a much more efficient way using function and various forms of the apply function (which apply functions over vectors, lists and matrices):
 
@@ -1149,7 +944,7 @@ Note that there is no need to actually define the function we can refer directly
 
     sapply(JJJ$Age,function(x) sum(1:x))
 
-## 4.5 Handling strings
+## 4.4 Handling strings
 
 SAS is a macro language and philosophically macros allow a user to substitute pieces of text for a variable, and evaluate the result. R is not a macro language and thus does the opposite: evaluates the arguments and then uses the values.
 
@@ -1189,7 +984,7 @@ Note the extra option that has been passed to the "assign" command "envir=.Globa
 
 ![Creating multiple data sets](images/image40.png)
 
-4.4 Memory and scripts.
+## 4.5 Memory and scripts.
 
 In this section we will take a brief look at how R handles the "workspace". If you have already quit R you would have seen the prompt "Save workspace image?". If you answer "yes" then R saves various things to various files (in the current working directory): 1.  .Rdata holds all the objects (data frames, vectors, functions etc...) currently in memory (note that this file is written in an R specific file and so can't be read).  2.  .Rhistory holds all the commands used (and so can be recalled).
 
@@ -1216,7 +1011,7 @@ We then run the script using the following code:
 Repetitive command that are run often (for example, routine data analysis) can be saved as scripts and called if and when new data is received.
 
 
-# Chapter 5 Packages
+# Chapter 5 Further packages
 
 
 In this chapter we will examine three packages in particular:
@@ -1249,40 +1044,13 @@ We can also create new variables:
 
     test<-sqldf("select Name,Age,Sex,Weight_in_Kg/(power(Height_in_Metres,2)) as bmi from MMM")
 
-The following table gives some of the SQL operators:
+Some of the SQL operators are shown.
 
-
-abs()
-
-Gives the absolute value
-
-ceil()
-
-Gives the ceiling
-
-floor()
-
-Gives the floor
-
-exp()
-
-Gives the exponential
-
-ln()
-
-Gives the natural log
-
-mod()
-
-Performs modulo arithmetic
-
-power()
-
-Gives the power.
+![Some SQL operators](images/SQL_operators_in_R.png)
 
 ### Further sql
 
-In this section we'll take a look at what else R can do. For the purpose of the following examples let's write a new data set:
+In this section we'll take a look at what else R can do with sql. For the purpose of the following examples let's write a new data set:
 
     Var1<-c("A","A","B","C","C")
     Var2<-c(1,1,1,2,2)
