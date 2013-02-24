@@ -673,7 +673,7 @@ This can also be used in the set data set:
     set mat008.JJJ(rename=(sex=gender));
     run;
 
-Operations across rows
+### Operations across rows
 
 We have seen in previous sections how to create new variables for any given observation (i.e. across columns of a data set). In this section we see how to create variables across rows. Recalling how the program data vector works, this implies that we must find a way to keep certain entries in the pdv for future calculation.
 
