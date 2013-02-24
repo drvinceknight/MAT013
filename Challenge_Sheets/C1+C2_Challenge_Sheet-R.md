@@ -1,7 +1,7 @@
 #MAT013 - R: C1+C2 - Challenge Sheet
 ##Introduction and Basic Statistics Challenge
 
-The datafile [Stock_Report.csv](https://dl.dropbox.com/s/4ausy07y5d7ptph/Stock_Report.csv?dl=1) contains data on the stock for a supermarket. There are 4 variables:
+The datafile [Stock_Report.csv](../Data/C1+C2/Stock_Report.csv) contains data on the stock for a supermarket. There are 4 variables:
 
 - The department of the product
 - The name of the product
