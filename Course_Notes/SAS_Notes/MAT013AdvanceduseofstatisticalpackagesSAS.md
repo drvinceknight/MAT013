@@ -115,12 +115,12 @@ An important thing to remember is that a SAS statement always ends with a ";". F
 
 ![A short program to directly input data in to SAS.](images/image60.png)
 
-We run this code by highlighting it and pressing the 'running man', clicking on run (or pressing F8 on Windows). It is good practice to always check the log window as soon as any code is run. In Figure 1.6 we see that the log looks good (lines 1-7 don't show any errors) and simply gives some details as to the running of the program.
+We run this code by highlighting it and pressing the 'running man', clicking on run (or pressing F8 on Windows). It is good practice to always check the log window as soon as any code is run. In the screenshot we see that the log looks good (lines 1-7 don't show any errors) and simply gives some details as to the running of the program.
 
 ![A short program to directly input data in to SAS.](images/image35.png)
 
 
-If we now look at the MAT008 library in the explorer pane we can see the new data set is in there (Figure 1.7), double clicking on the data set opens it up (Figure 1.8).
+If we now look at the MAT008 library in the explorer pane we can see the new data set is in there, double clicking on the data set opens it up.
 
 ![The explorer pane with our first data set.](images/image26.png)
 
@@ -128,7 +128,7 @@ If we now look at the MAT008 library in the explorer pane we can see the new dat
 
 Using direct input is of course not at all realistic when trying to import larger data sets.
 
-Often large data sets will be saved in comma-separated values (csv) format which can be read by most (all?) software. We will import the data set shown in Figure 1.9 (here viewed in a simple text editor).
+Often large data sets will be saved in comma-separated values (csv) format which can be read by most (all?) software. We will import the data set shown (here viewed in a simple text editor).
 
 ![The JJJ.csv data set](images/image13.png)
 
@@ -152,7 +152,7 @@ Let's take a look at the screenshot shown. We again see that the program editor 
 
 ![A short program to import a csv file in to SAS.](images/image62.png)
 
-Running the code in the same way as before (highlighting and F8) will create the required datafile as shown in Figures 1.11 and 1.12.
+Running the code in the same way as before (highlighting and F8) will create the required datafile as shown.
 
 ![The explorer pane with our JJJ data set.](images/image05.png)
 
@@ -524,7 +524,7 @@ The following code simply creates a data set in the work library called "J" that
     set mat008.jjj\
     run;
 
-To concatenate two data sets (as shown pictorially in Figure 3.1) we use the following syntax:
+To concatenate two data sets (as shown pictorially) we use the following syntax:
 
 
     data [New Data Set];
@@ -614,91 +614,9 @@ Creating new variables using various arithmetic and/or string relationships is r
 
 Some of the arithmetic functions are shown.
 
-[](#)[](#)
+![Basic arithmetic operations in SAS](images/SAS_math_operators.png)
 
-Symbol
-
-Definition
-
-Example
-
-\---\---
-
-Exponential
-
-y=x\---\---3
-
-\---
-
-Multiplication
-
-r=x\---y
-
-/
-
-Division
-
-d=x/y
-
-+
-
-Addition
-
-s=x+y
-
--
-
-Subtraction
-
-t=x-y
-
-Figure 3.9 Basic arithmetic operations in SAS
-
-[](#)[](#)
-
-Function
-
-Definition
-
-Example
-
-Abs
-
-Absolute value
-
-abs(x)
-
-Int
-
-Integer (takes the integer part of the argument)
-
-int(x)
-
-Log
-
-Natural log
-
-log(x)
-
-Log10
-
-Log base 10
-
-log10(x)
-
-Round
-
-Rounds the argument to the nearest specified level
-
-round(x,.01)
-
-Sqrt
-
-Square root
-
-sqrt(x)
-
-Figure 3.10 Some mathematical function in SAS
+![Some mathematical functions in SAS](images/SAS_math_functions.png)
 
 We can also do operations on strings, the following code replaces the variable "Sex" with the first entry of "Sex" (which gets rid of the Male - M and Female - F issue).
 
@@ -707,45 +625,7 @@ We can also do operations on strings, the following code replaces the variable "
     sex=substr(sex,1,1);
     run;
 
-Some examples of string functions are shown.
-
-Function
-
-Definition
-
-Example
-
-Substr
-
-Outputs a substring of length L at starting position N of a string
-
-substr(string, N,L)
-
-Upcase
-
-Converts a string to upper case
-
-upcase(string)
-
-Lowcase
-
-Converts a string to lower case
-
-lowcase(string)
-
-Trim
-
-Removes only trailing blanks from a string
-
-trim(string)
-
-Index
-
-Return 0 or a starting position of substring in given string
-
-index(string,substring)
-
-Figure 3.11 Some string function in SAS
+![Some string functions in SAS](images/SAS_string_functions.png)
 
 It's worth checking the web for a full list of various SAS functions (there are a huge amount of them).
 
@@ -890,7 +770,7 @@ A huge part of programming (in any language) is the use of so called "conditiona
     data age_group(keep= name age_group);
     set mat008.mmmjjj;
     if age<30 then age_group='young';
-      else age_group='old';
+        else age_group='old';
     run;
 
 We can also use this in conjunction with the else if statement as shown
@@ -899,8 +779,8 @@ below:
     data age_group(keep= name age_group);
     set mat008.mmmjjj;
     if age<18 then age_group='child';
-      else if age<30 then age_group='young';
-        else age_group='old';
+        else if age<30 then age_group='young';
+            else age_group='old';
     run;
 
 Note that we can also compare strings as shown with the following code:
@@ -908,10 +788,10 @@ Note that we can also compare strings as shown with the following code:
     data age_group(keep= name age_group);
     set mat008.mmmjjj;
     if age<18 then age_group='child';
-      else if age<30 then age_group='young';
-        else age_group='old';
+        else if age<30 then age_group='young';
+            else age_group='old';
     if substr(Name,1,1)='J ' then data_set='JJJ';
-      else data_set='MMM';
+        else data_set='MMM';
     run;
 
 Here are some of the comparison operators that can be used in conjunction with 'if' statements.
@@ -1120,7 +1000,7 @@ The important thing to note here is that a double ampersand "&&" is a token in i
 
 ## 4.3 SAS Macro programming statements
 
-The 'if' statements and 'do' loops of section 3 work in a very similar way to if statements and do loops within macros. The only modification is that these can be evaluated within the macro compiler before the entire submitted code is resolved. For this to work we need to use the "%if", "%then" and "%else" statements when evaluating a conditional statement on a macro variable. The following code is an example of this:
+The 'if' statements and 'do' loops discussed previously work in a very similar way to if statements and do loops within macros. The only modification is that these can be evaluated within the macro compiler before the entire submitted code is resolved. For this to work we need to use the "%if", "%then" and "%else" statements when evaluating a conditional statement on a macro variable. The following code is an example of this:
 
     %macro shopping(spend,trips);
     data JJJ_after_shopping(keep= Name Old_savings New_savings);
@@ -1237,8 +1117,13 @@ There are a large number of macro functions and it's worth looking around if you
 # Chapter 5 Further procs
 
 ---
+In this chapter we will examine three particular procedures in SAS.
 
-## SQL
+1. proc sql: a procedure allowing for the use of sql syntax in SAS;
+2. proc fcmp: a procedure allowing for the creation of custom functions;
+3. proc optmodel: a package that allows for optimisation in SAS.
+
+## 5.1 Proc sql
 
 ### Basic SQL
 
@@ -1432,7 +1317,7 @@ The following code carries out a full outer join, the output of which is shown.
 
 ![The output of a fullouter join.](images/image33.png)
 
-## 5.1 Functions
+## 5.2 Proc fcmp
 
 In previous chapters we have seen various in built functions in SAS. For various reasons it might be required to create a custom function. We will do this with the "fcmp" procedure. This procedure allows us to create custom functions using data step syntax (which allows for "if" and "do" statements to be used). The following code creates a function called "ln" that gives the natural log of a number:
 

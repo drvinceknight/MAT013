@@ -1010,9 +1010,11 @@ We then run the script using the following code:
 
 Repetitive command that are run often (for example, routine data analysis) can be saved as scripts and called if and when new data is received.
 
+---
 
 # Chapter 5 Further packages
 
+---
 
 In this chapter we will examine three packages in particular:
 
@@ -1021,6 +1023,8 @@ In this chapter we will examine three packages in particular:
 3. twitteR: a package that allows for the data mining of twitter
 
 ## 5.1 sqldf
+
+### Basic SQL
 
 SQL is a language designed for querying and modifying databases. Used by a variety of database management software suites:
 

@@ -101,11 +101,11 @@ run;</code></pre>
 <div class="figure">
 <img src="images/image60.png" alt="A short program to directly input data in to SAS." /><p class="caption">A short program to directly input data in to SAS.</p>
 </div>
-<p>We run this code by highlighting it and pressing the 'running man', clicking on run (or pressing F8 on Windows). It is good practice to always check the log window as soon as any code is run. In Figure 1.6 we see that the log looks good (lines 1-7 don't show any errors) and simply gives some details as to the running of the program.</p>
+<p>We run this code by highlighting it and pressing the 'running man', clicking on run (or pressing F8 on Windows). It is good practice to always check the log window as soon as any code is run. In the screenshot we see that the log looks good (lines 1-7 don't show any errors) and simply gives some details as to the running of the program.</p>
 <div class="figure">
 <img src="images/image35.png" alt="A short program to directly input data in to SAS." /><p class="caption">A short program to directly input data in to SAS.</p>
 </div>
-<p>If we now look at the MAT008 library in the explorer pane we can see the new data set is in there (Figure 1.7), double clicking on the data set opens it up (Figure 1.8).</p>
+<p>If we now look at the MAT008 library in the explorer pane we can see the new data set is in there, double clicking on the data set opens it up.</p>
 <div class="figure">
 <img src="images/image26.png" alt="The explorer pane with our first data set." /><p class="caption">The explorer pane with our first data set.</p>
 </div>
@@ -113,7 +113,7 @@ run;</code></pre>
 <img src="images/image42.png" alt="Viewing our first data set." /><p class="caption">Viewing our first data set.</p>
 </div>
 <p>Using direct input is of course not at all realistic when trying to import larger data sets.</p>
-<p>Often large data sets will be saved in comma-separated values (csv) format which can be read by most (all?) software. We will import the data set shown in Figure 1.9 (here viewed in a simple text editor).</p>
+<p>Often large data sets will be saved in comma-separated values (csv) format which can be read by most (all?) software. We will import the data set shown (here viewed in a simple text editor).</p>
 <div class="figure">
 <img src="images/image13.png" alt="The JJJ.csv data set" /><p class="caption">The JJJ.csv data set</p>
 </div>
@@ -136,7 +136,7 @@ run;</code></pre>
 <div class="figure">
 <img src="images/image62.png" alt="A short program to import a csv file in to SAS." /><p class="caption">A short program to import a csv file in to SAS.</p>
 </div>
-<p>Running the code in the same way as before (highlighting and F8) will create the required datafile as shown in Figures 1.11 and 1.12.</p>
+<p>Running the code in the same way as before (highlighting and F8) will create the required datafile as shown.</p>
 <div class="figure">
 <img src="images/image05.png" alt="The explorer pane with our JJJ data set." /><p class="caption">The explorer pane with our JJJ data set.</p>
 </div>
@@ -433,7 +433,7 @@ ods rtf close;</code></pre>
 <pre><code>data j;
 set mat008.jjj\
 run;</code></pre>
-<p>To concatenate two data sets (as shown pictorially in Figure 3.1) we use the following syntax:</p>
+<p>To concatenate two data sets (as shown pictorially) we use the following syntax:</p>
 <pre><code>data [New Data Set];
 set A B;
 run;</code></pre>
@@ -511,74 +511,20 @@ set mat008.MMM;
 bmi=weight_in_kg/(height_in_metres**2);
 run;</code></pre>
 <p>Some of the arithmetic functions are shown.</p>
-<p><a href="#"></a><a href="#"></a></p>
-<p>Symbol</p>
-<p>Definition</p>
-<p>Example</p>
-<p>------</p>
-<p>Exponential</p>
-<p>y=x------3</p>
-<p>---</p>
-<p>Multiplication</p>
-<p>r=x---y</p>
-<p>/</p>
-<p>Division</p>
-<p>d=x/y</p>
-<p>+</p>
-<p>Addition</p>
-<p>s=x+y</p>
-<p>-</p>
-<p>Subtraction</p>
-<p>t=x-y</p>
-<p>Figure 3.9 Basic arithmetic operations in SAS</p>
-<p><a href="#"></a><a href="#"></a></p>
-<p>Function</p>
-<p>Definition</p>
-<p>Example</p>
-<p>Abs</p>
-<p>Absolute value</p>
-<p>abs(x)</p>
-<p>Int</p>
-<p>Integer (takes the integer part of the argument)</p>
-<p>int(x)</p>
-<p>Log</p>
-<p>Natural log</p>
-<p>log(x)</p>
-<p>Log10</p>
-<p>Log base 10</p>
-<p>log10(x)</p>
-<p>Round</p>
-<p>Rounds the argument to the nearest specified level</p>
-<p>round(x,.01)</p>
-<p>Sqrt</p>
-<p>Square root</p>
-<p>sqrt(x)</p>
-<p>Figure 3.10 Some mathematical function in SAS</p>
+<div class="figure">
+<img src="images/SAS_math_operators.png" alt="Basic arithmetic operations in SAS" /><p class="caption">Basic arithmetic operations in SAS</p>
+</div>
+<div class="figure">
+<img src="images/SAS_math_functions.png" alt="Some mathematical functions in SAS" /><p class="caption">Some mathematical functions in SAS</p>
+</div>
 <p>We can also do operations on strings, the following code replaces the variable &quot;Sex&quot; with the first entry of &quot;Sex&quot; (which gets rid of the Male - M and Female - F issue).</p>
 <pre><code>data mat008.MMM_with_BMI;
 set mat008.MMM;
 sex=substr(sex,1,1);
 run;</code></pre>
-<p>Some examples of string functions are shown.</p>
-<p>Function</p>
-<p>Definition</p>
-<p>Example</p>
-<p>Substr</p>
-<p>Outputs a substring of length L at starting position N of a string</p>
-<p>substr(string, N,L)</p>
-<p>Upcase</p>
-<p>Converts a string to upper case</p>
-<p>upcase(string)</p>
-<p>Lowcase</p>
-<p>Converts a string to lower case</p>
-<p>lowcase(string)</p>
-<p>Trim</p>
-<p>Removes only trailing blanks from a string</p>
-<p>trim(string)</p>
-<p>Index</p>
-<p>Return 0 or a starting position of substring in given string</p>
-<p>index(string,substring)</p>
-<p>Figure 3.11 Some string function in SAS</p>
+<div class="figure">
+<img src="images/SAS_string_functions.png" alt="Some string functions in SAS" /><p class="caption">Some string functions in SAS</p>
+</div>
 <p>It's worth checking the web for a full list of various SAS functions (there are a huge amount of them).</p>
 <h3 id="dropping-and-keeping-variables.">Dropping and keeping variables.</h3>
 <p>In this section we'll take a quick look at two simple ways of improving the efficiency of a data step. Recalling how SAS handles a data step (using the pdv as described in the previous section), one immediate way of improving efficiency is to ensure that the pdv only &quot;transports&quot; the variables we require. We do this with the &quot;drop&quot; or &quot;keep&quot; statement.</p>
@@ -686,23 +632,23 @@ run;</code></pre>
 <pre><code>data age_group(keep= name age_group);
 set mat008.mmmjjj;
 if age&lt;30 then age_group=&#39;young&#39;;
-  else age_group=&#39;old&#39;;
+    else age_group=&#39;old&#39;;
 run;</code></pre>
 <p>We can also use this in conjunction with the else if statement as shown below:</p>
 <pre><code>data age_group(keep= name age_group);
 set mat008.mmmjjj;
 if age&lt;18 then age_group=&#39;child&#39;;
-  else if age&lt;30 then age_group=&#39;young&#39;;
-    else age_group=&#39;old&#39;;
+    else if age&lt;30 then age_group=&#39;young&#39;;
+        else age_group=&#39;old&#39;;
 run;</code></pre>
 <p>Note that we can also compare strings as shown with the following code:</p>
 <pre><code>data age_group(keep= name age_group);
 set mat008.mmmjjj;
 if age&lt;18 then age_group=&#39;child&#39;;
-  else if age&lt;30 then age_group=&#39;young&#39;;
-    else age_group=&#39;old&#39;;
+    else if age&lt;30 then age_group=&#39;young&#39;;
+        else age_group=&#39;old&#39;;
 if substr(Name,1,1)=&#39;J &#39; then data_set=&#39;JJJ&#39;;
-  else data_set=&#39;MMM&#39;;
+    else data_set=&#39;MMM&#39;;
 run;</code></pre>
 <p>Here are some of the comparison operators that can be used in conjunction with 'if' statements.</p>
 <div class="figure">
@@ -868,7 +814,7 @@ run;
 <img src="images/image43.png" alt="Understanding multiple ampersands" /><p class="caption">Understanding multiple ampersands</p>
 </div>
 <h2 id="sas-macro-programming-statements">4.3 SAS Macro programming statements</h2>
-<p>The 'if' statements and 'do' loops of section 3 work in a very similar way to if statements and do loops within macros. The only modification is that these can be evaluated within the macro compiler before the entire submitted code is resolved. For this to work we need to use the &quot;%if&quot;, &quot;%then&quot; and &quot;%else&quot; statements when evaluating a conditional statement on a macro variable. The following code is an example of this:</p>
+<p>The 'if' statements and 'do' loops discussed previously work in a very similar way to if statements and do loops within macros. The only modification is that these can be evaluated within the macro compiler before the entire submitted code is resolved. For this to work we need to use the &quot;%if&quot;, &quot;%then&quot; and &quot;%else&quot; statements when evaluating a conditional statement on a macro variable. The following code is an example of this:</p>
 <pre><code>%macro shopping(spend,trips);
 data JJJ_after_shopping(keep= Name Old_savings New_savings);
 set mat008.jjj;
@@ -968,7 +914,13 @@ run;
 <hr />
 <h1 id="chapter-5-further-procs">Chapter 5 Further procs</h1>
 <hr />
-<h2 id="sql">SQL</h2>
+<p>In this chapter we will examine three particular procedures in SAS.</p>
+<ol style="list-style-type: decimal">
+<li>proc sql: a procedure allowing for the use of sql syntax in SAS;</li>
+<li>proc fcmp: a procedure allowing for the creation of custom functions;</li>
+<li>proc optmodel: a package that allows for optimisation in SAS.</li>
+</ol>
+<h2 id="proc-sql">5.1 Proc sql</h2>
 <h3 id="basic-sql">Basic SQL</h3>
 <p>SQL is a language designed for querying and modifying databases. Used by a variety of database management software suites:</p>
 <ol style="list-style-type: decimal">
@@ -1137,7 +1089,7 @@ quit;</code></pre>
 <div class="figure">
 <img src="images/image33.png" alt="The output of a fullouter join." /><p class="caption">The output of a fullouter join.</p>
 </div>
-<h2 id="functions">5.1 Functions</h2>
+<h2 id="proc-fcmp">5.2 Proc fcmp</h2>
 <p>In previous chapters we have seen various in built functions in SAS. For various reasons it might be required to create a custom function. We will do this with the &quot;fcmp&quot; procedure. This procedure allows us to create custom functions using data step syntax (which allows for &quot;if&quot; and &quot;do&quot; statements to be used). The following code creates a function called &quot;ln&quot; that gives the natural log of a number:</p>
 <pre><code>proc fcmp outlib=sasuser.funcs.ln;
 function ln(x);
