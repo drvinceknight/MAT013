@@ -31,8 +31,9 @@
 
 ### Screencasts
 
-- [SAS](http://www.youtube.com/playlist?list=PL9DDCFAE7B2254C93)
-- R
+- SAS (view them on Youtube [here](http://www.youtube.com/watch?v=H3FZlbsNBT8&feature=share&list=PLnC5h3PY-znzFmH5llx3Hp4ufKsnwvJqy))
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/H3FZlbsNBT8?list=PLnC5h3PY-znzFmH5llx3Hp4ufKsnwvJqy" frameborder="0" allowfullscreen></iframe>
 
 ---
 
