@@ -9,7 +9,6 @@
     2. The first $k$ odd numbers.
     3. The square root of the first $k$ integers.
     4. The square root of the first $k$ integers, selecting only those that are integers.
-    5. The first $k$ prime numbers (this is harder).
 
 2. Write code that creates a data set with the mean of a given variable for a given data set. Experiment on the JJJ and MMM datasets.
 
