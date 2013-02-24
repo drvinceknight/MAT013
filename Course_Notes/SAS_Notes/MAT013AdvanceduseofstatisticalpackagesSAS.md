@@ -580,7 +580,7 @@ The following code selects only the elements of the above data set that start wi
     where substr(Name,1,1)="D";
     run;
 
-The result is shown in (note that the above code makes use of the "substr" function that we will see in section 3.3).
+The result is shown in (note that the above code makes use of the "substr" function that we will see later).
 
 ![Elements of the Dwarfs data set starting with "D".](images/image45.png)
 
@@ -631,7 +631,7 @@ It's worth checking the web for a full list of various SAS functions (there are 
 
 ### Dropping and keeping variables.
 
-In this section we'll take a quick look at two simple ways of improving the efficiency of a data step. Recalling how SAS handles a data step (using the pdv as described in the previous section), one immediate way of improving efficiency is to ensure that the pdv only "transports" the variables we require. We do this with the "drop" or "keep" statement.
+In this section we'll take a quick look at two simple ways of improving the efficiency of a data step. Recalling how SAS handles a data step (using the pdv as described previously), one immediate way of improving efficiency is to ensure that the pdv only "transports" the variables we require. We do this with the "drop" or "keep" statement.
 
 Let us consider the previous example and assume that we want our MMM_with_BMI data set without the weight and height variables. We use a "drop" statement to get rid of those variables:
 

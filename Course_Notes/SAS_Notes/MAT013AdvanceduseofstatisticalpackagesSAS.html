@@ -481,7 +481,7 @@ run;</code></pre>
 set Dwarfs;
 where substr(Name,1,1)=&quot;D&quot;;
 run;</code></pre>
-<p>The result is shown in (note that the above code makes use of the &quot;substr&quot; function that we will see in section 3.3).</p>
+<p>The result is shown in (note that the above code makes use of the &quot;substr&quot; function that we will see later).</p>
 <div class="figure">
 <img src="images/image45.png" alt="Elements of the Dwarfs data set starting with &quot;D&quot;." /><p class="caption">Elements of the Dwarfs data set starting with &quot;D&quot;.</p>
 </div>
@@ -527,7 +527,7 @@ run;</code></pre>
 </div>
 <p>It's worth checking the web for a full list of various SAS functions (there are a huge amount of them).</p>
 <h3 id="dropping-and-keeping-variables.">Dropping and keeping variables.</h3>
-<p>In this section we'll take a quick look at two simple ways of improving the efficiency of a data step. Recalling how SAS handles a data step (using the pdv as described in the previous section), one immediate way of improving efficiency is to ensure that the pdv only &quot;transports&quot; the variables we require. We do this with the &quot;drop&quot; or &quot;keep&quot; statement.</p>
+<p>In this section we'll take a quick look at two simple ways of improving the efficiency of a data step. Recalling how SAS handles a data step (using the pdv as described previously), one immediate way of improving efficiency is to ensure that the pdv only &quot;transports&quot; the variables we require. We do this with the &quot;drop&quot; or &quot;keep&quot; statement.</p>
 <p>Let us consider the previous example and assume that we want our MMM_with_BMI data set without the weight and height variables. We use a &quot;drop&quot; statement to get rid of those variables:</p>
 <pre><code>data mat008.MMM_with_BMI_nhw(drop=weight_in_kg height_in_metres);
 set mat008.MMM;
