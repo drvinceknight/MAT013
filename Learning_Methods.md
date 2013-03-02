@@ -69,11 +69,11 @@ Which strategy seems to be the best?
 
 #Group work "issues"
 
-A lot of literature on the subject:
+- A lot of literature on the subject:
 
-- Papers
-- Papers
-- Papers
+Lejk, M., Wyvill, M., & Farrow, S. (1996). A Survey of Methods of Deriving Individual Grades from Group Assessments. Assessment & Evaluation in Higher Education, 21(3).
+
+- We will use a game theoretical approach.
 
 #Summary
 
