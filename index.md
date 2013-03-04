@@ -21,11 +21,15 @@
 - [In pdf format](./Course_Notes/R_Notes/MAT013AdvanceduseofstatisticalpackagesR.pdf)
 - [In docx format](./Course_Notes/R_Notes/MAT013AdvanceduseofstatisticalpackagesR.docx)
 
+A basic (no images and unformatted) version of the notes is available docs [here](https://docs.google.com/document/d/1PbCkaLtMEOweHI2jPpgRBwYZrzMoLN0vY3oNyYaIB38/edit?usp=sharing). It is editable by anyone who would like to so please feel free to improve and/or modify them (you don't need to sign up to anything).
+
 #### R
 
 - [In html format (recommended)](./Course_Notes/R_Notes/MAT013AdvanceduseofstatisticalpackagesR.html)
 - [In pdf format](./Course_Notes/R_Notes/MAT013AdvanceduseofstatisticalpackagesR.pdf)
 - [In docx format](./Course_Notes/R_Notes/MAT013AdvanceduseofstatisticalpackagesR.docx)
+
+A basic (no images and unformatted) version of the notes is available [here](https://docs.google.com/document/d/1gZHJ3X9sz0JG_4qAmK0RFHOO6E1pCKcX_wAq-K1EO7U/edit?usp=sharing). It is editable by anyone who would like to so please feel free to improve and/or modify them (you don't need to sign up to anything).
 
 ---
 
