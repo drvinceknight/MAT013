@@ -31,9 +31,13 @@
 
 ### Screencasts
 
-- SAS (view them on YouTube [here](http://www.youtube.com/watch?v=H3FZlbsNBT8&feature=share&list=PLnC5h3PY-znzFmH5llx3Hp4ufKsnwvJqy)):
+- SAS (view the entire playlist on YouTube [here](http://www.youtube.com/watch?v=H3FZlbsNBT8&feature=share&list=PLnC5h3PY-znzFmH5llx3Hp4ufKsnwvJqy)):
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/H3FZlbsNBT8?list=PLnC5h3PY-znzFmH5llx3Hp4ufKsnwvJqy" frameborder="0" allowfullscreen></iframe>
+
+- R (view the entire playlist on YouTube [here](http://www.youtube.com/playlist?list=PLnC5h3PY-zny76REn9WEQgRFkxnVzQAbx)):
+
+<iframe width="560" height="310" src="http://www.youtube.com/embed/videoseries?list=PLnC5h3PY-zny76REn9WEQgRFkxnVzQAbx" frameborder="0" allowfullscreen></iframe>
 
 ---
 
