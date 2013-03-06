@@ -53,7 +53,7 @@
 5. The probability that an $M/M/k$ queue is empty is given by the following formulae:
 $$\pi_0=\frac{1}{\sum_{i=0}^{k-1}\frac{(\lambda/\mu)^i}{i!}+\frac{(\lambda/\mu)^k}{k!(1-\lambda/(k\mu))}}$$
 
-Use a SAS datastep to obtain $\pi_0$ for $\lambda\in\{.1,.5,.7,.9\}$, $k=3$ and $\mu=1$.
+Obtain $\pi_0$ for $\lambda\in\{.1,.5,.7,.9\}$, $k=3$ and $\mu=1$.
 
 6. Download the data set [marks.csv](../Data/marks.csv)
 
