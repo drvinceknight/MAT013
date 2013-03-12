@@ -15,7 +15,4 @@
     3. Are there any non numeric variables? If so, obtain frequency tables and a pie chart on all the non numeric variables.
     4. Is there a correlation between any of the variables?
 
-3. Download the file [migration.csv](../Data/C1+C2/migration.csv)
-
-    1. Find some information on indexing of data frames.
-    2. Output a table of summary statistics for the migration data where the variable mass is less than 24.
+3. Download the file [migration.csv](../Data/C1+C2/migration.csv). Output a table of summary statistics for the migration data where the variable mass is less than 24 (you might need to do look up a few things).
