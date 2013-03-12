@@ -134,11 +134,11 @@ Often large data sets will be saved in comma-separated values (csv) format which
 
 We will import this data set in to the MAT008 library and call it JJJ using the following code:
 
-    proc import datafile="\~/JJJ.csv"\
-        out=mat008.JJJ\
-        dbms=csv\
-        replace;\
-        getnames=yes;\
+    proc import datafile="~/JJJ.csv"
+        out=mat008.JJJ
+        dbms=csv
+        replace;
+        getnames=yes;
     run;
 
 Let's take a look at the screenshot shown. We again see that the program editor automatically includes some syntax colouring (i.e. changes the colour of some of the words that it recognises). In blue in the editor window are the SAS keywords:
