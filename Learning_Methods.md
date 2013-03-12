@@ -29,7 +29,7 @@ Class schedule:
 - 1040 - 1100: Break
 - 1100 - 1120: Group presents solution to challenge (SAS)
 - 1120 - 1140: Class discussion (SAS)
-- 1140 - 1040: Lab session (SAS)
+- 1140 - 1240: Lab session (SAS)
 
 #Incentives
 
