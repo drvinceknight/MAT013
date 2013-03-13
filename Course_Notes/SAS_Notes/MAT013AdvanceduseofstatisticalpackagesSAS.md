@@ -69,7 +69,7 @@ On my system SAS has already created 6 libraries (this might differ on other ver
 
 ### Creating a new library
 
-To create a new library, left click in the explorer window and select "New...". You will see a new window appear as shown. Simply browse to the location on your computer at which you'd like your new library to be stored. Note also to click the "Enable at startup" option which ensures that SAS remembers this library the next time you open up SAS; if this is not selected, the link to the library created will be temporary (and erased when SAS is shut down). Finally make sure you name your library obeying the following rules (for the rest of the notes, I'll assume the library name for this course is `mat008`):
+To create a new library, left click in the explorer window and select "New...". You will see a new window appear as shown. Simply browse to the location on your computer at which you'd like your new library to be stored. Note also to click the "Enable at startup" option which ensures that SAS remembers this library the next time you open up SAS; if this is not selected, the link to the library created will be temporary (and erased when SAS is shut down). Finally make sure you name your library obeying the following rules (for the rest of the notes, I'll assume the library name for this course is `mat013`):
 
 1. be less than or equal to 8 characters
 2. must begin with an underscore or letter
@@ -88,7 +88,7 @@ There are two main ways to import data into SAS:
 
 In practice you will never use the direct input method but let's take a look for completeness (although it is very useful when wanting to quickly test a few things). This will also give us our first experience of the editor window!
 
-Let us create a data set named "first_data_set", put it in the "MAT008" library and include the following data:
+Let us create a data set named "first_data_set", put it in the "mat013" library and include the following data:
 
     Name,Age
     Bob,23
@@ -96,7 +96,7 @@ Let us create a data set named "first_data_set", put it in the "MAT008" library 
 
 To do so, write the following code in the editor window:
 
-    data MAT008.first_data_set;
+    data mat013.first_data_set;
     input Name $ Age;
     cards;
     Bob 23
@@ -120,7 +120,7 @@ We run this code by highlighting it and pressing the 'running man', clicking on 
 ![A short program to directly input data in to SAS.](images/image35.png)
 
 
-If we now look at the MAT008 library in the explorer pane we can see the new data set is in there, double clicking on the data set opens it up.
+If we now look at the mat013 library in the explorer pane we can see the new data set is in there, double clicking on the data set opens it up.
 
 ![The explorer pane with our first data set.](images/image26.png)
 
@@ -132,10 +132,10 @@ Often large data sets will be saved in comma-separated values (csv) format which
 
 ![The JJJ.csv data set](images/image13.png)
 
-We will import this data set in to the MAT008 library and call it JJJ using the following code:
+We will import this data set in to the mat013 library and call it JJJ using the following code:
 
     proc import datafile="~/JJJ.csv"
-        out=mat008.JJJ
+        out=mat013.JJJ
         dbms=csv
         replace;
         getnames=yes;
@@ -162,9 +162,9 @@ In the following chapters we will learn how to create new data sets from old dat
 
 ## 1.3 Exporting data sets
 
-We will export our first data set ("mat008.first_dataset") to csv using the following code:
+We will export our first data set ("mat013.first_dataset") to csv using the following code:
 
-    proc export data=mat008.first_data_set
+    proc export data=mat013.first_data_set
         outfile="~/Desktop/first_data_set.csv"
         dbms=csv
         replace;
@@ -231,38 +231,38 @@ We have already seen that we can open and view a data set by simply double click
 
 We'll do this by considering the MMM data file shown (imported using an import procedure).
 
-![The mat008.mmm data set.](images/image41.png)
+![The mat013.mmm data set.](images/image41.png)
 
 The following code will run the "print" procedure:
 
-    proc print data=mat008.mmm;
+    proc print data=mat013.mmm;
     run;
 
 which outputs the data set to the output window as shown.
 
-![The mat008.mmm shown using the "print" procedure.](images/image24.png)
+![The mat013.mmm shown using the "print" procedure.](images/image24.png)
 
 At times we might not want to open the data set but simply gain some information as to what is in the data set. This is equivalent to checking the label on a present without unwrapping it. We do this using the "contents" procedure.
 
-    proc contents data=mat008.mmm;
+    proc contents data=mat013.mmm;
     run;
 
 This outputs summary information as shown.
 
-![Summary information regarding mat008.mmm viewed using the contents procedure.](images/image59.png)
+![Summary information regarding mat013.mmm viewed using the contents procedure.](images/image59.png)
 
 A procedure that will be needed, when using more complex procedures and
 larger data sets, is the "sort" procedure.
 
-    proc sort data=mat008.mmm;
+    proc sort data=mat013.mmm;
     by age;
     run;
 
 Note that this procedure makes use of the "by" statement which tells SAS which variable to sort our observations on (in this case the variable age). Recall that the data set is not sorted. If we run the above "sort" procedure, at first nothing seems to happen, however if we view the data set again (using proc print or otherwise) we see (as shown) that the data set is now sorted.
 
-![The mat008.mmm sorted by the Age variable.](images/image06.png)
+![The mat013.mmm sorted by the Age variable.](images/image06.png)
 
-Important: If you have the mat008.mmm data set open in browser mode (i.e. having double clicked on the data set in the explorer window) when running the "sort" procedure, checking your log shows you an error as shown. Always close any browser windows when processing a data set - or use the "print" procedure!
+Important: If you have the mat013.mmm data set open in browser mode (i.e. having double clicked on the data set in the explorer window) when running the "sort" procedure, checking your log shows you an error as shown. Always close any browser windows when processing a data set - or use the "print" procedure!
 
 ![Error associated with trying to manipulate a data set that is open in browser mode.](images/image20.png)
 
@@ -270,34 +270,34 @@ Important: If you have the mat008.mmm data set open in browser mode (i.e. having
 
 In this section we will go over some of the procedures needed to obtain descriptive statistics.
 
-The first procedure we consider is the "means" procedure. We can use the following code to obtain various summary statistics relating to the age variables of the mat008.mmm dataset.
+The first procedure we consider is the "means" procedure. We can use the following code to obtain various summary statistics relating to the age variables of the mat013.mmm dataset.
 
-    proc means data=mat008.mmm;
+    proc means data=mat013.mmm;
     var age;
     run;
 
 We can specify the particular summary statistics we want (if none are specified a default set is displayed).
 
-    proc means data=mat008.mmm N mean std min max sum var css uss;
+    proc means data=mat013.mmm N mean std min max sum var css uss;
     var age;
     run;
 
 We can also choose to display the summary statistics for more than one variable
 
-    proc means data=mat008.mmm N mean std min max sum var css uss;
+    proc means data=mat013.mmm N mean std min max sum var css uss;
     var age height_in_metres;
     run;
 
 We can compartmentalise our data results using the "by" statement. Note that the data set must be sorted on the same variable.
 
-    proc means data=mat008.mmm N mean std min max sum var css uss;
+    proc means data=mat013.mmm N mean std min max sum var css uss;
     var age height_in_metres;
     by sex;
     run;
 
 Another way of compartmentalising results is using the "class" statement. This is very similar to the "by" statement and does not require the prior sorting of your data set.
 
-    proc means data=mat008.mmm N mean std min max sum var css uss;
+    proc means data=mat013.mmm N mean std min max sum var css uss;
     var age height_in_metres;
     class sex;
     run;
@@ -305,7 +305,7 @@ Another way of compartmentalising results is using the "class" statement. This i
 Finally, it's also possible to create a data set from the "means"
 procedure.
 
-    proc means data=mat008.mmm N mean;
+    proc means data=mat013.mmm N mean;
     var age height_in_metres;
     class sex;
     output out=summary_of_mmm
@@ -321,12 +321,12 @@ The above code creates a data set called "summary_of_mmm" in the work library (t
 
 The "univariate" procedure allows for the calculation of univariate statistics in SAS. The following code will output all the default univariate statistics for all the variables.
 
-    proc univariate data=mat008.mmm;
+    proc univariate data=mat013.mmm;
     run;
 
 We can choose to run the "univariate" procedure on a subset of the variables, using the "var" statement.
 
-    proc univariate data=mat008.mmm;
+    proc univariate data=mat013.mmm;
     var savings_in_pounds;
     run;
 
@@ -350,18 +350,18 @@ The "freq" procedure allows us to obtain frequency tables of data sets. As an ex
 
 The most basic "freq" procedure will give the frequencies of all the observations in the data set:
 
-    proc freq data=mat008.math_tests;
+    proc freq data=mat013.math_tests;
     run;
 
 We can specify the variables we want to look at by listing them after the "tables" statement (similar to the var statement for the "means" procedure):
 
-    proc freq data=mat008.math_tests;
+    proc freq data=mat013.math_tests;
     tables teacher pass_fail;
     run;
 
 If we want to cross tabulate the data then we use a `*` in between the variables concerned:
 
-    proc freq data=mat008.math_tests;
+    proc freq data=mat013.math_tests;
     tables teacher*pass_fail;
     run;
 
@@ -372,7 +372,7 @@ The above code gives the table shown.
 Various options can be passed to the "freq" procedure, the simplest of which is shown below:
 
 
-    proc freq data=mat008.math_tests;
+    proc freq data=mat013.math_tests;
     tables teacher*pass_fail / nocol norow nopercent;
     run;
 
@@ -380,27 +380,27 @@ Other options include computing a chi square test but we will not worry about th
 
 ### Correlations
 
-The "corr" procedure can be used to obtain correlations in SAS. The following code is the basic "corr" procedure applied to the mat008.mmm data set which gives the output shown.
+The "corr" procedure can be used to obtain correlations in SAS. The following code is the basic "corr" procedure applied to the mat013.mmm data set which gives the output shown.
 
-    proc corr data=mat008.mmm;
+    proc corr data=mat013.mmm;
     run;
 
-![Output of the "corr" procedure acting on all the variables of the mat008.mmm data set.](images/image49.png)
+![Output of the "corr" procedure acting on all the variables of the mat013.mmm data set.](images/image49.png)
 
 If we want to run the "corr" procedure on a subset of the variables then we use the "var" statement:
 
-    proc corr data=mat008.mmm;
+    proc corr data=mat013.mmm;
     var age savings_in_pounds;
     run;
 
-![Output of the "corr" procedure acting on a subset of the mat008.mmm data set.](images/image22.png)
+![Output of the "corr" procedure acting on a subset of the mat013.mmm data set.](images/image22.png)
 
 
 ### Linear Models
 
-In this section we'll very briefly see the syntax for some basic linear models in SAS. First of all we'll take a look at linear regression. The following code will run such an analysis on the mat008.jjj data set, checking if there is a linear model of height with predictors weight and savings:
+In this section we'll very briefly see the syntax for some basic linear models in SAS. First of all we'll take a look at linear regression. The following code will run such an analysis on the mat013.jjj data set, checking if there is a linear model of height with predictors weight and savings:
 
-    proc reg data=mat008.jjj;
+    proc reg data=mat013.jjj;
     model height_in_metres=weight_in_kg savings_in_pounds;
     run;
 
@@ -416,7 +416,7 @@ Analysis of variance (ANOVA) can be done very easily in SAS. We show this using 
 
 We will use the "anova" procedure to see if the grades obtained by students depend on their teacher.
 
-    proc anova data=mat008.math;
+    proc anova data=mat013.math;
     class prof;
     model grade=prof;
     run;
@@ -427,29 +427,29 @@ Note the "class" keyword is needed to state which variable we are using to group
 
 Another procedure that can be used for a variety of models (including the 2-way anova) is the "glm" (general linear model) procedure. The following code simply reproduces the above results.
 
-    proc glm data=mat008.jjj;
+    proc glm data=mat013.jjj;
     model height_in_metres=weight_in_kg savings_in_pounds;
     run;
 
-    proc glm data=mat008.math;
+    proc glm data=mat013.math;
     class prof;
     model grade=prof;
     run;
 
 ### Plots and charts
 
-There are various ways to obtain histograms in SAS, the easiest way is to use the "univariate" procedure with the "histogram" option. The following code gives a histogram for the height of individuals in the mat008.jjj dataset as shown.
+There are various ways to obtain histograms in SAS, the easiest way is to use the "univariate" procedure with the "histogram" option. The following code gives a histogram for the height of individuals in the mat013.jjj dataset as shown.
 
-    proc univariate data=mat008.jjj;
+    proc univariate data=mat013.jjj;
     var height_in_metres;
     histogram;
     run;
 
 ![A histogram obtained using the "univariate" procedure.](images/image01.png)
 
-There are various ways to obtain scatter plots in SAS, the easiest way is to use the "gplot" procedure. The following code gives a scatter plot for the height of individuals against their weight in the mat008.jjj dataset as shown.
+There are various ways to obtain scatter plots in SAS, the easiest way is to use the "gplot" procedure. The following code gives a scatter plot for the height of individuals against their weight in the mat013.jjj dataset as shown.
 
-    proc gplot data=mat008.jjj;
+    proc gplot data=mat013.jjj;
     plot height_in_metres*weight_in_kg;
     run;
 
@@ -466,11 +466,11 @@ We can output results of procedures in SAS using the "output delivery system". T
     [Normal SAS code]
     ods [format of your choice] close;
 
-As an example, the following code creates an html file called "freq_table" in html format stored at the location "\~/Desktop" (note that in Window's the "/" should be a "\") as shown.
+As an example, the following code creates an html file called "freq_table" in html format stored at the location "\~/Desktop" (note that in Window's the `/` should be a `\`) as shown.
 
     ods html file="\~/Desktop/freq_table.htm";
 
-    proc gplot data=mat008.jjj;
+    proc gplot data=mat013.jjj;
     plot height_in_metres*weight_in_kg;
     run;
 
@@ -482,7 +482,7 @@ The following code will create a file called "scatter_plot.pdf" in pdf format st
 
     ods pdf file="\~/Desktop/scatter_plot.pdf";
 
-    proc gplot data=mat008.jjj;
+    proc gplot data=mat013.jjj;
     plot height_in_metres*weight_in_kg;
     run;
 
@@ -494,7 +494,7 @@ The following code will create a file called "regression.rtf" in rtf format (Wor
 
     ods rtf file="\~/Desktop/regression.rtf";
 
-    proc reg data=mat008.jjj;
+    proc reg data=mat013.jjj;
     model weight_in_kg=height_in_metres;
     run;
 
@@ -517,11 +517,11 @@ A data step is a type of SAS statement that allows you to manipulate SAS data se
 2. Concatenating any number of data sets
 3. Merging any number of data sets
 
-The following code simply creates a data set in the work library called "J" that is a copy of the data set jjj located in the mat008 library.
+The following code simply creates a data set in the work library called "J" that is a copy of the data set jjj located in the mat013 library.
 
 
     data j;
-    set mat008.jjj;
+    set mat013.jjj;
     run;
 
 To concatenate two data sets (as shown pictorially) we use the following syntax:
@@ -535,8 +535,8 @@ To concatenate two data sets (as shown pictorially) we use the following syntax:
 
 The following code concatenates the jjj and mmm data sets as shown.
 
-    data mat008.mmmjjj;
-    set mat008.mmm mat008.jjj;
+    data mat013.mmmjjj;
+    set mat013.mmm mat013.jjj;
     run;
 
 ![A concatenated data set.](images/image54.png)
@@ -552,18 +552,18 @@ Note that the two data sets must be sorted on the merge variable prior to mergin
 
 ![Merging two data sets.](images/image19.png)
 
-The following code would merge the two data sets first_data_set and other_data_set in the mat008 library as shown.
+The following code would merge the two data sets first_data_set and other_data_set in the mat013 library as shown.
 
-    proc sort data=mat008.first_data_set;
+    proc sort data=mat013.first_data_set;
     by name;
     run;
 
-    proc sort data=mat008.other_data_set;
+    proc sort data=mat013.other_data_set;
     by name;
     run;
 
-    data mat008.merged_data_set;
-    merge mat008.first_data_set mat008.other_data_set;
+    data mat013.merged_data_set;
+    merge mat013.first_data_set mat013.other_data_set;
     by name;
     run;
 
@@ -605,10 +605,10 @@ An example of how this works with concatenation and an example of how this works
 
 ## 3.3 Creating new variables
 
-Creating new variables using various arithmetic and/or string relationships is relatively straightforward in SAS. The following code creates a new data set call MMM_with_BMI, with a new variable "BMI" as a function of the height and weight variables in the MMM dataset in the mat008 library.
+Creating new variables using various arithmetic and/or string relationships is relatively straightforward in SAS. The following code creates a new data set call MMM_with_BMI, with a new variable "BMI" as a function of the height and weight variables in the MMM dataset in the mat013 library.
 
-    data mat008.MMM_with_BMI;
-    set mat008.MMM;
+    data mat013.MMM_with_BMI;
+    set mat013.MMM;
     bmi=weight_in_kg/(height_in_metres**2);
     run;
 
@@ -620,8 +620,8 @@ Some of the arithmetic functions are shown.
 
 We can also do operations on strings, the following code replaces the variable "Sex" with the first entry of "Sex" (which gets rid of the Male - M and Female - F issue).
 
-    data mat008.MMM_with_BMI;
-    set mat008.MMM;
+    data mat013.MMM_with_BMI;
+    set mat013.MMM;
     sex=substr(sex,1,1);
     run;
 
@@ -635,15 +635,15 @@ In this section we'll take a quick look at two simple ways of improving the effi
 
 Let us consider the previous example and assume that we want our MMM_with_BMI data set without the weight and height variables. We use a "drop" statement to get rid of those variables:
 
-    data mat008.MMM_with_BMI_nhw(drop=weight_in_kg height_in_metres);
-    set mat008.MMM;
+    data mat013.MMM_with_BMI_nhw(drop=weight_in_kg height_in_metres);
+    set mat013.MMM;
     bmi=weight_in_kg/(height_in_metres**2);
     run;
 
 Note that the following code would not give the required output as we are trying to drop the variables from the original data set, however we need those variables to calculate the bmi:
 
-    data mat008.MMM_with_BMI_nhw;
-    set mat008.MMM(drop=weight_in_kg height_in_metres);
+    data mat013.MMM_with_BMI_nhw;
+    set mat013.MMM(drop=weight_in_kg height_in_metres);
     bmi=weight_in_kg/(height_in_metres**2);
     run;
 
@@ -653,24 +653,24 @@ Note that you cannot use a drop statement and a keep statement in the same data 
 
 The following code will create a data set with just the bmi variable.
 
-    data mat008.just_bmi(keep=bmi);
-    set mat008.MMM;
+    data mat013.just_bmi(keep=bmi);
+    set mat013.MMM;
     bmi=weight_in_kg/(height_in_metres**2);
     run;
 
 ### Renaming variables
 
-The following code creates a data set "JJJ" in the work library which is a copy of the "JJJ" dataset in the mat008 library, renaming the "sex" variable to "gender".
+The following code creates a data set "JJJ" in the work library which is a copy of the "JJJ" dataset in the mat013 library, renaming the "sex" variable to "gender".
 
 
     data JJJ(rename=(sex=gender));
-    set mat008.JJJ;
+    set mat013.JJJ;
     run;
 
 This can also be used in the set data set:
 
     data JJJ;
-    set mat008.JJJ(rename=(sex=gender));
+    set mat013.JJJ(rename=(sex=gender));
     run;
 
 ### Operations across rows
@@ -684,7 +684,7 @@ We will demonstrate this using the birthday_money.csv data set as shown.
 The first such way is to use the "retain" statement. The "retain" statement keeps the last entry for a given variable in the pdv for future calculation. Note that we can give an initial value for a particular variable as shown in the following code (which produces a variable "total" that is a running total of "amount") the output of which is shown.
 
     data bm_analysis;
-    set mat008.birthday_money;
+    set mat013.birthday_money;
     retain total 0;
     total=total+amount;
     run;
@@ -694,7 +694,7 @@ The first such way is to use the "retain" statement. The "retain" statement keep
 Another tool for such calculations is the "lagn" function which gives the value of a variable from a certain number n of prior steps. The following code gives two new variables, the yearly difference and 2 yearly difference, the result of which is shown.
 
     data bm_analysis;
-    set mat008.birthday_money;
+    set mat013.birthday_money;
     retain total 0;
     total=total+amount;
     yearly_diff=amount-lag1(amount);
@@ -706,7 +706,7 @@ Another tool for such calculations is the "lagn" function which gives the value 
 The lag functions can be used in much more complex assignments and in fact when simply wanting to calculate a difference there is a quicker way: using the "difn" function as shown in the code below which gives the same result as shown.
 
     data bm_analysis;
-    set mat008.birthday_money;
+    set mat013.birthday_money;
     retain total 0;
     total=total+amount;
     yearly_diff=dif1(amount);
@@ -768,7 +768,7 @@ There are various formats that can be used when importing variables (for dates a
 A huge part of programming (in any language) is the use of so called "conditional statements". We do this in SAS using "if" statements. The following code creates a new variable "age_group" which is "young" if the age is less than 29 and "old" if the age is larger than 29. Note we're also including a keep statement to just have the name and age_group in the new data set.
 
     data age_group(keep= name age_group);
-    set mat008.mmmjjj;
+    set mat013.mmmjjj;
     if age<30 then age_group='young';
         else age_group='old';
     run;
@@ -777,7 +777,7 @@ We can also use this in conjunction with the else if statement as shown
 below:
 
     data age_group(keep= name age_group);
-    set mat008.mmmjjj;
+    set mat013.mmmjjj;
     if age<18 then age_group='child';
         else if age<30 then age_group='young';
             else age_group='old';
@@ -786,7 +786,7 @@ below:
 Note that we can also compare strings as shown with the following code:
 
     data age_group(keep= name age_group);
-    set mat008.mmmjjj;
+    set mat013.mmmjjj;
     if age<18 then age_group='child';
         else if age<30 then age_group='young';
             else age_group='old';
@@ -808,7 +808,7 @@ A further important notion in programming is the notion of loops. These are done
 The first use allows us to combine several statement into one. This is often used in conjunction with "if" statements:
 
     data age_group(keep= name age_group minor_Y_N);
-    set mat008.mmmjjj;
+    set mat013.mmmjjj;
     if age<18 then do;
     age_group='Child';
     minor_Y_N='Y';
@@ -822,7 +822,7 @@ The first use allows us to combine several statement into one. This is often use
 The 'do' statement can be used to push your computer a bit more. The "do iterative statement" allows you to automate various procedures. The following code output the total number of birthday candles that would have been used on everyones birthday cake in the JJJ data set.
 
     data candles(keep= name age candles);
-    set mat008.jjj;
+    set mat013.jjj;
     candle=0;
     do k=0 to age;
     candle=candle+k;
@@ -896,10 +896,10 @@ In general the syntax for a macro is as follows:
 
     %mend <macro-name>;
 
-The following example creates a macro called "My_plot" which when called will plot a graph of height against weight of the variables in mat008.jjj:
+The following example creates a macro called "My_plot" which when called will plot a graph of height against weight of the variables in mat013.jjj:
 
     %macro My_plot;
-    proc gplot data=mat008.jjj;
+    proc gplot data=mat013.jjj;
     plot height_in_metres*weight_in_kg;
     run;
     %mend;
@@ -912,7 +912,7 @@ As discussed above, it is possible to pass arguments to a macro. The following c
 
     %macro shopping(spend);
     data JJJ_after_shopping(keep= Name Old_savings New_savings);
-    set mat008.jjj;
+    set mat013.jjj;
     Old_savings=savings_in_pounds;
     New_savings=saving_in_pounds-&spend;
     run;
@@ -924,7 +924,7 @@ We can define macros with multiple variables. Consider the following modificatio
 
     %macro shopping(spend,trips);
     data JJJ_after_shopping(keep= Name Old_savings New_savings);
-    set mat008.jjj;
+    set mat013.jjj;
     Old_savings=savings_in_pounds;
     New_savings=saving_in_pounds-&trips*&spend;
     run;
@@ -934,7 +934,7 @@ The above code is using so called "positional" macro parameters. It is possible 
 
     %macro shopping(spend=,trips=);
     data JJJ_after_shopping(keep= Name Old_savings New_savings);
-    set mat008.jjj;
+    set mat013.jjj;
     Old_savings=savings_in_pounds;
     New_savings=saving_in_pounds-&trips*&spend;
     run;
@@ -948,7 +948,7 @@ It's also possible to set default values:
 
     %macro shopping(spend=,trips=1);
     data JJJ_after_shopping(keep= Name Old_savings New_savings);
-    set mat008.jjj;
+    set mat013.jjj;
     Old_savings=savings_in_pounds;
     New_savings=saving_in_pounds-&trips*&spend;
     run;
@@ -969,7 +969,7 @@ We can experiment with macro variables using the %let statement which allows the
 
     %macro shopping;
     data JJJ_after_shopping(keep= Name Old_savings New_savings);
-    set mat008.jjj;
+    set mat013.jjj;
     Old_savings=savings_in_pounds;
     New_savings=saving_in_pounds-&trips*&spend;
     run;
@@ -1004,7 +1004,7 @@ The 'if' statements and 'do' loops discussed previously work in a very similar w
 
     %macro shopping(spend,trips);
     data JJJ_after_shopping(keep= Name Old_savings New_savings);
-    set mat008.jjj;
+    set mat013.jjj;
     %if &spend<0 %then %put Carefull the spend is negative!;
     %else %put The spend is positive;
     Old_savings=savings_in_pounds;
@@ -1018,12 +1018,12 @@ The "%do" statement can be used in conjunction with "%if" statements. The follow
     %macro shopping(spend,trips);
     %if &spend<0 %then %do;
     data JJJ_after_saving(keep= Name Old_savings New_savings);
-    set mat008.jjj;
+    set mat013.jjj;
     %end;
     %else %do;
 
     data JJJ_after_spending(keep= Name Old_savings New_savings);
-    set mat008.jjj;
+    set mat013.jjj;
     %end;
 
     Old_savings=savings_in_pounds;
@@ -1039,7 +1039,7 @@ Another use of the %do statement is in iterative statements (as before).  The di
 
     data JJJ_after_saving_&trips(keep= Name Old_savings New_savings);
 
-    set mat008.jjj;
+    set mat013.jjj;
 
     Old_savings=savings_in_pounds;
     New_savings=savings_in_pounds-&trips*&spend;
@@ -1139,21 +1139,21 @@ SQL uses one or more objects called TABLES where: rows contain records (observat
 1. Starts with proc sql; (as expected)
 2. Ends with quit; (some interactive procedures do)
 
-The following code creates a data set called test in the work library as a copy of the mat008.mmm data set:
+The following code creates a data set called test in the work library as a copy of the mat013.mmm data set:
 
 
     proc sql;
     create table test as
     select *
-    from mat008.mmm;
+    from mat013.mmm;
     quit;
 
-The "*" command tells SAS to take all variables from mat008.mmm. We can however specify exactly what variables we want:
+The "*" command tells SAS to take all variables from mat013.mmm. We can however specify exactly what variables we want:
 
     proc sql;
     create table test as
     select Name, Age, Sex
-    from mat008.mmm;
+    from mat013.mmm;
     quit;
 
 We can also create new variables:
@@ -1161,7 +1161,7 @@ We can also create new variables:
     proc sql;
     create table test as
     select Name, Age, Sex, weight_in_kg/(height_in_metres**2) as bmi
-    from mat008.mmm;
+    from mat013.mmm;
     quit;
 
 ### Further SQL
@@ -1169,7 +1169,7 @@ We can also create new variables:
 In this section we'll take a look at what else SAS can do. For the purpose of the following examples let's write a new data set:
 
 
-    data mat008.example;
+    data mat013.example;
     input Var1 $ Var2 Var3 $ Var 4 Var5 $;
     cards;
     A 1 A 2 B
@@ -1185,7 +1185,7 @@ Some simple SQL code very easily helps us to get rid of duplicate rows (this can
     proc sql;
     create table example as
     select distinct *
-    from mat008.example;
+    from mat013.example;
     quit;
 
 We can also select particular variables:
@@ -1193,7 +1193,7 @@ We can also select particular variables:
     proc sql;
     create table example as
     select distinct var1, var2, var3
-    from mat008.example;
+    from mat013.example;
     quit;
 
 We can also use the "where" statement to select variables that obey a particular condition:
@@ -1201,7 +1201,7 @@ We can also use the "where" statement to select variables that obey a particular
     proc sql;
     create table example as
     select *
-    from mat008.example
+    from mat013.example
     where var2<=var4;
     quit;
 
@@ -1210,7 +1210,7 @@ We can sort data sets using the "order by" keyword:
     proc sql;
     create table example as
     select distinct *
-    from mat008.example
+    from mat013.example
     order by var1;
     quit;
 
@@ -1219,7 +1219,7 @@ A very nice application of SQL is in the aggregation of summary statistics. The 
     proc sql;
     create table example as
     select * mean(var2) as average_of_var2
-    from mat008.example;
+    from mat013.example;
     quit;
 
 We could however get something a bit more useful by aggregating the data using a "group" statement:
@@ -1227,7 +1227,7 @@ We could however get something a bit more useful by aggregating the data using a
     proc sql;
     create table example as
     select var1, mean(var2) as average_of_var2
-    from mat008.example
+    from mat013.example
     group by var1;
     quit;
 
@@ -1250,7 +1250,7 @@ A very common use of SQL within SAS is to carry out "joins" which are equivalent
 
 To work with these examples let's use the data sets created with the following code:
 
-    data mat008.dogs;
+    data mat013.dogs;
     input Owner $ Name $;
     cards;
     Jeff Ruffus
@@ -1260,7 +1260,7 @@ To work with these examples let's use the data sets created with the following c
     ;
     run;
 
-    data mat008.cats;
+    data mat013.cats;
     input Owner $ Name $;
     cards;
     Jeff Kitty
@@ -1275,7 +1275,7 @@ The following code carries out an inner join of these two datasets also changing
     proc sql;
     create table merged_table as
     select a.Owner,a.Name as Dog_Name, b.Name as cat_Name
-    from mat008.dogs as a, mat008.cats as b
+    from mat013.dogs as a, mat013.cats as b
     where a.Owner=b.Owner;
     quit;
 
@@ -1286,8 +1286,8 @@ The following code carries out a left outer join, the output of which is shown.
     proc sql;
     create table merged_table as
     select a.Owner,a.Name as Dog_Name, b.Name as cat_Name
-    from mat008.dogs as a
-    left join mat008.cats as b
+    from mat013.dogs as a
+    left join mat013.cats as b
     on a.Owner=b.Owner;
     quit;
 
@@ -1298,8 +1298,8 @@ The following code carries out a right outer join, the output of which is shown.
     proc sql;
     create table merged_table as
     select a.Owner,a.Name as Dog_Name, b.Name as cat_Name
-    from mat008.dogs as a
-    right join mat008.cats as b
+    from mat013.dogs as a
+    right join mat013.cats as b
     on a.Owner=b.Owner;
     quit;
 
@@ -1310,8 +1310,8 @@ The following code carries out a full outer join, the output of which is shown.
     proc sql;
     create table merged_table as
     select a.Owner,a.Name as Dog_Name, b.Name as cat_Name
-    from mat008.dogs as a
-    full join mat008.cats as b
+    from mat013.dogs as a
+    full join mat013.cats as b
     on a.Owner=b.Owner;
     quit;
 
