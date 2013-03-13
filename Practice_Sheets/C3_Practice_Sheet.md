@@ -55,12 +55,12 @@ $$\pi_0=\frac{1}{\sum_{i=0}^{k-1}\frac{(\lambda/\mu)^i}{i!}+\frac{(\lambda/\mu)^
 
 Obtain $\pi_0$ for $\lambda\in\{.1,.5,.7,.9\}$, $k=3$ and $\mu=1$.
 
-6. Download the data set [marks.csv](../Data/marks.csv)
+6. Download the data set [marks.csv](../Data/C3/marks.csv)
 
     1. Create a data set that shows the percentage increase or decrease of marks for each student from one month to the next.
     2. Obtain a table showing the mean of these percentage changes categorized by gender.
 
-7. Download the data set [numbers.csv](../Data/numbers.csv) and create the following variables:
+7. Download the data set [numbers.csv](../Data/C3/numbers.csv) and create the following variables:
 
     1. $y1=x1\times x2\times \dots x36$
     2. $y2=\left(1+z1/1\right)\times\left(1+z2/2\right)\times\dots\left(1+z36/36\right)$
