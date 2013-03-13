@@ -521,7 +521,7 @@ The following code simply creates a data set in the work library called "J" that
 
 
     data j;
-    set mat008.jjj\
+    set mat008.jjj;
     run;
 
 To concatenate two data sets (as shown pictorially) we use the following syntax:
@@ -536,7 +536,7 @@ To concatenate two data sets (as shown pictorially) we use the following syntax:
 The following code concatenates the jjj and mmm data sets as shown.
 
     data mat008.mmmjjj;
-    set mat008.mmm mat008.jjj
+    set mat008.mmm mat008.jjj;
     run;
 
 ![A concatenated data set.](images/image54.png)
