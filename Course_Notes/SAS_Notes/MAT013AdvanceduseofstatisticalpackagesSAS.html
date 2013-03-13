@@ -431,7 +431,7 @@ ods rtf close;</code></pre>
 </ol>
 <p>The following code simply creates a data set in the work library called &quot;J&quot; that is a copy of the data set jjj located in the mat008 library.</p>
 <pre><code>data j;
-set mat008.jjj\
+set mat008.jjj;
 run;</code></pre>
 <p>To concatenate two data sets (as shown pictorially) we use the following syntax:</p>
 <pre><code>data [New Data Set];
@@ -442,7 +442,7 @@ run;</code></pre>
 </div>
 <p>The following code concatenates the jjj and mmm data sets as shown.</p>
 <pre><code>data mat008.mmmjjj;
-set mat008.mmm mat008.jjj
+set mat008.mmm mat008.jjj;
 run;</code></pre>
 <div class="figure">
 <img src="images/image54.png" alt="A concatenated data set." /><p class="caption">A concatenated data set.</p>
