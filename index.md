@@ -100,3 +100,15 @@ All the data files for the course can be found [here](Data/index.html).
 
 - [The MAT013 Google Plus community](http://goo.gl/gJIxl) (you do not need to have a Google Plus account to view).
 
+
+### Course work
+
+- Individual course work:
+
+    - Out: 24/4/2013
+    - In: 8/5/2013
+
+- Group course work:
+
+    - Out:  24/4/2013
+    - In: ≈ 15/5/2013
