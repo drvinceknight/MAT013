@@ -114,4 +114,4 @@ All the data files for the course can be found [here](Data/index.html).
 - Group course work:
 
     - Out:  24/4/2013
-    - In: ≈ 15/5/2013
+    - In: **approximately** 15/5/2013 (waiting  on exam timetable)
