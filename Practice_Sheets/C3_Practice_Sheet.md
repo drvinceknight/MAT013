@@ -11,7 +11,7 @@
 2.  For the concatenated data set (of JJJ and MMM):
 
     1. For individuals over the age of 25, calculate the yearly average savings (for each year after their 25th birthday)
-    2. Output a frequency table showing the mean yearly average by sex. (You will need to find out some information on the ``tabulate'' procedure).
+    2. Output a frequency table showing the mean yearly average by sex.
     3. Obtain the mean yearly average savings by sex and age groups:
 
         - Group A [0,18]
