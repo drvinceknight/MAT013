@@ -22,7 +22,7 @@ Create a data set with two variables: "Week" and "Ranking". For every week of th
 
 Solve the following optimisation problem:
 
-    Minimize 
+    Minimize
 
 $$x+3y-z+max(x,y)$$
 
@@ -43,7 +43,7 @@ Demonstrate this with $k=2341$ and the file name "classtest" (include this file 
 
 [25]
 
-4. Using either SAS or R: 
+4. Using either SAS or R:
 
 The files "Game_1.csv, Game_2.csv, Game_3.csv,... Game_7.csv" contains data for guesses of the game "2/3rds of the average":
 
@@ -51,7 +51,7 @@ The files "Game_1.csv, Game_2.csv, Game_3.csv,... Game_7.csv" contains data for 
 
 i. Obtain histograms showing the distribution of guesses in each individual game and over all games (i.e. produce 8 plots).
 ii. Identify the winning guess in each individual game and over all games.
-iii. Every game is played with a different number of players, obtain a scatter plot of the winning guesses against the number of players (include the overal).
+iii. Every game is played with a different number of players, obtain a scatter plot of the winning guesses against the number of players (include the overall).
 iv. Comment on the relationship (if any) between the number of players and the winning guess.
 
 [40]
