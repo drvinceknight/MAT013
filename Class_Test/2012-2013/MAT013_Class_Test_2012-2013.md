@@ -45,11 +45,11 @@ Demonstrate this with $k=2341$ and the file name "classtest" (include this file 
 
 4. Using either SAS or R:
 
-The files "Game_1.csv, Game_2.csv, Game_3.csv,... Game_7.csv" contains data for guesses of the game "2/3rds of the average":
+The files "Game_1.csv, Game_2.csv, Game_3.csv,... Game_6.csv" contains data for guesses of the game "2/3rds of the average":
 
 > "All individuals must guess a number between 0 and 100 (inclusive). The winner of the game is the guess that is closest to two thirds of the average of all guesses."
 
-i. Obtain histograms showing the distribution of guesses in each individual game and over all games (i.e. produce 8 plots).
+i. Obtain histograms showing the distribution of guesses in each individual game and over all games (i.e. produce 7 plots).
 ii. Identify the winning guess in each individual game and over all games.
 iii. Every game is played with a different number of players, obtain a scatter plot of the winning guesses against the number of players (include the overall).
 iv. Comment on the relationship (if any) between the number of players and the winning guess.
