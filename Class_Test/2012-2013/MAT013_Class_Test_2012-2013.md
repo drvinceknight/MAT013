@@ -37,9 +37,9 @@ $$y+z\leq 25$$
 
 3. Using R:
 
-Create a function that will give all numbers less than a certain number $k$ that are not divisible by $3,7$ or $13$. Furthermore let your function take as input the name of a file and write those numbers to a csv file with that name.
+Create a function that will give all numbers less than $k$ (an input), not divisible by $3,7$ or $13$. Furthermore let your function take as input the name of a file and write those numbers to a csv file with that name.
 
-Demonstrate this with $k=2341$ and the file name "classtest" (include this file in your email to Joanna Emery).
+Demonstrate this with $k=2341$ and the file name "classtest".
 
 [25]
 
