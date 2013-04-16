@@ -109,7 +109,7 @@ All the data files for the course can be found [here](Data/index.html).
 - Individual course work:
 
     - Out: 24/4/2013
-    - In: 8/5/2013
+    - In: 22/5/2013
 
 - Group course work:
 
