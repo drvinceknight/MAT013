@@ -12,7 +12,7 @@
 
 #Here's a function to test if a number is prime:
 
-    is_prime<-function(k{
+    is_prime<-function(k){
         max(sapply(2:sqrt(k),function(x) is_div(x,k)))==0
     }
 
