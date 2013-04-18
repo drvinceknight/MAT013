@@ -22,15 +22,17 @@ Create a data set with two variables: "Week" and "Ranking". For every week of th
 
 Solve the following optimisation problem:
 
-    Minimize
+    Maximize
 
-$$x+3y-z+max(x,y)$$
+$$x+3y-z+max(x,y)+2z$$
 
     Subject to:
 
-$$x-3y\geq 20$$
-$$x-7\geq 5$$
+$$x-3y\leq 20$$
+$$x-7y\geq 5$$
 $$y+z\leq 25$$
+$$y\geq 0$$
+$$z\geq \max(x,y)$$
 
 
 [25]
