@@ -60,7 +60,7 @@ K(n)&amp;=\alpha K(n-1)+\beta K(n-2)\\
 <li>Using SAS or R.</li>
 </ol>
 <p>The file <a href="Data/Solution_Space_Exploration.csv">Solution_Space_Exploration.csv</a> contains experimental results pertaining to two approaches to solving an optimisation problem (aiming to minimize a cost function). These two approaches will be referred to as approach <code>A</code> and approach <code>B</code>. Approach <code>B</code> involves searching a space that contains the solution space that approach <code>A</code> searches. Thus approach <code>B</code> can at least match approach <code>A</code>.</p>
-<p>Every row of the data file contains 6 variables which are (in order):</p>
+<p>Every row of the data file corresponds to a given instance of the optimisation probelm and contains 6 variables which are (in order):</p>
 <ul>
 <li>A boolean variable indicating <code>True</code> if approach <code>B</code> finds a better solution than approach <code>A</code>: <code>B_optimal</code>;</li>
 <li>The first dimension of the problem: <code>m</code>;</li>
