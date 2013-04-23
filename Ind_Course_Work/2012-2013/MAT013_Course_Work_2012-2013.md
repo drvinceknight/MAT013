@@ -62,7 +62,7 @@ Adapt your function so that it will write all numbers less than $k$ to a csv fil
 
 The file [Solution_Space_Exploration.csv](Data/Solution_Space_Exploration.csv) contains experimental results pertaining to two approaches to solving an optimisation problem (aiming to minimize a cost function). These two approaches will be referred to as approach `A` and approach `B`. Approach `B` involves searching a space that contains the solution space that approach `A` searches. Thus approach `B` can at least match approach `A`.
 
-Every row of the data file contains 6 variables which are (in order):
+Every row of the data file corresponds to a given instance of the optimisation probelm and contains 6 variables which are (in order):
 
 - A boolean variable indicating `True` if approach `B` finds a better solution than approach `A`: `B_optimal`;
 - The first dimension of the problem: `m`;
