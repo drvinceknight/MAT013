@@ -46,13 +46,11 @@ Write a function that will return the $n$th [Fibonacci number](http://en.wikiped
 
 Modify the function so that it returns the $n$th number of the sequence defined by:
 
-$$
-\begin{aligned}
+$$\begin{aligned}
 K(0)&=a\\
 K(1)&=b\\
 K(n)&=\alpha K(n-1)+\beta K(n-2)\\
-\end{aligned}
-$$
+\end{aligned}$$
 
 Where $a,b,\alpha$ and $\beta$ are input parameters.
 
