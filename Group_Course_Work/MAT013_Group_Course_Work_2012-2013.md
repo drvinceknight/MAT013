@@ -1,13 +1,13 @@
 # MAT013 Group Coursework
 
-*Deadline: 17/5/2013*
+*Deadline: 22/5/2013*
 
 ## Instructions
 
 The outputs of this coursework will be:
 
 - A 20 minute group presentation/demonstration to be given on the 17/5/2013 followed by 10 minutes for question.
-- All relevant files (code, presentation, notes etc...), websites, demo materials etc should be passed to Joanna Emery or Vincent Knight on the 17/5/2013.
+- All relevant files (code, presentation, notes etc...), websites, demo materials etc should be passed to Joanna Emery or Vincent Knight on or before the 22/5/2013.
 
 ## Coursework
 
