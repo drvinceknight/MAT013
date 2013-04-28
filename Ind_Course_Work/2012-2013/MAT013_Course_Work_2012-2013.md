@@ -54,7 +54,7 @@ K(n)&=\alpha K(n-1)+\beta K(n-2)\\
 
 Where $a,b,\alpha$ and $\beta$ are input parameters.
 
-Adapt your function so that it will write all numbers of the form K(n) less than some number k to a csv file. The name of the csv file must not be an input parameter to the function but include the parameters $a,b,\alpha$ and $\beta$ as well as the date on which the code was run. For example: `general_fib_for-a=2-b=3-alpha=10-beta=-2_1984-14-02.csv`.
+Adapt your function so that it will write all numbers of the form $K(n)$ less than some number $k$ to a csv file. The name of the csv file must not be an input parameter to the function but include the parameters $a,b,\alpha$ and $\beta$ as well as the date on which the code was run. For example: `general_fib_for-a=2-b=3-alpha=10-beta=-2_1984-14-02.csv`.
 
 [25]
 
