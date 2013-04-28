@@ -54,7 +54,7 @@ K(n)&=\alpha K(n-1)+\beta K(n-2)\\
 
 Where $a,b,\alpha$ and $\beta$ are input parameters.
 
-Adapt your function so that it will write all numbers less than $k$ to a csv file. The name of the csv file must not be an input parameter to the function but include the parameters $a,b,\alpha$ and $\beta$ as well as the date on which the code was run. For example: `general_fib_for-a=2-b=3-alpha=10-beta=-2_1984-14-02.csv`.
+Adapt your function so that it will write all numbers of the form K(n) less than some number k to a csv file. The name of the csv file must not be an input parameter to the function but include the parameters $a,b,\alpha$ and $\beta$ as well as the date on which the code was run. For example: `general_fib_for-a=2-b=3-alpha=10-beta=-2_1984-14-02.csv`.
 
 [25]
 
@@ -62,7 +62,7 @@ Adapt your function so that it will write all numbers less than $k$ to a csv fil
 
 The file [Solution_Space_Exploration.csv](Data/Solution_Space_Exploration.csv) contains experimental results pertaining to two approaches to solving an optimisation problem (aiming to minimize a cost function). These two approaches will be referred to as approach `A` and approach `B`. Approach `B` involves searching a space that contains the solution space that approach `A` searches. Thus approach `B` can at least match approach `A`.
 
-Every row of the data file corresponds to a given instance of the optimisation probelm and contains 6 variables which are (in order):
+Every row of the data file corresponds to a given instance of the optimisation problem and contains 6 variables which are (in order):
 
 - A boolean variable indicating `True` if approach `B` finds a better solution than approach `A`: `B_optimal`;
 - The first dimension of the problem: `m`;
