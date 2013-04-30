@@ -118,6 +118,12 @@ All data files can be found [here](Ind_Course_Work/2012-2013/Data/index.html)
     - Out:  24/4/2013
     - In before: 22/5/2013
 
+### Class test
+
+Class test: [html](Class_Test/2012-2013/MAT013_Class_Test_2012-2013.html),[pdf](Class_Test/2012-2013/MAT013_Class_Test_2012-2013.pdf), [docx](Class_Test/2012-2013/MAT013_Class_Test_2012-2013.docx)
+
+All data files can be found [here](Class_Test/2012-2013/Data/index.html)
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
