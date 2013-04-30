@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <script src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<h1 id="mat013-class-test">MAT013 Class Test</h1>
+<h2 id="instructions">Instructions:</h2>
+<ul>
+<li><em>This is an open book test. You are encouraged to use the internet, your notes etc..., however no communication with any other student is allowed.</em></li>
+<li><em>The output of this class test will be: a file containing the SAS program with any comments included and a file containing the R code with any comments included.</em></li>
+</ul>
+<p>Once you have finished the test:</p>
+<ol style="list-style-type: decimal">
+<li>Call the file for the SAS code: <code>SAS-lastname-STUDENTNUMBER</code> (eg. SAS-Knight-123456) and call the file for the R code: <code>R-lastname-STUDENTNUMBER</code> (eg. R-Knight-123456).</li>
+<li>Email both files to Joanna Emery (EmeryJL4@cf.ac.uk) with 'MAT013 - lastname-STUDENTNUMBER' as the subject. <strong>ALL EMAILS MUST BE SENT BEFORE LEAVING THE COMPUTER LAB</strong>.</li>
+</ol>
+<h2 id="class-test">Class test:</h2>
+<ol style="list-style-type: decimal">
+<li>Using both SAS and R (in other words attempt this question using SAS and then using R):</li>
+</ol>
+<p>Create a data set with two variables: &quot;Week&quot; and &quot;Ranking&quot;. For every week of the MAT013 course (1-5 including this class test) give a ranking of your enjoyment of each week of the course (1 being the best). Write some code (in both SAS and R) to sort this data set in descending order of the enjoyment ranking.</p>
+<p>[10]</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Using SAS:</li>
+</ol>
+<p>Solve the following optimisation problem:</p>
+<pre><code>Maximize</code></pre>
+<p>\[x+3y-z+max(x,y)+2z\]</p>
+<pre><code>Subject to:</code></pre>
+<p>\[x-3y\leq 20\] \[x-7y\geq 5\] \[y+z\leq 25\] \[y\geq 0\] \[z\geq \max(x,y)\]</p>
+<p>[25]</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Using R:</li>
+</ol>
+<p>Create a function that will give all numbers less than \(k\) (an input), not divisible by \(3,7\) or \(13\). Furthermore let your function take as input the name of a file and write those numbers to a csv file with that name.</p>
+<p>Demonstrate this with \(k=2341\) and the file name &quot;classtest&quot;.</p>
+<p>[25]</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Using either SAS or R:</li>
+</ol>
+<p>The files &quot;Game_1.csv, Game_2.csv, Game_3.csv,... Game_6.csv&quot; contains data for guesses of the game &quot;2/3rds of the average&quot;:</p>
+<blockquote>
+<p>&quot;All individuals must guess a number between 0 and 100 (inclusive). The winner of the game is the guess that is closest to two thirds of the average of all guesses.&quot;</p>
+</blockquote>
+<ol style="list-style-type: lower-roman">
+<li>Obtain histograms showing the distribution of guesses in each individual game and over all games (i.e. produce 7 plots). [10]</li>
+<li>Identify the winning guess in each individual game and over all games. [20]</li>
+<li>Every game is played with a different number of players, obtain a scatter plot of the winning guesses against the number of players (include the overall). [7]</li>
+<li>Comment on the relationship (if any) between the number of players and the winning guess. [3]</li>
+</ol>
+</body>
+</html>
