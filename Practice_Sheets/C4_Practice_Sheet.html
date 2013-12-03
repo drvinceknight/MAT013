@@ -1,18 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
 <h1 id="mat013---practice-sheet">MAT013 - Practice Sheet</h1>
 <h2 id="chapter-4">Chapter 4</h2>
 <h3 id="attempt-to-do-the-following-in-sas-andor-r.">Attempt to do the following in SAS and/or R.</h3>
 <ol style="list-style-type: decimal">
 <li><p>Create code (in SAS: a macro, in R: a function) that gives</p>
 <ol style="list-style-type: decimal">
-<li>The first <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=k" alt="k" title="k" /> even numbers.</li>
-<li>The first <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=k" alt="k" title="k" /> odd numbers.</li>
-<li>The square root of the first <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=k" alt="k" title="k" /> integers.</li>
-<li>The square root of the first <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=k" alt="k" title="k" /> integers, selecting only those that are integers.</li>
+<li>The first \(k\) even numbers.</li>
+<li>The first \(k\) odd numbers.</li>
+<li>The square root of the first \(k\) integers.</li>
+<li>The square root of the first \(k\) integers, selecting only those that are integers.</li>
 </ol></li>
 <li><p>Write code that creates a data set with the mean of a given variable for a given data set. Experiment on the JJJ and MMM datasets.</p></li>
 <li><p>Write code that merges two named data sets on a given variable. Remember to ensure that the data sets are sorted as required. Use this to merge the datasets <a href="../Data/C3/height.xls">height.xls</a> and <a href="../Data/C3/weight.xls">weight.xls</a> on the variable &quot;obs&quot; (seen in the previous lab sheet).</p></li>
 <li><p>Download the data set <a href="../Data/C4/demographics.csv">demographics.csv</a>. Write code that creates another data set only containing a given postcode.</p></li>
-<li><p>The mean number of people in an <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=M%2FM%2Fk" alt="M/M/k" title="M/M/k" /> queue, where <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Clambda" alt="\lambda" title="\lambda" /> denotes the inter arrival rate, <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Cmu" alt="\mu" title="\mu" /> denotes the service rate and <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=k" alt="k" title="k" /> denotes the system capacity is given by: <br /><img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=L_q%3D%5Cfrac%7B%5Cleft%28%5Clambda%2F%20%5Cmu%5Cright%29%5E%7Bk%2B1%7D%5Cpi_0%7D%7B%20kk%21%5Cleft%281-%7B%5Clambda%2F%20k%5Cmu%7D%5Cright%29%5E2%7D" alt="L_q=\frac{\left(\lambda/ \mu\right)^{k+1}\pi_0}{ kk!\left(1-{\lambda/ k\mu}\right)^2}" title="L_q=\frac{\left(\lambda/ \mu\right)^{k+1}\pi_0}{ kk!\left(1-{\lambda/ k\mu}\right)^2}" /><br /> where <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Cpi_0" alt="\pi_0" title="\pi_0" /> is given on the week 2 exercise sheet. Write code that gives <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=L_q" alt="L_q" title="L_q" /> for given <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%5Clambda%2C%5Cmu" alt="\lambda,\mu" title="\lambda,\mu" /> and <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=k" alt="k" title="k" />. Make sure that your code only runs for <img style="vertical-align:middle" src="http://chart.apis.google.com/chart?cht=tx&amp;chl=%7B%5Clambda%5Cover%20k%5Cmu%7D%3C1" alt="{\lambda\over k\mu}&lt;1" title="{\lambda\over k\mu}&lt;1" />.</p></li>
+<li><p>The mean number of people in an \(M/M/k\) queue, where \(\lambda\) denotes the inter arrival rate, \(\mu\) denotes the service rate and \(k\) denotes the system capacity is given by: \[L_q=\frac{\left(\lambda/ \mu\right)^{k+1}\pi_0}{ kk!\left(1-{\lambda/ k\mu}\right)^2}\] where \(\pi_0\) is given on the week 2 exercise sheet. Write code that gives \(L_q\) for given \(\lambda,\mu\) and \(k\). Make sure that your code only runs for \({\lambda\over k\mu}&lt;1\).</p></li>
 <li><p>Write code that calculates the monthly balance on a loan, for a given, initial balance, repayment value, interest rate and number of months.</p>
 <ol style="list-style-type: decimal">
 <li>Adjust the code so that it displays a plot of balance against time.</li>
@@ -20,3 +30,5 @@
 </ol></li>
 <li><p>Modify the previous code so that it can output the required monthly repayment value to repay the loan within a given amount of time.</p></li>
 </ol>
+</body>
+</html>

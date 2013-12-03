@@ -106,23 +106,20 @@ All the data files for the course can be found [here](Data/index.html).
 
 ### Course work
 
-- Individual course work: [html](Ind_Course_Work/2012-2013/MAT013_Course_Work_2012-2013.html), [pdf](Ind_Course_Work/2012-2013/MAT013_Course_Work_2012-2013.pdf) and [docx](Ind_Course_Work/2012-2013/MAT013_Course_Work_2012-2013.docx).
+- Individual course work 2012-2013: [html](Ind_Course_Work/2012-2013/MAT013_Course_Work_2012-2013.html), [pdf](Ind_Course_Work/2012-2013/MAT013_Course_Work_2012-2013.pdf) and [docx](Ind_Course_Work/2012-2013/MAT013_Course_Work_2012-2013.docx).
 
     - Out: 24/4/2013
     - In: 22/5/2013
 
-All data files can be found [here](Ind_Course_Work/2012-2013/Data/index.html)
+    All data files can be found [here](Ind_Course_Work/2012-2013/Data/index.html)
 
 - Group course work: [html](Group_Course_Work/MAT013_Group_Course_Work_2012-2013.html), [pdf](Group_Course_Work/MAT013_Group_Course_Work_2012-2013.pdf) and [docx](Group_Course_Work/MAT013_Group_Course_Work_2012-2013.docx).
 
-    - Out:  24/4/2013
-    - In before: 22/5/2013
-
 ### Class test
 
-Class test: [html](Class_Test/2012-2013/MAT013_Class_Test_2012-2013.html),[pdf](Class_Test/2012-2013/MAT013_Class_Test_2012-2013.pdf), [docx](Class_Test/2012-2013/MAT013_Class_Test_2012-2013.docx)
+- Class test 2012-2013: [html](Class_Test/2012-2013/MAT013_Class_Test_2012-2013.html),[pdf](Class_Test/2012-2013/MAT013_Class_Test_2012-2013.pdf), [docx](Class_Test/2012-2013/MAT013_Class_Test_2012-2013.docx)
 
-All data files can be found [here](Class_Test/2012-2013/Data/index.html)
+    All data files can be found [here](Class_Test/2012-2013/Data/index.html)
 
 <script type="text/javascript">
 
