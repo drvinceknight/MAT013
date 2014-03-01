@@ -5,35 +5,37 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 <body>
-<h1 id="mat013---practice-sheet">MAT013 - Practice Sheet</h1>
-<h2 id="chapter-5">Chapter 5</h2>
-<h3 id="attempt-to-do-the-following-in-sas-andor-r.">Attempt to do the following in SAS and/or R.</h3>
+<h1 id="mat013---practice-sheet"><span class="header-section-number">1</span> MAT013 - Practice Sheet</h1>
+<h2 id="chapter-5"><span class="header-section-number">1.1</span> Chapter 5</h2>
+<h3 id="attempt-to-do-the-following-in-sas-andor-r."><span class="header-section-number">1.1.1</span> Attempt to do the following in SAS and/or R.</h3>
 <ol style="list-style-type: decimal">
-<li>Solve the following optimisation problem (we have not see how to do this in R): Maximise: \(f(x_1,x_2,x_3)=x_1+x_2+5x_3+x_4^2\) subject to:</li>
+<li>Solve the following optimisation problem (we have not see how to do this in R): Maximise: <span class="math">\(f(x_1,x_2,x_3)=x_1+x_2+5x_3+x_4^2\)</span> subject to:</li>
 </ol>
-<p>\[
-3x_1+2x_2-x_3+x_4\leq 1\] \[
--2x_1-3x_2+2x_3-x_4\leq 1\] \[
-x_2-x_4\leq 8\]</p>
+<p><span class="math">\[
+3x_1+2x_2-x_3+x_4\leq 1\]</span> <span class="math">\[
+-2x_1-3x_2+2x_3-x_4\leq 1\]</span> <span class="math">\[
+x_2-x_4\leq 8\]</span></p>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Using SQL merge the data sets <a href="../Data/C3/weight.xls">weight.xls</a> and <a href="../Data/C3/height.xls">height.xls</a> and calculate the bmi. Obtain a new data set only with clinically obese individuals.</p></li>
-<li><p>For the data set <a href="../Data/C4/demographics.csv">demographics.csv</a>. Using SQL create 4 data sets that:</p>
+<li><p>Using SQL merge the data sets <a href="http://drvinceknight.github.io/MAT013/Data/../Data/C3/weight.xls">weight.xls</a> and <a href="http://drvinceknight.github.io/MAT013/Data/../Data/C3/height.xls">height.xls</a> and calculate the bmi. Obtain a new data set only with clinically obese individuals.</p></li>
+<li><p>For the data set <a href="http://drvinceknight.github.io/MAT013/Data/../Data/C4/demographics.csv">demographics.csv</a>. Using SQL create 4 data sets that:</p>
 <ol style="list-style-type: decimal">
 <li>contains all columns and all rows.</li>
 <li>contains the columns patientnum, surverynum, heightcm, weightkg, postcode and rows where postcode is not missing.</li>
 <li>contains mean values for heightcm and weightkg by postcode and ordered by postcode.</li>
 <li>contains mean values for bmi by postcode and ordered by postcode.</li>
 </ol></li>
-<li><p>Download the data sets <a href="../Data/C5/queue_servers.csv">queue_servers.csv</a>, <a href="../Data/C5/queue_arrival_rates.csv">queue_arrival_rates.csv</a> and <a href="../Data/C5/queue_service_rates.csv">queue_service_rates.csv</a>:</p>
+<li><p>Download the data sets <a href="http://drvinceknight.github.io/MAT013/Data/../Data/C5/queue_servers.csv">queue_servers.csv</a>, <a href="http://drvinceknight.github.io/MAT013/Data/../Data/C5/queue_arrival_rates.csv">queue_arrival_rates.csv</a> and <a href="http://drvinceknight.github.io/MAT013/Data/../Data/C5/queue_service_rates.csv">queue_service_rates.csv</a>:</p>
 <ol style="list-style-type: decimal">
-<li>Using the mathematical formulae seen in previous weeks obtain a new data set with the Number of the Queue, the service rate, the arrival rate and the mean queue length (note that the formulae only holds for \(\lambda&lt;c\mu\)).</li>
+<li>Using the mathematical formulae seen in previous weeks obtain a new data set with the Number of the Queue, the service rate, the arrival rate and the mean queue length (note that the formulae only holds for <span class="math">\(\lambda&lt;c\mu\)</span>).</li>
 <li>Is there a correlation between the service rate and the queue length? Between the arrival rate and the queue length?</li>
 <li>Obtain a regression model for the mean queue length.</li>
 </ol></li>
 <li><p>Attempt to redo all graphs (from the course) with the ggplot pckage (this is only relevant to R).</p></li>
 </ol>
+<p>(Other versions of the above: <a href="http://drvinceknight.github.io/MAT013/Data/C5_Practice_Sheet.pdf">pdf</a> <a href="http://drvinceknight.github.io/MAT013/Data/C5_Practice_Sheet.docx">docx (not recommended)</a>)</p>
 </body>
 </html>
