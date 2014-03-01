@@ -59,9 +59,7 @@ Which strategy seems to be the best?
 
 #Course Materials
 
-<div align="center">
-<iframe src="./index.html" width="700" height="500"> </iframe>
-</div>
+[www.vincent-knight.com](www.vincent-knight.com)
 
 #Group work "issues"
 
