@@ -1,50 +1,14 @@
-# MAT013 Advanced use of statistical packages - SAS
-
-Chapter 1 - Introduction
-
-1. The environment
-2. Libraries
-3. Importing data
-4. Exporting data
-
-Chapter 2 - Basic Statistical Procedures
-
-1. Procedures
-2. A list of procedures
-3. Exporting output
-
-Chapter 3 - Manipulating Data
-
-1. Data steps
-2. The program data vector
-3. Creating new variables
-4. Handling dates
-
-Chapter 4 - Programming
-
-1. Flow control
-2. SAS Macro compiler
-3. Global and local macro variables
-4. Macro Programming Statements
-5. Macro Functions
-
-Chapter 5 - Further procs
-
-1. SQL
-2. Functions
-3. Optimisation
-
 ---------------
 
 # Chapter 1 - Introduction
 
 ---------------
 
-## 1.1 The Environment
+## The Environment
 
 SAS may be run in a variety of modes, on this course we will concentrate on the interactive mode which allows users to submit selected portions of SAS code through a graphical user interface (GUI). When opening SAS a variety of windows immediately become visible as shown. Note that the screenshots and accompanying screen casts for this course were produced with SAS 9.3 running on ubuntu 11.10. The look and feel on other operating systems will differ slightly.
 
-![The SAS Environment](images/image21.png)
+![The SAS Environment](images/image21.png)\
 
 The visible windows are:
 
@@ -57,13 +21,13 @@ The visible windows are:
 
 We write code directly in the editor window and the roles of the other windows will become clear shortly.
 
-## 1.2 Libraries
+## Libraries
 
 The major strength of SAS is its ability to handle huge data sets. SAS does this by storing files in a particular format in spaces called libraries. SAS libraries are important. SAS manipulates data sets once they are converted to SAS data files. These data files are saved in libraries in SAS. They work just like folders (apart from not being able to nest further libraries). If you click on the libraries tab in the explorer window (as shown in in the screenshot) you should see the libraries available to you (as shown in the other screenshot).
 
-![A closer look at the explorer window](images/image58.png)
+![A closer look at the explorer window](images/image58.png)\
 
-![The original set of libraries on a linux install](images/image32.png)
+![The original set of libraries on a linux install](images/image32.png)\
 
 On my system SAS has already created 6 libraries (this might differ on other versions and operating systems). The Work library which SAS automatically uses if no library is specified (more on this later, it's basically the default library). A very important fact about the Work library is that it is temporary. When SAS is shut down, all the contents of the Work library are deleted. Keeping this in mind, let's move on to creating a new library.
 
@@ -79,7 +43,7 @@ To create a new library, left click in the explorer window and select "New...". 
 
 Now that we have a library let's import some data!
 
-## 1.3 Importing Data
+## Importing Data
 
 There are two main ways to import data into SAS:
 
@@ -88,7 +52,7 @@ There are two main ways to import data into SAS:
 
 In practice you will never use the direct input method but let's take a look for completeness (although it is very useful when wanting to quickly test a few things). This will also give us our first experience of the editor window!
 
-Let us create a data set named "first_data_set", put it in the "mat013" library and include the following data:
+Let us create a data set named `first_data_set`, put it in the `mat013` library and include the following data:
 
     Name,Age
     Bob,23
@@ -106,33 +70,33 @@ To do so, write the following code in the editor window:
 
 Let's take a look at the screenshot. First of all we see that the program editor automatically includes some syntax colouring (i.e. changes the colour of some of the words that it recognises). In blue in the editor window are the SAS keywords:
 
-1. "data" which tells SAS that we're about to write a "data step" which we'll look at a bit closer in the Chapter 3. The keyword data is always followed by the library and the data file (separated by a ".") we're creating. If no library is given then SAS will put this file in the Work library.
-2. "input" which tells SAS that we're going to input raw data and what follows is the name of the variables. If a variable is a string then we must include a "\$" after the variable name.
-3. "cards" which is the SAS keyword that precedes the raw data. All the entries must be on separate rows.
-4. "run" which is the keyword that tells SAS where the statement ends.
+1. `data` which tells SAS that we're about to write a `data step` which we'll look at a bit closer in the Chapter 3. The keyword data is always followed by the library and the data file (separated by a `.`) we're creating. If no library is given then SAS will put this file in the Work library.
+2. `input` which tells SAS that we're going to input raw data and what follows is the name of the variables. If a variable is a string then we must include a `\$` after the variable name.
+3. `cards` which is the SAS keyword that precedes the raw data. All the entries must be on separate rows.
+4. `run` which is the keyword that tells SAS where the statement ends.
 
-An important thing to remember is that a SAS statement always ends with a ";". Forgetting the ";" is a common source of mistakes (and headaches).
+An important thing to remember is that a SAS statement always ends with a `;`. Forgetting the `;` is a common source of mistakes (and headaches).
 
-![A short program to directly input data in to SAS.](images/image60.png)
+![A short program to directly input data in to SAS.](images/image60.png)\
 
 We run this code by highlighting it and pressing the 'running man', clicking on run (or pressing F8 on Windows). It is good practice to always check the log window as soon as any code is run. In the screenshot we see that the log looks good (lines 1-7 don't show any errors) and simply gives some details as to the running of the program.
 
-![A short program to directly input data in to SAS.](images/image35.png)
+![A short program to directly input data in to SAS.](images/image35.png)\
 
 
 If we now look at the mat013 library in the explorer pane we can see the new data set is in there, double clicking on the data set opens it up.
 
-![The explorer pane with our first data set.](images/image26.png)
+![The explorer pane with our first data set.](images/image26.png)\
 
-![Viewing our first data set.](images/image42.png)
+![Viewing our first data set.](images/image42.png)\
 
 Using direct input is of course not at all realistic when trying to import larger data sets.
 
 Often large data sets will be saved in comma-separated values (csv) format which can be read by most (all?) software. We will import the data set shown (here viewed in a simple text editor).
 
-![The JJJ.csv data set](images/image13.png)
+![The JJJ.csv data set](images/image13.png)\
 
-We will import this data set in to the mat013 library and call it JJJ using the following code:
+We will import this data set in to the mat013 library and call it `JJJ` using the following code:
 
     proc import datafile="~/JJJ.csv"
         out=mat013.JJJ
@@ -143,24 +107,24 @@ We will import this data set in to the mat013 library and call it JJJ using the 
 
 Let's take a look at the screenshot shown. We again see that the program editor automatically includes some syntax colouring (i.e. changes the colour of some of the words that it recognises). In blue in the editor window are the SAS keywords:
 
-1. "proc" which tells SAS that we're about to write a "procedure step" which we'll look at a bit closer in the next chapter. The "proc" keyword is always followed by the name of the particular procedure we're going to use. In this case: "import", which is then followed by the statement "datafile=path-to-datafile". Following this are various options relating to the import statement.
-2. "out" - this tells SAS the name of the SAS datafile created from the imported file.
-3. "dbms" - this tells SAS the type of file being imported (in our case csv, but can be "dlm", "xls", etc.). Note that this is not necessary if SAS can recognise the file extension.
-4. "replace" - this tells SAS to replace any SAS datafiles with the same name as specified by "out".
-5. "getnames=yes" which, although this is not a SAS keyword, it is a special option for the import statement that allows you to tell SAS to get the variable names from the first row of your external data file.
-6. "run" is the keyword that tells SAS where the statement ends.
+1. `proc` which tells SAS that we're about to write a 'procedure step' which we'll look at a bit closer in the next chapter. The `proc` keyword is always followed by the name of the particular procedure we're going to use. In this case: `import`, which is then followed by the statement `datafile=path-to-datafile`. Following this are various options relating to the import statement.
+2. `out` - this tells SAS the name of the SAS datafile created from the imported file.
+3. `dbms` - this tells SAS the type of file being imported (in our case csv, but can be `dlm`, `xls`, etc.). Note that this is not necessary if SAS can recognise the file extension.
+4. `replace` - this tells SAS to replace any SAS datafiles with the same name as specified by `out`.
+5. `getnames=yes` which, although this is not a SAS keyword, it is a special option for the import statement that allows you to tell SAS to get the variable names from the first row of your external data file.
+6. `run` is the keyword that tells SAS where the statement ends.
 
-![A short program to import a csv file in to SAS.](images/image62.png)
+![A short program to import a csv file in to SAS.](images/image62.png)\
 
 Running the code in the same way as before (highlighting and F8) will create the required datafile as shown.
 
-![The explorer pane with our JJJ data set.](images/image05.png)
+![The explorer pane with our JJJ data set.](images/image05.png)\
 
-![Viewing the JJJ data set.](images/image31.png)
+![Viewing the JJJ data set.](images/image31.png)\
 
 In the following chapters we will learn how to create new data sets from old data sets and as such it may become necessary to export files to csv.
 
-## 1.3 Exporting data sets
+## Exporting data sets
 
 We will export our first data set ("mat013.first_dataset") to csv using the following code:
 
@@ -172,13 +136,15 @@ We will export our first data set ("mat013.first_dataset") to csv using the foll
 
 Let's take a look at the screenshot shown. In blue are the SAS keywords:
 
-1. "proc" which tells SAS that we're about to write a "procedure step" which we'll look at a bit closer in the next chapter. The "proc" keyword is always followed by the name of the particular procedure we're going to use. In this case: "export", which is then followed by the statement "data=" followed by the library and name of the SAS data file you want to export. Following this are various options relating to the export statement.
-2. "outfile" - this tells SAS where the exported file should go.
-3. "dbms" - this tells SAS the type of file to create when exporting (in our case csv, but can be "dlm", "xls", etc...). Note that this is not necessary if SAS can recognise the file extension.
-4. "replace" - this tells SAS to replace any file with the same name as specified by "outfile".
-5. "run" is the keyword that tells SAS where the statement ends.
+![A short program to export a SAS data file to csv](images/image56.png)\
 
-![A short program to export a SAS data file to csv](images/image56.png)
+
+1. `proc` which tells SAS that we're about to write a 'procedure step' which we'll look at a bit closer in the next chapter. The `proc` keyword is always followed by the name of the particular procedure we're going to use. In this case: `export`, which is then followed by the statement `data=` followed by the library and name of the SAS data file you want to export. Following this are various options relating to the export statement.
+2. `outfile` - this tells SAS where the exported file should go.
+3. `dbms` - this tells SAS the type of file to create when exporting (in our case csv, but can be `dlm`, `xls`, etc...). Note that this is not necessary if SAS can recognise the file extension.
+4. `replace` - this tells SAS to replace any file with the same name as specified by `outfile`.
+5. `run` is the keyword that tells SAS where the statement ends.
+
 
 In the next chapter we will see more complex (and potentially useful) procedures.
 
@@ -188,7 +154,7 @@ In the next chapter we will see more complex (and potentially useful) procedures
 
 ---
 
-## 2.1 Procedures
+## Procedures
 
 In the previous chapter we were introduced to some very basic aspects of
 SAS:
@@ -223,7 +189,7 @@ Some of the options that can be used in a procedure step include:
 2. "by" - which tells SAS to compartementalize the procedure for each different value of the named variable(s). The data set must first be sorted by those variables.
 3. "where" - select only those observations for which the expression is true.
 
-## 2.2 A list of procedures
+## A list of procedures
 
 ### Utility procedures
 
@@ -231,7 +197,7 @@ We have already seen that we can open and view a data set by simply double click
 
 We'll do this by considering the MMM data file shown (imported using an import procedure).
 
-![The mat013.mmm data set.](images/image41.png)
+![The mat013.mmm data set.](images/image41.png)\
 
 The following code will run the "print" procedure:
 
@@ -240,7 +206,7 @@ The following code will run the "print" procedure:
 
 which outputs the data set to the output window as shown.
 
-![The mat013.mmm shown using the "print" procedure.](images/image24.png)
+![The mat013.mmm shown using the "print" procedure.](images/image24.png)\
 
 At times we might not want to open the data set but simply gain some information as to what is in the data set. This is equivalent to checking the label on a present without unwrapping it. We do this using the "contents" procedure.
 
@@ -249,7 +215,7 @@ At times we might not want to open the data set but simply gain some information
 
 This outputs summary information as shown.
 
-![Summary information regarding mat013.mmm viewed using the contents procedure.](images/image59.png)
+![Summary information regarding mat013.mmm viewed using the contents procedure.](images/image59.png)\
 
 A procedure that will be needed, when using more complex procedures and
 larger data sets, is the "sort" procedure.
@@ -260,11 +226,11 @@ larger data sets, is the "sort" procedure.
 
 Note that this procedure makes use of the "by" statement which tells SAS which variable to sort our observations on (in this case the variable age). Recall that the data set is not sorted. If we run the above "sort" procedure, at first nothing seems to happen, however if we view the data set again (using proc print or otherwise) we see (as shown) that the data set is now sorted.
 
-![The mat013.mmm sorted by the Age variable.](images/image06.png)
+![The mat013.mmm sorted by the Age variable.](images/image06.png)\
 
 Important: If you have the mat013.mmm data set open in browser mode (i.e. having double clicked on the data set in the explorer window) when running the "sort" procedure, checking your log shows you an error as shown. Always close any browser windows when processing a data set - or use the "print" procedure!
 
-![Error associated with trying to manipulate a data set that is open in browser mode.](images/image20.png)
+![Error associated with trying to manipulate a data set that is open in browser mode.](images/image20.png)\
 
 ### Descriptive statistics
 
@@ -317,7 +283,7 @@ procedure.
 
 The above code creates a data set called "summary_of_mmm" in the work library (the default library if no library is specified) with two variables "number_of_obs" and "average_of_obs" which give the number and mean for the observations as calculated by the "means" procedure as shown.
 
-![Data set created using the "means" procedure.](images/image16.png)
+![Data set created using the "means" procedure.](images/image16.png)\
 
 The "univariate" procedure allows for the calculation of univariate statistics in SAS. The following code will output all the default univariate statistics for all the variables.
 
@@ -332,21 +298,21 @@ We can choose to run the "univariate" procedure on a subset of the variables, us
 
 The various outputs of the "univariate" procedure are shown.
 
-![Moments calculated using proc univariate.](images/image10.png)
+![Moments calculated using proc univariate.](images/image10.png)\
 
-![Basic measures of location calculated using proc univariate.](images/image03.png)
+![Basic measures of location calculated using proc univariate.](images/image03.png)\
 
-![Tests for location calculated using proc univariate.](images/image61.png)
+![Tests for location calculated using proc univariate.](images/image61.png)\
 
-![Quantiles calculated using proc univariate.](images/image53.png)
+![Quantiles calculated using proc univariate.](images/image53.png)\
 
-![Extreme values calculated using proc univariate.](images/image36.png)
+![Extreme values calculated using proc univariate.](images/image36.png)\
 
 ### Frequency tables
 
 The "freq" procedure allows us to obtain frequency tables of data sets. As an example, let's consider the dataset shown.
 
-![The data set Math_tests.csv](images/image27.png)
+![The data set Math_tests.csv](images/image27.png)\
 
 The most basic "freq" procedure will give the frequencies of all the observations in the data set:
 
@@ -367,7 +333,7 @@ If we want to cross tabulate the data then we use a `*` in between the variables
 
 The above code gives the table shown.
 
-![Frequency table for the math_tests data set.](images/image08.png)
+![Frequency table for the math_tests data set.](images/image08.png)\
 
 Various options can be passed to the "freq" procedure, the simplest of which is shown below:
 
@@ -385,7 +351,7 @@ The "corr" procedure can be used to obtain correlations in SAS. The following co
     proc corr data=mat013.mmm;
     run;
 
-![Output of the "corr" procedure acting on all the variables of the mat013.mmm data set.](images/image49.png)
+![Output of the "corr" procedure acting on all the variables of the mat013.mmm data set.](images/image49.png)\
 
 If we want to run the "corr" procedure on a subset of the variables then we use the "var" statement:
 
@@ -393,7 +359,7 @@ If we want to run the "corr" procedure on a subset of the variables then we use 
     var age savings_in_pounds;
     run;
 
-![Output of the "corr" procedure acting on a subset of the mat013.mmm data set.](images/image22.png)
+![Output of the "corr" procedure acting on a subset of the mat013.mmm data set.](images/image22.png)\
 
 
 ### Linear Models
@@ -404,15 +370,15 @@ In this section we'll very briefly see the syntax for some basic linear models i
     model height_in_metres=weight_in_kg savings_in_pounds;
     run;
 
-![Overall regression results](images/image12.png)
+![Overall regression results](images/image12.png)\
 
-![Detailed regression results](images/image39.png)
+![Detailed regression results](images/image39.png)\
 
 Looking at the p-value we see that the overall model should not be rejected, however the detailed results show that perhaps we could remove savings from the model.
 
 Analysis of variance (ANOVA) can be done very easily in SAS. We show this using a new data set.
 
-![The math.csv data set](images/image09.png)
+![The math.csv data set](images/image09.png)\
 
 We will use the "anova" procedure to see if the grades obtained by students depend on their teacher.
 
@@ -423,7 +389,7 @@ We will use the "anova" procedure to see if the grades obtained by students depe
 
 Note the "class" keyword is needed to state which variable we are using to group on. The results show that there is indeed a difference between groups (further post-hoc tests are needed to investigate which groups differ etc.).
 
-![Overall Results from the ANOVA.](images/image25.png)
+![Overall Results from the ANOVA.](images/image25.png)\
 
 Another procedure that can be used for a variety of models (including the 2-way anova) is the "glm" (general linear model) procedure. The following code simply reproduces the above results.
 
@@ -445,7 +411,7 @@ There are various ways to obtain histograms in SAS, the easiest way is to use th
     histogram;
     run;
 
-![A histogram obtained using the "univariate" procedure.](images/image01.png)
+![A histogram obtained using the "univariate" procedure.](images/image01.png)\
 
 There are various ways to obtain scatter plots in SAS, the easiest way is to use the "gplot" procedure. The following code gives a scatter plot for the height of individuals against their weight in the mat013.jjj dataset as shown.
 
@@ -453,11 +419,11 @@ There are various ways to obtain scatter plots in SAS, the easiest way is to use
     plot height_in_metres*weight_in_kg;
     run;
 
-![A scatter obtained using the "gplot" procedure.](images/image28.png)
+![A scatter obtained using the "gplot" procedure.](images/image28.png)\
 
 There are various other ways to obtain similar graphs as well as change the look and feel of our graphs. We won't go into this here but you are encouraged to look into it.
 
-## 2.3 Exporting output
+## Exporting output
 
 We can output results of procedures in SAS using the "output delivery system". The syntax is straightforward and we surround normal SAS code with the "ods" statements to output to various formats (html, pdf, rtf).
 
@@ -476,7 +442,7 @@ As an example, the following code creates an html file called "freq_table" in ht
 
     ods html close;
 
-![Ods output in html format.](images/image17.png)
+![Ods output in html format.](images/image17.png)\
 
 The following code will create a file called "scatter_plot.pdf" in pdf format stored at the location "\~/Desktop" (note that in Window's the "/" should be a "\") as shown.
 
@@ -488,7 +454,7 @@ The following code will create a file called "scatter_plot.pdf" in pdf format st
 
     ods pdf close;
 
-![Ods output in pdf format.](images/image02.png)
+![Ods output in pdf format.](images/image02.png)\
 
 The following code will create a file called "regression.rtf" in rtf format (Word, LibreOffice etc.) stored at the location "\~/Desktop" (note that in Window's the "/" should be a "\") as shown.
 
@@ -500,7 +466,7 @@ The following code will create a file called "regression.rtf" in rtf format (Wor
 
     ods rtf close;
 
-![Ods output in rtf format.](images/image55.png)
+![Ods output in rtf format.](images/image55.png)\
 
 
 ---
@@ -509,7 +475,7 @@ The following code will create a file called "regression.rtf" in rtf format (Wor
 
 ---
 
-## 3.1 Data steps
+## Data steps
 
 A data step is a type of SAS statement that allows you to manipulate SAS data sets. Some of the things we can do include:
 
@@ -517,7 +483,7 @@ A data step is a type of SAS statement that allows you to manipulate SAS data se
 2. Concatenating any number of data sets
 3. Merging any number of data sets
 
-The following code simply creates a data set in the work library called "J" that is a copy of the data set jjj located in the mat013 library.
+The following code simply creates a data set in the work library called "j" that is a copy of the data set jjj located in the mat013 library.
 
 
     data j;
@@ -531,7 +497,7 @@ To concatenate two data sets (as shown pictorially) we use the following syntax:
     set A B;
     run;
 
-![Concatenating two data sets.](images/image00.png)
+![Concatenating two data sets.](images/image00.png)\
 
 The following code concatenates the jjj and mmm data sets as shown.
 
@@ -539,7 +505,7 @@ The following code concatenates the jjj and mmm data sets as shown.
     set mat013.mmm mat013.jjj;
     run;
 
-![A concatenated data set.](images/image54.png)
+![A concatenated data set.](images/image54.png)\
 
 To merge two data sets (as shown pictorially) we use the following syntax:
 
@@ -550,7 +516,7 @@ To merge two data sets (as shown pictorially) we use the following syntax:
 
 Note that the two data sets must be sorted on the merge variable prior to merging.
 
-![Merging two data sets.](images/image19.png)
+![Merging two data sets.](images/image19.png)\
 
 The following code would merge the two data sets first_data_set and other_data_set in the mat013 library as shown.
 
@@ -567,24 +533,24 @@ The following code would merge the two data sets first_data_set and other_data_s
     by name;
     run;
 
-![A merged data set.](images/image34.png)
+![A merged data set.](images/image34.png)\
 
-Data steps can be used in conjunction with the "where" statement to select certain variables. For example consider the data set shown.
+Data steps can be used in conjunction with the `where` statement to select certain variables. For example consider the data set shown.
 
-![The Dwarfs data set.](images/image11.png)
+![The Dwarfs data set.](images/image11.png)\
 
-The following code selects only the elements of the above data set that start with a "D".
+The following code selects only the elements of the above data set that start with a `D`.
 
     data Dwarfs;
     set Dwarfs;
     where substr(Name,1,1)="D";
     run;
 
-The result is shown in (note that the above code makes use of the "substr" function that we will see later).
+The result is shown in (note that the above code makes use of the `substr` function that we will see later).
 
-![Elements of the Dwarfs data set starting with "D".](images/image45.png)
+![Elements of the Dwarfs data set starting with "D".](images/image45.png)\
 
-## 3.2 The program data vector
+## The program data vector
 
 SAS is able to handle very large data sets because of the way data steps work. In this section we'll explain how it uses the "program data vector" (pdv) to efficiently handle data. The basic steps of compiling a data step are as follows:
 
@@ -593,17 +559,17 @@ SAS is able to handle very large data sets because of the way data steps work. I
 3. SAS creates a PDV to store the information for all the variables required from the data step.
 4. SAS reads in the data line by line using the PDF.
 
-(If a "by" statement is used (for example when merging two data sets) the PDF does not empty if there are still observations with the same value of the "by" variable).
+    (If a "by" statement is used (for example when merging two data sets) the PDF does not empty if there are still observations with the same value of the "by" variable).
 
 5. SAS creates the descriptive portion of the SAS data set (viewable using the "contents" procedure).
 
 An example of how this works with concatenation and an example of how this works with merging is shown.
 
-![Concatenation of data sets and the pdv.](images/image15.png)
+![Concatenation of data sets and the pdv.](images/image15.png)\
 
-![Merging of data sets and the pdv.](images/image30.png)
+![Merging of data sets and the pdv.](images/image30.png)\
 
-## 3.3 Creating new variables
+## Creating new variables
 
 Creating new variables using various arithmetic and/or string relationships is relatively straightforward in SAS. The following code creates a new data set call MMM_with_BMI, with a new variable "BMI" as a function of the height and weight variables in the MMM dataset in the mat013 library.
 
@@ -614,9 +580,9 @@ Creating new variables using various arithmetic and/or string relationships is r
 
 Some of the arithmetic functions are shown.
 
-![Basic arithmetic operations in SAS](images/SAS_math_operators.png)
+![Basic arithmetic operations in SAS](images/SAS_math_operators.png)\
 
-![Some mathematical functions in SAS](images/SAS_math_functions.png)
+![Some mathematical functions in SAS](images/SAS_math_functions.png)\
 
 We can also do operations on strings, the following code replaces the variable "Sex" with the first entry of "Sex" (which gets rid of the Male - M and Female - F issue).
 
@@ -625,7 +591,7 @@ We can also do operations on strings, the following code replaces the variable "
     sex=substr(sex,1,1);
     run;
 
-![Some string functions in SAS](images/SAS_string_functions.png)
+![Some string functions in SAS](images/SAS_string_functions.png)\
 
 It's worth checking the web for a full list of various SAS functions (there are a huge amount of them).
 
@@ -679,7 +645,7 @@ We have seen in previous sections how to create new variables for any given obse
 
 We will demonstrate this using the birthday_money.csv data set as shown.
 
-![The birthday_money.csv data set.](images/image38.png)
+![The birthday_money.csv data set.](images/image38.png)\
 
 The first such way is to use the "retain" statement. The "retain" statement keeps the last entry for a given variable in the pdv for future calculation. Note that we can give an initial value for a particular variable as shown in the following code (which produces a variable "total" that is a running total of "amount") the output of which is shown.
 
@@ -689,7 +655,7 @@ The first such way is to use the "retain" statement. The "retain" statement keep
     total=total+amount;
     run;
 
-![A running total calculated using the retain statement](images/image47.png)
+![A running total calculated using the retain statement](images/image47.png)\
 
 Another tool for such calculations is the "lagn" function which gives the value of a variable from a certain number n of prior steps. The following code gives two new variables, the yearly difference and 2 yearly difference, the result of which is shown.
 
@@ -701,7 +667,7 @@ Another tool for such calculations is the "lagn" function which gives the value 
     two_yearly_diff=amount-lag2(amount);
     run;
 
-![Yearly and 2 yearly differences calculated using the lag1 and lag2 functions.](images/image40.png)
+![Yearly and 2 yearly differences calculated using the lag1 and lag2 functions.](images/image40.png)\
 
 The lag functions can be used in much more complex assignments and in fact when simply wanting to calculate a difference there is a quicker way: using the "difn" function as shown in the code below which gives the same result as shown.
 
@@ -713,11 +679,11 @@ The lag functions can be used in much more complex assignments and in fact when 
     two_yearly_diff=dif2(amount);
     run;
 
-## 3.4 Handling dates
+## Handling dates
 
 Dates are handled in a particular way in SAS. Let's consider the csv file shown.
 
-![The birthdays csv file.](images/image37.png)
+![The birthdays csv file.](images/image37.png)\
 
 We have seen in Chapter 1 how to import data using proc import. If we use the normal approach an error would occur. This is due to the confusion associated with our birthday variables (the first 20 rows have the date and month values both less than 12). A further option that can be incorporated in proc import is the number of rows that SAS will "pre-read" to identify the type of variables that are to be imported. This is often an easy way to ensure that SAS recognises dates.
 
@@ -730,7 +696,7 @@ We have seen in Chapter 1 how to import data using proc import. If we use the no
 
 A proc contents run on the above data set shows that the birthday variable data was imported using the informat DDMMYY10. In other words SAS has recognised that the dates were in that particular format.
 
-![Proc contents on the birthdays file.](images/image50.png)
+![Proc contents on the birthdays file.](images/image50.png)\
 
 Another approach is to import files in SAS using a data step and the infile statement. When doing this we can tell SAS the format of the data (whether or not it is a string, numerical or date variables).
 
@@ -741,7 +707,7 @@ Another approach is to import files in SAS using a data step and the infile stat
 
 The infile statement tells SAS where the data is located and the 'dlm' statement tells SAS how the file is delimited (in this case with a comma). The 'firstobs' statement tells SAS where the data starts in the file (in this case the second row as the first row is the name of the variables in our data set). The input statement then allows us to tell SAS the names of the variables as well as the format they are in, here we tell SAS that the second variable is to be called 'Birthday' and it is in the ddmmyy8. format.
 
-![The birthdays data set import using the infile statement.](images/image63.png)
+![The birthdays data set import using the infile statement.](images/image63.png)\
 
 The above output might be a bit confusing, this is due to the fact that SAS handles dates as numbers, using the convention that the 1st of January 1960 is the number 0 (this allows for straightforward arithmetic manipulation of dates). The following code imports the data as above and displays the underlying numeric dates in the date9. format.
 
@@ -753,7 +719,7 @@ The above output might be a bit confusing, this is due to the fact that SAS hand
 
 The output is shown. Note that applying the date9. format only changes the appearance of the data.
 
-![The birthdays data set import using the infile statement.](images/image51.png)
+![The birthdays data set import using the infile statement.](images/image51.png)\
 
 There are various formats that can be used when importing variables (for dates as well as other variables) and subsequently these same formats can be used to display the data if this is required. Searching online quickly finds other SAS formats.
 

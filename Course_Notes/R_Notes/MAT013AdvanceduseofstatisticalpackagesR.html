@@ -5,63 +5,23 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
 </head>
 <body>
-<h1 id="mat013-advanced-use-of-statistical-packages"><span class="header-section-number">1</span> MAT013: Advanced Use of Statistical Packages</h1>
-<h2 id="table-of-contents"><span class="header-section-number">1.1</span> Table of Contents</h2>
-<p>Chapter 1 - Introduction</p>
-<ol style="list-style-type: decimal">
-<li>The Environment</li>
-<li>Objects</li>
-<li>Importing Data</li>
-<li>Exporting Data</li>
-</ol>
-<p>Chapter 2 - Basic Statistical Procedures</p>
-<ol style="list-style-type: decimal">
-<li>Procedures</li>
-<li>A list of procedures</li>
-<li>Exporting output</li>
-</ol>
-<p>Chapter 3 - Manipulating Data</p>
-<ol style="list-style-type: decimal">
-<li>Vectors and data frames</li>
-<li>Merging and concatenating data sets</li>
-<li>Creating new variables</li>
-<li>Handling dates</li>
-</ol>
-<p>Chapter 4 - Programming</p>
-<ol style="list-style-type: decimal">
-<li>Flow control</li>
-<li>Functions</li>
-<li>Handling strings</li>
-<li>Vectorizing</li>
-<li>Memory and scripts</li>
-</ol>
-<p>Chapter 5 - Further Packages</p>
-<ol style="list-style-type: decimal">
-<li>sqldf</li>
-<li>ggplot2</li>
-<li>twitteR</li>
-</ol>
 <hr />
-<h1 id="chapter-1---introduction"><span class="header-section-number">2</span> Chapter 1 - Introduction</h1>
+<h1 id="chapter-1---introduction"><span class="header-section-number">1</span> Chapter 1 - Introduction</h1>
 <hr />
-<h2 id="the-environment"><span class="header-section-number">2.1</span> 1.1 The Environment</h2>
+<h2 id="the-environment"><span class="header-section-number">1.1</span> The Environment</h2>
 <p>R can be run in a number of different modes, for the purpose of this course we will be focusing on 'interactive mode' through the graphical user interface (GUI); 'batch mode' is also available but will not be covered here. Note that the screenshots and accompanying screencasts for this course were produced with R version 2.14 running on Mac OSX The look and feel on other operating systems will differ slightly.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image64.png" />
-</div>
-<p>The visible windows are:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image64.png" /><br /> The visible windows are:</p>
 <ol style="list-style-type: decimal">
 <li>The editor window</li>
 <li>The console</li>
 </ol>
 <p>We can write commands directly into the console window or we can create a script file and edit it in the editor window, highlighting specific text we wish to run. The second approach has the benefit of being able to save the commands written in the script files, although it takes more time (and in fact the commands we write directly in the console can also be saved to a file).</p>
-<p>When writing scripts it is good practice to include comments in our files that help describe what the code does. The way to do this in R is with the &quot;#&quot; symbol before text. The following code is ignored by R:</p>
+<p>When writing scripts it is good practice to include comments in our files that help describe what the code does. The way to do this in R is with the <code>#</code> symbol before text. The following code is ignored by R:</p>
 <pre><code>#2+2</code></pre>
 <p>Using the highlight + run approach is akin to copying and pasting the text in the interpreter but R scripts can also be run directly (so that they can be run on servers or as routines without the need to have a user interact).</p>
-<h2 id="objects"><span class="header-section-number">2.2</span> 1.2 Objects</h2>
+<h2 id="objects"><span class="header-section-number">1.2</span> Objects</h2>
 <p>R is an extremely versatile programming language. In particular R is an &quot;object oriented language&quot;. The significance of this is that everything (functions, data files, outputs of a regression analysis) is an &quot;object&quot;. The type of object is called the &quot;class&quot; and what one can do to a class is called a &quot;method&quot;. The advantage of this is that when a new &quot;class&quot; is developed one simply needs to ensure that is has relevant &quot;methods&quot;, to be compatible with other objects.</p>
 <p>As an example, various objects in R have a &quot;plot&quot; method, for example the output of a regression analysis can be plotted using the same command as one would use to plot a scatter plot of a data set.</p>
 <p>R has a wide range of data types (which are themselves objects). The 2 classes corresponding to data sets we will concentrate on in this course are:</p>
@@ -70,11 +30,8 @@
 <li>Data frames</li>
 </ol>
 <p>Vectors are simply collections of variables of a particular type (&quot;Numeric&quot;, &quot;Character&quot;, &quot;Boolean&quot; etc). In R a type of variable is called a &quot;mode&quot;, representing how it is stored in the computer memory. Data frames are collections of vectors and correspond to data sets. Technically, data frames are lists with dimensions, which are themselves just generic vectors. One might say a collection of equal length vectors (thus allowing the rectangular shape). Some examples of vectors and data frames are shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image05.png" />
-</div>
-<p>Let's import some data!</p>
-<h2 id="importing-data"><span class="header-section-number">2.3</span> 1.3 Importing Data</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image05.png" /><br /> Let's import some data!</p>
+<h2 id="importing-data"><span class="header-section-number">1.3</span> Importing Data</h2>
 <p>We will consider two approaches to importing data:</p>
 <ol style="list-style-type: decimal">
 <li>Direct input</li>
@@ -91,63 +48,42 @@ Age &lt;- c(23,25)
 first_data_set &lt;- data.frame(Name,Age)</code></pre>
 <p>Let's take a look at the shown screenshot of this. You may notice that some elements of the text are highlighted, this is to emphasise key words (note that this doesn't happen automatically on Windows).</p>
 <ol style="list-style-type: decimal">
-<li>The first two lines of code make use of the &quot;&lt;-&quot; operator that assigns an object to a variable.</li>
-<li>The objects in questions are created using the &quot;c&quot;(ombine) function that creates a vector. We use this to create 2 vectors: Name and Age.</li>
-<li>Finally we put the 2 vectors into a data frame using the &quot;data.frame&quot; command.</li>
+<li>The first two lines of code make use of the <code>&lt;-</code> operator that assigns an object to a variable.</li>
+<li>The objects in questions are created using the <code>c</code>(ombine) function that creates a vector. We use this to create 2 vectors: Name and Age.</li>
+<li>Finally we put the 2 vectors into a data frame using the <code>data.frame</code> command.</li>
 </ol>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image22.png" />
-</div>
-<p>We run this code by highlighting it and pressing ctrl + 'r' (.html + enter on Mac). Note that when we submit code this way it also appears in the console window. We could have in fact directly type this code into the console window. For those familiar with command line commands the console works in a very similar way. We can press the up arrow repeatedly to cycle through previous commands and use tab to autocomplete.</p>
-<p>The data set &quot;first_data_set&quot; is now saved to memory. To view all the data structures in memory we use the simple line of code:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image22.png" /><br /> We run this code by highlighting it and pressing ctrl + 'r' (.html + enter on Mac). Note that when we submit code this way it also appears in the console window. We could have in fact directly type this code into the console window. For those familiar with command line commands the console works in a very similar way. We can press the up arrow repeatedly to cycle through previous commands and use tab to autocomplete.</p>
+<p>The data set <code>first_data_set</code> is now saved to memory. To view all the data structures in memory we use the simple line of code:</p>
 <pre><code>ls()</code></pre>
 <p>A screenshot of the output is shown. We see that there are actually 3 objects in memory, the two vectors (Name and Age) as well as the data frame (first_data_set).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image03.png" />
-</div>
-<p>To view our data set, we simply type the name (as shown):</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image03.png" /><br /> To view our data set, we simply type the name (as shown):</p>
 <pre><code>first_data_set</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image68.png" />
-</div>
-<p>Using direct input is of course not at all realistic when trying to import larger data sets.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image68.png" /><br /> Using direct input is of course not at all realistic when trying to import larger data sets.</p>
 <p>Often large data sets will be saved in comma-separated values (csv) format which can be read by most (all?) software. We will import the data set shown (here viewed in a simple text editor).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image33.png" />
-</div>
-<p>We will import this data set into R using the following code:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image33.png" /><br /> We will import this data set into R using the following code:</p>
 <pre><code>JJJ &lt;- read.csv(file=&quot;~/JJJ.csv&quot;,head=TRUE)</code></pre>
 <p>Let's take a look at the screenshot shown. Note here that we are not using the text editor but directly writing code in the console (this is often how I prefer to use R for short bits of code).</p>
 <ol style="list-style-type: decimal">
-<li>&quot;read.csv&quot; - is the command which is used to tell R to read in data from a csv file.</li>
-<li>&quot;file&quot; - an option tells R where the csv file is located.</li>
-<li>&quot;head&quot; - an option tells R to read the variable names from the first row of the csv file. Note that this command can be omitted (the default value is &quot;TRUE&quot;).</li>
+<li><code>read.csv</code> - is the command which is used to tell R to read in data from a csv file.</li>
+<li><code>file</code> - an option tells R where the csv file is located.</li>
+<li><code>head</code> - an option tells R to read the variable names from the first row of the csv file. Note that this command can be omitted (the default value is <code>TRUE</code>).</li>
 </ol>
-<p>We have omitted other options (such as &quot;sep&quot; which can be used to change the default separator from &quot;,&quot; to something else).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image37.png" />
-</div>
-<p>Running the code (by either pressing enter if using the console or highlighting and running as before is using the editor) gives the required object as shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image66.png" />
-</div>
-<p>In the following chapters we will learn how to create new data sets from old data sets and as such it may become necessary to export files to csv.</p>
-<h2 id="exporting-data-sets"><span class="header-section-number">2.4</span> 1.3 Exporting Data Sets</h2>
-<p>We will export our first data set (&quot;mat008/first_dataset&quot;) to csv using the following line of code:</p>
+<p>We have omitted other options (such as <code>sep</code> which can be used to change the default separator from <code>,</code> to something else).</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image37.png" /><br /> Running the code (by either pressing enter if using the console or highlighting and running as before is using the editor) gives the required object as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image66.png" /><br /> In the following chapters we will learn how to create new data sets from old data sets and as such it may become necessary to export files to csv.</p>
+<h2 id="exporting-data-sets"><span class="header-section-number">1.4</span> Exporting Data Sets</h2>
+<p>We will export our first data set (<code>first_dataset</code>) to csv using the following line of code:</p>
 <pre><code>write.csv(first_data_set,&quot;~/Desktop/first_data_set.csv&quot;)</code></pre>
 <p>Let's take a look at the screenshot.</p>
 <ol style="list-style-type: decimal">
-<li>&quot;write.csv&quot; is the command which is used to tell R to read in data from a csv file.</li>
+<li><code>write.csv</code> is the command which is used to tell R to read in data from a csv file.</li>
 <li>The first command tells R which R object to export.</li>
 <li>The second command tells R the location of the csv file.</li>
 </ol>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image59.png" />
-</div>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image59.png" /><br /> ---</p>
+<h1 id="chapter-2---basic-statistical-procedures"><span class="header-section-number">2</span> Chapter 2 - Basic Statistical Procedures</h1>
 <hr />
-<h1 id="chapter-2---basic-statistical-procedures"><span class="header-section-number">3</span> Chapter 2 - Basic Statistical Procedures</h1>
-<hr />
-<h2 id="procedures"><span class="header-section-number">3.1</span> 2.1 Procedures</h2>
+<h2 id="procedures"><span class="header-section-number">2.1</span> Procedures</h2>
 <p>In the previous chapter we were introduced to some very basic aspects of R:</p>
 <ol style="list-style-type: decimal">
 <li>what R looks like</li>
@@ -164,44 +100,27 @@ first_data_set &lt;- data.frame(Name,Age)</code></pre>
 <li>Obtaining linear models</li>
 <li>Plotting data</li>
 </ol>
-<h2 id="a-list-of-procedures"><span class="header-section-number">3.2</span> 2.2 A list of procedures</h2>
-<h3 id="utility-procedures"><span class="header-section-number">3.2.1</span> Utility procedures</h3>
+<h2 id="a-list-of-procedures"><span class="header-section-number">2.2</span> A list of procedures</h2>
+<h3 id="utility-procedures"><span class="header-section-number">2.2.1</span> Utility procedures</h3>
 <p>We have seen how to view and entire data set (by simply printing the name of the object in question).</p>
 <p>We illustrate this once again by considering the MMM data set shown, (imported using read.csv).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image24.png" />
-</div>
-<p>At times we might not want to open the data set but simply gain some information as to what is in the data set.</p>
-<p>To view only the names of the variables of our data set we use the &quot;name&quot; function as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image24.png" /><br /> At times we might not want to open the data set but simply gain some information as to what is in the data set.</p>
+<p>To view only the names of the variables of our data set we use the <code>name</code> function as shown.</p>
 <pre><code>names(MMM)</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image69.png" />
-</div>
-<p>If we had a very large data set then we could quickly view the first/last few entries using the &quot;head&quot;/&quot;tail&quot; function as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image69.png" /><br /> If we had a very large data set then we could quickly view the first/last few entries using the <code>head</code>/<code>tail</code> function as shown.</p>
 <pre><code>head(MMM)
 tail(MMM)</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image49.png" />
-</div>
-<p>Finally if we would like to view a description of the overall structure of a data set we can use the &quot;str&quot; function as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image49.png" /><br /> Finally if we would like to view a description of the overall structure of a data set we can use the <code>str</code> function as shown.</p>
 <pre><code>str(MMM)</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image34.png" />
-</div>
-<p>The class of the imported character variables are &quot;Factors&quot;, this is due to the importation method (read.csv) automatically converting the character variables in this form - details about &quot;Factors&quot; are given below. The reason this occurs is the default value of stringsAsFactors (used in the read.csv function) is TRUE, the following code forces the characters retain their class without conversion.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image34.png" /><br /> The class of the imported character variables are <code>Factors</code>, this is due to the importation method (<code>read.csv</code>) automatically converting the character variables in this form - details about &quot;Factors&quot; are given below. The reason this occurs is the default value of stringsAsFactors (used in the read.csv function) is TRUE, the following code forces the characters retain their class without conversion.</p>
 <pre><code>MMM&lt;-read.csv(&quot;MMM.csv&quot;,stringsAsFactors=FALSE)</code></pre>
 <p>The factor stores the nominal values as a vector of integers in the range [ 1... k ] (where k is the number of unique values in the nominal variable), and an internal vector of character strings (the original values) mapped to these integers. This is often a much more efficient way of handling strings.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image31.png" />
-</div>
-<h3 id="descriptive-statistics"><span class="header-section-number">3.2.2</span> Descriptive statistics</h3>
-<p>To gain an initial set of summary statistics of a data frame we can use the 'summary' function:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image31.png" /><br /></p>
+<h3 id="descriptive-statistics"><span class="header-section-number">2.2.2</span> Descriptive statistics</h3>
+<p>To gain an initial set of summary statistics of a data frame we can use the <code>summary</code> function:</p>
 <pre><code>summary(MMM)</code></pre>
 <p>The output of which is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image50.png" />
-</div>
-<p>Recall that most &quot;things&quot; in R are objects and &quot;summary&quot; is a good example of a generic function that works on most objects. If you are faced with a new object (for example the output of a regression analysis) it is sometimes worth trying to apply summary on it to get some initial information.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image50.png" /><br /> Recall that most &quot;things&quot; in R are objects and &quot;summary&quot; is a good example of a generic function that works on most objects. If you are faced with a new object (for example the output of a regression analysis) it is sometimes worth trying to apply summary on it to get some initial information.</p>
 <p>To obtain a particular summary statistic of a specific variable, we can use functions that apply to vectors and select the vectors from the dataset.</p>
 <p>To select a particular column (as a vector) from our dataset, we use the following command:</p>
 <pre><code>MMM$Age</code></pre>
@@ -214,80 +133,62 @@ max(MMM$Age)
 sum(MMM$Age)
 var(MMM$Age)</code></pre>
 <p>The output of which is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image52.png" />
-</div>
-<p>We can compartmentalise our results using the &quot;by&quot; function. The general syntax for the &quot;by&quot; function is given below:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image52.png" /><br /> We can compartmentalise our results using the <code>by</code> function. The general syntax for the <code>by</code> function is given below:</p>
 <pre><code>by(data=dataFrame , Indices=grouping variables, FUN= a function)</code></pre>
 <p>We'll use this to obtain the mean age and height compartmentalised by sex:</p>
-<pre><code>by(MMM$Age, MMM$Sex, mean) by(MMM$Height.in.Metres, MMM$Sex, mean)</code></pre>
+<pre><code>by(MMM$Age, MMM$Sex, mean)
+by(MMM$Height.in.Metres, MMM$Sex, mean)</code></pre>
 <p>The output of which is shown.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image13.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image13.png" /><p class="caption"></p>
 </div>
 <p>The above code subsets the data frame by the grouping variable. If we want to just carry out an action on a vector (as above, we're only actually interested in the Age vector or the Height vector) then we can also use the &quot;tapply function&quot;. This applies a function to a vector according to the levels of another vector:</p>
 <pre><code>tapply(MMM$Age, MMM$Sex, mean)</code></pre>
-<p>Finally, to reduce the number of keystrokes, we can use the &quot;with&quot; statement. This tells R to evaluate everything within a given data frame. The following code reproduces the above results:</p>
+<p>Finally, to reduce the number of keystrokes, we can use the <code>with</code> statement. This tells R to evaluate everything within a given data frame. The following code reproduces the above results:</p>
 <pre><code>with(data=MMM,by(Age,Sex,mean) )
 with(data=MMM,tapply(Age, Sex, mean))</code></pre>
-<p>Note: the &quot;data=&quot; statement can be omitted.</p>
-<h3 id="frequency-tables"><span class="header-section-number">3.2.3</span> Frequency Tables</h3>
-<p>The &quot;table&quot; function allows us to obtain frequency tables of data sets. As an example let us consider the data set shown. The &quot;table&quot; function creates a &quot;table&quot; (a particular type of R object):</p>
+<p>Note: the <code>data=</code> statement can be omitted.</p>
+<h3 id="frequency-tables"><span class="header-section-number">2.2.3</span> Frequency Tables</h3>
+<p>The <code>table</code> function allows us to obtain frequency tables of data sets. As an example let us consider the data set shown. The <code>table</code> function creates a &quot;table&quot; (a particular type of R object):</p>
 <pre><code>table(math_tests$Teacher,math_tests$Pass.Fail)</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image19.png" />
-</div>
-<p>Again we can write this as:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image19.png" /><br /> Again we can write this as:</p>
 <pre><code>with(math_tests,table(Teacher,Pass.Fail))</code></pre>
-<p>We can save this table as a new object and use the 'prop' command to gain row and column totals and proportions:</p>
+<p>We can save this table as a new object and use the <code>prop</code> command to gain row and column totals and proportions:</p>
 <pre><code>mytable&lt;-table(math_tests$Teacher,math_tests$Pass.Fail)
 margin.table(mytable, 1)
 margin.table(mytable, 2)
 prop.table(mytable,1)
 prop.table(mytable,2)</code></pre>
 <p>The output of all this is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image32.png" />
-</div>
-<h3 id="correlations"><span class="header-section-number">3.2.4</span> Correlations</h3>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image32.png" /><br /></p>
+<h3 id="correlations"><span class="header-section-number">2.2.4</span> Correlations</h3>
 <p>The following lines of code select only the columns from MMM that are numeric. An explanation of this will follow in the next chapter.</p>
 <pre><code>MMM[,sapply(MMM,is.numeric)]</code></pre>
 <p>The correlation 'cor' function only acts upon numeric vectors (and/or dataframes), hence the selection of solely numeric values first.</p>
 <pre><code>MMMnum&lt;-MMM[,sapply(MMM,is.numeric)]
 cor(MMMnum)</code></pre>
-<p>The 'cor' function however does not give tests of significance. We can obtain significance tests between two variables using 'cor.test':</p>
+<p>The <code>cor</code> function however does not give tests of significance. We can obtain significance tests between two variables using <code>cor.test</code>:</p>
 <pre><code>cor.test(MMM$Age,MMM$Height.in.Metres)</code></pre>
 <p>The output is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image29.png" />
-</div>
-<p>As is often the case in open source software, packages are independently developed and need to be called to be used in R. Above we have shown the very basic approach to obtaining correlations in R, we will now use the rcorr function from the Hmisc package.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image29.png" /><br /> As is often the case in open source software, packages are independently developed and need to be called to be used in R. Above we have shown the very basic approach to obtaining correlations in R, we will now use the rcorr function from the Hmisc package.</p>
 <p>To install the package we use the following code:</p>
 <pre><code>install.packages(&quot;Hmisc&quot;)</code></pre>
 <p>Once that happens a window opens asking us to choose the mirror from which to download. This is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image54.png" />
-</div>
-<p>Once that is done to load the package the following code is required:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image54.png" /><br /> Once that is done to load the package the following code is required:</p>
 <pre><code>library(Hmisc)</code></pre>
 <p>or:</p>
 <pre><code>require(Hmisc)</code></pre>
 <p>To see the packages currently loaded we can use the following code:</p>
 <pre><code>search()</code></pre>
 <p>Note: Packages can also be installed by selecting the 'Packages' tab and selecting the package required for installation.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image63.png" />
-</div>
-<p>Using this package, we will use the 'rcorr' function that gives the correlation matrix for a data set. Note that the data set must be numeric and in 'matrix' form. The following code selects the numeric variables from the MMM data set and converts the result to a matrix:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image63.png" /><br /> Using this package, we will use the <code>rcorr</code> function that gives the correlation matrix for a data set. Note that the data set must be numeric and in <code>matrix</code> form. The following code selects the numeric variables from the MMM data set and converts the result to a matrix:</p>
 <pre><code>MMMnum&lt;-MMM[,sapply(MMM,is.numeric)]
 MMMmat&lt;-as.matrix(MMMnum)</code></pre>
 <p>Once this is done we can get the correlation matrix using the following code:</p>
 <pre><code>rcorr(MMMmat)</code></pre>
 <p>The output is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image20.png" />
-</div>
-<h3 id="linear-models"><span class="header-section-number">3.2.5</span> Linear Models</h3>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image20.png" /><br /></p>
+<h3 id="linear-models"><span class="header-section-number">2.2.5</span> Linear Models</h3>
 <p>In this section we very briefly see the syntax for some basic linear models in R.</p>
 <p>The general syntax for linear regression is as follows in R:</p>
 <pre><code>lm(outcome~predictors)</code></pre>
@@ -295,48 +196,28 @@ MMMmat&lt;-as.matrix(MMMnum)</code></pre>
 <pre><code>lm(JJJ$Height.in.Metres~JJJ$Weight.in.Kg+JJJ$Savings.in.Pounds)
 lm(Height.in.Metres~Weight.in.Kg+Savings.in.Pounds,data=JJJ)</code></pre>
 <p>The results are shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image38.png" />
-</div>
-<p>To get the full set of results from the regression analysis we use the following code:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image38.png" /><br /> To get the full set of results from the regression analysis we use the following code:</p>
 <pre><code>summary(lm(Height.in.Metres~Weight.in.Kg+Savings.in.Pounds,data=JJJ))</code></pre>
 <p>The output is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image45.png" />
-</div>
-<p>Looking at the p value we see that the overall model should not be rejected, however the detailed results show that perhaps we could remove savings from the model.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image45.png" /><br /> Looking at the p value we see that the overall model should not be rejected, however the detailed results show that perhaps we could remove savings from the model.</p>
 <p>Analysis of variance (ANOVA) can be done easily in R. We shall show this using a new data set (math.csv) shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image58.png" />
-</div>
-<pre><code>aov(outcome~class,data)</code></pre>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image58.png" /><br /> aov(outcome~class,data)</p>
 <p>We will use the &quot;aov&quot; function to see if the grades obtained by students depend on their teacher (in two ways, the second is slightly more compact):</p>
 <pre><code>aov(math$GRADE~math$PROF)
 aov(GRADE~PROF,data=math)</code></pre>
 <p>The results are shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image42.png" />
-</div>
-<p>To get the full set of results from the ANOVA we use the following code:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image42.png" /><br /> To get the full set of results from the ANOVA we use the following code:</p>
 <pre><code>summary(aov(GRADE~PROF,data=math))</code></pre>
 <p>The results are shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image60.png" />
-</div>
-<h3 id="plots-and-charts"><span class="header-section-number">3.2.6</span> Plots and charts</h3>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image60.png" /><br /></p>
+<h3 id="plots-and-charts"><span class="header-section-number">2.2.6</span> Plots and charts</h3>
 <p>Note that due to the object oriented nature of  R, almost all of the above outputs have a &quot;plot&quot; attribute.</p>
 <p>The simplest way to produce a histogram in R is to use the &quot;hist&quot; function. The following code gives a histogram for the height of entries in the JJJ data set as shown.</p>
 <pre><code>hist(JJJ$Height.in.Metres)</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image15.png" />
-</div>
-<p>The simplest way to produce a scatter plot in R is to use the &quot;plot&quot; function. The following code gives a scatter plot for the height against weight of entries in the JJJ data set as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image15.png" /><br /> The simplest way to produce a scatter plot in R is to use the &quot;plot&quot; function. The following code gives a scatter plot for the height against weight of entries in the JJJ data set as shown.</p>
 <pre><code>plot(JJJ$Weight.in.Kg,JJJ$Height.in.Metres)</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image47.png" />
-</div>
-<p>There are various other ways to obtain similar graphs, as well as change the look and feel of our graphs. We won't go into this here but you are encouraged to look into it (in particular the ggplot package is widely used).</p>
-<h2 id="exporting-output"><span class="header-section-number">3.3</span> 2.3 Exporting output</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image47.png" /><br /> There are various other ways to obtain similar graphs, as well as change the look and feel of our graphs. We won't go into this here but you are encouraged to look into it (in particular the ggplot package is widely used).</p>
+<h2 id="exporting-output"><span class="header-section-number">2.3</span> Exporting output</h2>
 <p>All the non graphical outputs from R are objects, as such they can be output to a file (to be copied into another document if need be) using the write statements of Sections 1.4. However to export graphical output, we use any of the following statements (depending on the output format required):</p>
 <pre><code>pdf(&quot;mygraph.pdf&quot;)
 win.metafile(&quot;mygraph.wmf&quot;)
@@ -351,47 +232,32 @@ postscript(&quot;mygraph.ps&quot;)</code></pre>
 plot(JJJ$Weight.in.Kg,JJJ$Height.in.Metres)
 dev.off( )</code></pre>
 <hr />
-<h1 id="chapter-3---manipulating-data"><span class="header-section-number">4</span> Chapter 3 - Manipulating data</h1>
+<h1 id="chapter-3---manipulating-data"><span class="header-section-number">3</span> Chapter 3 - Manipulating data</h1>
 <hr />
-<h2 id="vectors-and-data-frames"><span class="header-section-number">4.1</span> 3.1 Vectors and data frames</h2>
-<h3 id="vectors"><span class="header-section-number">4.1.1</span> Vectors</h3>
+<h2 id="vectors-and-data-frames"><span class="header-section-number">3.1</span> Vectors and data frames</h2>
+<h3 id="vectors"><span class="header-section-number">3.1.1</span> Vectors</h3>
 <p>When considering R data frames it is important to recall that they are composed of vectors. Even individual scalars and strings are vectors. This is a very powerful tool.</p>
 <p>One important notion when handling vectors is the use of 'recycling'. As all elements are vectors, when performing an operation between two vectors of different length, R automatically repeats (or recycles) the shorter one until it is long enough.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image61.png" />
-</div>
-<p>In the previous example, (&quot;u+v&quot;) we add the elements of both vectors together. R automatically increases the length of &quot;u&quot; so that the operation becomes (1,2,3,4,5) + (0,1,0,1,0). In the second example we compare the elements of &quot;v&quot; to 4. R automatically increases the length of the vector containing 4 so that the operation becomes (1,2,3,4,5)&lt;(4,4,4,4,4) which returns a vector of size 5 with boolean (True or False) elements.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image61.png" /><br /> In the previous example, (<code>u+v</code>) we add the elements of both vectors together. R automatically increases the length of <code>u</code> so that the operation becomes (1,2,3,4,5) + (0,1,0,1,0). In the second example we compare the elements of <code>v</code> to 4. R automatically increases the length of the vector containing 4 so that the operation becomes (1,2,3,4,5)&lt;(4,4,4,4,4) which returns a vector of size 5 with boolean (True or False) elements.</p>
 <p>This second concept is important when understanding how to select certain variables in R (we saw this briefly in the previous section).</p>
 <p>Another important notion in R is that of indexing. We can select elements of a vector by specifying the indices of the elements required:</p>
 <pre><code>dwarfs&lt;-c(&quot;Dopey&quot;,&quot;Sneezey&quot;,&quot;Happy&quot;,&quot;Sleepy&quot;,&quot;Grumpy&quot;,&quot;Bashful&quot;,&quot;Doc&quot;)
 dwarfs[c(1,4,5)]
 dwarfs[3:length(dwarfs)]</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image23.png" />
-</div>
-<p>Both of the previous approaches use a vector of indices to indicate the elements we require. The second approach uses a shorthand to create a vector of elements (containing the integers 3 to 5). Another approach is to simply use a vector of boolean values (True or False) to indicate the positions that are to be selected.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image23.png" /><br /> Both of the previous approaches use a vector of indices to indicate the elements we require. The second approach uses a shorthand to create a vector of elements (containing the integers 3 to 5). Another approach is to simply use a vector of boolean values (True or False) to indicate the positions that are to be selected.</p>
 <pre><code>Index&lt;-c(TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE)
 dwarfs[Index]</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image00.png" />
-</div>
-<p>It should be straightforward to realise that we can combine recycling and indexing to filter vectors:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image00.png" /><br /> It should be straightforward to realise that we can combine recycling and indexing to filter vectors:</p>
 <pre><code>Index&lt;-substr(dwarfs,1,1)==&quot;D&quot;
 dwarfs[Index]</code></pre>
-<p>The first command creates an index set of boolean variables using the &quot;substr&quot; function and recycling (in this case used to take the first character of each element). This allows us to obtain the elements of the vector dwarfs with first letter &quot;D&quot; as shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image04.png" />
-</div>
-<p>We have seen how to subset vectors using filtering, the same logic applies to data frames.</p>
+<p>The first command creates an index set of boolean variables using the <code>substr</code> function and recycling (in this case used to take the first character of each element). This allows us to obtain the elements of the vector dwarfs with first letter <code>D</code> as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image04.png" /><br /> We have seen how to subset vectors using filtering, the same logic applies to data frames.</p>
 <p>We can first of all use indexing to obtain the variables we want. For example the following code will select the all the variables apart from the 4th and 5th:</p>
 <pre><code>MMM[c(1,2,3,6,7,8)]</code></pre>
 <p>A quicker way is to simply state the variables we want to drop:</p>
 <pre><code>MMM[c(-4,-5)]</code></pre>
 <p>The output of the above code is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image39.png" />
-</div>
-<p>We can also list the names of variables we want to keep:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image39.png" /><br /> We can also list the names of variables we want to keep:</p>
 <pre><code>MMM[c(&quot;Name&quot;,&quot;Age&quot;,&quot;Sex&quot;,&quot;Home.Postcode&quot;,&quot;Savings.in.Pounds&quot;,&quot;Random.Number&quot;)]</code></pre>
 <p>Finally we can create a vector of booleans that gives the same above result or the opposite result (i.e. drops the variables).</p>
 <pre><code>Index&lt;-names(MMM) %in% c(&quot;Weight.in.Kg&quot;,&quot;Height.in.Metres&quot;)
@@ -400,31 +266,22 @@ MMM[Index]
 
 Index&lt;-names(MMM) %in% c(&quot;Weight.in.Kg&quot;,&quot;Height.in.Metres&quot;)
 MMM[!Index]</code></pre>
-<p>Recall the &quot;names&quot; function simply gives a vector containing the names of all the variables in the MMM dataset. The &quot;%in%&quot; operator is used to create a vector of booleans by testing if the elements of names(MMM) are 'in' the vector c(&quot;Weight.in.Kg&quot;,&quot;Height.in.Metres&quot;). The &quot;!&quot; operator acting on &quot;Index&quot; simply negates the booleans contained in Index.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image17.png" />
-</div>
-<h3 id="selecting-observations"><span class="header-section-number">4.1.2</span> Selecting Observations</h3>
+<p>Recall the <code>names</code> function simply gives a vector containing the names of all the variables in the MMM dataset. The <code>%in%</code> operator is used to create a vector of booleans by testing if the elements of names(MMM) are <code>in</code> the vector c(&quot;Weight.in.Kg&quot;,&quot;Height.in.Metres&quot;). The <code>!</code> operator acting on <code>Index</code> simply negates the booleans contained in Index.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image17.png" /><br /> ### Selecting Observations</p>
 <p>We can select any particular element of a data frame in R using the following syntax:</p>
 <pre><code>dataframe[i,j]</code></pre>
 <p>This would give the entry for variable j of observation i as shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image57.png" />
-</div>
-<p>If we ignore one of the indices R simply returns all the entries corresponding to that index. For example the following code would return all the observations for the 7th observation of the JJJ data set:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image57.png" /><br /> If we ignore one of the indices R simply returns all the entries corresponding to that index. For example the following code would return all the observations for the 7th observation of the JJJ data set:</p>
 <pre><code>JJJ[7,]</code></pre>
 <p>We can also use this to sort a data set. The &quot;order function&quot; returns a set of indices reflecting the ascending order of a vector, thus to sort the JJJ data set by age we use the following code:</p>
 <pre><code>JJJ[order(JJJ$Age),]</code></pre>
 <p>We can use filtering to expand on this and select all observations that obey a particular condition. For example the following code selects entries of JJJ that have age less than or equal to 18:</p>
 <pre><code>JJJ[JJJ$Age&lt;=18,]</code></pre>
-<h2 id="merging-and-concatenating-data-sets"><span class="header-section-number">4.2</span> 3.2 Merging and concatenating data sets</h2>
-<p>To concatenate two data sets in R we use the rbind function (i.e. we bind the two dataframes by rows).</p>
+<h2 id="merging-and-concatenating-data-sets"><span class="header-section-number">3.2</span> Merging and concatenating data sets</h2>
+<p>To concatenate two data sets in R we use the <code>rbind</code> function (i.e. we bind the two dataframes by rows).</p>
 <pre><code>MMMJJJ&lt;-rbind(JJJ,MMM)</code></pre>
 <p>Note that both these data sets need to contain all the variables. If one of the datasets does not contain all the variables then you need to add that variable to it and set its values to NA (missing).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image26.png" />
-</div>
-<p>To merge two dataframes in R we use the merge function. We'll illustrate this with the following data set:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image26.png" /><br /> To merge two dataframes in R we use the merge function. We'll illustrate this with the following data set:</p>
 <pre><code>Name&lt;-c(&quot;Bob&quot;,&quot;Ben&quot;)
 Weight&lt;-c(75,94)
 other_data_set&lt;-data.frame(Name,Weight)</code></pre>
@@ -433,10 +290,7 @@ other_data_set&lt;-data.frame(Name,Weight)</code></pre>
 <p>(or equivalently:)</p>
 <pre><code>merged_data_set&lt;-merge(x=first_data_set,y=other_data_set,by=&quot;Name&quot;)</code></pre>
 <p>The output is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image35.png" />
-</div>
-<p>Note that the merge statement only selects observations that are present in both files. We can pass further arguments to the merge statement that allow us to select all the values from a particular data set and/or both data sets. These operations are at times called 'joins' (and are very common in SQL which we shall see in Chapter 5). The basic merge statement (as above) would be referred to as an 'inner' join.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image35.png" /><br /> Note that the merge statement only selects observations that are present in both files. We can pass further arguments to the merge statement that allow us to select all the values from a particular data set and/or both data sets. These operations are at times called 'joins' (and are very common in SQL which we shall see in Chapter 5). The basic merge statement (as above) would be referred to as an 'inner' join.</p>
 <p>A left outer join (selecting all variables from the first data set):</p>
 <pre><code>merged_data_set&lt;-merge(first_data_set,other_data_set,&quot;Name&quot;,all.x=TRUE)</code></pre>
 <p>A right outer join:</p>
@@ -444,100 +298,56 @@ other_data_set&lt;-data.frame(Name,Weight)</code></pre>
 <p>A full outer join:</p>
 <pre><code>merged_data_set&lt;-merge(first_data_set,other_data_set,&quot;Name&quot;,all=TRUE)</code></pre>
 <p>The output of the above is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image51.png" />
-</div>
-<h2 id="creating-new-variables"><span class="header-section-number">4.3</span> 3.3 Creating new variables</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image51.png" /><br /> ## Creating new variables</p>
 <p>Creating new variables using various arithmetic and/or string relationships is straightforward in R. The following code creates a new data set call MMM_with_BMI as a copy of the MMM data set and then adds a new variable &quot;BMI&quot; as a function of the height and weight variables in the MMM_with_BMI dataset.</p>
 <pre><code>MMM_With_BMI&lt;-MMM
 MMM_With_BMI$BMI&lt;-MMM$Weight.in.Kg/(MMM$Height.in.Metres^2)
 MMM_With_BMI</code></pre>
 <p>The output is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image55.png" />
-</div>
-<p>The above code is quite long though, so we can use the &quot;within&quot; function which is similar to the &quot;with&quot; function. It lets R know you are working within a particular data frame.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image55.png" /><br /> The above code is quite long though, so we can use the <code>within</code> function which is similar to the <code>with</code> function. It lets R know you are working within a particular data frame.</p>
 <pre><code>MMM_With_BMI &lt;- within(MMM, BMI &lt;- Weight.in.Kg/(Height.in.Metres^2))</code></pre>
 <p>The output is shown:</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image18.png" />
-</div>
-<p>Some of the arithmetic functions available in R are shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_math_operators.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_math_functions.png" />
-</div>
-<p>We can also do operations on strings, the following code replaces the variable &quot;Sex&quot; with the first character of &quot;Sex&quot; (which gets rid of the Male - M and Female - F issue).</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image18.png" /><br /> Some of the arithmetic functions available in R are shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_math_operators.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_math_functions.png" /><br /> We can also do operations on strings, the following code replaces the variable <code>Sex</code> with the first character of <code>Sex</code> (which gets rid of the Male - M and Female - F issue).</p>
 <pre><code>MMM_With_BMI$Sex&lt;-substr(MMM_With_BMI$Sex,1,1)</code></pre>
 <p>Some examples of string functions are shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_string_functions.png" />
-</div>
-<p>It's also worth checking the web for other R functions (there is a huge amount of them).</p>
-<h3 id="renaming-variables"><span class="header-section-number">4.3.1</span> Renaming variables</h3>
-<p>To rename variables one can use the &quot;rename&quot; function from the &quot;reshape&quot; library (that can be installed as we have seen in previous section).</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_string_functions.png" /><br /> It's also worth checking the web for other R functions (there is a huge amount of them).</p>
+<h3 id="renaming-variables"><span class="header-section-number">3.2.1</span> Renaming variables</h3>
+<p>To rename variables one can use the <code>rename</code> function from the <code>reshape</code> library (that can be installed as we have seen in previous section).</p>
 <pre><code>library(reshape)
 JJJ&lt;-rename(JJJ,c(Sex=&quot;Gender&quot;))</code></pre>
 <p>The output is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image06.png" />
-</div>
-<p>Another option is to use the &quot;fix&quot; function that opens the dataset in a GUI that easily allows for modification of the dataset (including the name of the variables). Note that changes are saved on close of the fix environment.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image06.png" /><br /> Another option is to use the &quot;fix&quot; function that opens the dataset in a GUI that easily allows for modification of the dataset (including the name of the variables). Note that changes are saved on close of the fix environment.</p>
 <pre><code>fix(JJJ)</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image25.png" />
-</div>
-<h3 id="operations-across-rows"><span class="header-section-number">4.3.2</span> Operations across rows</h3>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image25.png" /><br /> ### Operations across rows</p>
 <p>As discussed previously, the columns of a data frame can be manipulated very easily as they are just vectors. In the next section we will see how to manipulate vectors using flow control statements but we will take a quick look at two functions that allow for quick and easy manipulation across rows.</p>
 <p>We will demonstrate this using the birthday_money.csv data set as shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image65.png" />
-</div>
-<p>Suppose we want to take a cumulative sum of the birthday money, we create a new variable call total using the &quot;cumsum&quot; function that returns the the cumulative sum of elements of a vector.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image65.png" /><br /> Suppose we want to take a cumulative sum of the birthday money, we create a new variable call total using the <code>cumsum</code> function that returns the cumulative sum of elements of a vector.</p>
 <pre><code>birthday_money$total&lt;-cumsum(birthday_money$Amount)</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image36.png" />
-</div>
-<p>Another similar tool is to use the &quot;diff&quot; function that calculates consecutive differences of elements of a vector:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image36.png" /><br /> Another similar tool is to use the &quot;diff&quot; function that calculates consecutive differences of elements of a vector:</p>
 <pre><code>birthday_money$yearly_diff&lt;-c(NA,diff(birthday_money$Amount))</code></pre>
 <p>Note that we also include a first entry of our column &quot;yearly_diff&quot; as &quot;NA&quot;, this is because the output of diff will be shorter than the length of the original vector.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image56.png" />
-</div>
-<h2 id="handling-dates-in-r"><span class="header-section-number">4.4</span> 3.4 Handling dates in R</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image56.png" /><br /> ## Handling dates in R</p>
 <p>Dates are a particular class in R. When importing dates, they are imported as strings.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image14.png" />
-</div>
-<p>We import the file and create a data frame in the usual way:</p>
-<pre><code>birthdays&lt;-read.csv(&quot;~/birthdays.csv&quot;)</code></pre>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image14.png" /><br /> We import the file and create a data frame in the usual way:</p>
+<pre><code>birthdays&lt;-read.csv(&quot;~/birthdays.csv&quot;)\</code></pre>
 <p>Using the &quot;str&quot; command to view the structure of our data frame:</p>
-<pre><code>str(birthdays)</code></pre>
-<p>The output is shown confirming that the dates are recognized as strings (recall that by default &quot;read.csv&quot; imports strings as &quot;factors&quot;).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image48.png" />
-</div>
-<p>In this current format if we tried to carry out any mathematical manipulation of the dates we would not succeed. We can however tell R that certain variables are dates. We do this using the &quot;as.dates&quot; function by describing the format our dates are in:</p>
+<pre><code>str(birthdays)\</code></pre>
+<p>The output is shown confirming that the dates are recognized as strings (recall that by default <code>read.csv</code> imports strings as <code>factors</code>).</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image48.png" /><br /> In this current format if we tried to carry out any mathematical manipulation of the dates we would not succeed. We can however tell R that certain variables are dates. We do this using the &quot;as.dates&quot; function by describing the format our dates are in:</p>
 <pre><code>birthdays$Birthday&lt;-as.Date(birthdays$Birthday,&quot;%d/%m/%Y&quot;)</code></pre>
 <p>The format is indicated using &quot;%x&quot; where &quot;x&quot; can be of various formats as show.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_date_formats.png" />
-</div>
-<p>We'll now check the structure of our data frame, re-order (using the &quot;order&quot; function - that returns the indices of the elements of a vector in order) our birthdays and calculate the difference between birthdays (using the &quot;diff&quot; function).</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_date_formats.png" /><br /> We'll now check the structure of our data frame, re-order (using the <code>order</code> function - that returns the indices of the elements of a vector in order) our birthdays and calculate the difference between birthdays (using the <code>diff</code> function).</p>
 <pre><code>str(birthdays$Birthday)
 order(birthdays$Birthday)
 sorted&lt;- birthdays[order(birthdays$Birthday),]
 diff(birthdays$Birthday[order(birthdays$Birthday)])</code></pre>
 <p>The output of all this is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image02.png" />
-</div>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image02.png" /><br /></p>
 <hr />
-<h1 id="chapter-4-programming"><span class="header-section-number">5</span> Chapter 4 Programming</h1>
+<h1 id="chapter-4-programming"><span class="header-section-number">4</span> Chapter 4 Programming</h1>
 <hr />
-<h2 id="flow-control"><span class="header-section-number">5.1</span> 4.1 Flow Control</h2>
+<h2 id="flow-control"><span class="header-section-number">4.1</span> 4.1 Flow Control</h2>
 <p>A huge part of programming (in any language) is the use of so called &quot;conditional statements&quot; that allow for flow control. We do this in R using &quot;if&quot; statements.</p>
 <p>There are two types of &quot;if&quot; statements in R. The simple &quot;if&quot; statement as shown below:</p>
 <pre><code>x&lt;-39
@@ -561,18 +371,18 @@ z&lt;-&quot;F&quot;}</code></pre>
 <pre><code>ifelse(c(&quot;True&quot;,&quot;False&quot;,&quot;True&quot;,&quot;False&quot;),&quot;Young&quot;,&quot;Old&quot;)</code></pre>
 <p>The output is shown.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image01.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image01.png" /><p class="caption"></p>
 </div>
 <p>Using this and our knowledge of filtering we see how we can create new variables using the ifelse statement. The following code creates a new variable &quot;age_group&quot;:</p>
 <pre><code>MMMJJJ$Age_group&lt;-ifelse(MMM$Age&lt;30,&quot;Young&quot;,&quot;Old&quot;)
 MMMJJJ[c(&quot;Name&quot;,&quot;Age_group&quot;)]</code></pre>
 <p>The output is shown.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image67.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image67.png" /><p class="caption"></p>
 </div>
 <p>Some of the comparison operators that can be used in conjunction with 'if' statements are shown.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_comparison_operators.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/R_comparison_operators.png" /><p class="caption"></p>
 </div>
 <p>A further important notion in programming is the notion of loops. There are two types of loops that we will consider:</p>
 <ol style="list-style-type: decimal">
@@ -591,7 +401,7 @@ Candles&lt;-c(Candles,c)
 Candles&lt;-data.frame(Name=JJJ$Name,Age=JJJ$Age,Candles)</code></pre>
 <p>The first statement creates an empty vector called &quot;Candles&quot;. The first for loop, loops over the age variable in the JJJ data set (&quot;0:age&quot; is in fact a short way of writing a vector of integers from 0 to age). For each of those values of age we use a second for loop to sum the total number of candles and concatenate that value to the vector Candles. Finally we create a new data set Candles by concatenating the various vectors required (note that we're also renaming certain variables here).</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image10.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image10.png" /><p class="caption"></p>
 </div>
 <p>Note that in general this is not the most efficient way of undertaking things in R. Vectorized versions of the above are much faster (we won't cover these here). Another improvement for the above code is to create the vector Candles initially as a vector of the correct size and type. For example we can create a numeric vector of a certain length using the following code (all initial values will be set to 0):</p>
 <pre><code>Candles=vector(&quot;numeric&quot;,length=length(JJJ$Age))</code></pre>
@@ -618,9 +428,9 @@ even_numbers&lt;-c(even_numbers,even)
 }</code></pre>
 <p>The output is shown.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image21.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image21.png" /><p class="caption"></p>
 </div>
-<h2 id="functions"><span class="header-section-number">5.2</span> 4.2 Functions</h2>
+<h2 id="functions"><span class="header-section-number">4.2</span> 4.2 Functions</h2>
 <p>One of the great capacities of R is the ease with which one can create new functions. The general syntax for this is given by:</p>
 <pre><code>myfunction &lt;- function(arg1, arg2, ... ){
 statements
@@ -650,7 +460,7 @@ return(JJJ_after_shopping)
 }</code></pre>
 <p>Note that this function makes use of recycling (when creating the New.Savings vector).</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image12.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image12.png" /><p class="caption"></p>
 </div>
 <p>We can of course define functions with multiple arguments as below:</p>
 <pre><code>shopping &lt;- function(spend,trips){
@@ -664,7 +474,7 @@ New.Savings&lt;-JJJ$Savings.in.Pounds-trips*spend
 JJJ_after_shopping&lt;-data.frame(JJJ$Name,Old.Savings=JJJ$Savings.in.Pounds,New.Savings)
 return(JJJ_after_shopping)
 }</code></pre>
-<h2 id="vectorising"><span class="header-section-number">5.3</span> 4.3 Vectorising</h2>
+<h2 id="vectorising"><span class="header-section-number">4.3</span> 4.3 Vectorising</h2>
 <p>In general the for loops we have seen can be written in a much more efficient way using function and various forms of the apply function (which apply functions over vectors, lists and matrices):</p>
 <ol style="list-style-type: decimal">
 <li>apply</li>
@@ -699,7 +509,7 @@ sum(x)
 sapply(JJJ$Age,my_sum(1:x))</code></pre>
 <p>Note that there is no need to actually define the function we can refer directly to the function object:</p>
 <pre><code>sapply(JJJ$Age,function(x) sum(1:x))</code></pre>
-<h2 id="handling-strings"><span class="header-section-number">5.4</span> 4.4 Handling strings</h2>
+<h2 id="handling-strings"><span class="header-section-number">4.4</span> 4.4 Handling strings</h2>
 <p>SAS is a macro language and philosophically macros allow a user to substitute pieces of text for a variable, and evaluate the result. R is not a macro language and thus does the opposite: evaluates the arguments and then uses the values.</p>
 <p>The paste command allows us to concatenate strings. The following code outputs the string &quot;Hello-World&quot;. Note that we can use any string as a separator (include the empty string &quot;&quot;).</p>
 <pre><code>x&lt;-&quot;Hello&quot;
@@ -710,7 +520,7 @@ dat&lt;-lapply(1:5,f)</code></pre>
 <p>Note that this piece of code introduces a new structure a bit more formally. The object &quot;dat&quot; is here a list and we use the &quot;lappy&quot; function (we haven't seen this yet) to apply the newly created function &quot;f&quot; (that imports data).</p>
 <p>The output is shown.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image41.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image41.png" /><p class="caption"></p>
 </div>
 <p>We can also revisit a previous function (the shopping function) and create a different data set for every value of spend. We'll even make this a bit more complicated and nest functions so that we can repeat this operation for various values of the variable &quot;spend&quot;.</p>
 <pre><code>shopping &lt;- function(spend,trips=1){
@@ -728,9 +538,9 @@ shopping(spend,i)
 }</code></pre>
 <p>Note the extra option that has been passed to the &quot;assign&quot; command &quot;envir=.GlobalEnv&quot;. This is to ensure that the data sets created in the function are global (i.e. are still there when the function stops running).</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image40.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image40.png" /><p class="caption"></p>
 </div>
-<h2 id="memory-and-scripts."><span class="header-section-number">5.5</span> 4.5 Memory and scripts.</h2>
+<h2 id="memory-and-scripts."><span class="header-section-number">4.5</span> 4.5 Memory and scripts.</h2>
 <p>In this section we will take a brief look at how R handles the &quot;workspace&quot;. If you have already quit R you would have seen the prompt &quot;Save workspace image?&quot;. If you answer &quot;yes&quot; then R saves various things to various files (in the current working directory): 1. .Rdata holds all the objects (data frames, vectors, functions etc...) currently in memory (note that this file is written in an R specific file and so can't be read). 2. .Rhistory holds all the commands used (and so can be recalled).</p>
 <p>Being prompted whether or not to save the workspace is helpful (in my opinion) as you can simply open an R session to try a few things and not save (similar to using the work library in SAS). It is possible to save the workspace image as you go (this is worthwhile in case your system happens to crash):</p>
 <pre><code>save.image()</code></pre>
@@ -745,7 +555,7 @@ print(x*y)</code></pre>
 <pre><code>source(&quot;~/Desktop/first_script.r&quot;)</code></pre>
 <p>Repetitive command that are run often (for example, routine data analysis) can be saved as scripts and called if and when new data is received.</p>
 <hr />
-<h1 id="chapter-5-further-packages"><span class="header-section-number">6</span> Chapter 5 Further packages</h1>
+<h1 id="chapter-5-further-packages"><span class="header-section-number">5</span> Chapter 5 Further packages</h1>
 <hr />
 <p>In this chapter we will examine three packages in particular:</p>
 <ol style="list-style-type: decimal">
@@ -753,8 +563,8 @@ print(x*y)</code></pre>
 <li>ggplot2: a powerful package for the plotting of data</li>
 <li>twitteR: a package that allows for the data mining of twitter</li>
 </ol>
-<h2 id="sqldf"><span class="header-section-number">6.1</span> 5.1 sqldf</h2>
-<h3 id="basic-sql"><span class="header-section-number">6.1.1</span> Basic SQL</h3>
+<h2 id="sqldf"><span class="header-section-number">5.1</span> 5.1 sqldf</h2>
+<h3 id="basic-sql"><span class="header-section-number">5.1.1</span> Basic SQL</h3>
 <p>SQL is a language designed for querying and modifying databases. Used by a variety of database management software suites:</p>
 <ol style="list-style-type: decimal">
 <li>Oracle</li>
@@ -771,9 +581,9 @@ print(x*y)</code></pre>
 <pre><code>test&lt;-sqldf(&quot;select Name,Age,Sex,Weight_in_Kg/(power(Height_in_Metres,2)) as bmi from MMM&quot;)</code></pre>
 <p>Some of the SQL operators are shown.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/SQL_operators_in_R.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/SQL_operators_in_R.png" /><p class="caption"></p>
 </div>
-<h3 id="further-sql"><span class="header-section-number">6.1.2</span> Further sql</h3>
+<h3 id="further-sql"><span class="header-section-number">5.1.2</span> Further sql</h3>
 <p>In this section we'll take a look at what else R can do with sql. For the purpose of the following examples let's write a new data set:</p>
 <pre><code>Var1&lt;-c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;C&quot;)
 Var2&lt;-c(1,1,1,2,2)
@@ -794,7 +604,7 @@ example&lt;-data.frame(Var1,Var2,Var3,Var4,Var5)</code></pre>
 <pre><code>sqldf(&quot;select avg(Var2) as average_of_Var2 from example&quot;)</code></pre>
 <p>We could however get something a bit more useful by aggregating the data using a &quot;group&quot; statement:</p>
 <p>sqldf(&quot;select Var1,avg(Var2) as average_of_Var2 from example group by Var1&quot;)</p>
-<h3 id="joining-tables-with-sql"><span class="header-section-number">6.1.3</span> Joining tables with SQL</h3>
+<h3 id="joining-tables-with-sql"><span class="header-section-number">5.1.3</span> Joining tables with SQL</h3>
 <p>A very common use of SQL is to carry out &quot;joins&quot; which are equivalent to a merger of data sets. There are 4 types of joins to consider:</p>
 <ol style="list-style-type: decimal">
 <li><p>inner join</p>
@@ -829,55 +639,55 @@ Cats&lt;-data.frame(Owner,Name)</code></pre>
 <p>The following code carries out an inner join of these two datasets also changing the name of the &quot;Name&quot; variable depending on which data set it was from.</p>
 <pre><code>sqldf(&quot;select a.Owner, a.Name as Dog_Name, b.Name as Cat_Name from Dogs as a, Cats as b where a.Owner=b.Owner&quot;)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image30.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image30.png" /><p class="caption"></p>
 </div>
 <p>The following code carries out a left outer join, the output of which is show.</p>
 <pre><code>sqldf(&quot;select a.Owner, a.Name as Dog_Name, b.Name as Cat_Name from Dogs as a left join Cats as b on a.Owner=b.Owner&quot;)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image16.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image16.png" /><p class="caption"></p>
 </div>
 <p>Right and full outer joins are not yet supported in sqldf however they can actually be obtained by simply using the &quot;merge&quot; function (as discussed in Chapter 3).</p>
-<h2 id="ggplot2"><span class="header-section-number">6.2</span> 5.2 ggplot2</h2>
+<h2 id="ggplot2"><span class="header-section-number">5.2</span> 5.2 ggplot2</h2>
 <p>This is an extremely powerful package that allows for the creation of publication quality plots with ease. There are two basic functions in ggplot2:</p>
 <ol style="list-style-type: decimal">
 <li>qplot which allows us obtain quick graphs</li>
 <li>ggplot which gives us more control of granularity (we will not go into it here)</li>
 </ol>
-<h3 id="basic-plots-with-qplot"><span class="header-section-number">6.2.1</span> Basic plots with qplot</h3>
+<h3 id="basic-plots-with-qplot"><span class="header-section-number">5.2.1</span> Basic plots with qplot</h3>
 <p>The qplot command is very similar to the plot command in that in will often produce the plot required based on the inputs. To obtain a histogram of the Height.in.Metres variable of the JJJ data set we simply use:</p>
 <pre><code>qplot(data=JJJ,x=Height.in.Metres)</code></pre>
 <p>This produces the plot shown.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image08.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image08.png" /><p class="caption"></p>
 </div>
 <p>We can improve this by changing the bin width, including a title and changing the labels for the x axis and y axis.</p>
 <pre><code>qplot(data=JJJ,x=Height.in.Metres,binwidth=.075,main=&quot;Height of people in the JJJ data set&quot;,xlab=&quot;Height&quot;,ylab=&quot;Frequency&quot;)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image28.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image28.png" /><p class="caption"></p>
 </div>
 <p>We can obtain a density plot corresponding to the above by using the &quot;density&quot; option for the &quot;geom&quot; argument as shown:</p>
 <pre><code>qplot(data=JJJ,x=Height.in.Metres,binwidth=.075,main=&quot;Height of people in the JJJ data set&quot;,xlab=&quot;Height&quot;,ylab=&quot;Frequency&quot;,geom=&quot;density&quot;)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image43.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image43.png" /><p class="caption"></p>
 </div>
 <p>If we pass two vectors to qplot we obtain a scatter plot:</p>
 <pre><code>qplot(data=JJJ,x=Weight.in.Kg,y=Height.in.Metres)</code></pre>
 <p>we can also pass qplot a &quot;size&quot; argument to obtain the graph shown:</p>
 <pre><code>qplot(data=JJJ,x=Height.in.Metres,y=Weight.in.Kg,size = Age)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image11.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image11.png" /><p class="caption"></p>
 </div>
 <p>We can of course obtain scatter plots against categorical variables as shown:</p>
 <pre><code>qplot(data=JJJ,x=Sex,y=Height.in.Metres)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image07.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image07.png" /><p class="caption"></p>
 </div>
 <p>We can pass &quot;boxplot&quot; as the &quot;geom&quot; argument to get a boxplot as shown.</p>
 <pre><code>qplot(data=JJJ,x=Sex,y=Height.in.Metres,geom=&#39;boxplot&#39;)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image27.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image27.png" /><p class="caption"></p>
 </div>
-<h3 id="advanced-features"><span class="header-section-number">6.2.2</span> Advanced features</h3>
+<h3 id="advanced-features"><span class="header-section-number">5.2.2</span> Advanced features</h3>
 <p>We can add various features to our scatter plot. The following code just plots a line between all the points:</p>
 <pre><code>qplot(data=JJJ,x=Height.in.Metres,y=Weight.in.Kg,geom=&quot;line&quot;)</code></pre>
 <p>We can combine various geom options so as to not just include a line but also the points:</p>
@@ -885,16 +695,16 @@ Cats&lt;-data.frame(Owner,Name)</code></pre>
 <p>Finally we can also add a smoothed line to our plot as shown:</p>
 <pre><code>qplot(data=JJJ,x=Height.in.Metres,y=Weight.in.Kg,geom=c(&quot;point&quot;,&quot;line&quot;,&quot;smooth&quot;))</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image09.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image09.png" /><p class="caption"></p>
 </div>
 <p>We can very easily obtain a collection of any of the above plots across a categorical variables using the &quot;facets&quot; command as shown:</p>
 <pre><code>qplot(data=JJJ,x=Height.in.Metres,binwidth=.075,facets=~Sex)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image70.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image70.png" /><p class="caption"></p>
 </div>
 <p>We can use the &quot;ggsave&quot; command to save the last plotted graph to file:</p>
 <pre><code>ggsave(filename=&quot;~/Desktop/test.pdf&quot;)</code></pre>
-<h3 id="section"><span class="header-section-number">6.2.3</span> </h3>
+<h3 id="section"><span class="header-section-number">5.2.3</span> </h3>
 <p>One final aspect we will take a look at in ggplot2 is that of layers. To do so we will use the following dataset:</p>
 <pre><code>MMMJJJ_to_plot&lt;-within(MMMJJJ,{data_set&lt;-ifelse(substr(MMMJJJ$Name,1,1)==&quot;M&quot;,&quot;MMM&quot;,&quot;JJJ&quot;);Sex&lt;-substr(Sex,1,1)})</code></pre>
 <p>Firstly we create a plot using qplot and assign it to p (recall that everything in R is an object).</p>
@@ -907,9 +717,9 @@ Cats&lt;-data.frame(Owner,Name)</code></pre>
 <p>Finally we can save a particular graph object in ggplot using ggsave:</p>
 <pre><code>ggsave(p,filename=&quot;~/Desktop/plot.pdf&quot;)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image62.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image62.png" /><p class="caption"></p>
 </div>
-<h2 id="twitter"><span class="header-section-number">6.3</span> 5.3 twitteR</h2>
+<h2 id="twitter"><span class="header-section-number">5.3</span> 5.3 twitteR</h2>
 <p>The last package we will consider is a package that can be used to data mine twitter.</p>
 <p>To get the certain trends we use can use the following code:</p>
 <pre><code>getTrends(period = &quot;daily&quot;, date=Sys.Date())
@@ -920,10 +730,10 @@ getTrends(period = &quot;weekly&quot;)</code></pre>
 <p>Finally to obtain tweets from a particular user (the following gives the tweets of the INFORMS as shown):</p>
 <pre><code>userTimeline(&quot;INFORMS&quot;)</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image53.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image53.png" /><p class="caption"></p>
 </div>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image44.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/R_Notes/images/image44.png" /><p class="caption"></p>
 </div>
 <script type="text/javascript">
 
