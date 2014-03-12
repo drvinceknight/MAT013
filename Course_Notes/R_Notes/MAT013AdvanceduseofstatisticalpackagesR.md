@@ -1,51 +1,14 @@
-# MAT013: Advanced Use of Statistical Packages
-## Table of Contents
-
-Chapter 1 - Introduction
-
-1.  The Environment
-2.  Objects
-3.  Importing Data
-4.  Exporting Data
-
-Chapter 2 - Basic Statistical Procedures
-
-1.  Procedures
-2.  A list of procedures
-3.  Exporting output
-
-Chapter 3 - Manipulating Data
-
-1.  Vectors and data frames
-2.  Merging and concatenating data sets
-3.  Creating new variables
-4.  Handling dates
-
-Chapter 4 - Programming
-
-1.  Flow control
-2.  Functions
-3.  Handling strings
-4.  Vectorizing
-5.  Memory and scripts
-
-Chapter 5 - Further Packages
-
-1.  sqldf
-2.  ggplot2
-3.  twitteR
-
 ---
 
 # Chapter 1 - Introduction
 
 ---
 
-## 1.1 The Environment
+## The Environment
 
 R can be run in a number of different modes, for the purpose of this course we will be focusing on 'interactive mode' through the graphical user interface (GUI); 'batch mode' is also available but will not be covered here. Note that the screenshots and accompanying screencasts for this course were produced with R version 2.14 running on Mac OSX The look and feel on other operating systems will differ slightly.
 
-![The R Environment](images/image64.png)
+![The R Environment](images/image64.png)\
 
 The visible windows are:
 
@@ -54,13 +17,13 @@ The visible windows are:
 
 We can write commands directly into the console window or we can create a script file and edit it in the editor window, highlighting specific text we wish to run. The second approach has the benefit of being able to save the commands written in the script files, although it takes more time (and in fact the commands we write directly in the console can also be saved to a file).
 
-When writing scripts it is good practice to include comments in our files that help describe what the code does. The way to do this in R is with the "#" symbol before text. The following code is ignored by R:
+When writing scripts it is good practice to include comments in our files that help describe what the code does. The way to do this in R is with the `#` symbol before text. The following code is ignored by R:
 
     #2+2
 
 Using the highlight + run approach is akin to copying and pasting the text in the interpreter but R scripts can also be run directly (so that they can be run on servers or as routines without the need to have a user interact).
 
-## 1.2 Objects
+## Objects
 
 R is an extremely versatile programming language. In particular R is an "object oriented language". The significance of this is that everything (functions, data files, outputs of a regression analysis) is an "object". The type of object is called the "class" and what one can do to a class is called a "method". The advantage of this is that when a new "class" is developed one simply needs to ensure that is has relevant "methods", to be compatible with other objects.
 
@@ -74,11 +37,11 @@ are:
 
 Vectors are simply collections of variables of a particular type ("Numeric", "Character", "Boolean" etc). In R a type of variable is called a "mode", representing how it is stored in the computer memory. Data frames are collections of vectors and correspond to data sets. Technically, data frames are lists with dimensions, which are themselves just generic vectors. One might say a collection of equal length vectors (thus allowing the rectangular shape). Some examples of vectors and data frames are shown.
 
-![Examples of data structures in R](images/image05.png)
+![Examples of data structures in R](images/image05.png)\
 
 Let's import some data!
 
-## 1.3 Importing Data
+## Importing Data
 
 We will consider two approaches to importing data:
 
@@ -101,33 +64,33 @@ To do so write the following code in the editor window:
 
 Let's take a look at the shown screenshot of this. You may notice that some elements of the text are highlighted, this is to emphasise key words (note that this doesn't happen automatically on Windows).
 
-1. The first two lines of code make use of the "<-" operator that assigns an object to a variable.
-2. The objects in questions are created using the "c"(ombine) function that creates a vector. We use this to create 2 vectors: Name and Age.
-3. Finally we put the 2 vectors into a data frame using the "data.frame" command.
+1. The first two lines of code make use of the `<-` operator that assigns an object to a variable.
+2. The objects in questions are created using the `c`(ombine) function that creates a vector. We use this to create 2 vectors: Name and Age.
+3. Finally we put the 2 vectors into a data frame using the `data.frame` command.
 
-![Inputting code in the console](images/image22.png)
+![Inputting code in the console](images/image22.png)\
 
 We run this code by highlighting it and pressing ctrl + 'r' (cmd + enter on Mac). Note that when we submit code this way it also appears in the console window. We could have in fact directly type this code into the console window. For those familiar with command line commands the console works in a very similar way. We can press the up arrow repeatedly to cycle through previous commands and use tab to autocomplete.
 
-The data set "first_data_set" is now saved to memory. To view all the data structures in memory we use the simple line of code:
+The data set `first_data_set` is now saved to memory. To view all the data structures in memory we use the simple line of code:
 
     ls()
 
 A screenshot of the output is shown. We see that there are actually 3 objects in memory, the two vectors (Name and Age) as well as the data frame (first_data_set).
 
-![The console showing all our objects](images/image03.png)
+![The console showing all our objects](images/image03.png)\
 
 To view our data set, we simply type the name (as shown):
 
     first_data_set
 
-![Viewing our first data set.](images/image68.png)
+![Viewing our first data set.](images/image68.png)\
 
 Using direct input is of course not at all realistic when trying to import larger data sets.
 
 Often large data sets will be saved in comma-separated values (csv) format which can be read by most (all?) software. We will import the data set shown (here viewed in a simple text editor).
 
-![The JJJ.csv data set](images/image33.png)
+![The JJJ.csv data set](images/image33.png)\
 
 We will import this data set into R using the following code:
 
@@ -135,33 +98,33 @@ We will import this data set into R using the following code:
 
 Let's take a look at the screenshot shown. Note here that we are not using the text editor but directly writing code in the console (this is often how I prefer to use R for short bits of code).
 
-1. "read.csv" - is the command which is used to tell R to read in data from a csv file.
-2. "file" - an option tells R where the csv file is located.
-3. "head" - an option tells R to read the variable names from the first row of the csv file. Note that this command can be omitted (the default value is "TRUE").
+1. `read.csv` - is the command which is used to tell R to read in data from a csv file.
+2. `file` - an option tells R where the csv file is located.
+3. `head` - an option tells R to read the variable names from the first row of the csv file. Note that this command can be omitted (the default value is `TRUE`).
 
-We have omitted other options (such as "sep" which can be used to change the default separator from "," to something else).
+We have omitted other options (such as `sep` which can be used to change the default separator from `,` to something else).
 
-![A short line of code to import a csv file in to R](images/image37.png)
+![A short line of code to import a csv file in to R](images/image37.png)\
 
 Running the code (by either pressing enter if using the console or highlighting and running as before is using the editor) gives the required object as shown.
 
-![Viewing the JJJ data set](images/image66.png)
+![Viewing the JJJ data set](images/image66.png)\
 
 In the following chapters we will learn how to create new data sets from old data sets and as such it may become necessary to export files to csv.
 
-## 1.3 Exporting Data Sets
+## Exporting Data Sets
 
-We will export our first data set ("mat008/first_dataset") to csv using the following line of code:
+We will export our first data set (`first_dataset`) to csv using the following line of code:
 
     write.csv(first_data_set,"~/Desktop/first_data_set.csv")
 
 Let's take a look at the screenshot.
 
-1. "write.csv" is the command which is used to tell R to read in data from a csv file.
+1. `write.csv` is the command which is used to tell R to read in data from a csv file.
 2. The first command tells R which R object to export.
 3. The second command tells R the location of the csv file.
 
-![A short program to export an R object to csv](images/image59.png)
+![A short program to export an R object to csv](images/image59.png)\
 
 ---
 
@@ -169,7 +132,7 @@ Let's take a look at the screenshot.
 
 ---
 
-## 2.1 Procedures
+## Procedures
 
 In the previous chapter we were introduced to some very basic aspects of
 R:
@@ -189,7 +152,7 @@ The procedures we are going to look at in this chapter are:
 5. Obtaining linear models
 6. Plotting data
 
-## 2.2 A list of procedures
+## A list of procedures
 
 ### Utility procedures
 
@@ -197,46 +160,47 @@ We have seen how to view and entire data set (by simply printing the name of the
 
 We illustrate this once again by considering the MMM data set shown, (imported using read.csv).
 
-![The MMM data set](images/image24.png)
+![The MMM data set](images/image24.png)\
 
 At times we might not want to open the data set but simply gain some information as to what is in the data set.
 
-To view only the names of the variables of our data set we use the "name" function as shown.
+To view only the names of the variables of our data set we use the `name` function as shown.
 
     names(MMM)
 
-![Output of the names function](images/image69.png)
+![Output of the names function](images/image69.png)\
 
-If we had a very large data set then we could quickly view the first/last few entries using the "head"/"tail" function as shown.
+If we had a very large data set then we could quickly view the first/last few entries using the `head`/`tail` function as shown.
 
     head(MMM)
     tail(MMM)
 
-![Using the tail and head function](images/image49.png)
+![Using the tail and head function](images/image49.png)\
 
-Finally if we would like to view a description of the overall structure of a data set we can use the "str" function as shown.
+Finally if we would like to view a description of the overall structure of a data set we can use the `str` function as shown.
 
     str(MMM)
 
-![Structure of a dataframe](images/image34.png)
+![Structure of a dataframe](images/image34.png)\
 
-The class of the imported character variables are "Factors", this is due to the importation method (read.csv) automatically converting the character variables in this form - details about "Factors" are given below. The reason this occurs is the default value of stringsAsFactors (used in the read.csv function) is TRUE, the following code forces the characters retain their class without conversion.
+The class of the imported character variables are `Factors`, this is due to the importation method (`read.csv`) automatically converting the character variables in this form - details about "Factors" are given below. The reason this occurs is the default value of stringsAsFactors (used in the read.csv function) is TRUE, the following code forces the characters retain their class without conversion.
 
     MMM<-read.csv("MMM.csv",stringsAsFactors=FALSE)
 
 The factor stores the nominal values as a vector of integers in the range [ 1... k ] (where k is the number of unique values in the nominal variable), and an internal vector of character strings (the original values) mapped to these integers. This is often a much more efficient way of handling strings.
 
-![Using stringsAsFactors=FALSE to maintain the class of characters](images/image31.png)
+![Using stringsAsFactors=FALSE to maintain the class of characters](images/image31.png)\
+
 
 ### Descriptive statistics
 
-To gain an initial set of summary statistics of a data frame we can use the 'summary' function:
+To gain an initial set of summary statistics of a data frame we can use the `summary` function:
 
     summary(MMM)
 
 The output of which is shown.
 
-![The summary function applied to the MMM data frame](images/image50.png)
+![The summary function applied to the MMM data frame](images/image50.png)\
 
 Recall that most "things" in R are objects and "summary" is a good example of a generic function that works on most objects. If you are faced with a new object (for example the output of a regression analysis) it is sometimes worth trying to apply summary on it to get some initial information.
 
@@ -258,15 +222,16 @@ We can then apply various functions to this vector:
 
 The output of which is shown.
 
-![Various summary statistics obtained in R](images/image52.png)
+![Various summary statistics obtained in R](images/image52.png)\
 
-We can compartmentalise our results using the "by" function. The general syntax for the "by" function is given below:
+We can compartmentalise our results using the `by` function. The general syntax for the `by` function is given below:
 
     by(data=dataFrame , Indices=grouping variables, FUN= a function)
 
 We'll use this to obtain the mean age and height compartmentalised by sex:
 
-    by(MMM$Age, MMM$Sex, mean) by(MMM$Height.in.Metres, MMM$Sex, mean)
+    by(MMM$Age, MMM$Sex, mean)
+    by(MMM$Height.in.Metres, MMM$Sex, mean)
 
 The output of which is shown.
 
@@ -276,26 +241,26 @@ The above code subsets the data frame by the grouping variable. If we want to ju
 
     tapply(MMM$Age, MMM$Sex, mean)
 
-Finally, to reduce the number of keystrokes, we can use the "with" statement. This tells R to evaluate everything within a given data frame. The following code reproduces the above results:
+Finally, to reduce the number of keystrokes, we can use the `with` statement. This tells R to evaluate everything within a given data frame. The following code reproduces the above results:
 
     with(data=MMM,by(Age,Sex,mean) )
     with(data=MMM,tapply(Age, Sex, mean))
 
-Note: the "data=" statement can be omitted.
+Note: the `data=` statement can be omitted.
 
 ### Frequency Tables
 
-The "table" function allows us to obtain frequency tables of data sets.  As an example let us consider the data set shown. The "table" function creates a "table" (a particular type of R object):
+The `table` function allows us to obtain frequency tables of data sets.  As an example let us consider the data set shown. The `table` function creates a "table" (a particular type of R object):
 
     table(math_tests$Teacher,math_tests$Pass.Fail)
 
-![The data set Math_tests.csv](images/image19.png)
+![The data set Math_tests.csv](images/image19.png)\
 
 Again we can write this as:
 
     with(math_tests,table(Teacher,Pass.Fail))
 
-We can save this table as a new object and use the 'prop' command to gain row and column totals and proportions:
+We can save this table as a new object and use the `prop` command to gain row and column totals and proportions:
 
     mytable<-table(math_tests$Teacher,math_tests$Pass.Fail)
     margin.table(mytable, 1)
@@ -305,7 +270,8 @@ We can save this table as a new object and use the 'prop' command to gain row an
 
 The output of all this is shown.
 
-![Frequency tables in R](images/image32.png)
+![Frequency tables in R](images/image32.png)\
+
 
 ### Correlations
 
@@ -318,13 +284,13 @@ The correlation 'cor' function only acts upon numeric vectors (and/or dataframes
     MMMnum<-MMM[,sapply(MMM,is.numeric)]
     cor(MMMnum)
 
-The 'cor' function however does not give tests of significance. We can obtain significance tests between two variables using 'cor.test':
+The `cor` function however does not give tests of significance. We can obtain significance tests between two variables using `cor.test`:
 
     cor.test(MMM$Age,MMM$Height.in.Metres)
 
 The output is shown.
 
-![Output of basic correlation in R](images/image29.png)
+![Output of basic correlation in R](images/image29.png)\
 
 As is often the case in open source software, packages are independently developed and need to be called to be used in R. Above we have shown the very basic approach to obtaining correlations in R, we will now use the rcorr function from the Hmisc package.
 
@@ -334,7 +300,7 @@ To install the package we use the following code:
 
 Once that happens a window opens asking us to choose the mirror from which to download. This is shown.
 
-![Installing a new package](images/image54.png)
+![Installing a new package](images/image54.png)\
 
 Once that is done to load the package the following code is required:
 
@@ -350,21 +316,21 @@ To see the packages currently loaded we can use the following code:
 
 Note: Packages can also be installed by selecting the 'Packages' tab and selecting the package required for installation.
 
-![Loading a package](images/image63.png)
+![Loading a package](images/image63.png)\
 
-Using this package, we will use the 'rcorr' function that gives the correlation matrix for a data set. Note that the data set must be numeric and in 'matrix' form. The following code selects the numeric variables from the MMM data set and converts the result to a matrix:
+Using this package, we will use the `rcorr` function that gives the correlation matrix for a data set. Note that the data set must be numeric and in `matrix` form. The following code selects the numeric variables from the MMM data set and converts the result to a matrix:
 
     MMMnum<-MMM[,sapply(MMM,is.numeric)]
     MMMmat<-as.matrix(MMMnum)
 
 Once this is done we can get the correlation matrix using the following code:
 
-
     rcorr(MMMmat)
 
 The output is shown.
 
-![Output of the rcorr function](images/image20.png)
+![Output of the rcorr function](images/image20.png)\
+
 
 ### Linear Models
 
@@ -381,7 +347,7 @@ The following code will be used to investigate whether or not there is a linear 
 
 The results are shown.
 
-![Regression in R](images/image38.png)
+![Regression in R](images/image38.png)\
 
 To get the full set of results from the regression analysis we use the following code:
 
@@ -389,13 +355,13 @@ To get the full set of results from the regression analysis we use the following
 
 The output is shown.
 
-![Regression in R with full set of results](images/image45.png)
+![Regression in R with full set of results](images/image45.png)\
 
 Looking at the p value we see that the overall model should not be rejected, however the detailed results show that perhaps we could remove savings from the model.
 
 Analysis of variance (ANOVA) can be done easily in R. We shall show this using a new data set (math.csv) shown.
 
-![The math.csv dataset](images/image58.png)
+![The math.csv dataset](images/image58.png)\
 
     aov(outcome~class,data)
 
@@ -406,7 +372,7 @@ We will use the "aov" function to see if the grades obtained by students depend 
 
 The results are shown.
 
-![ANOVA in R](images/image42.png)
+![ANOVA in R](images/image42.png)\
 
 To get the full set of results from the ANOVA we use the following code:
 
@@ -414,7 +380,8 @@ To get the full set of results from the ANOVA we use the following code:
 
 The results are shown.
 
-![Summary of ANOVA in R](images/image60.png)
+![Summary of ANOVA in R](images/image60.png)\
+
 
 ### Plots and charts
 
@@ -424,17 +391,17 @@ The simplest way to produce a histogram in R is to use the "hist" function. The 
 
     hist(JJJ$Height.in.Metres)
 
-![A histogram in R](images/image15.png)
+![A histogram in R](images/image15.png)\
 
 The simplest way to produce a scatter plot in R is to use the "plot" function. The following code gives a scatter plot for the height against weight of entries in the JJJ data set as shown.
 
     plot(JJJ$Weight.in.Kg,JJJ$Height.in.Metres)
 
-![A scatter plot in R](images/image47.png)
+![A scatter plot in R](images/image47.png)\
 
 There are various other ways to obtain similar graphs, as well as change the look and feel of our graphs. We won't go into this here but you are encouraged to look into it (in particular the ggplot package is widely used).
 
-## 2.3 Exporting output
+## Exporting output
 
 All the non graphical outputs from R are objects, as such they can be output to a file (to be copied into another document if need be) using the write statements of Sections 1.4. However to export graphical output, we use any of the following statements (depending on the output format required):
 
@@ -461,7 +428,7 @@ The following code creates a png file entitled "height_v_weight_plot" with the p
 
 ---
 
-## 3.1 Vectors and data frames
+## Vectors and data frames
 
 ### Vectors
 
@@ -469,9 +436,9 @@ When considering R data frames it is important to recall that they are composed 
 
 One important notion when handling vectors is the use of 'recycling'. As all elements are vectors, when performing an operation between two vectors of different length, R automatically repeats (or recycles) the shorter one until it is long enough.
 
-![Two examples of recycling](images/image61.png)
+![Two examples of recycling](images/image61.png)\
 
-In the previous example, ("u+v") we add the elements of both vectors together. R automatically increases the length of "u" so that the operation becomes (1,2,3,4,5) + (0,1,0,1,0). In the second example we compare the elements of "v" to 4. R automatically increases the length of the vector containing 4 so that the operation becomes (1,2,3,4,5)<(4,4,4,4,4) which returns a vector of size 5 with boolean (True or False) elements.
+In the previous example, (`u+v`) we add the elements of both vectors together. R automatically increases the length of `u` so that the operation becomes (1,2,3,4,5) + (0,1,0,1,0). In the second example we compare the elements of `v` to 4. R automatically increases the length of the vector containing 4 so that the operation becomes (1,2,3,4,5)<(4,4,4,4,4) which returns a vector of size 5 with boolean (True or False) elements.
 
 This second concept is important when understanding how to select certain variables in R (we saw this briefly in the previous section).
 
@@ -481,23 +448,23 @@ Another important notion in R is that of indexing. We can select elements of a v
     dwarfs[c(1,4,5)]
     dwarfs[3:length(dwarfs)]
 
-![Indexing vectors in R](images/image23.png)
+![Indexing vectors in R](images/image23.png)\
 
 Both of the previous approaches use a vector of indices to indicate the elements we require. The second approach uses a shorthand to create a vector of elements (containing the integers 3 to 5). Another approach is to simply use a vector of boolean values (True or False) to indicate the positions that are to be selected.
 
     Index<-c(TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE)
     dwarfs[Index]
 
-![Filtering using an index in R](images/image00.png)
+![Filtering using an index in R](images/image00.png)\
 
 It should be straightforward to realise that we can combine recycling and indexing to filter vectors:
 
     Index<-substr(dwarfs,1,1)=="D"
     dwarfs[Index]
 
-The first command creates an index set of boolean variables using the "substr" function and recycling (in this case used to take the first character of each element). This allows us to obtain the elements of the vector dwarfs with first letter "D" as shown.
+The first command creates an index set of boolean variables using the `substr` function and recycling (in this case used to take the first character of each element). This allows us to obtain the elements of the vector dwarfs with first letter `D` as shown.
 
-![Filtering in R](images/image04.png)
+![Filtering in R](images/image04.png)\
 
 We have seen how to subset vectors using filtering, the same logic applies to data frames.
 
@@ -511,7 +478,7 @@ A quicker way is to simply state the variables we want to drop:
 
 The output of the above code is shown.
 
-![Dropping and keeping in R](images/image39.png)
+![Dropping and keeping in R](images/image39.png)\
 
 We can also list the names of variables we want to keep:
 
@@ -526,9 +493,9 @@ Finally we can create a vector of booleans that gives the same above result or t
     Index<-names(MMM) %in% c("Weight.in.Kg","Height.in.Metres")
     MMM[!Index]
 
-Recall the "names" function simply gives a vector containing the names of all the variables in the MMM dataset. The "%in%" operator is used to create a vector of booleans by testing if the elements of names(MMM) are 'in' the vector c("Weight.in.Kg","Height.in.Metres"). The "!" operator acting on "Index" simply negates the booleans contained in Index.
+Recall the `names` function simply gives a vector containing the names of all the variables in the MMM dataset. The `%in%` operator is used to create a vector of booleans by testing if the elements of names(MMM) are `in` the vector c("Weight.in.Kg","Height.in.Metres"). The `!` operator acting on `Index` simply negates the booleans contained in Index.
 
-![Dropping and keeping by filtering variables names](images/image17.png)
+![Dropping and keeping by filtering variables names](images/image17.png)\
 
 ### Selecting Observations
 
@@ -538,7 +505,7 @@ We can select any particular element of a data frame in R using the following sy
 
 This would give the entry for variable j of observation i as shown.
 
-![Selecting a particular entry of a data set in R](images/image57.png)
+![Selecting a particular entry of a data set in R](images/image57.png)\
 
 If we ignore one of the indices R simply returns all the entries corresponding to that index. For example the following code would return all the observations for the 7th observation of the JJJ data set:
 
@@ -552,15 +519,15 @@ We can use filtering to expand on this and select all observations that obey a p
 
     JJJ[JJJ$Age<=18,]
 
-## 3.2 Merging and concatenating data sets
+## Merging and concatenating data sets
 
-To concatenate two data sets in R we use the rbind function (i.e. we bind the two dataframes by rows).
+To concatenate two data sets in R we use the `rbind` function (i.e. we bind the two dataframes by rows).
 
     MMMJJJ<-rbind(JJJ,MMM)
 
 Note that both these data sets need to contain all the variables. If one of the datasets does not contain all the variables then you need to add that variable to it and set its values to NA (missing).
 
-![Concatenating data sets in R](images/image26.png)
+![Concatenating data sets in R](images/image26.png)\
 
 To merge two dataframes in R we use the merge function. We'll illustrate
 this with the following data set:
@@ -579,7 +546,7 @@ We'll merge this new data set with the data set we created in Chapter 1.
 
 The output is shown.
 
-![Merging data sets in R](images/image35.png)
+![Merging data sets in R](images/image35.png)\
 
 Note that the merge statement only selects observations that are present in both files. We can pass further arguments to the merge statement that allow us to select all the values from a particular data set and/or both data sets. These operations are at times called 'joins' (and are very common in SQL which we shall see in Chapter 5). The basic merge statement (as above) would be referred to as an 'inner' join.
 
@@ -597,9 +564,9 @@ A full outer join:
 
 The output of the above is shown.
 
-![More complex merging in R](images/image51.png)
+![More complex merging in R](images/image51.png)\
 
-## 3.3 Creating new variables
+## Creating new variables
 
 Creating new variables using various arithmetic and/or string relationships is straightforward in R. The following code creates a new data set call MMM_with_BMI as a copy of the MMM data set and then adds a new variable "BMI" as a function of the height and weight variables in the MMM_with_BMI dataset.
 
@@ -609,48 +576,48 @@ Creating new variables using various arithmetic and/or string relationships is s
 
 The output is shown.
 
-![Creating new variables in R](images/image55.png)
+![Creating new variables in R](images/image55.png)\
 
-The above code is quite long though, so we can use the "within" function which is similar to the "with" function. It lets R know you are working within a particular data frame.
+The above code is quite long though, so we can use the `within` function which is similar to the `with` function. It lets R know you are working within a particular data frame.
 
     MMM_With_BMI <- within(MMM, BMI <- Weight.in.Kg/(Height.in.Metres^2))
 
 The output is shown:
 
-![Creating new variables in R using the within statement](images/image18.png)
+![Creating new variables in R using the within statement](images/image18.png)\
 
 Some of the arithmetic functions available in R are shown.
 
-![Basic arithmetic operations in R](images/R_math_operators.png)
+![Basic arithmetic operations in R](images/R_math_operators.png)\
 
-![Some mathematical functions in R](images/R_math_functions.png)
+![Some mathematical functions in R](images/R_math_functions.png)\
 
-We can also do operations on strings, the following code replaces the variable "Sex" with the first character of "Sex" (which gets rid of the Male - M and Female - F issue).
+We can also do operations on strings, the following code replaces the variable `Sex` with the first character of `Sex` (which gets rid of the Male - M and Female - F issue).
 
     MMM_With_BMI$Sex<-substr(MMM_With_BMI$Sex,1,1)
 
 Some examples of string functions are shown.
 
-![Some string functions in R](images/R_string_functions.png)
+![Some string functions in R](images/R_string_functions.png)\
 
 It's also worth checking the web for other R functions (there is a huge amount of them).
 
 ### Renaming variables
 
-To rename variables one can use the "rename" function from the "reshape" library (that can be installed as we have seen in previous section).
+To rename variables one can use the `rename` function from the `reshape` library (that can be installed as we have seen in previous section).
 
     library(reshape)
     JJJ<-rename(JJJ,c(Sex="Gender"))
 
 The output is shown.
 
-![Renaming variables in R](images/image06.png)
+![Renaming variables in R](images/image06.png)\
 
 Another option is to use the "fix" function that opens the dataset in a GUI that easily allows for modification of the dataset (including the name of the variables). Note that changes are saved on close of the fix environment.
 
     fix(JJJ)
 
-![Using the fix environment](images/image25.png)
+![Using the fix environment](images/image25.png)\
 
 ### Operations across rows
 
@@ -658,13 +625,13 @@ As discussed previously, the columns of a data frame can be manipulated very eas
 
 We will demonstrate this using the birthday_money.csv data set as shown.
 
-![The birthday_money.csv data set](images/image65.png)
+![The birthday_money.csv data set](images/image65.png)\
 
-Suppose we want to take a cumulative sum of the birthday money, we create a new variable call total using the "cumsum" function that returns the the cumulative sum of elements of a vector.
+Suppose we want to take a cumulative sum of the birthday money, we create a new variable call total using the `cumsum` function that returns the cumulative sum of elements of a vector.
 
     birthday_money$total<-cumsum(birthday_money$Amount)
 
-![A running total calculated using the cumsum function in R](images/image36.png)
+![A running total calculated using the cumsum function in R](images/image36.png)\
 
 Another similar tool is to use the "diff" function that calculates consecutive differences of elements of a vector:
 
@@ -672,25 +639,25 @@ Another similar tool is to use the "diff" function that calculates consecutive d
 
 Note that we also include a first entry of our column "yearly_diff" as "NA", this is because the output of diff will be shorter than the length of the original vector.
 
-![Yearly differences calculated using the diff function in R](images/image56.png)
+![Yearly differences calculated using the diff function in R](images/image56.png)\
 
-## 3.4 Handling dates in R
+## Handling dates in R
 
 Dates are a particular class in R. When importing dates, they are imported as strings.
 
-![The birthdays csv file](images/image14.png)
+![The birthdays csv file](images/image14.png)\
 
 We import the file and create a data frame in the usual way:
 
-    birthdays<-read.csv("~/birthdays.csv")
+    birthdays<-read.csv("~/birthdays.csv")\
 
 Using the "str" command to view the structure of our data frame:
 
-    str(birthdays)
+    str(birthdays)\
 
-The output is shown confirming that the dates are recognized as strings (recall that by default "read.csv" imports strings as "factors").
+The output is shown confirming that the dates are recognized as strings (recall that by default `read.csv` imports strings as `factors`).
 
-![The structure of the birthdays data set](images/image48.png)
+![The structure of the birthdays data set](images/image48.png)\
 
 In this current format if we tried to carry out any mathematical manipulation of the dates we would not succeed. We can however tell R that certain variables are dates. We do this using the "as.dates" function by describing the format our dates are in:
 
@@ -698,9 +665,9 @@ In this current format if we tried to carry out any mathematical manipulation of
 
 The format is indicated using "%x" where "x" can be of various formats as show.
 
-![Possible formats for x](images/R_date_formats.png)
+![Possible formats for x](images/R_date_formats.png)\
 
-We'll now check the structure of our data frame, re-order (using the "order" function - that returns the indices of the elements of a vector in order) our birthdays and calculate the difference between birthdays (using the "diff" function).
+We'll now check the structure of our data frame, re-order (using the `order` function - that returns the indices of the elements of a vector in order) our birthdays and calculate the difference between birthdays (using the `diff` function).
 
     str(birthdays$Birthday)
     order(birthdays$Birthday)
@@ -709,7 +676,7 @@ We'll now check the structure of our data frame, re-order (using the "order" fun
 
 The output of all this is shown.
 
-![Recognizing dates in R](images/image02.png)
+![Recognizing dates in R](images/image02.png)\
 
 
 ---

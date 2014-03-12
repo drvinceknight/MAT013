@@ -5,54 +5,15 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <script src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 <body>
-<h1 id="mat013-advanced-use-of-statistical-packages---sas"><span class="header-section-number">1</span> MAT013 Advanced use of statistical packages - SAS</h1>
-<p>Chapter 1 - Introduction</p>
-<ol style="list-style-type: decimal">
-<li>The environment</li>
-<li>Libraries</li>
-<li>Importing data</li>
-<li>Exporting data</li>
-</ol>
-<p>Chapter 2 - Basic Statistical Procedures</p>
-<ol style="list-style-type: decimal">
-<li>Procedures</li>
-<li>A list of procedures</li>
-<li>Exporting output</li>
-</ol>
-<p>Chapter 3 - Manipulating Data</p>
-<ol style="list-style-type: decimal">
-<li>Data steps</li>
-<li>The program data vector</li>
-<li>Creating new variables</li>
-<li>Handling dates</li>
-</ol>
-<p>Chapter 4 - Programming</p>
-<ol style="list-style-type: decimal">
-<li>Flow control</li>
-<li>SAS Macro compiler</li>
-<li>Global and local macro variables</li>
-<li>Macro Programming Statements</li>
-<li>Macro Functions</li>
-</ol>
-<p>Chapter 5 - Further procs</p>
-<ol style="list-style-type: decimal">
-<li>SQL</li>
-<li>Functions</li>
-<li>Optimisation</li>
-</ol>
 <hr />
-<h1 id="chapter-1---introduction"><span class="header-section-number">2</span> Chapter 1 - Introduction</h1>
+<h1 id="chapter-1---introduction"><span class="header-section-number">1</span> Chapter 1 - Introduction</h1>
 <hr />
-<h2 id="the-environment"><span class="header-section-number">2.1</span> 1.1 The Environment</h2>
+<h2 id="the-environment"><span class="header-section-number">1.1</span> The Environment</h2>
 <p>SAS may be run in a variety of modes, on this course we will concentrate on the interactive mode which allows users to submit selected portions of SAS code through a graphical user interface (GUI). When opening SAS a variety of windows immediately become visible as shown. Note that the screenshots and accompanying screen casts for this course were produced with SAS 9.3 running on ubuntu 11.10. The look and feel on other operating systems will differ slightly.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image21.png" />
-</div>
-<p>The visible windows are:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image21.png" /><br /> The visible windows are:</p>
 <ol style="list-style-type: decimal">
 <li>The explorer window</li>
 <li>The results window</li>
@@ -62,16 +23,10 @@
 <li>The editor window</li>
 </ol>
 <p>We write code directly in the editor window and the roles of the other windows will become clear shortly.</p>
-<h2 id="libraries"><span class="header-section-number">2.2</span> 1.2 Libraries</h2>
+<h2 id="libraries"><span class="header-section-number">1.2</span> Libraries</h2>
 <p>The major strength of SAS is its ability to handle huge data sets. SAS does this by storing files in a particular format in spaces called libraries. SAS libraries are important. SAS manipulates data sets once they are converted to SAS data files. These data files are saved in libraries in SAS. They work just like folders (apart from not being able to nest further libraries). If you click on the libraries tab in the explorer window (as shown in in the screenshot) you should see the libraries available to you (as shown in the other screenshot).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image58.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image32.png" />
-</div>
-<p>On my system SAS has already created 6 libraries (this might differ on other versions and operating systems). The Work library which SAS automatically uses if no library is specified (more on this later, it's basically the default library). A very important fact about the Work library is that it is temporary. When SAS is shut down, all the contents of the Work library are deleted. Keeping this in mind, let's move on to creating a new library.</p>
-<h3 id="creating-a-new-library"><span class="header-section-number">2.2.1</span> Creating a new library</h3>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image58.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image32.png" /><br /> On my system SAS has already created 6 libraries (this might differ on other versions and operating systems). The Work library which SAS automatically uses if no library is specified (more on this later, it's basically the default library). A very important fact about the Work library is that it is temporary. When SAS is shut down, all the contents of the Work library are deleted. Keeping this in mind, let's move on to creating a new library.</p>
+<h3 id="creating-a-new-library"><span class="header-section-number">1.2.1</span> Creating a new library</h3>
 <p>To create a new library, left click in the explorer window and select &quot;New...&quot;. You will see a new window appear as shown. Simply browse to the location on your computer at which you'd like your new library to be stored. Note also to click the &quot;Enable at startup&quot; option which ensures that SAS remembers this library the next time you open up SAS; if this is not selected, the link to the library created will be temporary (and erased when SAS is shut down). Finally make sure you name your library obeying the following rules (for the rest of the notes, I'll assume the library name for this course is <code>mat013</code>):</p>
 <ol style="list-style-type: decimal">
 <li>be less than or equal to 8 characters</li>
@@ -79,17 +34,17 @@
 <li>remaining characters can be letters, numbers or underscores</li>
 </ol>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image57.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image57.png" /><p class="caption"></p>
 </div>
 <p>Now that we have a library let's import some data!</p>
-<h2 id="importing-data"><span class="header-section-number">2.3</span> 1.3 Importing Data</h2>
+<h2 id="importing-data"><span class="header-section-number">1.3</span> Importing Data</h2>
 <p>There are two main ways to import data into SAS:</p>
 <ol style="list-style-type: decimal">
 <li>Direct input</li>
 <li>Importing an external data set (xls, csv etc...)</li>
 </ol>
 <p>In practice you will never use the direct input method but let's take a look for completeness (although it is very useful when wanting to quickly test a few things). This will also give us our first experience of the editor window!</p>
-<p>Let us create a data set named &quot;first_data_set&quot;, put it in the &quot;mat013&quot; library and include the following data:</p>
+<p>Let us create a data set named <code>first_data_set</code>, put it in the <code>mat013</code> library and include the following data:</p>
 <pre><code>Name,Age
 Bob,23
 Billy,25</code></pre>
@@ -103,32 +58,18 @@ Billy 25
 run;</code></pre>
 <p>Let's take a look at the screenshot. First of all we see that the program editor automatically includes some syntax colouring (i.e. changes the colour of some of the words that it recognises). In blue in the editor window are the SAS keywords:</p>
 <ol style="list-style-type: decimal">
-<li>&quot;data&quot; which tells SAS that we're about to write a &quot;data step&quot; which we'll look at a bit closer in the Chapter 3. The keyword data is always followed by the library and the data file (separated by a &quot;.&quot;) we're creating. If no library is given then SAS will put this file in the Work library.</li>
-<li>&quot;input&quot; which tells SAS that we're going to input raw data and what follows is the name of the variables. If a variable is a string then we must include a &quot;$&quot; after the variable name.</li>
-<li>&quot;cards&quot; which is the SAS keyword that precedes the raw data. All the entries must be on separate rows.</li>
-<li>&quot;run&quot; which is the keyword that tells SAS where the statement ends.</li>
+<li><code>data</code> which tells SAS that we're about to write a <code>data step</code> which we'll look at a bit closer in the Chapter 3. The keyword data is always followed by the library and the data file (separated by a <code>.</code>) we're creating. If no library is given then SAS will put this file in the Work library.</li>
+<li><code>input</code> which tells SAS that we're going to input raw data and what follows is the name of the variables. If a variable is a string then we must include a <code>\$</code> after the variable name.</li>
+<li><code>cards</code> which is the SAS keyword that precedes the raw data. All the entries must be on separate rows.</li>
+<li><code>run</code> which is the keyword that tells SAS where the statement ends.</li>
 </ol>
-<p>An important thing to remember is that a SAS statement always ends with a &quot;;&quot;. Forgetting the &quot;;&quot; is a common source of mistakes (and headaches).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image60.png" />
-</div>
-<p>We run this code by highlighting it and pressing the 'running man', clicking on run (or pressing F8 on Windows). It is good practice to always check the log window as soon as any code is run. In the screenshot we see that the log looks good (lines 1-7 don't show any errors) and simply gives some details as to the running of the program.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image35.png" />
-</div>
+<p>An important thing to remember is that a SAS statement always ends with a <code>;</code>. Forgetting the <code>;</code> is a common source of mistakes (and headaches).</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image60.png" /><br /> We run this code by highlighting it and pressing the 'running man', clicking on run (or pressing F8 on Windows). It is good practice to always check the log window as soon as any code is run. In the screenshot we see that the log looks good (lines 1-7 don't show any errors) and simply gives some details as to the running of the program.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image35.png" /><br /></p>
 <p>If we now look at the mat013 library in the explorer pane we can see the new data set is in there, double clicking on the data set opens it up.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image26.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image42.png" />
-</div>
-<p>Using direct input is of course not at all realistic when trying to import larger data sets.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image26.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image42.png" /><br /> Using direct input is of course not at all realistic when trying to import larger data sets.</p>
 <p>Often large data sets will be saved in comma-separated values (csv) format which can be read by most (all?) software. We will import the data set shown (here viewed in a simple text editor).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image13.png" />
-</div>
-<p>We will import this data set in to the mat013 library and call it JJJ using the following code:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image13.png" /><br /> We will import this data set in to the mat013 library and call it <code>JJJ</code> using the following code:</p>
 <pre><code>proc import datafile=&quot;~/JJJ.csv&quot;
     out=mat013.JJJ
     dbms=csv
@@ -137,25 +78,16 @@ run;</code></pre>
 run;</code></pre>
 <p>Let's take a look at the screenshot shown. We again see that the program editor automatically includes some syntax colouring (i.e. changes the colour of some of the words that it recognises). In blue in the editor window are the SAS keywords:</p>
 <ol style="list-style-type: decimal">
-<li>&quot;proc&quot; which tells SAS that we're about to write a &quot;procedure step&quot; which we'll look at a bit closer in the next chapter. The &quot;proc&quot; keyword is always followed by the name of the particular procedure we're going to use. In this case: &quot;import&quot;, which is then followed by the statement &quot;datafile=path-to-datafile&quot;. Following this are various options relating to the import statement.</li>
-<li>&quot;out&quot; - this tells SAS the name of the SAS datafile created from the imported file.</li>
-<li>&quot;dbms&quot; - this tells SAS the type of file being imported (in our case csv, but can be &quot;dlm&quot;, &quot;xls&quot;, etc.). Note that this is not necessary if SAS can recognise the file extension.</li>
-<li>&quot;replace&quot; - this tells SAS to replace any SAS datafiles with the same name as specified by &quot;out&quot;.</li>
-<li>&quot;getnames=yes&quot; which, although this is not a SAS keyword, it is a special option for the import statement that allows you to tell SAS to get the variable names from the first row of your external data file.</li>
-<li>&quot;run&quot; is the keyword that tells SAS where the statement ends.</li>
+<li><code>proc</code> which tells SAS that we're about to write a 'procedure step' which we'll look at a bit closer in the next chapter. The <code>proc</code> keyword is always followed by the name of the particular procedure we're going to use. In this case: <code>import</code>, which is then followed by the statement <code>datafile=path-to-datafile</code>. Following this are various options relating to the import statement.</li>
+<li><code>out</code> - this tells SAS the name of the SAS datafile created from the imported file.</li>
+<li><code>dbms</code> - this tells SAS the type of file being imported (in our case csv, but can be <code>dlm</code>, <code>xls</code>, etc.). Note that this is not necessary if SAS can recognise the file extension.</li>
+<li><code>replace</code> - this tells SAS to replace any SAS datafiles with the same name as specified by <code>out</code>.</li>
+<li><code>getnames=yes</code> which, although this is not a SAS keyword, it is a special option for the import statement that allows you to tell SAS to get the variable names from the first row of your external data file.</li>
+<li><code>run</code> is the keyword that tells SAS where the statement ends.</li>
 </ol>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image62.png" />
-</div>
-<p>Running the code in the same way as before (highlighting and F8) will create the required datafile as shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image05.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image31.png" />
-</div>
-<p>In the following chapters we will learn how to create new data sets from old data sets and as such it may become necessary to export files to csv.</p>
-<h2 id="exporting-data-sets"><span class="header-section-number">2.4</span> 1.3 Exporting data sets</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image62.png" /><br /> Running the code in the same way as before (highlighting and F8) will create the required datafile as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image05.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image31.png" /><br /> In the following chapters we will learn how to create new data sets from old data sets and as such it may become necessary to export files to csv.</p>
+<h2 id="exporting-data-sets"><span class="header-section-number">1.4</span> Exporting data sets</h2>
 <p>We will export our first data set (&quot;mat013.first_dataset&quot;) to csv using the following code:</p>
 <pre><code>proc export data=mat013.first_data_set
     outfile=&quot;~/Desktop/first_data_set.csv&quot;
@@ -163,21 +95,19 @@ run;</code></pre>
     replace;
 run;</code></pre>
 <p>Let's take a look at the screenshot shown. In blue are the SAS keywords:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image56.png" /><br /></p>
 <ol style="list-style-type: decimal">
-<li>&quot;proc&quot; which tells SAS that we're about to write a &quot;procedure step&quot; which we'll look at a bit closer in the next chapter. The &quot;proc&quot; keyword is always followed by the name of the particular procedure we're going to use. In this case: &quot;export&quot;, which is then followed by the statement &quot;data=&quot; followed by the library and name of the SAS data file you want to export. Following this are various options relating to the export statement.</li>
-<li>&quot;outfile&quot; - this tells SAS where the exported file should go.</li>
-<li>&quot;dbms&quot; - this tells SAS the type of file to create when exporting (in our case csv, but can be &quot;dlm&quot;, &quot;xls&quot;, etc...). Note that this is not necessary if SAS can recognise the file extension.</li>
-<li>&quot;replace&quot; - this tells SAS to replace any file with the same name as specified by &quot;outfile&quot;.</li>
-<li>&quot;run&quot; is the keyword that tells SAS where the statement ends.</li>
+<li><code>proc</code> which tells SAS that we're about to write a 'procedure step' which we'll look at a bit closer in the next chapter. The <code>proc</code> keyword is always followed by the name of the particular procedure we're going to use. In this case: <code>export</code>, which is then followed by the statement <code>data=</code> followed by the library and name of the SAS data file you want to export. Following this are various options relating to the export statement.</li>
+<li><code>outfile</code> - this tells SAS where the exported file should go.</li>
+<li><code>dbms</code> - this tells SAS the type of file to create when exporting (in our case csv, but can be <code>dlm</code>, <code>xls</code>, etc...). Note that this is not necessary if SAS can recognise the file extension.</li>
+<li><code>replace</code> - this tells SAS to replace any file with the same name as specified by <code>outfile</code>.</li>
+<li><code>run</code> is the keyword that tells SAS where the statement ends.</li>
 </ol>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image56.png" />
-</div>
 <p>In the next chapter we will see more complex (and potentially useful) procedures.</p>
 <hr />
-<h1 id="chapter-2---basic-statistical-procedures"><span class="header-section-number">3</span> Chapter 2 - Basic Statistical Procedures</h1>
+<h1 id="chapter-2---basic-statistical-procedures"><span class="header-section-number">2</span> Chapter 2 - Basic Statistical Procedures</h1>
 <hr />
-<h2 id="procedures"><span class="header-section-number">3.1</span> 2.1 Procedures</h2>
+<h2 id="procedures"><span class="header-section-number">2.1</span> Procedures</h2>
 <p>In the previous chapter we were introduced to some very basic aspects of SAS:</p>
 <ol style="list-style-type: decimal">
 <li>what SAS looks like</li>
@@ -208,40 +138,25 @@ run;</code></pre>
 <li>&quot;by&quot; - which tells SAS to compartementalize the procedure for each different value of the named variable(s). The data set must first be sorted by those variables.</li>
 <li>&quot;where&quot; - select only those observations for which the expression is true.</li>
 </ol>
-<h2 id="a-list-of-procedures"><span class="header-section-number">3.2</span> 2.2 A list of procedures</h2>
-<h3 id="utility-procedures"><span class="header-section-number">3.2.1</span> Utility procedures</h3>
+<h2 id="a-list-of-procedures"><span class="header-section-number">2.2</span> A list of procedures</h2>
+<h3 id="utility-procedures"><span class="header-section-number">2.2.1</span> Utility procedures</h3>
 <p>We have already seen that we can open and view a data set by simply double clicking on the data set in the explorer window. A data set can also be viewed by using the &quot;print&quot; procedure.</p>
 <p>We'll do this by considering the MMM data file shown (imported using an import procedure).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image41.png" />
-</div>
-<p>The following code will run the &quot;print&quot; procedure:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image41.png" /><br /> The following code will run the &quot;print&quot; procedure:</p>
 <pre><code>proc print data=mat013.mmm;
 run;</code></pre>
 <p>which outputs the data set to the output window as shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image24.png" />
-</div>
-<p>At times we might not want to open the data set but simply gain some information as to what is in the data set. This is equivalent to checking the label on a present without unwrapping it. We do this using the &quot;contents&quot; procedure.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image24.png" /><br /> At times we might not want to open the data set but simply gain some information as to what is in the data set. This is equivalent to checking the label on a present without unwrapping it. We do this using the &quot;contents&quot; procedure.</p>
 <pre><code>proc contents data=mat013.mmm;
 run;</code></pre>
 <p>This outputs summary information as shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image59.png" />
-</div>
-<p>A procedure that will be needed, when using more complex procedures and larger data sets, is the &quot;sort&quot; procedure.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image59.png" /><br /> A procedure that will be needed, when using more complex procedures and larger data sets, is the &quot;sort&quot; procedure.</p>
 <pre><code>proc sort data=mat013.mmm;
 by age;
 run;</code></pre>
 <p>Note that this procedure makes use of the &quot;by&quot; statement which tells SAS which variable to sort our observations on (in this case the variable age). Recall that the data set is not sorted. If we run the above &quot;sort&quot; procedure, at first nothing seems to happen, however if we view the data set again (using proc print or otherwise) we see (as shown) that the data set is now sorted.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image06.png" />
-</div>
-<p>Important: If you have the mat013.mmm data set open in browser mode (i.e. having double clicked on the data set in the explorer window) when running the &quot;sort&quot; procedure, checking your log shows you an error as shown. Always close any browser windows when processing a data set - or use the &quot;print&quot; procedure!</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image20.png" />
-</div>
-<h3 id="descriptive-statistics"><span class="header-section-number">3.2.2</span> Descriptive statistics</h3>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image06.png" /><br /> Important: If you have the mat013.mmm data set open in browser mode (i.e. having double clicked on the data set in the explorer window) when running the &quot;sort&quot; procedure, checking your log shows you an error as shown. Always close any browser windows when processing a data set - or use the &quot;print&quot; procedure!</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image20.png" /><br /> ### Descriptive statistics</p>
 <p>In this section we will go over some of the procedures needed to obtain descriptive statistics.</p>
 <p>The first procedure we consider is the &quot;means&quot; procedure. We can use the following code to obtain various summary statistics relating to the age variables of the mat013.mmm dataset.</p>
 <pre><code>proc means data=mat013.mmm;
@@ -276,10 +191,7 @@ N(height_in_metres)=number_of_height_obs
 mean(height_in_metres)=average_height;
 run;</code></pre>
 <p>The above code creates a data set called &quot;summary_of_mmm&quot; in the work library (the default library if no library is specified) with two variables &quot;number_of_obs&quot; and &quot;average_of_obs&quot; which give the number and mean for the observations as calculated by the &quot;means&quot; procedure as shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image16.png" />
-</div>
-<p>The &quot;univariate&quot; procedure allows for the calculation of univariate statistics in SAS. The following code will output all the default univariate statistics for all the variables.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image16.png" /><br /> The &quot;univariate&quot; procedure allows for the calculation of univariate statistics in SAS. The following code will output all the default univariate statistics for all the variables.</p>
 <pre><code>proc univariate data=mat013.mmm;
 run;</code></pre>
 <p>We can choose to run the &quot;univariate&quot; procedure on a subset of the variables, using the &quot;var&quot; statement.</p>
@@ -287,27 +199,9 @@ run;</code></pre>
 var savings_in_pounds;
 run;</code></pre>
 <p>The various outputs of the &quot;univariate&quot; procedure are shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image10.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image03.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image61.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image53.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image36.png" />
-</div>
-<h3 id="frequency-tables"><span class="header-section-number">3.2.3</span> Frequency tables</h3>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image10.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image03.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image61.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image53.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image36.png" /><br /> ### Frequency tables</p>
 <p>The &quot;freq&quot; procedure allows us to obtain frequency tables of data sets. As an example, let's consider the dataset shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image27.png" />
-</div>
-<p>The most basic &quot;freq&quot; procedure will give the frequencies of all the observations in the data set:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image27.png" /><br /> The most basic &quot;freq&quot; procedure will give the frequencies of all the observations in the data set:</p>
 <pre><code>proc freq data=mat013.math_tests;
 run;</code></pre>
 <p>We can specify the variables we want to look at by listing them after the &quot;tables&quot; statement (similar to the var statement for the &quot;means&quot; procedure):</p>
@@ -319,54 +213,34 @@ run;</code></pre>
 tables teacher*pass_fail;
 run;</code></pre>
 <p>The above code gives the table shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image08.png" />
-</div>
-<p>Various options can be passed to the &quot;freq&quot; procedure, the simplest of which is shown below:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image08.png" /><br /> Various options can be passed to the &quot;freq&quot; procedure, the simplest of which is shown below:</p>
 <pre><code>proc freq data=mat013.math_tests;
 tables teacher*pass_fail / nocol norow nopercent;
 run;</code></pre>
 <p>Other options include computing a chi square test but we will not worry about that for now.</p>
-<h3 id="correlations"><span class="header-section-number">3.2.4</span> Correlations</h3>
+<h3 id="correlations"><span class="header-section-number">2.2.2</span> Correlations</h3>
 <p>The &quot;corr&quot; procedure can be used to obtain correlations in SAS. The following code is the basic &quot;corr&quot; procedure applied to the mat013.mmm data set which gives the output shown.</p>
 <pre><code>proc corr data=mat013.mmm;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image49.png" />
-</div>
-<p>If we want to run the &quot;corr&quot; procedure on a subset of the variables then we use the &quot;var&quot; statement:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image49.png" /><br /> If we want to run the &quot;corr&quot; procedure on a subset of the variables then we use the &quot;var&quot; statement:</p>
 <pre><code>proc corr data=mat013.mmm;
 var age savings_in_pounds;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image22.png" />
-</div>
-<h3 id="linear-models"><span class="header-section-number">3.2.5</span> Linear Models</h3>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image22.png" /><br /></p>
+<h3 id="linear-models"><span class="header-section-number">2.2.3</span> Linear Models</h3>
 <p>In this section we'll very briefly see the syntax for some basic linear models in SAS. First of all we'll take a look at linear regression. The following code will run such an analysis on the mat013.jjj data set, checking if there is a linear model of height with predictors weight and savings:</p>
 <pre><code>proc reg data=mat013.jjj;
 model height_in_metres=weight_in_kg savings_in_pounds;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image12.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image39.png" />
-</div>
-<p>Looking at the p-value we see that the overall model should not be rejected, however the detailed results show that perhaps we could remove savings from the model.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image12.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image39.png" /><br /> Looking at the p-value we see that the overall model should not be rejected, however the detailed results show that perhaps we could remove savings from the model.</p>
 <p>Analysis of variance (ANOVA) can be done very easily in SAS. We show this using a new data set.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image09.png" />
-</div>
-<p>We will use the &quot;anova&quot; procedure to see if the grades obtained by students depend on their teacher.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image09.png" /><br /> We will use the &quot;anova&quot; procedure to see if the grades obtained by students depend on their teacher.</p>
 <pre><code>proc anova data=mat013.math;
 class prof;
 model grade=prof;
 run;</code></pre>
 <p>Note the &quot;class&quot; keyword is needed to state which variable we are using to group on. The results show that there is indeed a difference between groups (further post-hoc tests are needed to investigate which groups differ etc.).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image25.png" />
-</div>
-<p>Another procedure that can be used for a variety of models (including the 2-way anova) is the &quot;glm&quot; (general linear model) procedure. The following code simply reproduces the above results.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image25.png" /><br /> Another procedure that can be used for a variety of models (including the 2-way anova) is the &quot;glm&quot; (general linear model) procedure. The following code simply reproduces the above results.</p>
 <pre><code>proc glm data=mat013.jjj;
 model height_in_metres=weight_in_kg savings_in_pounds;
 run;
@@ -375,24 +249,18 @@ proc glm data=mat013.math;
 class prof;
 model grade=prof;
 run;</code></pre>
-<h3 id="plots-and-charts"><span class="header-section-number">3.2.6</span> Plots and charts</h3>
+<h3 id="plots-and-charts"><span class="header-section-number">2.2.4</span> Plots and charts</h3>
 <p>There are various ways to obtain histograms in SAS, the easiest way is to use the &quot;univariate&quot; procedure with the &quot;histogram&quot; option. The following code gives a histogram for the height of individuals in the mat013.jjj dataset as shown.</p>
 <pre><code>proc univariate data=mat013.jjj;
 var height_in_metres;
 histogram;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image01.png" />
-</div>
-<p>There are various ways to obtain scatter plots in SAS, the easiest way is to use the &quot;gplot&quot; procedure. The following code gives a scatter plot for the height of individuals against their weight in the mat013.jjj dataset as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image01.png" /><br /> There are various ways to obtain scatter plots in SAS, the easiest way is to use the &quot;gplot&quot; procedure. The following code gives a scatter plot for the height of individuals against their weight in the mat013.jjj dataset as shown.</p>
 <pre><code>proc gplot data=mat013.jjj;
 plot height_in_metres*weight_in_kg;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image28.png" />
-</div>
-<p>There are various other ways to obtain similar graphs as well as change the look and feel of our graphs. We won't go into this here but you are encouraged to look into it.</p>
-<h2 id="exporting-output"><span class="header-section-number">3.3</span> 2.3 Exporting output</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image28.png" /><br /> There are various other ways to obtain similar graphs as well as change the look and feel of our graphs. We won't go into this here but you are encouraged to look into it.</p>
+<h2 id="exporting-output"><span class="header-section-number">2.3</span> Exporting output</h2>
 <p>We can output results of procedures in SAS using the &quot;output delivery system&quot;. The syntax is straightforward and we surround normal SAS code with the &quot;ods&quot; statements to output to various formats (html, pdf, rtf).</p>
 <pre><code>ods [format of your choice] file=[Location of file to be output];
 [Normal SAS code]
@@ -405,10 +273,7 @@ plot height_in_metres*weight_in_kg;
 run;
 
 ods html close;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image17.png" />
-</div>
-<p>The following code will create a file called &quot;scatter_plot.pdf&quot; in pdf format stored at the location &quot;~/Desktop&quot; (note that in Window's the &quot;/&quot; should be a &quot;&quot;) as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image17.png" /><br /> The following code will create a file called &quot;scatter_plot.pdf&quot; in pdf format stored at the location &quot;~/Desktop&quot; (note that in Window's the &quot;/&quot; should be a &quot;&quot;) as shown.</p>
 <pre><code>ods pdf file=&quot;\~/Desktop/scatter_plot.pdf&quot;;
 
 proc gplot data=mat013.jjj;
@@ -416,10 +281,7 @@ plot height_in_metres*weight_in_kg;
 run;
 
 ods pdf close;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image02.png" />
-</div>
-<p>The following code will create a file called &quot;regression.rtf&quot; in rtf format (Word, LibreOffice etc.) stored at the location &quot;~/Desktop&quot; (note that in Window's the &quot;/&quot; should be a &quot;&quot;) as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image02.png" /><br /> The following code will create a file called &quot;regression.rtf&quot; in rtf format (Word, LibreOffice etc.) stored at the location &quot;~/Desktop&quot; (note that in Window's the &quot;/&quot; should be a &quot;&quot;) as shown.</p>
 <pre><code>ods rtf file=&quot;\~/Desktop/regression.rtf&quot;;
 
 proc reg data=mat013.jjj;
@@ -427,20 +289,18 @@ model weight_in_kg=height_in_metres;
 run;
 
 ods rtf close;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image55.png" />
-</div>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image55.png" /><br /></p>
 <hr />
-<h1 id="chapter-3---manipulating-data"><span class="header-section-number">4</span> Chapter 3 - Manipulating data</h1>
+<h1 id="chapter-3---manipulating-data"><span class="header-section-number">3</span> Chapter 3 - Manipulating data</h1>
 <hr />
-<h2 id="data-steps"><span class="header-section-number">4.1</span> 3.1 Data steps</h2>
+<h2 id="data-steps"><span class="header-section-number">3.1</span> Data steps</h2>
 <p>A data step is a type of SAS statement that allows you to manipulate SAS data sets. Some of the things we can do include:</p>
 <ol style="list-style-type: decimal">
 <li>Copying a data set (with new variables)</li>
 <li>Concatenating any number of data sets</li>
 <li>Merging any number of data sets</li>
 </ol>
-<p>The following code simply creates a data set in the work library called &quot;J&quot; that is a copy of the data set jjj located in the mat013 library.</p>
+<p>The following code simply creates a data set in the work library called &quot;j&quot; that is a copy of the data set jjj located in the mat013 library.</p>
 <pre><code>data j;
 set mat013.jjj;
 run;</code></pre>
@@ -448,26 +308,17 @@ run;</code></pre>
 <pre><code>data [New Data Set];
 set A B;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image00.png" />
-</div>
-<p>The following code concatenates the jjj and mmm data sets as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image00.png" /><br /> The following code concatenates the jjj and mmm data sets as shown.</p>
 <pre><code>data mat013.mmmjjj;
 set mat013.mmm mat013.jjj;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image54.png" />
-</div>
-<p>To merge two data sets (as shown pictorially) we use the following syntax:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image54.png" /><br /> To merge two data sets (as shown pictorially) we use the following syntax:</p>
 <pre><code>data [New Data Set];
 merge A B;
 by [Merge Variable]
 run;</code></pre>
 <p>Note that the two data sets must be sorted on the merge variable prior to merging.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image19.png" />
-</div>
-<p>The following code would merge the two data sets first_data_set and other_data_set in the mat013 library as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image19.png" /><br /> The following code would merge the two data sets first_data_set and other_data_set in the mat013 library as shown.</p>
 <pre><code>proc sort data=mat013.first_data_set;
 by name;
 run;
@@ -480,64 +331,38 @@ data mat013.merged_data_set;
 merge mat013.first_data_set mat013.other_data_set;
 by name;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image34.png" />
-</div>
-<p>Data steps can be used in conjunction with the &quot;where&quot; statement to select certain variables. For example consider the data set shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image11.png" />
-</div>
-<p>The following code selects only the elements of the above data set that start with a &quot;D&quot;.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image34.png" /><br /> Data steps can be used in conjunction with the <code>where</code> statement to select certain variables. For example consider the data set shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image11.png" /><br /> The following code selects only the elements of the above data set that start with a <code>D</code>.</p>
 <pre><code>data Dwarfs;
 set Dwarfs;
 where substr(Name,1,1)=&quot;D&quot;;
 run;</code></pre>
-<p>The result is shown in (note that the above code makes use of the &quot;substr&quot; function that we will see later).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image45.png" />
-</div>
-<h2 id="the-program-data-vector"><span class="header-section-number">4.2</span> 3.2 The program data vector</h2>
+<p>The result is shown in (note that the above code makes use of the <code>substr</code> function that we will see later).</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image45.png" /><br /> ## The program data vector</p>
 <p>SAS is able to handle very large data sets because of the way data steps work. In this section we'll explain how it uses the &quot;program data vector&quot; (pdv) to efficiently handle data. The basic steps of compiling a data step are as follows:</p>
 <ol style="list-style-type: decimal">
 <li>SAS creates an empty data set.</li>
 <li>SAS checks the data step for any unrecognized keywords and syntax errors.</li>
 <li>SAS creates a PDV to store the information for all the variables required from the data step.</li>
-<li>SAS reads in the data line by line using the PDF.</li>
-</ol>
-<p>(If a &quot;by&quot; statement is used (for example when merging two data sets) the PDF does not empty if there are still observations with the same value of the &quot;by&quot; variable).</p>
-<ol start="5" style="list-style-type: decimal">
-<li>SAS creates the descriptive portion of the SAS data set (viewable using the &quot;contents&quot; procedure).</li>
+<li><p>SAS reads in the data line by line using the PDF.</p>
+<p>(If a &quot;by&quot; statement is used (for example when merging two data sets) the PDF does not empty if there are still observations with the same value of the &quot;by&quot; variable).</p></li>
+<li><p>SAS creates the descriptive portion of the SAS data set (viewable using the &quot;contents&quot; procedure).</p></li>
 </ol>
 <p>An example of how this works with concatenation and an example of how this works with merging is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image15.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image30.png" />
-</div>
-<h2 id="creating-new-variables"><span class="header-section-number">4.3</span> 3.3 Creating new variables</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image15.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image30.png" /><br /> ## Creating new variables</p>
 <p>Creating new variables using various arithmetic and/or string relationships is relatively straightforward in SAS. The following code creates a new data set call MMM_with_BMI, with a new variable &quot;BMI&quot; as a function of the height and weight variables in the MMM dataset in the mat013 library.</p>
 <pre><code>data mat013.MMM_with_BMI;
 set mat013.MMM;
 bmi=weight_in_kg/(height_in_metres**2);
 run;</code></pre>
 <p>Some of the arithmetic functions are shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/SAS_math_operators.png" />
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/SAS_math_functions.png" />
-</div>
-<p>We can also do operations on strings, the following code replaces the variable &quot;Sex&quot; with the first entry of &quot;Sex&quot; (which gets rid of the Male - M and Female - F issue).</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/SAS_math_operators.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/SAS_math_functions.png" /><br /> We can also do operations on strings, the following code replaces the variable &quot;Sex&quot; with the first entry of &quot;Sex&quot; (which gets rid of the Male - M and Female - F issue).</p>
 <pre><code>data mat013.MMM_with_BMI;
 set mat013.MMM;
 sex=substr(sex,1,1);
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/SAS_string_functions.png" />
-</div>
-<p>It's worth checking the web for a full list of various SAS functions (there are a huge amount of them).</p>
-<h3 id="dropping-and-keeping-variables."><span class="header-section-number">4.3.1</span> Dropping and keeping variables.</h3>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/SAS_string_functions.png" /><br /> It's worth checking the web for a full list of various SAS functions (there are a huge amount of them).</p>
+<h3 id="dropping-and-keeping-variables."><span class="header-section-number">3.1.1</span> Dropping and keeping variables.</h3>
 <p>In this section we'll take a quick look at two simple ways of improving the efficiency of a data step. Recalling how SAS handles a data step (using the pdv as described previously), one immediate way of improving efficiency is to ensure that the pdv only &quot;transports&quot; the variables we require. We do this with the &quot;drop&quot; or &quot;keep&quot; statement.</p>
 <p>Let us consider the previous example and assume that we want our MMM_with_BMI data set without the weight and height variables. We use a &quot;drop&quot; statement to get rid of those variables:</p>
 <pre><code>data mat013.MMM_with_BMI_nhw(drop=weight_in_kg height_in_metres);
@@ -556,7 +381,7 @@ run;</code></pre>
 set mat013.MMM;
 bmi=weight_in_kg/(height_in_metres**2);
 run;</code></pre>
-<h3 id="renaming-variables"><span class="header-section-number">4.3.2</span> Renaming variables</h3>
+<h3 id="renaming-variables"><span class="header-section-number">3.1.2</span> Renaming variables</h3>
 <p>The following code creates a data set &quot;JJJ&quot; in the work library which is a copy of the &quot;JJJ&quot; dataset in the mat013 library, renaming the &quot;sex&quot; variable to &quot;gender&quot;.</p>
 <pre><code>data JJJ(rename=(sex=gender));
 set mat013.JJJ;
@@ -565,22 +390,16 @@ run;</code></pre>
 <pre><code>data JJJ;
 set mat013.JJJ(rename=(sex=gender));
 run;</code></pre>
-<h3 id="operations-across-rows"><span class="header-section-number">4.3.3</span> Operations across rows</h3>
+<h3 id="operations-across-rows"><span class="header-section-number">3.1.3</span> Operations across rows</h3>
 <p>We have seen in previous sections how to create new variables for any given observation (i.e. across columns of a data set). In this section we see how to create variables across rows. Recalling how the program data vector works, this implies that we must find a way to keep certain entries in the pdv for future calculation.</p>
 <p>We will demonstrate this using the birthday_money.csv data set as shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image38.png" />
-</div>
-<p>The first such way is to use the &quot;retain&quot; statement. The &quot;retain&quot; statement keeps the last entry for a given variable in the pdv for future calculation. Note that we can give an initial value for a particular variable as shown in the following code (which produces a variable &quot;total&quot; that is a running total of &quot;amount&quot;) the output of which is shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image38.png" /><br /> The first such way is to use the &quot;retain&quot; statement. The &quot;retain&quot; statement keeps the last entry for a given variable in the pdv for future calculation. Note that we can give an initial value for a particular variable as shown in the following code (which produces a variable &quot;total&quot; that is a running total of &quot;amount&quot;) the output of which is shown.</p>
 <pre><code>data bm_analysis;
 set mat013.birthday_money;
 retain total 0;
 total=total+amount;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image47.png" />
-</div>
-<p>Another tool for such calculations is the &quot;lagn&quot; function which gives the value of a variable from a certain number n of prior steps. The following code gives two new variables, the yearly difference and 2 yearly difference, the result of which is shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image47.png" /><br /> Another tool for such calculations is the &quot;lagn&quot; function which gives the value of a variable from a certain number n of prior steps. The following code gives two new variables, the yearly difference and 2 yearly difference, the result of which is shown.</p>
 <pre><code>data bm_analysis;
 set mat013.birthday_money;
 retain total 0;
@@ -588,10 +407,7 @@ total=total+amount;
 yearly_diff=amount-lag1(amount);
 two_yearly_diff=amount-lag2(amount);
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image40.png" />
-</div>
-<p>The lag functions can be used in much more complex assignments and in fact when simply wanting to calculate a difference there is a quicker way: using the &quot;difn&quot; function as shown in the code below which gives the same result as shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image40.png" /><br /> The lag functions can be used in much more complex assignments and in fact when simply wanting to calculate a difference there is a quicker way: using the &quot;difn&quot; function as shown in the code below which gives the same result as shown.</p>
 <pre><code>data bm_analysis;
 set mat013.birthday_money;
 retain total 0;
@@ -599,12 +415,9 @@ total=total+amount;
 yearly_diff=dif1(amount);
 two_yearly_diff=dif2(amount);
 run;</code></pre>
-<h2 id="handling-dates"><span class="header-section-number">4.4</span> 3.4 Handling dates</h2>
+<h2 id="handling-dates"><span class="header-section-number">3.2</span> Handling dates</h2>
 <p>Dates are handled in a particular way in SAS. Let's consider the csv file shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image37.png" />
-</div>
-<p>We have seen in Chapter 1 how to import data using proc import. If we use the normal approach an error would occur. This is due to the confusion associated with our birthday variables (the first 20 rows have the date and month values both less than 12). A further option that can be incorporated in proc import is the number of rows that SAS will &quot;pre-read&quot; to identify the type of variables that are to be imported. This is often an easy way to ensure that SAS recognises dates.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image37.png" /><br /> We have seen in Chapter 1 how to import data using proc import. If we use the normal approach an error would occur. This is due to the confusion associated with our birthday variables (the first 20 rows have the date and month values both less than 12). A further option that can be incorporated in proc import is the number of rows that SAS will &quot;pre-read&quot; to identify the type of variables that are to be imported. This is often an easy way to ensure that SAS recognises dates.</p>
 <pre><code>proc import datafile=&#39;\~birthdays.csv&#39;
 out=birthdays
 replace;
@@ -612,33 +425,24 @@ getnames=yes;
 guessingrows=25;
 run;</code></pre>
 <p>A proc contents run on the above data set shows that the birthday variable data was imported using the informat DDMMYY10. In other words SAS has recognised that the dates were in that particular format.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image50.png" />
-</div>
-<p>Another approach is to import files in SAS using a data step and the infile statement. When doing this we can tell SAS the format of the data (whether or not it is a string, numerical or date variables).</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image50.png" /><br /> Another approach is to import files in SAS using a data step and the infile statement. When doing this we can tell SAS the format of the data (whether or not it is a string, numerical or date variables).</p>
 <pre><code>data birthdays;
 infile &#39;~/birthdays.csv&#39; dlm=&#39;,&#39; firstobs=2;
 input Name $ Birthday ddmmyy10.;
 run;</code></pre>
 <p>The infile statement tells SAS where the data is located and the 'dlm' statement tells SAS how the file is delimited (in this case with a comma). The 'firstobs' statement tells SAS where the data starts in the file (in this case the second row as the first row is the name of the variables in our data set). The input statement then allows us to tell SAS the names of the variables as well as the format they are in, here we tell SAS that the second variable is to be called 'Birthday' and it is in the ddmmyy8. format.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image63.png" />
-</div>
-<p>The above output might be a bit confusing, this is due to the fact that SAS handles dates as numbers, using the convention that the 1st of January 1960 is the number 0 (this allows for straightforward arithmetic manipulation of dates). The following code imports the data as above and displays the underlying numeric dates in the date9. format.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image63.png" /><br /> The above output might be a bit confusing, this is due to the fact that SAS handles dates as numbers, using the convention that the 1st of January 1960 is the number 0 (this allows for straightforward arithmetic manipulation of dates). The following code imports the data as above and displays the underlying numeric dates in the date9. format.</p>
 <pre><code>data birthdays;
 infile &#39;\~/birthdays.csv&#39; dlm=&#39;,&#39; firstobs=2;
 input Name $ Birthday ddmmyy8.;
 format Birthday date9.;
 run;</code></pre>
 <p>The output is shown. Note that applying the date9. format only changes the appearance of the data.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image51.png" />
-</div>
-<p>There are various formats that can be used when importing variables (for dates as well as other variables) and subsequently these same formats can be used to display the data if this is required. Searching online quickly finds other SAS formats.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image51.png" /><br /> There are various formats that can be used when importing variables (for dates as well as other variables) and subsequently these same formats can be used to display the data if this is required. Searching online quickly finds other SAS formats.</p>
 <hr />
-<h1 id="chapter-4-programming"><span class="header-section-number">5</span> Chapter 4 Programming</h1>
+<h1 id="chapter-4-programming"><span class="header-section-number">4</span> Chapter 4 Programming</h1>
 <hr />
-<h2 id="flow-control"><span class="header-section-number">5.1</span> 4.1 Flow control</h2>
+<h2 id="flow-control"><span class="header-section-number">4.1</span> 4.1 Flow control</h2>
 <p>A huge part of programming (in any language) is the use of so called &quot;conditional statements&quot;. We do this in SAS using &quot;if&quot; statements. The following code creates a new variable &quot;age_group&quot; which is &quot;young&quot; if the age is less than 29 and &quot;old&quot; if the age is larger than 29. Note we're also including a keep statement to just have the name and age_group in the new data set.</p>
 <pre><code>data age_group(keep= name age_group);
 set mat013.mmmjjj;
@@ -663,7 +467,7 @@ if substr(Name,1,1)=&#39;J &#39; then data_set=&#39;JJJ&#39;;
 run;</code></pre>
 <p>Here are some of the comparison operators that can be used in conjunction with 'if' statements.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image29.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image29.png" /><p class="caption"></p>
 </div>
 <p>A further important notion in programming is the notion of loops. These are done in SAS using &quot;do&quot; statements. There are four ways the &quot;do&quot; statement is used:</p>
 <ol style="list-style-type: decimal">
@@ -730,13 +534,13 @@ k=k+1;
 end;
 run;</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image18.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image18.png" /><p class="caption"></p>
 </div>
-<h2 id="how-does-sas-compile-code"><span class="header-section-number">5.2</span> 4.2 How does SAS compile code?</h2>
+<h2 id="how-does-sas-compile-code"><span class="header-section-number">4.2</span> 4.2 How does SAS compile code?</h2>
 <p>In this chapter we will see how to program macros in SAS. Macros generate and run code with varying arguments. The macro facility is a tool for extending and customising SAS and for reducing the amount of text you must enter to do common tasks. The macro facility enables you to assign a name to character strings or groups of SAS programming statements. From that point on, you can work with the names rather than with the text itself.</p>
 <p>When you submit a SAS macro the Input stack receives content of the program. Word scanner scans each line of the macro for tokens. If a token contains a macro character (a % or a &amp;) that token is sent to the macro compiler. The Macro compiler does its work and places tokens back in the input stack. The token is examined by the word scanner and the process repeats. When the word scanner detects a step boundary it triggers the data step compiler. This process is represented diagrammatically.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image48.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image48.png" /><p class="caption"></p>
 </div>
 <p>When you submit a macro, it goes first to the macro processor which produces standard SAS code from the macro references (macro code is compiled first). Then SAS compiles and executes your program.</p>
 <p>In general the syntax for a macro is as follows:</p>
@@ -790,7 +594,7 @@ run;
 %mend;</code></pre>
 <p>Now if we call the macro without giving a value to trips it will take the default value 1.</p>
 <pre><code>%shopping(spend=500);</code></pre>
-<h3 id="macro-variables"><span class="header-section-number">5.2.1</span> Macro variables</h3>
+<h3 id="macro-variables"><span class="header-section-number">4.2.1</span> Macro variables</h3>
 <p>In this section we're going to take a slightly closer look at macro variables. A macro variable is a variable whose value is stored within the macro symbol table. When the macro variable is used in SAS code, SAS substitutes the value of the macro variable into the SAS code. SAS macro variables are distinguished by the &quot;&amp;&quot; sign before the variable name. Note that all SAS macro variables are stored as text strings.</p>
 <p>We can experiment with macro variables using the %let statement which allows the construction of macro variables outside of a macro definition. This is the simplest form of a macro statement. It can be placed anywhere in a program, not only inside a Macro. &quot;%let&quot; creates global macro variables. An example of this is shown in the following code which gives the output shown.</p>
 <pre><code>%let spend=400;
@@ -806,7 +610,7 @@ run;
 
 %shopping;</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image52.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image52.png" /><p class="caption"></p>
 </div>
 <p>It's also possible to view (in the log) the values of a macro variable using the &quot;%put&quot; statement. There are two uses for it:</p>
 <pre><code>%put &lt;text&gt; &amp;macro-variable-name;</code></pre>
@@ -819,12 +623,12 @@ run;
 </ol>
 <p>The important thing to note here is that a double ampersand &quot;&amp;&amp;&quot; is a token in itself that resolves to a single ampersand &quot;&amp;&quot; (THIS IS IMPORTANT).</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image44.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image44.png" /><p class="caption"></p>
 </div>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image43.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image43.png" /><p class="caption"></p>
 </div>
-<h2 id="sas-macro-programming-statements"><span class="header-section-number">5.3</span> 4.3 SAS Macro programming statements</h2>
+<h2 id="sas-macro-programming-statements"><span class="header-section-number">4.3</span> 4.3 SAS Macro programming statements</h2>
 <p>The 'if' statements and 'do' loops discussed previously work in a very similar way to if statements and do loops within macros. The only modification is that these can be evaluated within the macro compiler before the entire submitted code is resolved. For this to work we need to use the &quot;%if&quot;, &quot;%then&quot; and &quot;%else&quot; statements when evaluating a conditional statement on a macro variable. The following code is an example of this:</p>
 <pre><code>%macro shopping(spend,trips);
 data JJJ_after_shopping(keep= Name Old_savings New_savings);
@@ -880,9 +684,9 @@ run;
 %mend;</code></pre>
 <p>The output is shown.</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image04.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image04.png" /><p class="caption"></p>
 </div>
-<h2 id="macro-functions"><span class="header-section-number">5.4</span> 4.4 Macro functions</h2>
+<h2 id="macro-functions"><span class="header-section-number">4.4</span> 4.4 Macro functions</h2>
 <p>Since all macro variables are text strings it is not possible to directly perform computations on macro variables that contain numbers. The following code would give an error:</p>
 <pre><code>%let var=5**2;
 
@@ -923,7 +727,7 @@ run;
 <li>writes information concerning the resolution of macro variables to the log</li>
 </ul>
 <hr />
-<h1 id="chapter-5-further-procs"><span class="header-section-number">6</span> Chapter 5 Further procs</h1>
+<h1 id="chapter-5-further-procs"><span class="header-section-number">5</span> Chapter 5 Further procs</h1>
 <hr />
 <p>In this chapter we will examine three particular procedures in SAS.</p>
 <ol style="list-style-type: decimal">
@@ -931,8 +735,8 @@ run;
 <li>proc fcmp: a procedure allowing for the creation of custom functions;</li>
 <li>proc optmodel: a package that allows for optimisation in SAS.</li>
 </ol>
-<h2 id="proc-sql"><span class="header-section-number">6.1</span> 5.1 Proc sql</h2>
-<h3 id="basic-sql"><span class="header-section-number">6.1.1</span> Basic SQL</h3>
+<h2 id="proc-sql"><span class="header-section-number">5.1</span> 5.1 Proc sql</h2>
+<h3 id="basic-sql"><span class="header-section-number">5.1.1</span> Basic SQL</h3>
 <p>SQL is a language designed for querying and modifying databases. Used by a variety of database management software suites:</p>
 <ol style="list-style-type: decimal">
 <li>Oracle</li>
@@ -962,7 +766,7 @@ create table test as
 select Name, Age, Sex, weight_in_kg/(height_in_metres**2) as bmi
 from mat013.mmm;
 quit;</code></pre>
-<h3 id="further-sql"><span class="header-section-number">6.1.2</span> Further SQL</h3>
+<h3 id="further-sql"><span class="header-section-number">5.1.2</span> Further SQL</h3>
 <p>In this section we'll take a look at what else SAS can do. For the purpose of the following examples let's write a new data set:</p>
 <pre><code>data mat013.example;
 input Var1 $ Var2 Var3 $ Var 4 Var5 $;
@@ -1013,7 +817,7 @@ select var1, mean(var2) as average_of_var2
 from mat013.example
 group by var1;
 quit;</code></pre>
-<h3 id="joining-tables-with-sql"><span class="header-section-number">6.1.3</span> Joining tables with SQL</h3>
+<h3 id="joining-tables-with-sql"><span class="header-section-number">5.1.3</span> Joining tables with SQL</h3>
 <p>A very common use of SQL within SAS is to carry out &quot;joins&quot; which are equivalent to a merger of data sets. There are 4 types of joins to consider:</p>
 <ol style="list-style-type: decimal">
 <li>inner join
@@ -1065,7 +869,7 @@ from mat013.dogs as a, mat013.cats as b
 where a.Owner=b.Owner;
 quit;</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image23.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image23.png" /><p class="caption"></p>
 </div>
 <p>The following code carries out a left outer join, the output of which is shown.</p>
 <pre><code>proc sql;
@@ -1076,7 +880,7 @@ left join mat013.cats as b
 on a.Owner=b.Owner;
 quit;</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image46.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image46.png" /><p class="caption"></p>
 </div>
 <p>The following code carries out a right outer join, the output of which is shown.</p>
 <pre><code>proc sql;
@@ -1087,7 +891,7 @@ right join mat013.cats as b
 on a.Owner=b.Owner;
 quit;</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image07.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image07.png" /><p class="caption"></p>
 </div>
 <p>The following code carries out a full outer join, the output of which is shown.</p>
 <pre><code>proc sql;
@@ -1098,9 +902,9 @@ full join mat013.cats as b
 on a.Owner=b.Owner;
 quit;</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image33.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image33.png" /><p class="caption"></p>
 </div>
-<h2 id="proc-fcmp"><span class="header-section-number">6.2</span> 5.2 Proc fcmp</h2>
+<h2 id="proc-fcmp"><span class="header-section-number">5.2</span> 5.2 Proc fcmp</h2>
 <p>In previous chapters we have seen various in built functions in SAS. For various reasons it might be required to create a custom function. We will do this with the &quot;fcmp&quot; procedure. This procedure allows us to create custom functions using data step syntax (which allows for &quot;if&quot; and &quot;do&quot; statements to be used). The following code creates a function called &quot;ln&quot; that gives the natural log of a number:</p>
 <pre><code>proc fcmp outlib=sasuser.funcs.ln;
 function ln(x);
@@ -1144,8 +948,8 @@ data G_sum_test;
 set test;
 y=Gsum(i,n);
 run;</code></pre>
-<h2 id="optimisation"><span class="header-section-number">6.3</span> 5.3 Optimisation</h2>
-<p>Another powerful aspect of SAS is it's optimisation engine. We can optimise various types of problems using the &quot;optmodel&quot; procedure. The following code optimises the polynomial: <span class="math">\(x^2-x-yx+y^2\)</span>.</p>
+<h2 id="optimisation"><span class="header-section-number">5.3</span> 5.3 Optimisation</h2>
+<p>Another powerful aspect of SAS is it's optimisation engine. We can optimise various types of problems using the &quot;optmodel&quot; procedure. The following code optimises the polynomial: \(x^2-x-yx+y^2\).</p>
 <pre><code>proc optmodel;
 var x,y;
 min z=x**2-x-2*y-x*y+y**2;
@@ -1154,7 +958,7 @@ print x y;
 quit;</code></pre>
 <p>The output is shown, note that SAS automatically chooses a solver (in this case Non Linear Programming and Interior Point methods).</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image27_opt.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image27_opt.png" /><p class="caption"></p>
 </div>
 <p>We can also include a domain:</p>
 <pre><code>proc optmodel;
@@ -1164,7 +968,7 @@ solve;
 print x y;
 quit;</code></pre>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image22_opt.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image22_opt.png" /><p class="caption"></p>
 </div>
 <p>We can solve further more complex optimisation problems, including constraints using the 'constraints' keyword:</p>
 <pre><code>proc optmodel;
@@ -1177,7 +981,7 @@ print x1 x2 x3;
 quit;</code></pre>
 <p>The output is shown (note the solver used was a variant of simplex).</p>
 <div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image11_opt.png" />
+<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image11_opt.png" /><p class="caption"></p>
 </div>
 <p>It is also possible to read in the constraints of a particular optimisation problem from a data set. This can prove to be very handy when dealing with huge problems so it's worth spending time researching that approach.</p>
 <script type="text/javascript">
