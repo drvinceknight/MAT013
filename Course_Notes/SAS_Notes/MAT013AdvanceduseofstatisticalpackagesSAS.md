@@ -550,6 +550,7 @@ The result is shown in (note that the above code makes use of the `substr` funct
 
 ![Elements of the Dwarfs data set starting with "D".](images/image45.png)\
 
+
 ## The program data vector
 
 SAS is able to handle very large data sets because of the way data steps work. In this section we'll explain how it uses the "program data vector" (pdv) to efficiently handle data. The basic steps of compiling a data step are as follows:
@@ -729,7 +730,7 @@ There are various formats that can be used when importing variables (for dates a
 
 ---
 
-## 4.1 Flow control
+## Flow control
 
 A huge part of programming (in any language) is the use of so called "conditional statements". We do this in SAS using "if" statements. The following code creates a new variable "age_group" which is "young" if the age is less than 29 and "old" if the age is larger than 29. Note we're also including a keep statement to just have the name and age_group in the new data set.
 
@@ -762,7 +763,7 @@ Note that we can also compare strings as shown with the following code:
 
 Here are some of the comparison operators that can be used in conjunction with 'if' statements.
 
-![SAS Comparison Operators.](images/image29.png)
+![SAS Comparison Operators.](images/image29.png)\
 
 A further important notion in programming is the notion of loops. These are done in SAS using "do" statements. There are four ways the "do" statement is used:
 
@@ -841,15 +842,15 @@ Note that do iterative statements (also called "do loops") are often used in con
     end;
     run;
 
-![The first even numbers less than 70.](images/image18.png)
+![The first even numbers less than 70.](images/image18.png)\
 
-## 4.2 How does SAS compile code?
+## How does SAS compile code?
 
 In this chapter we will see how to program macros in SAS. Macros generate and run code with varying arguments. The macro facility is a tool for extending and customising SAS and for reducing the amount of text you must enter to do common tasks. The macro facility enables you to assign a name to character strings or groups of SAS programming statements. From that point on, you can work with the names rather than with the text itself.
 
 When you submit a SAS macro the Input stack receives content of the program. Word scanner scans each line of the macro for tokens. If a token contains a macro character (a % or a &) that token is sent to the macro compiler. The Macro compiler does its work and places tokens back in the input stack. The token is examined by the word scanner and the process repeats. When the word scanner detects a step boundary it triggers the data step compiler. This process is represented diagrammatically.
 
-![How SAS compiles code.](images/image48.png)
+![How SAS compiles code.](images/image48.png)\
 
 When you submit a macro, it goes first to the macro processor which produces standard SAS code from the macro references (macro code is compiled first). Then SAS compiles and executes your program.
 
@@ -943,7 +944,7 @@ We can experiment with macro variables using the %let statement which allows the
 
     %shopping;
 
-![Output of a macro using the %let statement.](images/image52.png)
+![Output of a macro using the %let statement.](images/image52.png)\
 
 It's also possible to view (in the log) the values of a macro variable using the "%put" statement. There are two uses for it:
 
@@ -960,11 +961,12 @@ This will output either all, all the global or all the local macro variables. Th
 
 The important thing to note here is that a double ampersand "&&" is a token in itself that resolves to a single ampersand "&" (THIS IS IMPORTANT).
 
-![Understanding multiple ampersands.](images/image44.png)
+![Understanding multiple ampersands.](images/image44.png)\
 
-![Understanding multiple ampersands](images/image43.png)
+![Understanding multiple ampersands](images/image43.png)\
 
-## 4.3 SAS Macro programming statements
+
+## SAS Macro programming statements
 
 The 'if' statements and 'do' loops discussed previously work in a very similar way to if statements and do loops within macros. The only modification is that these can be evaluated within the macro compiler before the entire submitted code is resolved. For this to work we need to use the "%if", "%then" and "%else" statements when evaluating a conditional statement on a macro variable. The following code is an example of this:
 
@@ -1031,9 +1033,10 @@ The way SAS compiles macro code can be an extremely useful tool. For example the
 
 The output is shown.
 
-![Importing multiple data sets using macros.](images/image04.png)
+![Importing multiple data sets using macros.](images/image04.png)\
 
-## 4.4 Macro functions
+
+## Macro functions
 
 Since all macro variables are text strings it is not possible to directly perform computations on macro variables that contain numbers. The following code would give an error:
 
@@ -1089,7 +1092,7 @@ In this chapter we will examine three particular procedures in SAS.
 2. proc fcmp: a procedure allowing for the creation of custom functions;
 3. proc optmodel: a package that allows for optimisation in SAS.
 
-## 5.1 Proc sql
+## Proc sql
 
 ### Basic SQL
 
@@ -1245,7 +1248,7 @@ The following code carries out an inner join of these two datasets also changing
     where a.Owner=b.Owner;
     quit;
 
-![The output of an inner join.](images/image23.png)
+![The output of an inner join.](images/image23.png)\
 
 The following code carries out a left outer join, the output of which is shown.
 
@@ -1257,7 +1260,7 @@ The following code carries out a left outer join, the output of which is shown.
     on a.Owner=b.Owner;
     quit;
 
-![The output of a left outer join.](images/image46.png)
+![The output of a left outer join.](images/image46.png)\
 
 The following code carries out a right outer join, the output of which is shown.
 
@@ -1269,7 +1272,7 @@ The following code carries out a right outer join, the output of which is shown.
     on a.Owner=b.Owner;
     quit;
 
-![The output of a right outer join.](images/image07.png)
+![The output of a right outer join.](images/image07.png)\
 
 The following code carries out a full outer join, the output of which is shown.
 
@@ -1281,9 +1284,10 @@ The following code carries out a full outer join, the output of which is shown.
     on a.Owner=b.Owner;
     quit;
 
-![The output of a fullouter join.](images/image33.png)
+![The output of a fullouter join.](images/image33.png)\
 
-## 5.2 Proc fcmp
+
+## Proc fcmp
 
 In previous chapters we have seen various in built functions in SAS. For various reasons it might be required to create a custom function. We will do this with the "fcmp" procedure. This procedure allows us to create custom functions using data step syntax (which allows for "if" and "do" statements to be used). The following code creates a function called "ln" that gives the natural log of a number:
 
@@ -1338,7 +1342,7 @@ Let's test this on the following data set:
     y=Gsum(i,n);
     run;
 
-## 5.3 Optimisation
+## Optimisation
 
 Another powerful aspect of SAS is it's optimisation engine. We can optimise various types of problems using the "optmodel" procedure. The following code optimises the polynomial: $x^2-x-yx+y^2$.
 
@@ -1351,7 +1355,7 @@ Another powerful aspect of SAS is it's optimisation engine. We can optimise vari
 
 The output is shown, note that SAS automatically chooses a solver (in this case Non Linear Programming and Interior Point methods).
 
-![Output of the optmodel procedure.](images/image27_opt.png)
+![Output of the optmodel procedure.](images/image27_opt.png)\
 
 We can also include a domain:
 
@@ -1362,7 +1366,7 @@ We can also include a domain:
     print x y;
     quit;
 
-![Output of the optmodel procedure with a specific domain.](images/image22_opt.png)
+![Output of the optmodel procedure with a specific domain.](images/image22_opt.png)\
 
 We can solve further more complex optimisation problems, including constraints using the 'constraints' keyword:
 
@@ -1377,23 +1381,7 @@ We can solve further more complex optimisation problems, including constraints u
 
 The output is shown (note the solver used was a variant of simplex).
 
-![Output of the optmodel procedure for a problem including constraints.](images/image11_opt.png)
+![Output of the optmodel procedure for a problem including constraints.](images/image11_opt.png)\
 
 
 It is also possible to read in the constraints of a particular optimisation problem from a data set. This can prove to be very handy when dealing with huge problems so it's worth spending time researching that approach.
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38016329-2']);
-  _gaq.push(['_setDomainName', 'github.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>

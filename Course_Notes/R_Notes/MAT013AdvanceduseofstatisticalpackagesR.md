@@ -497,6 +497,7 @@ Recall the `names` function simply gives a vector containing the names of all th
 
 ![Dropping and keeping by filtering variables names](images/image17.png)\
 
+
 ### Selecting Observations
 
 We can select any particular element of a data frame in R using the following syntax:
@@ -566,6 +567,7 @@ The output of the above is shown.
 
 ![More complex merging in R](images/image51.png)\
 
+
 ## Creating new variables
 
 Creating new variables using various arithmetic and/or string relationships is straightforward in R. The following code creates a new data set call MMM_with_BMI as a copy of the MMM data set and then adds a new variable "BMI" as a function of the height and weight variables in the MMM_with_BMI dataset.
@@ -600,7 +602,9 @@ Some examples of string functions are shown.
 
 ![Some string functions in R](images/R_string_functions.png)\
 
+
 It's also worth checking the web for other R functions (there is a huge amount of them).
+
 
 ### Renaming variables
 
@@ -618,6 +622,7 @@ Another option is to use the "fix" function that opens the dataset in a GUI that
     fix(JJJ)
 
 ![Using the fix environment](images/image25.png)\
+
 
 ### Operations across rows
 
@@ -641,6 +646,7 @@ Note that we also include a first entry of our column "yearly_diff" as "NA", thi
 
 ![Yearly differences calculated using the diff function in R](images/image56.png)\
 
+
 ## Handling dates in R
 
 Dates are a particular class in R. When importing dates, they are imported as strings.
@@ -649,11 +655,11 @@ Dates are a particular class in R. When importing dates, they are imported as st
 
 We import the file and create a data frame in the usual way:
 
-    birthdays<-read.csv("~/birthdays.csv")\
+    birthdays<-read.csv("~/birthdays.csv")
 
 Using the "str" command to view the structure of our data frame:
 
-    str(birthdays)\
+    str(birthdays)
 
 The output is shown confirming that the dates are recognized as strings (recall that by default `read.csv` imports strings as `factors`).
 
@@ -685,7 +691,7 @@ The output of all this is shown.
 
 ---
 
-## 4.1 Flow Control
+## Flow Control
 
 A huge part of programming (in any language) is the use of so called "conditional statements" that allow for flow control. We do this in R using "if" statements.
 
@@ -723,7 +729,8 @@ An example of this is given below:
 
 The output is shown.
 
-![A vector created using the ifelse statement](images/image01.png)
+![A vector created using the ifelse statement](images/image01.png)\
+
 
 Using this and our knowledge of filtering we see how we can create new variables using the ifelse statement. The following code creates a new variable "age_group":
 
@@ -732,17 +739,18 @@ Using this and our knowledge of filtering we see how we can create new variables
 
 The output is shown.
 
-![Creating a new variable in a data set using ifelse](images/image67.png)
+![Creating a new variable in a data set using ifelse](images/image67.png)\
+
 
 Some of the comparison operators that can be used in conjunction with 'if' statements are shown.
 
-![R comparison operators](images/R_comparison_operators.png)
+![R comparison operators](images/R_comparison_operators.png)\
+
 
 A further important notion in programming is the notion of loops. There are two types of loops that we will consider:
 
 1.  for
 2.  while
-
 
 The for loop allows us to compute iterative procedures. As with most things in R, the for loop iterates a value over a vector. The following code outputs the total number of birthday candles that would have been used on everyones birthday cake in the JJJ data set.
 
@@ -758,7 +766,7 @@ The for loop allows us to compute iterative procedures. As with most things in R
 
 The first statement creates an empty vector called "Candles". The first for loop, loops over the age variable in the JJJ data set ("0:age" is in fact a short way of writing a vector of integers from 0 to age). For each of those values of age we use a second for loop to sum the total number of candles and concatenate that value to the vector Candles. Finally we create a new data set Candles by concatenating the various vectors required (note that we're also renaming certain variables here).
 
-![Using for loops in R](images/image10.png)
+![Using for loops in R](images/image10.png)\
 
 Note that in general this is not the most efficient way of undertaking things in R. Vectorized versions of the above are much faster (we won't cover these here). Another improvement for the above code is to create the vector Candles initially as a vector of the correct size and type. For example we can create a numeric vector of a certain length using the following code (all initial values will be set to 0):
 
@@ -791,9 +799,10 @@ The second type of loop we will consider is the do while loop. This loop checks 
 
 The output is shown.
 
-![The first even numbers less than 70](images/image21.png)
+![The first even numbers less than 70](images/image21.png)\
 
-## 4.2 Functions
+
+## Functions
 
 One of the great capacities of R is the ease with which one can create new functions. The general syntax for this is given by:
 
@@ -837,7 +846,7 @@ The following code defines a function that creates a new dataset entitled "JJJ_a
 
 Note that this function makes use of recycling (when creating the New.Savings vector).
 
-![Output of the shopping function](images/image12.png)
+![Output of the shopping function](images/image12.png)\
 
 We can of course define functions with multiple arguments as below:
 
@@ -855,7 +864,8 @@ It's also possible to set certain values as defaults:
     return(JJJ_after_shopping)
     }
 
-## 4.3 Vectorising
+
+## Vectorising
 
 In general the for loops we have seen can be written in a much more efficient way using function and various forms of the apply function (which apply functions over vectors, lists and matrices):
 
@@ -911,7 +921,8 @@ Note that there is no need to actually define the function we can refer directly
 
     sapply(JJJ$Age,function(x) sum(1:x))
 
-## 4.4 Handling strings
+
+## Handling strings
 
 SAS is a macro language and philosophically macros allow a user to substitute pieces of text for a variable, and evaluate the result. R is not a macro language and thus does the opposite: evaluates the arguments and then uses the values.
 
@@ -929,7 +940,7 @@ Note that this piece of code introduces a new structure a bit more formally. The
 
 The output is shown.
 
-![An example of string manipulation in R](images/image41.png)
+![An example of string manipulation in R](images/image41.png)\
 
 We can also revisit a previous function (the shopping function) and create a different data set for every value of spend. We'll even make this a bit more complicated and nest functions so that we can repeat this operation for various values of the variable "spend".
 
@@ -949,9 +960,10 @@ We can also revisit a previous function (the shopping function) and create a dif
 
 Note the extra option that has been passed to the "assign" command "envir=.GlobalEnv". This is to ensure that the data sets created in the function are global (i.e. are still there when the function stops running).
 
-![Creating multiple data sets](images/image40.png)
+![Creating multiple data sets](images/image40.png)\
 
-## 4.5 Memory and scripts.
+
+## Memory and scripts.
 
 In this section we will take a brief look at how R handles the "workspace". If you have already quit R you would have seen the prompt "Save workspace image?". If you answer "yes" then R saves various things to various files (in the current working directory): 1.  .Rdata holds all the objects (data frames, vectors, functions etc...) currently in memory (note that this file is written in an R specific file and so can't be read).  2.  .Rhistory holds all the commands used (and so can be recalled).
 
@@ -989,7 +1001,7 @@ In this chapter we will examine three packages in particular:
 2. ggplot2: a powerful package for the plotting of data
 3. twitteR: a package that allows for the data mining of twitter
 
-## 5.1 sqldf
+## sqldf
 
 ### Basic SQL
 
@@ -1017,7 +1029,8 @@ We can also create new variables:
 
 Some of the SQL operators are shown.
 
-![Some SQL operators](images/SQL_operators_in_R.png)
+![Some SQL operators](images/SQL_operators_in_R.png)\
+
 
 ### Further sql
 
@@ -1094,18 +1107,19 @@ The following code carries out an inner join of these two datasets also changing
 
     sqldf("select a.Owner, a.Name as Dog_Name, b.Name as Cat_Name from Dogs as a, Cats as b where a.Owner=b.Owner")
 
-![The output of an inner join in R](images/image30.png)
+![The output of an inner join in R](images/image30.png)\
 
 The following code carries out a left outer join, the output of which is show.
 
 
     sqldf("select a.Owner, a.Name as Dog_Name, b.Name as Cat_Name from Dogs as a left join Cats as b on a.Owner=b.Owner")
 
-![The output of a left outer join](images/image16.png)
+![The output of a left outer join](images/image16.png)\
 
 Right and full outer joins are not yet supported in sqldf however they can actually be obtained by simply using the "merge" function (as discussed in Chapter 3).
 
-## 5.2 ggplot2
+
+## ggplot2
 
 This is an extremely powerful package that allows for the creation of publication quality plots with ease. There are two basic functions in ggplot2:
 
@@ -1120,19 +1134,19 @@ The qplot command is very similar to the plot command in that in will often prod
 
 This produces the plot shown.
 
-![A basic histogram using qplot](images/image08.png)
+![A basic histogram using qplot](images/image08.png)\
 
 We can improve this by changing the bin width, including a title and changing the labels for the x axis and y axis.
 
     qplot(data=JJJ,x=Height.in.Metres,binwidth=.075,main="Height of people in the JJJ data set",xlab="Height",ylab="Frequency")
 
-![A better histogram*](images/image28.png)
+![A better histogram](images/image28.png)\
 
 We can obtain a density plot corresponding to the above by using the "density" option for the "geom" argument as shown:
 
     qplot(data=JJJ,x=Height.in.Metres,binwidth=.075,main="Height of people in the JJJ data set",xlab="Height",ylab="Frequency",geom="density")
 
-![A density plot](images/image43.png)
+![A density plot](images/image43.png)\
 
 If we pass two vectors to qplot we obtain a scatter plot:
 
@@ -1142,19 +1156,20 @@ we can also pass qplot a "size" argument to obtain the graph shown:
 
     qplot(data=JJJ,x=Height.in.Metres,y=Weight.in.Kg,size = Age)
 
-![A scatter plot with different sized points](images/image11.png)
+![A scatter plot with different sized points](images/image11.png)\
 
 We can of course obtain scatter plots against categorical variables as shown:
 
     qplot(data=JJJ,x=Sex,y=Height.in.Metres)
 
-![A scatter plot against categorial data](images/image07.png)
+![A scatter plot against categorial data](images/image07.png)\
 
 We can pass "boxplot" as the "geom" argument to get a boxplot as shown.
 
     qplot(data=JJJ,x=Sex,y=Height.in.Metres,geom='boxplot')
 
-![A box plot](images/image27.png)
+![A box plot](images/image27.png)\
+
 
 ### Advanced features
 
@@ -1170,19 +1185,17 @@ Finally we can also add a smoothed line to our plot as shown:
 
     qplot(data=JJJ,x=Height.in.Metres,y=Weight.in.Kg,geom=c("point","line","smooth"))
 
-![A scatter plot with a few extras](images/image09.png)
+![A scatter plot with a few extras](images/image09.png)\
 
 We can very easily obtain a collection of any of the above plots across a categorical variables using the "facets" command as shown:
 
     qplot(data=JJJ,x=Height.in.Metres,binwidth=.075,facets=~Sex)
 
-![Multiple graphs](images/image70.png)
+![Multiple graphs](images/image70.png)\
 
 We can use the "ggsave" command to save the last plotted graph to file:
 
     ggsave(filename="~/Desktop/test.pdf")
-
-###
 
 One final aspect we will take a look at in ggplot2 is that of layers. To do so we will use the following dataset:
 
@@ -1206,9 +1219,10 @@ Finally we can save a particular graph object in ggplot using ggsave:
 
     ggsave(p,filename="~/Desktop/plot.pdf")
 
-![A graph with a lot of information](images/image62.png)
+![A graph with a lot of information](images/image62.png)\
 
-## 5.3 twitteR
+
+## twitteR
 
 The last package we will consider is a package that can be used to data mine twitter.
 
@@ -1226,22 +1240,6 @@ Finally to obtain tweets from a particular user (the following gives the tweets 
 
     userTimeline("INFORMS")
 
-![INFORMS' timeline](images/image53.png)
+![INFORMS' timeline](images/image53.png)\
 
-![Using twitter to get the tweets from INFORMS](images/image44.png)
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38016329-2']);
-  _gaq.push(['_setDomainName', 'github.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+![Using twitter to get the tweets from INFORMS](images/image44.png)\

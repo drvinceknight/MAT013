@@ -338,7 +338,8 @@ set Dwarfs;
 where substr(Name,1,1)=&quot;D&quot;;
 run;</code></pre>
 <p>The result is shown in (note that the above code makes use of the <code>substr</code> function that we will see later).</p>
-<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image45.png" /><br /> ## The program data vector</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image45.png" /><br /></p>
+<h2 id="the-program-data-vector"><span class="header-section-number">3.2</span> The program data vector</h2>
 <p>SAS is able to handle very large data sets because of the way data steps work. In this section we'll explain how it uses the &quot;program data vector&quot; (pdv) to efficiently handle data. The basic steps of compiling a data step are as follows:</p>
 <ol style="list-style-type: decimal">
 <li>SAS creates an empty data set.</li>
@@ -362,7 +363,7 @@ set mat013.MMM;
 sex=substr(sex,1,1);
 run;</code></pre>
 <p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/SAS_string_functions.png" /><br /> It's worth checking the web for a full list of various SAS functions (there are a huge amount of them).</p>
-<h3 id="dropping-and-keeping-variables."><span class="header-section-number">3.1.1</span> Dropping and keeping variables.</h3>
+<h3 id="dropping-and-keeping-variables."><span class="header-section-number">3.2.1</span> Dropping and keeping variables.</h3>
 <p>In this section we'll take a quick look at two simple ways of improving the efficiency of a data step. Recalling how SAS handles a data step (using the pdv as described previously), one immediate way of improving efficiency is to ensure that the pdv only &quot;transports&quot; the variables we require. We do this with the &quot;drop&quot; or &quot;keep&quot; statement.</p>
 <p>Let us consider the previous example and assume that we want our MMM_with_BMI data set without the weight and height variables. We use a &quot;drop&quot; statement to get rid of those variables:</p>
 <pre><code>data mat013.MMM_with_BMI_nhw(drop=weight_in_kg height_in_metres);
@@ -381,7 +382,7 @@ run;</code></pre>
 set mat013.MMM;
 bmi=weight_in_kg/(height_in_metres**2);
 run;</code></pre>
-<h3 id="renaming-variables"><span class="header-section-number">3.1.2</span> Renaming variables</h3>
+<h3 id="renaming-variables"><span class="header-section-number">3.2.2</span> Renaming variables</h3>
 <p>The following code creates a data set &quot;JJJ&quot; in the work library which is a copy of the &quot;JJJ&quot; dataset in the mat013 library, renaming the &quot;sex&quot; variable to &quot;gender&quot;.</p>
 <pre><code>data JJJ(rename=(sex=gender));
 set mat013.JJJ;
@@ -390,7 +391,7 @@ run;</code></pre>
 <pre><code>data JJJ;
 set mat013.JJJ(rename=(sex=gender));
 run;</code></pre>
-<h3 id="operations-across-rows"><span class="header-section-number">3.1.3</span> Operations across rows</h3>
+<h3 id="operations-across-rows"><span class="header-section-number">3.2.3</span> Operations across rows</h3>
 <p>We have seen in previous sections how to create new variables for any given observation (i.e. across columns of a data set). In this section we see how to create variables across rows. Recalling how the program data vector works, this implies that we must find a way to keep certain entries in the pdv for future calculation.</p>
 <p>We will demonstrate this using the birthday_money.csv data set as shown.</p>
 <p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image38.png" /><br /> The first such way is to use the &quot;retain&quot; statement. The &quot;retain&quot; statement keeps the last entry for a given variable in the pdv for future calculation. Note that we can give an initial value for a particular variable as shown in the following code (which produces a variable &quot;total&quot; that is a running total of &quot;amount&quot;) the output of which is shown.</p>
@@ -415,7 +416,7 @@ total=total+amount;
 yearly_diff=dif1(amount);
 two_yearly_diff=dif2(amount);
 run;</code></pre>
-<h2 id="handling-dates"><span class="header-section-number">3.2</span> Handling dates</h2>
+<h2 id="handling-dates"><span class="header-section-number">3.3</span> Handling dates</h2>
 <p>Dates are handled in a particular way in SAS. Let's consider the csv file shown.</p>
 <p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image37.png" /><br /> We have seen in Chapter 1 how to import data using proc import. If we use the normal approach an error would occur. This is due to the confusion associated with our birthday variables (the first 20 rows have the date and month values both less than 12). A further option that can be incorporated in proc import is the number of rows that SAS will &quot;pre-read&quot; to identify the type of variables that are to be imported. This is often an easy way to ensure that SAS recognises dates.</p>
 <pre><code>proc import datafile=&#39;\~birthdays.csv&#39;
@@ -442,7 +443,7 @@ run;</code></pre>
 <hr />
 <h1 id="chapter-4-programming"><span class="header-section-number">4</span> Chapter 4 Programming</h1>
 <hr />
-<h2 id="flow-control"><span class="header-section-number">4.1</span> 4.1 Flow control</h2>
+<h2 id="flow-control"><span class="header-section-number">4.1</span> Flow control</h2>
 <p>A huge part of programming (in any language) is the use of so called &quot;conditional statements&quot;. We do this in SAS using &quot;if&quot; statements. The following code creates a new variable &quot;age_group&quot; which is &quot;young&quot; if the age is less than 29 and &quot;old&quot; if the age is larger than 29. Note we're also including a keep statement to just have the name and age_group in the new data set.</p>
 <pre><code>data age_group(keep= name age_group);
 set mat013.mmmjjj;
@@ -466,10 +467,7 @@ if substr(Name,1,1)=&#39;J &#39; then data_set=&#39;JJJ&#39;;
     else data_set=&#39;MMM&#39;;
 run;</code></pre>
 <p>Here are some of the comparison operators that can be used in conjunction with 'if' statements.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image29.png" /><p class="caption"></p>
-</div>
-<p>A further important notion in programming is the notion of loops. These are done in SAS using &quot;do&quot; statements. There are four ways the &quot;do&quot; statement is used:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image29.png" /><br /> A further important notion in programming is the notion of loops. These are done in SAS using &quot;do&quot; statements. There are four ways the &quot;do&quot; statement is used:</p>
 <ol style="list-style-type: decimal">
 <li>do</li>
 <li>do (iterative)</li>
@@ -533,16 +531,10 @@ output;
 k=k+1;
 end;
 run;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image18.png" /><p class="caption"></p>
-</div>
-<h2 id="how-does-sas-compile-code"><span class="header-section-number">4.2</span> 4.2 How does SAS compile code?</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image18.png" /><br /> ## How does SAS compile code?</p>
 <p>In this chapter we will see how to program macros in SAS. Macros generate and run code with varying arguments. The macro facility is a tool for extending and customising SAS and for reducing the amount of text you must enter to do common tasks. The macro facility enables you to assign a name to character strings or groups of SAS programming statements. From that point on, you can work with the names rather than with the text itself.</p>
 <p>When you submit a SAS macro the Input stack receives content of the program. Word scanner scans each line of the macro for tokens. If a token contains a macro character (a % or a &amp;) that token is sent to the macro compiler. The Macro compiler does its work and places tokens back in the input stack. The token is examined by the word scanner and the process repeats. When the word scanner detects a step boundary it triggers the data step compiler. This process is represented diagrammatically.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image48.png" /><p class="caption"></p>
-</div>
-<p>When you submit a macro, it goes first to the macro processor which produces standard SAS code from the macro references (macro code is compiled first). Then SAS compiles and executes your program.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image48.png" /><br /> When you submit a macro, it goes first to the macro processor which produces standard SAS code from the macro references (macro code is compiled first). Then SAS compiles and executes your program.</p>
 <p>In general the syntax for a macro is as follows:</p>
 <pre><code>%macro macro-name &lt;(macro-parameter-list&gt;;
 
@@ -594,7 +586,7 @@ run;
 %mend;</code></pre>
 <p>Now if we call the macro without giving a value to trips it will take the default value 1.</p>
 <pre><code>%shopping(spend=500);</code></pre>
-<h3 id="macro-variables"><span class="header-section-number">4.2.1</span> Macro variables</h3>
+<h3 id="macro-variables"><span class="header-section-number">4.1.1</span> Macro variables</h3>
 <p>In this section we're going to take a slightly closer look at macro variables. A macro variable is a variable whose value is stored within the macro symbol table. When the macro variable is used in SAS code, SAS substitutes the value of the macro variable into the SAS code. SAS macro variables are distinguished by the &quot;&amp;&quot; sign before the variable name. Note that all SAS macro variables are stored as text strings.</p>
 <p>We can experiment with macro variables using the %let statement which allows the construction of macro variables outside of a macro definition. This is the simplest form of a macro statement. It can be placed anywhere in a program, not only inside a Macro. &quot;%let&quot; creates global macro variables. An example of this is shown in the following code which gives the output shown.</p>
 <pre><code>%let spend=400;
@@ -609,10 +601,7 @@ run;
 %mend;
 
 %shopping;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image52.png" /><p class="caption"></p>
-</div>
-<p>It's also possible to view (in the log) the values of a macro variable using the &quot;%put&quot; statement. There are two uses for it:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image52.png" /><br /> It's also possible to view (in the log) the values of a macro variable using the &quot;%put&quot; statement. There are two uses for it:</p>
 <pre><code>%put &lt;text&gt; &amp;macro-variable-name;</code></pre>
 <p>This outputs some <text> (optional) followed by the value of particular macro variable. The other use is shown below:</p>
 <pre><code>%put  &lt;_all_ | _global_ | _local_ &gt;;</code></pre>
@@ -622,13 +611,8 @@ run;
 <li>Each token is handled independently</li>
 </ol>
 <p>The important thing to note here is that a double ampersand &quot;&amp;&amp;&quot; is a token in itself that resolves to a single ampersand &quot;&amp;&quot; (THIS IS IMPORTANT).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image44.png" /><p class="caption"></p>
-</div>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image43.png" /><p class="caption"></p>
-</div>
-<h2 id="sas-macro-programming-statements"><span class="header-section-number">4.3</span> 4.3 SAS Macro programming statements</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image44.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image43.png" /><br /></p>
+<h2 id="sas-macro-programming-statements"><span class="header-section-number">4.2</span> SAS Macro programming statements</h2>
 <p>The 'if' statements and 'do' loops discussed previously work in a very similar way to if statements and do loops within macros. The only modification is that these can be evaluated within the macro compiler before the entire submitted code is resolved. For this to work we need to use the &quot;%if&quot;, &quot;%then&quot; and &quot;%else&quot; statements when evaluating a conditional statement on a macro variable. The following code is an example of this:</p>
 <pre><code>%macro shopping(spend,trips);
 data JJJ_after_shopping(keep= Name Old_savings New_savings);
@@ -683,10 +667,8 @@ run;
 %end;
 %mend;</code></pre>
 <p>The output is shown.</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image04.png" /><p class="caption"></p>
-</div>
-<h2 id="macro-functions"><span class="header-section-number">4.4</span> 4.4 Macro functions</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image04.png" /><br /></p>
+<h2 id="macro-functions"><span class="header-section-number">4.3</span> Macro functions</h2>
 <p>Since all macro variables are text strings it is not possible to directly perform computations on macro variables that contain numbers. The following code would give an error:</p>
 <pre><code>%let var=5**2;
 
@@ -735,7 +717,7 @@ run;
 <li>proc fcmp: a procedure allowing for the creation of custom functions;</li>
 <li>proc optmodel: a package that allows for optimisation in SAS.</li>
 </ol>
-<h2 id="proc-sql"><span class="header-section-number">5.1</span> 5.1 Proc sql</h2>
+<h2 id="proc-sql"><span class="header-section-number">5.1</span> Proc sql</h2>
 <h3 id="basic-sql"><span class="header-section-number">5.1.1</span> Basic SQL</h3>
 <p>SQL is a language designed for querying and modifying databases. Used by a variety of database management software suites:</p>
 <ol style="list-style-type: decimal">
@@ -868,10 +850,7 @@ select a.Owner,a.Name as Dog_Name, b.Name as cat_Name
 from mat013.dogs as a, mat013.cats as b
 where a.Owner=b.Owner;
 quit;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image23.png" /><p class="caption"></p>
-</div>
-<p>The following code carries out a left outer join, the output of which is shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image23.png" /><br /> The following code carries out a left outer join, the output of which is shown.</p>
 <pre><code>proc sql;
 create table merged_table as
 select a.Owner,a.Name as Dog_Name, b.Name as cat_Name
@@ -879,10 +858,7 @@ from mat013.dogs as a
 left join mat013.cats as b
 on a.Owner=b.Owner;
 quit;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image46.png" /><p class="caption"></p>
-</div>
-<p>The following code carries out a right outer join, the output of which is shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image46.png" /><br /> The following code carries out a right outer join, the output of which is shown.</p>
 <pre><code>proc sql;
 create table merged_table as
 select a.Owner,a.Name as Dog_Name, b.Name as cat_Name
@@ -890,10 +866,7 @@ from mat013.dogs as a
 right join mat013.cats as b
 on a.Owner=b.Owner;
 quit;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image07.png" /><p class="caption"></p>
-</div>
-<p>The following code carries out a full outer join, the output of which is shown.</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image07.png" /><br /> The following code carries out a full outer join, the output of which is shown.</p>
 <pre><code>proc sql;
 create table merged_table as
 select a.Owner,a.Name as Dog_Name, b.Name as cat_Name
@@ -901,10 +874,8 @@ from mat013.dogs as a
 full join mat013.cats as b
 on a.Owner=b.Owner;
 quit;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image33.png" /><p class="caption"></p>
-</div>
-<h2 id="proc-fcmp"><span class="header-section-number">5.2</span> 5.2 Proc fcmp</h2>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image33.png" /><br /></p>
+<h2 id="proc-fcmp"><span class="header-section-number">5.2</span> Proc fcmp</h2>
 <p>In previous chapters we have seen various in built functions in SAS. For various reasons it might be required to create a custom function. We will do this with the &quot;fcmp&quot; procedure. This procedure allows us to create custom functions using data step syntax (which allows for &quot;if&quot; and &quot;do&quot; statements to be used). The following code creates a function called &quot;ln&quot; that gives the natural log of a number:</p>
 <pre><code>proc fcmp outlib=sasuser.funcs.ln;
 function ln(x);
@@ -948,7 +919,7 @@ data G_sum_test;
 set test;
 y=Gsum(i,n);
 run;</code></pre>
-<h2 id="optimisation"><span class="header-section-number">5.3</span> 5.3 Optimisation</h2>
+<h2 id="optimisation"><span class="header-section-number">5.3</span> Optimisation</h2>
 <p>Another powerful aspect of SAS is it's optimisation engine. We can optimise various types of problems using the &quot;optmodel&quot; procedure. The following code optimises the polynomial: \(x^2-x-yx+y^2\).</p>
 <pre><code>proc optmodel;
 var x,y;
@@ -957,20 +928,14 @@ solve;
 print x y;
 quit;</code></pre>
 <p>The output is shown, note that SAS automatically chooses a solver (in this case Non Linear Programming and Interior Point methods).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image27_opt.png" /><p class="caption"></p>
-</div>
-<p>We can also include a domain:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image27_opt.png" /><br /> We can also include a domain:</p>
 <pre><code>proc optmodel;
 var x&lt;=0,y&gt;=2;
 min z=x**2-x-2*y-x*y+y**2;
 solve;
 print x y;
 quit;</code></pre>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image22_opt.png" /><p class="caption"></p>
-</div>
-<p>We can solve further more complex optimisation problems, including constraints using the 'constraints' keyword:</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image22_opt.png" /><br /> We can solve further more complex optimisation problems, including constraints using the 'constraints' keyword:</p>
 <pre><code>proc optmodel;
 var x1&gt;=0, x2&gt;=0, x3&gt;=0;
 max f=x1+x2+x3;
@@ -980,27 +945,8 @@ solve;
 print x1 x2 x3;
 quit;</code></pre>
 <p>The output is shown (note the solver used was a variant of simplex).</p>
-<div class="figure">
-<img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image11_opt.png" /><p class="caption"></p>
-</div>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image11_opt.png" /><br /></p>
 <p>It is also possible to read in the constraints of a particular optimisation problem from a data set. This can prove to be very handy when dealing with huge problems so it's worth spending time researching that approach.</p>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-38016329-2']);
-  _gaq.push(['_setDomainName', 'github.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-
 <p>(Other versions of the above: <a href="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/MAT013AdvanceduseofstatisticalpackagesSAS.pdf">pdf</a> <a href="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/MAT013AdvanceduseofstatisticalpackagesSAS.docx">docx (not recommended)</a>)</p>
 </body>
 </html>
