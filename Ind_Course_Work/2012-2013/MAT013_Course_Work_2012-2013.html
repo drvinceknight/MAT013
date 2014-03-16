@@ -5,12 +5,13 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title></title>
-  <script src="https://d3eoax9i5htok0.cloudfront.net/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 <body>
-<h1 id="mat013-coursework">MAT013 Coursework</h1>
+<h1 id="mat013-coursework"><span class="header-section-number">1</span> MAT013 Coursework</h1>
 <p><em>Deadline: 8/5/2013 at 0900</em></p>
-<h2 id="instructions">Instructions</h2>
+<h2 id="instructions"><span class="header-section-number">1.1</span> Instructions</h2>
 <p>The outputs of this coursework will be:</p>
 <ul>
 <li>A written report describing your code (SAS and R) to be handed in to Joanna Emery.</li>
@@ -18,16 +19,13 @@
 <li>A file containing the required SAS code. Name this file SAS-lastname-STUDENTNUMBER (eg. Knight-123456) and email it to Joanna Emery with MAT013 as the subject. Note that all operations needed to complete the coursework should be included in the SAS code.</li>
 <li>A file containing the required R code. Name this file R-lastname-STUDENTNUMBER (eg. Knight-123456) and email it to Joanna Emery with MAT013 as the subject. Note that all operations needed to complete the coursework should be included in the R code.</li>
 </ul>
-<h2 id="coursework">Coursework</h2>
+<h2 id="coursework"><span class="header-section-number">1.2</span> Coursework</h2>
 <ol style="list-style-type: decimal">
-<li>Using both SAS and R (in other words attempt this question using SAS and then using R):</li>
-</ol>
+<li><p>Using both SAS and R (in other words attempt this question using SAS and then using R):</p>
 <p>Write code (in SAS: a macro, in R: a function) that will reproduce a mathematical procedure covered in MAT001 or MAT002. Clearly document this procedure in your report.</p>
-<p>[20]</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Using SAS:</li>
-</ol>
-<p>The data files <a href="Data/Greedy.csv">Greedy.csv</a>, <a href="Data/Random.csv">Random.csv</a>, <a href="Data/Longest.csv">Longest.csv</a> and <a href="Data/Shortest.csv">Shortest.csv</a> contain data relevant to the experimental play of 4 strategies for the game <a href="http://en.wikipedia.org/wiki/Shut_the_Box">Shut the Box</a> (you do not necessarily need to know of this game to complete this coursework).</p>
+<p>[20]</p></li>
+<li><p>Using SAS:</p>
+<p>The data files <a href="http://drvinceknight.github.io/MAT013/Ind_Course_Work/2012-2013/Data/Greedy.csv">Greedy.csv</a>, <a href="http://drvinceknight.github.io/MAT013/Ind_Course_Work/2012-2013/Data/Random.csv">Random.csv</a>, <a href="http://drvinceknight.github.io/MAT013/Ind_Course_Work/2012-2013/Data/Longest.csv">Longest.csv</a> and <a href="http://drvinceknight.github.io/MAT013/Ind_Course_Work/2012-2013/Data/Shortest.csv">Shortest.csv</a> contain data relevant to the experimental play of 4 strategies for the game <a href="http://drvinceknight.github.io/MAT013/Ind_Course_Work/2012-2013/http://en.wikipedia.org/wiki/Shut_the_Box">Shut the Box</a> (you do not necessarily need to know of this game to complete this coursework).</p>
 <p>The four strategies will be referred to as:</p>
 <ul>
 <li><code>Greedy</code></li>
@@ -42,25 +40,22 @@
 <li>For each method are <code>Score</code> and <code>Length</code> related?</li>
 <li>Do the strategies give different outcomes and if so which strategy seems to be the best?</li>
 </ol>
-<p>[25]</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Using R:</li>
-</ol>
-<p>Write a function that will return the \(n\)th <a href="http://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci number</a>, \(F(n)\).</p>
-<p>Modify the function so that it returns the \(n\)th number of the sequence defined by:</p>
-<p>\[\begin{aligned}
+<p>[25]</p></li>
+<li><p>Using R:</p>
+<p>Write a function that will return the <span class="math">\(n\)</span>th <a href="http://drvinceknight.github.io/MAT013/Ind_Course_Work/2012-2013/http://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci number</a>, <span class="math">\(F(n)\)</span>.</p>
+<p>Modify the function so that it returns the <span class="math">\(n\)</span>th number of the sequence defined by:</p>
+<p><span class="math">\[\begin{aligned}
 K(0)&amp;=a\\
 K(1)&amp;=b\\
 K(n)&amp;=\alpha K(n-1)+\beta K(n-2)\\
-\end{aligned}\]</p>
-<p>Where \(a,b,\alpha\) and \(\beta\) are input parameters.</p>
-<p>Adapt your function so that it will write all numbers of the form \(K(n)\) less than some number \(k\) to a csv file. The name of the csv file must not be an input parameter to the function but include the parameters \(a,b,\alpha\) and \(\beta\) as well as the date on which the code was run. For example: <code>general_fib_for-a=2-b=3-alpha=10-beta=-2_1984-14-02.csv</code>.</p>
-<p>[25]</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Using SAS or R.</li>
+\end{aligned}\]</span></p>
+<p>Where <span class="math">\(a,b,\alpha\)</span> and <span class="math">\(\beta\)</span> are input parameters.</p>
+<p>Adapt your function so that it will write all numbers of the form <span class="math">\(K(n)\)</span> less than some number <span class="math">\(k\)</span> to a csv file. The name of the csv file must not be an input parameter to the function but include the parameters <span class="math">\(a,b,\alpha\)</span> and <span class="math">\(\beta\)</span> as well as the date on which the code was run. For example: <code>general_fib_for-a=2-b=3-alpha=10-beta=-2_1984-14-02.csv</code>.</p>
+<p>[25]</p></li>
+<li><p>Using SAS or R.</p>
+<p>The file <a href="http://drvinceknight.github.io/MAT013/Ind_Course_Work/2012-2013/Data/Solution_Space_Exploration.csv">Solution_Space_Exploration.csv</a> contains experimental results pertaining to two approaches to solving an optimisation problem (aiming to minimize a cost function). These two approaches will be referred to as approach <code>A</code> and approach <code>B</code>. Approach <code>B</code> involves searching a space that contains the solution space that approach <code>A</code> searches. Thus approach <code>B</code> can at least match approach <code>A</code>.</p>
+<p>Every row of the data file corresponds to a given instance of the optimisation problem and contains 6 variables which are (in order):</p></li>
 </ol>
-<p>The file <a href="Data/Solution_Space_Exploration.csv">Solution_Space_Exploration.csv</a> contains experimental results pertaining to two approaches to solving an optimisation problem (aiming to minimize a cost function). These two approaches will be referred to as approach <code>A</code> and approach <code>B</code>. Approach <code>B</code> involves searching a space that contains the solution space that approach <code>A</code> searches. Thus approach <code>B</code> can at least match approach <code>A</code>.</p>
-<p>Every row of the data file corresponds to a given instance of the optimisation problem and contains 6 variables which are (in order):</p>
 <ul>
 <li>A boolean variable indicating <code>True</code> if approach <code>B</code> finds a better solution than approach <code>A</code>: <code>B_optimal</code>;</li>
 <li>The first dimension of the problem: <code>m</code>;</li>
