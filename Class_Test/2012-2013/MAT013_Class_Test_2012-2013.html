@@ -5,11 +5,12 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
   <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 <body>
-<h1 id="mat013-class-test">MAT013 Class Test</h1>
-<h2 id="instructions">Instructions:</h2>
+<h1 id="mat013-class-test"><span class="header-section-number">1</span> MAT013 Class Test</h1>
+<h2 id="instructions"><span class="header-section-number">1.1</span> Instructions:</h2>
 <ul>
 <li><em>This is an open book test. You are encouraged to use the internet, your notes etc..., however no communication with any other student is allowed.</em></li>
 <li><em>The output of this class test will be: a file containing the SAS program with any comments included and a file containing the R code with any comments included.</em></li>
@@ -19,31 +20,24 @@
 <li>Call the file for the SAS code: <code>SAS-lastname-STUDENTNUMBER</code> (eg. SAS-Knight-123456) and call the file for the R code: <code>R-lastname-STUDENTNUMBER</code> (eg. R-Knight-123456).</li>
 <li>Email both files to Joanna Emery (EmeryJL4@cf.ac.uk) with 'MAT013 - lastname-STUDENTNUMBER' as the subject. <strong>ALL EMAILS MUST BE SENT BEFORE LEAVING THE COMPUTER LAB</strong>.</li>
 </ol>
-<h2 id="class-test">Class test:</h2>
+<h2 id="class-test"><span class="header-section-number">1.2</span> Class test:</h2>
 <ol style="list-style-type: decimal">
-<li>Using both SAS and R (in other words attempt this question using SAS and then using R):</li>
-</ol>
+<li><p>Using both SAS and R (in other words attempt this question using SAS and then using R):</p>
 <p>Create a data set with two variables: &quot;Week&quot; and &quot;Ranking&quot;. For every week of the MAT013 course (1-5 including this class test) give a ranking of your enjoyment of each week of the course (1 being the best). Write some code (in both SAS and R) to sort this data set in descending order of the enjoyment ranking.</p>
-<p>[10]</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Using SAS:</li>
-</ol>
+<p>[10]</p></li>
+<li><p>Using SAS:</p>
 <p>Solve the following optimisation problem:</p>
 <pre><code>Maximize</code></pre>
-<p>\[x+3y-z+max(x,y)+2z\]</p>
+<p><span class="math">\[x+3y-z+max(x,y)+2z\]</span></p>
 <pre><code>Subject to:</code></pre>
-<p>\[x-3y\leq 20\] \[x-7y\geq 5\] \[y+z\leq 25\] \[y\geq 0\] \[z\geq \max(x,y)\]</p>
-<p>[25]</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Using R:</li>
-</ol>
-<p>Create a function that will give all numbers less than \(k\) (an input), not divisible by \(3,7\) or \(13\). Furthermore let your function take as input the name of a file and write those numbers to a csv file with that name.</p>
-<p>Demonstrate this with \(k=2341\) and the file name &quot;classtest&quot;.</p>
-<p>[25]</p>
-<ol start="4" style="list-style-type: decimal">
-<li>Using either SAS or R:</li>
-</ol>
-<p>The files &quot;Game_1.csv, Game_2.csv, Game_3.csv,... Game_6.csv&quot; contains data for guesses of the game &quot;2/3rds of the average&quot;:</p>
+<p><span class="math">\[x-3y\leq 20\]</span> <span class="math">\[x-7y\geq 5\]</span> <span class="math">\[y+z\leq 25\]</span> <span class="math">\[y\geq 0\]</span> <span class="math">\[z\geq \max(x,y)\]</span></p>
+<p>[25]</p></li>
+<li><p>Using R:</p>
+<p>Create a function that will give all numbers less than <span class="math">\(k\)</span> (an input), not divisible by <span class="math">\(3,7\)</span> or <span class="math">\(13\)</span>. Furthermore let your function take as input the name of a file and write those numbers to a csv file with that name.</p>
+<p>Demonstrate this with <span class="math">\(k=2341\)</span> and the file name &quot;classtest&quot;.</p>
+<p>[25]</p></li>
+<li><p>Using either SAS or R:</p>
+<p>The files <a href="http://drvinceknight.github.io/MAT013/Class_Test/2012-2013/./Data/Game_1.csv">Game_1.csv</a>, <a href="http://drvinceknight.github.io/MAT013/Class_Test/2012-2013/./Data/Game_2.csv">Game_2.csv</a>, <a href="http://drvinceknight.github.io/MAT013/Class_Test/2012-2013/./Data/Game_3.csv">Game_3.csv</a>, <a href="http://drvinceknight.github.io/MAT013/Class_Test/2012-2013/./Data/Game_4.csv">Game_4.csv</a>, <a href="http://drvinceknight.github.io/MAT013/Class_Test/2012-2013/./Data/Game_5.csv">Game_5.csv</a>, <a href="http://drvinceknight.github.io/MAT013/Class_Test/2012-2013/./Data/Game_6.csv">Game_6.csv</a> contains data for guesses of the game &quot;2/3rds of the average&quot;:</p>
 <blockquote>
 <p>&quot;All individuals must guess a number between 0 and 100 (inclusive). The winner of the game is the guess that is closest to two thirds of the average of all guesses.&quot;</p>
 </blockquote>
@@ -52,6 +46,7 @@
 <li>Identify the winning guess in each individual game and over all games. [20]</li>
 <li>Every game is played with a different number of players, obtain a scatter plot of the winning guesses against the number of players (include the overall). [7]</li>
 <li>Comment on the relationship (if any) between the number of players and the winning guess. [3]</li>
+</ol></li>
 </ol>
 </body>
 </html>
