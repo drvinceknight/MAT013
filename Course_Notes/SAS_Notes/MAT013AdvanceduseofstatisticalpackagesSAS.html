@@ -350,7 +350,8 @@ run;</code></pre>
 <li><p>SAS creates the descriptive portion of the SAS data set (viewable using the &quot;contents&quot; procedure).</p></li>
 </ol>
 <p>An example of how this works with concatenation and an example of how this works with merging is shown.</p>
-<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image15.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image30.png" /><br /> ## Creating new variables</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image15.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image30.png" /><br /></p>
+<h2 id="creating-new-variables"><span class="header-section-number">3.3</span> Creating new variables</h2>
 <p>Creating new variables using various arithmetic and/or string relationships is relatively straightforward in SAS. The following code creates a new data set call MMM_with_BMI, with a new variable &quot;BMI&quot; as a function of the height and weight variables in the MMM dataset in the mat013 library.</p>
 <pre><code>data mat013.MMM_with_BMI;
 set mat013.MMM;
@@ -363,7 +364,7 @@ set mat013.MMM;
 sex=substr(sex,1,1);
 run;</code></pre>
 <p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/SAS_string_functions.png" /><br /> It's worth checking the web for a full list of various SAS functions (there are a huge amount of them).</p>
-<h3 id="dropping-and-keeping-variables."><span class="header-section-number">3.2.1</span> Dropping and keeping variables.</h3>
+<h3 id="dropping-and-keeping-variables."><span class="header-section-number">3.3.1</span> Dropping and keeping variables.</h3>
 <p>In this section we'll take a quick look at two simple ways of improving the efficiency of a data step. Recalling how SAS handles a data step (using the pdv as described previously), one immediate way of improving efficiency is to ensure that the pdv only &quot;transports&quot; the variables we require. We do this with the &quot;drop&quot; or &quot;keep&quot; statement.</p>
 <p>Let us consider the previous example and assume that we want our MMM_with_BMI data set without the weight and height variables. We use a &quot;drop&quot; statement to get rid of those variables:</p>
 <pre><code>data mat013.MMM_with_BMI_nhw(drop=weight_in_kg height_in_metres);
@@ -382,7 +383,7 @@ run;</code></pre>
 set mat013.MMM;
 bmi=weight_in_kg/(height_in_metres**2);
 run;</code></pre>
-<h3 id="renaming-variables"><span class="header-section-number">3.2.2</span> Renaming variables</h3>
+<h3 id="renaming-variables"><span class="header-section-number">3.3.2</span> Renaming variables</h3>
 <p>The following code creates a data set &quot;JJJ&quot; in the work library which is a copy of the &quot;JJJ&quot; dataset in the mat013 library, renaming the &quot;sex&quot; variable to &quot;gender&quot;.</p>
 <pre><code>data JJJ(rename=(sex=gender));
 set mat013.JJJ;
@@ -391,7 +392,7 @@ run;</code></pre>
 <pre><code>data JJJ;
 set mat013.JJJ(rename=(sex=gender));
 run;</code></pre>
-<h3 id="operations-across-rows"><span class="header-section-number">3.2.3</span> Operations across rows</h3>
+<h3 id="operations-across-rows"><span class="header-section-number">3.3.3</span> Operations across rows</h3>
 <p>We have seen in previous sections how to create new variables for any given observation (i.e. across columns of a data set). In this section we see how to create variables across rows. Recalling how the program data vector works, this implies that we must find a way to keep certain entries in the pdv for future calculation.</p>
 <p>We will demonstrate this using the birthday_money.csv data set as shown.</p>
 <p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image38.png" /><br /> The first such way is to use the &quot;retain&quot; statement. The &quot;retain&quot; statement keeps the last entry for a given variable in the pdv for future calculation. Note that we can give an initial value for a particular variable as shown in the following code (which produces a variable &quot;total&quot; that is a running total of &quot;amount&quot;) the output of which is shown.</p>
@@ -416,7 +417,7 @@ total=total+amount;
 yearly_diff=dif1(amount);
 two_yearly_diff=dif2(amount);
 run;</code></pre>
-<h2 id="handling-dates"><span class="header-section-number">3.3</span> Handling dates</h2>
+<h2 id="handling-dates"><span class="header-section-number">3.4</span> Handling dates</h2>
 <p>Dates are handled in a particular way in SAS. Let's consider the csv file shown.</p>
 <p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image37.png" /><br /> We have seen in Chapter 1 how to import data using proc import. If we use the normal approach an error would occur. This is due to the confusion associated with our birthday variables (the first 20 rows have the date and month values both less than 12). A further option that can be incorporated in proc import is the number of rows that SAS will &quot;pre-read&quot; to identify the type of variables that are to be imported. This is often an easy way to ensure that SAS recognises dates.</p>
 <pre><code>proc import datafile=&#39;\~birthdays.csv&#39;
