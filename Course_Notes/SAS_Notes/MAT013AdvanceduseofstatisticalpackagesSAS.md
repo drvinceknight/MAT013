@@ -570,6 +570,7 @@ An example of how this works with concatenation and an example of how this works
 
 ![Merging of data sets and the pdv.](images/image30.png)\
 
+
 ## Creating new variables
 
 Creating new variables using various arithmetic and/or string relationships is relatively straightforward in SAS. The following code creates a new data set call MMM_with_BMI, with a new variable "BMI" as a function of the height and weight variables in the MMM dataset in the mat013 library.
