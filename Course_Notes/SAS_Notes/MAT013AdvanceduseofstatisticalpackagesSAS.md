@@ -845,6 +845,7 @@ Note that do iterative statements (also called "do loops") are often used in con
 
 ![The first even numbers less than 70.](images/image18.png)\
 
+
 ## How does SAS compile code?
 
 In this chapter we will see how to program macros in SAS. Macros generate and run code with varying arguments. The macro facility is a tool for extending and customising SAS and for reducing the amount of text you must enter to do common tasks. The macro facility enables you to assign a name to character strings or groups of SAS programming statements. From that point on, you can work with the names rather than with the text itself.

@@ -532,7 +532,8 @@ output;
 k=k+1;
 end;
 run;</code></pre>
-<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image18.png" /><br /> ## How does SAS compile code?</p>
+<p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image18.png" /><br /></p>
+<h2 id="how-does-sas-compile-code"><span class="header-section-number">4.2</span> How does SAS compile code?</h2>
 <p>In this chapter we will see how to program macros in SAS. Macros generate and run code with varying arguments. The macro facility is a tool for extending and customising SAS and for reducing the amount of text you must enter to do common tasks. The macro facility enables you to assign a name to character strings or groups of SAS programming statements. From that point on, you can work with the names rather than with the text itself.</p>
 <p>When you submit a SAS macro the Input stack receives content of the program. Word scanner scans each line of the macro for tokens. If a token contains a macro character (a % or a &amp;) that token is sent to the macro compiler. The Macro compiler does its work and places tokens back in the input stack. The token is examined by the word scanner and the process repeats. When the word scanner detects a step boundary it triggers the data step compiler. This process is represented diagrammatically.</p>
 <p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image48.png" /><br /> When you submit a macro, it goes first to the macro processor which produces standard SAS code from the macro references (macro code is compiled first). Then SAS compiles and executes your program.</p>
@@ -587,7 +588,7 @@ run;
 %mend;</code></pre>
 <p>Now if we call the macro without giving a value to trips it will take the default value 1.</p>
 <pre><code>%shopping(spend=500);</code></pre>
-<h3 id="macro-variables"><span class="header-section-number">4.1.1</span> Macro variables</h3>
+<h3 id="macro-variables"><span class="header-section-number">4.2.1</span> Macro variables</h3>
 <p>In this section we're going to take a slightly closer look at macro variables. A macro variable is a variable whose value is stored within the macro symbol table. When the macro variable is used in SAS code, SAS substitutes the value of the macro variable into the SAS code. SAS macro variables are distinguished by the &quot;&amp;&quot; sign before the variable name. Note that all SAS macro variables are stored as text strings.</p>
 <p>We can experiment with macro variables using the %let statement which allows the construction of macro variables outside of a macro definition. This is the simplest form of a macro statement. It can be placed anywhere in a program, not only inside a Macro. &quot;%let&quot; creates global macro variables. An example of this is shown in the following code which gives the output shown.</p>
 <pre><code>%let spend=400;
@@ -613,7 +614,7 @@ run;
 </ol>
 <p>The important thing to note here is that a double ampersand &quot;&amp;&amp;&quot; is a token in itself that resolves to a single ampersand &quot;&amp;&quot; (THIS IS IMPORTANT).</p>
 <p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image44.png" /><br /> <img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image43.png" /><br /></p>
-<h2 id="sas-macro-programming-statements"><span class="header-section-number">4.2</span> SAS Macro programming statements</h2>
+<h2 id="sas-macro-programming-statements"><span class="header-section-number">4.3</span> SAS Macro programming statements</h2>
 <p>The 'if' statements and 'do' loops discussed previously work in a very similar way to if statements and do loops within macros. The only modification is that these can be evaluated within the macro compiler before the entire submitted code is resolved. For this to work we need to use the &quot;%if&quot;, &quot;%then&quot; and &quot;%else&quot; statements when evaluating a conditional statement on a macro variable. The following code is an example of this:</p>
 <pre><code>%macro shopping(spend,trips);
 data JJJ_after_shopping(keep= Name Old_savings New_savings);
@@ -669,7 +670,7 @@ run;
 %mend;</code></pre>
 <p>The output is shown.</p>
 <p><img src="http://drvinceknight.github.io/MAT013/Course_Notes/SAS_Notes/images/image04.png" /><br /></p>
-<h2 id="macro-functions"><span class="header-section-number">4.3</span> Macro functions</h2>
+<h2 id="macro-functions"><span class="header-section-number">4.4</span> Macro functions</h2>
 <p>Since all macro variables are text strings it is not possible to directly perform computations on macro variables that contain numbers. The following code would give an error:</p>
 <pre><code>%let var=5**2;
 
